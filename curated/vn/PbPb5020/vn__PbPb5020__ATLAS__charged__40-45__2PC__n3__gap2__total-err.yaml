@@ -1,0 +1,74 @@
+format_version: 1
+key: vn__PbPb5020__ATLAS__charged__40-45__2PC__n3__gap2__total-err
+observable: vn
+system: PbPb
+sqrt_s_nn: 5020
+experiment: ATLAS
+particle: charged
+centrality: [40, 45]
+centrality_definition: ATLAS_FCAL_ET
+harmonic: 3
+method: "2PC"
+acceptance: { eta_range: [-2.5, 2.5], delta_eta_gap: 2 }
+source:
+  hepdata:
+    inspire_id: 1686834
+    version: 1
+    table: Table 270
+    column: 0
+    location: Data from Figure 13
+    doi: "10.17182/hepdata.84427.v1/t270"
+  paper: "arXiv:1808.03951"
+  figure: "13"
+  inspireHEPKey: "ATLAS:2018ezv"
+note: "Lies inside the 40-50% Fig. 6 dataset (no variant). Left panels of Fig. 13 (arXiv:1808.03951, Sec. 6.4). The paper gives no reference-particle window or eta gap for this figure; the 0-5% values equal the Fig. 6 ones (0.5 < pT_a < 5 GeV, 2 < |delta eta| < 5), and the gap of 2 is the one the paper gives for its 2PC method (Sec. 6.1.2). All the methods of this record use the same minimum-bias sample (arXiv:1808.03951, Sec. 4)."
+x: { name: pt, units: GeV }
+y: { name: vn }
+errors:
+  total: { label: total, note: "The statistical and systematic uncertainties added in quadrature, as the caption of Fig. 13 of arXiv:1808.03951 says. For the 0-5% class it reproduces the stat and sys of the Fig. 6 table within the rounding of the published digits." }
+bins:
+  - { low: 0.5, high: 0.6, value: 0.021067,
+      errors: { total: 0.000282 } }
+  - { low: 0.6, high: 0.8, value: 0.028809,
+      errors: { total: 0.000346 } }
+  - { low: 0.8, high: 1, value: 0.039885,
+      errors: { total: 0.000487 } }
+  - { low: 1, high: 1.2, value: 0.050359,
+      errors: { total: 0.000627 } }
+  - { low: 1.2, high: 1.4, value: 0.059754,
+      errors: { total: 0.000686 } }
+  - { low: 1.4, high: 1.6, value: 0.068363,
+      errors: { total: 0.000783 } }
+  - { low: 1.6, high: 1.8, value: 0.076135,
+      errors: { total: 0.00087 } }
+  - { low: 1.8, high: 2, value: 0.082894,
+      errors: { total: 0.000949 } }
+  - { low: 2, high: 2.2, value: 0.088484,
+      errors: { total: 0.00106 } }
+  - { low: 2.2, high: 2.4, value: 0.093592,
+      errors: { total: 0.00113 } }
+  - { low: 2.4, high: 2.6, value: 0.09732,
+      errors: { total: 0.00118 } }
+  - { low: 2.6, high: 2.8, value: 0.099864,
+      errors: { total: 0.00122 } }
+  - { low: 2.8, high: 3, value: 0.10001,
+      errors: { total: 0.00124 } }
+  - { low: 3, high: 3.5, value: 0.10016,
+      errors: { total: 0.00127 } }
+  - { low: 3.5, high: 4, value: 0.095255,
+      errors: { total: 0.00125 } }
+  - { low: 4, high: 4.5, value: 0.085868,
+      errors: { total: 0.00139 } }
+  - { low: 4.5, high: 5, value: 0.074567,
+      errors: { total: 0.00136 } }
+  - { low: 5, high: 5.5, value: 0.06192,
+      errors: { total: 0.00141 } }
+  - { low: 5.5, high: 6, value: 0.053249,
+      errors: { total: 0.00158 } }
+  - { low: 6, high: 7, value: 0.043758,
+      errors: { total: 0.00202 } }
+  - { low: 7, high: 8, value: 0.029453,
+      errors: { total: 0.00216 } }
+  - { low: 8, high: 10, value: 0.013005,
+      errors: { total: 0.00217 } }
+variant: total-err

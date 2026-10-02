@@ -1,0 +1,69 @@
+format_version: 1
+key: pp_cross_section__pp2760__CMS__charged__INVARIANT_YIELD_DETA
+observable: pp_cross_section
+system: pp
+sqrt_s_nn: 2760
+experiment: CMS
+particle: charged
+acceptance: { eta_range: [-1.0, 1.0] }
+source:
+  hepdata:
+    inspire_id: 1088823
+    version: 1
+    table: Table 1
+    column: 0
+    location: Data from F 3A
+    doi: "10.17182/hepdata.58980.v1/t1"
+  paper: "arXiv:1202.2554"
+  inspireHEPKey: "CMS:2012aa"
+note: "HEPData titles the quantity E d^3N/dp^3 in GeV^-2 for |eta| < 1, the invariant differential yield of pp collisions."
+x: { name: pt, units: GeV }
+y: { name: cross_section, units: "GEV**-2", definition: INVARIANT_YIELD_DETA }
+errors:
+  stat: { label: stat }
+  sys: { label: sys }
+bins:
+  - { low: 0.45, high: 0.6, value: 1.2569,
+      errors: { stat: 0.0002, sys: 0.0589 } }
+  - { low: 0.6, high: 0.75, value: 0.6522,
+      errors: { stat: 0.0001, sys: 0.0306 } }
+  - { low: 0.75, high: 0.9, value: 0.3548,
+      errors: { stat: 0.0001, sys: 0.0166 } }
+  - { low: 0.9, high: 1.05, value: 0.20427,
+      errors: { stat: 7.0e-05, sys: 0.00958 } }
+  - { low: 1.05, high: 1.2, value: 0.12288,
+      errors: { stat: 5.0e-05, sys: 0.00576 } }
+  - { low: 1.2, high: 1.5, value: 0.06077,
+      errors: { stat: 2.0e-05, sys: 0.00285 } }
+  - { low: 1.5, high: 1.8, value: 0.02604,
+      errors: { stat: 1.0e-05, sys: 0.00122 } }
+  - { low: 1.8, high: 2.1, value: 0.01205,
+      errors: { stat: 8.0e-06, sys: 0.000565 } }
+  - { low: 2.1, high: 2.4, value: 0.005967,
+      errors: { stat: 5.0e-06, sys: 0.00028 } }
+  - { low: 2.4, high: 3.6, value: 0.0012795,
+      errors: { stat: 1.0e-06, sys: 6.0e-05 } }
+  - { low: 3.6, high: 4.8, value: 0.00017414,
+      errors: { stat: 3.1e-07, sys: 8.17e-06 } }
+  - { low: 4.8, high: 6.0, value: 3.694e-05,
+      errors: { stat: 1.3e-07, sys: 1.73e-06 } }
+  - { low: 6.0, high: 7.2, value: 9.993e-06,
+      errors: { stat: 6.1e-08, sys: 4.69e-07 } }
+  - { low: 7.2, high: 10.8, value: 1.3496e-06,
+      errors: { stat: 9.8e-09, sys: 6.34e-08 } }
+  - { low: 10.8, high: 14.4, value: 1.4955e-07,
+      errors: { stat: 2.73e-09, sys: 7.04e-09 } }
+  - { low: 14.4, high: 21.6, value: 1.4511e-08,
+      errors: { stat: 4.02e-10, sys: 6.85e-10 } }
+  - { low: 21.6, high: 28.8, value: 1.7416e-09,
+      errors: { stat: 9.33e-11, sys: 8.27e-11 } }
+  - { low: 28.8, high: 38.4, value: 2.796e-10,
+      errors: { stat: 1.92e-11, sys: 1.43e-11 } }
+  - { low: 38.4, high: 48.0, value: 4.739e-11,
+      errors: { stat: 1.44e-12, sys: 3.26e-12 } }
+  - { low: 48.0, high: 67.2, value: 6.798e-12,
+      errors: { stat: 2.24e-13, sys: 5.54e-13 } }
+  - { low: 67.2, high: 86.4, value: 1.0808e-12,
+      errors: { stat: 7.4e-14, sys: 9.02e-14 } }
+  - { low: 86.4, high: 112.2, value: 1.868e-13,
+      errors: { stat: 2.45e-14, sys: 1.59e-14 } }

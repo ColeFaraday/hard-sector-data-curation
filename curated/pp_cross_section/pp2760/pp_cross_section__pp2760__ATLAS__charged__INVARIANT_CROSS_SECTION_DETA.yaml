@@ -1,0 +1,100 @@
+format_version: 1
+key: pp_cross_section__pp2760__ATLAS__charged__INVARIANT_CROSS_SECTION_DETA
+observable: pp_cross_section
+system: pp
+sqrt_s_nn: 2760
+experiment: ATLAS
+particle: charged
+acceptance: { eta_range: [-2.0, 2.0] }
+source:
+  hepdata:
+    inspire_id: 1360290
+    version: 2
+    table: Table 1
+    column: 0
+    location: Data from F10
+    doi: "10.17182/hepdata.67531.v2/t1"
+  paper: "arXiv:1504.04337"
+  figure: "10"
+  inspireHEPKey: "ATLAS:2015qmb"
+note: "HEPData titles the quantity 1/(2 pi pT) d^2 sigma/(dpT d eta) in mb/GeV^2, the invariant cross section per unit pseudorapidity. In Sec. 7.1 of arXiv:1504.04337 the paper names the invariant cross section as carrying the 3% pp luminosity uncertainty, and it shows the spectrum as the pp cross section in its Fig. 10. The pp data are limited to |eta| < 2 (Sec. 5.1). Overlaps the pp datasets in |eta| windows of this record, which are parts of it."
+x: { name: pt, units: GeV }
+y: { name: cross_section, units: MB/GeV2, definition: INVARIANT_CROSS_SECTION_DETA }
+errors:
+  stat: { label: stat, percent: true }
+  sys: { label: sys, percent: true, note: "The total systematic uncertainty: HEPData gives one number per point and does not split it into sources. The paper adds the uncertainties of its sources in quadrature and applies each variation to the Pb+Pb and pp data at once, so that R_AA and R_CP follow the correlated changes of numerator and denominator (arXiv:1504.04337, Sec. 7). Its Table 4 lists the maximum size of each source for the spectra, R_CP and R_AA, among them the pp luminosity, <T_AA> and <T_AA>/<T_AA(60-80%)>." }
+bins:
+  - { low: 0.5, high: 0.573, value: 62.5,
+      errors: { stat: 0.0125, sys: 2.9375 } }
+  - { low: 0.573, high: 0.657, value: 43.7,
+      errors: { stat: 0.009177, sys: 2.0976 } }
+  - { low: 0.657, high: 0.753, value: 29.6,
+      errors: { stat: 0.006512, sys: 1.4208 } }
+  - { low: 0.753, high: 0.863, value: 19.5,
+      errors: { stat: 0.00468, sys: 0.9555 } }
+  - { low: 0.863, high: 0.989, value: 12.4,
+      errors: { stat: 0.003224, sys: 0.5952 } }
+  - { low: 0.989, high: 1.13, value: 7.76,
+      errors: { stat: 0.0022504, sys: 0.37248 } }
+  - { low: 1.13, high: 1.29, value: 4.71,
+      errors: { stat: 0.0015072, sys: 0.22608 } }
+  - { low: 1.29, high: 1.48, value: 2.74,
+      errors: { stat: 0.0009864, sys: 0.13152 } }
+  - { low: 1.48, high: 1.7, value: 1.52,
+      errors: { stat: 0.0006384, sys: 0.07448 } }
+  - { low: 1.7, high: 1.95, value: 0.812,
+      errors: { stat: 0.000406, sys: 0.038976 } }
+  - { low: 1.95, high: 2.24, value: 0.416,
+      errors: { stat: 0.00025376, sys: 0.019968 } }
+  - { low: 2.24, high: 2.57, value: 0.206,
+      errors: { stat: 0.0001545, sys: 0.009682 } }
+  - { low: 2.57, high: 2.94, value: 0.0987,
+      errors: { stat: 9.3765e-05, sys: 0.0047376 } }
+  - { low: 2.94, high: 3.37, value: 0.0457,
+      errors: { stat: 5.484e-05, sys: 0.0021936 } }
+  - { low: 3.37, high: 3.87, value: 0.0204,
+      errors: { stat: 3.264e-05, sys: 0.0009588 } }
+  - { low: 3.87, high: 4.43, value: 0.00895,
+      errors: { stat: 1.8795e-05, sys: 0.0004117 } }
+  - { low: 4.43, high: 5.08, value: 0.00385,
+      errors: { stat: 1.078e-05, sys: 0.0001848 } }
+  - { low: 5.08, high: 5.83, value: 0.00162,
+      errors: { stat: 5.994e-06, sys: 7.452e-05 } }
+  - { low: 5.83, high: 6.68, value: 0.000674,
+      errors: { stat: 3.5048e-06, sys: 3.1678e-05 } }
+  - { low: 6.68, high: 7.66, value: 0.00028,
+      errors: { stat: 1.96e-06, sys: 1.316e-05 } }
+  - { low: 7.66, high: 8.78, value: 0.000116,
+      errors: { stat: 1.102e-06, sys: 5.336e-06 } }
+  - { low: 8.78, high: 10.0, value: 4.96e-05,
+      errors: { stat: 6.448e-07, sys: 2.1824e-06 } }
+  - { low: 10.0, high: 11.5, value: 2.11e-05,
+      errors: { stat: 2.0045e-07, sys: 9.706e-07 } }
+  - { low: 11.5, high: 13.2, value: 8.58e-06,
+      errors: { stat: 9.438e-08, sys: 3.9468e-07 } }
+  - { low: 13.2, high: 15.1, value: 3.59e-06,
+      errors: { stat: 3.949e-08, sys: 1.6155e-07 } }
+  - { low: 15.1, high: 17.3, value: 1.51e-06,
+      errors: { stat: 1.661e-08, sys: 6.795e-08 } }
+  - { low: 17.3, high: 19.9, value: 6.22e-07,
+      errors: { stat: 8.086e-09, sys: 2.799e-08 } }
+  - { low: 19.9, high: 22.8, value: 2.55e-07,
+      errors: { stat: 4.08e-09, sys: 1.122e-08 } }
+  - { low: 22.8, high: 26.1, value: 1.06e-07,
+      errors: { stat: 1.802e-09, sys: 4.876e-09 } }
+  - { low: 26.1, high: 30.0, value: 4.54e-08,
+      errors: { stat: 6.81e-10, sys: 1.9522e-09 } }
+  - { low: 30.0, high: 37.7, value: 1.31e-08,
+      errors: { stat: 1.441e-10, sys: 5.633e-10 } }
+  - { low: 37.7, high: 47.5, value: 2.86e-09,
+      errors: { stat: 3.146e-11, sys: 1.2584e-10 } }
+  - { low: 47.5, high: 59.8, value: 5.84e-10,
+      errors: { stat: 3.9712e-12, sys: 2.8616e-11 } }
+  - { low: 59.8, high: 75.3, value: 1.17e-10,
+      errors: { stat: 1.1466e-12, sys: 6.201e-12 } }
+  - { low: 75.3, high: 94.8, value: 2.29e-11,
+      errors: { stat: 3.435e-13, sys: 1.3053e-12 } }
+  - { low: 94.8, high: 119.0, value: 4.06e-12,
+      errors: { stat: 1.0962e-13, sys: 2.639e-13 } }
+  - { low: 119.0, high: 150.0, value: 6.86e-13,
+      errors: { stat: 3.43e-14, sys: 5.2136e-14 } }

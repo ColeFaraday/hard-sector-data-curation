@@ -1,0 +1,101 @@
+format_version: 1
+key: raa__PbPb2760__ATLAS__charged__0-5__abseta0.5-0.75
+observable: raa
+system: PbPb
+sqrt_s_nn: 2760
+experiment: ATLAS
+particle: charged
+centrality: [0, 5]
+centrality_definition: ATLAS_FCAL_ET
+acceptance: { abs_eta_range: [0.5, 0.75] }
+source:
+  hepdata:
+    inspire_id: 1360290
+    version: 2
+    table: Table 43
+    column: 0
+    location: Data from F14
+    doi: "10.17182/hepdata.67531.v2/t43"
+  paper: "arXiv:1504.04337"
+  figure: "14"
+  inspireHEPKey: "ATLAS:2015qmb"
+note: "R_AA of the 0-5% class in one |eta| window: the ratio of the Pb+Pb spectrum to the pp spectrum of the same window (arXiv:1504.04337, Fig. 14, built from its Fig. 11 spectra, Sec. 8). Its sys is much smaller than that of the 0-5% table for |eta| < 2.0 (median 1.45-1.7% over the eight window tables, 4.6% there); HEPData does not say which sources the window tables leave out. This window is part of the 0-5% R_AA for |eta| < 2.0 and of the one for |eta| < 1.0 of this record, which overlap it."
+x: { name: pt, units: GeV }
+y: { name: raa }
+errors:
+  stat: { label: stat, percent: true }
+  sys: { label: sys, percent: true, note: "The total systematic uncertainty: HEPData gives one number per point and does not split it into sources. The paper adds the uncertainties of its sources in quadrature and applies each variation to the Pb+Pb and pp data at once, so that R_AA and R_CP follow the correlated changes of numerator and denominator (arXiv:1504.04337, Sec. 7). Its Table 4 lists the maximum size of each source for the spectra, R_CP and R_AA, among them the pp luminosity, <T_AA> and <T_AA>/<T_AA(60-80%)>." }
+bins:
+  - { low: 0.5, high: 0.573, value: 0.276,
+      errors: { stat: 0.00015732, sys: 0.00414 } }
+  - { low: 0.573, high: 0.657, value: 0.294,
+      errors: { stat: 0.00017346, sys: 0.00441 } }
+  - { low: 0.657, high: 0.753, value: 0.316,
+      errors: { stat: 0.00019908, sys: 0.00474 } }
+  - { low: 0.753, high: 0.863, value: 0.338,
+      errors: { stat: 0.00022646, sys: 0.005408 } }
+  - { low: 0.863, high: 0.989, value: 0.364,
+      errors: { stat: 0.00026936, sys: 0.006552 } }
+  - { low: 0.989, high: 1.13, value: 0.392,
+      errors: { stat: 0.00032144, sys: 0.007448 } }
+  - { low: 1.13, high: 1.29, value: 0.416,
+      errors: { stat: 0.00037856, sys: 0.00832 } }
+  - { low: 1.29, high: 1.48, value: 0.438,
+      errors: { stat: 0.000438, sys: 0.009198 } }
+  - { low: 1.48, high: 1.7, value: 0.457,
+      errors: { stat: 0.0005484, sys: 0.010054 } }
+  - { low: 1.7, high: 1.95, value: 0.456,
+      errors: { stat: 0.0006384, sys: 0.009576 } }
+  - { low: 1.95, high: 2.24, value: 0.455,
+      errors: { stat: 0.0007735, sys: 0.009555 } }
+  - { low: 2.24, high: 2.57, value: 0.432,
+      errors: { stat: 0.0009072, sys: 0.00864 } }
+  - { low: 2.57, high: 2.94, value: 0.391,
+      errors: { stat: 0.0010557, sys: 0.007038 } }
+  - { low: 2.94, high: 3.37, value: 0.337,
+      errors: { stat: 0.0011458, sys: 0.005055 } }
+  - { low: 3.37, high: 3.87, value: 0.279,
+      errors: { stat: 0.0012276, sys: 0.003627 } }
+  - { low: 3.87, high: 4.43, value: 0.224,
+      errors: { stat: 0.0013216, sys: 0.00224 } }
+  - { low: 4.43, high: 5.08, value: 0.181,
+      errors: { stat: 0.0014118, sys: 0.0015023 } }
+  - { low: 5.08, high: 5.83, value: 0.157,
+      errors: { stat: 0.001727, sys: 0.001099 } }
+  - { low: 5.83, high: 6.68, value: 0.143,
+      errors: { stat: 0.002145, sys: 0.0009152 } }
+  - { low: 6.68, high: 7.66, value: 0.142,
+      errors: { stat: 0.00284, sys: 0.0008946 } }
+  - { low: 7.66, high: 8.78, value: 0.154,
+      errors: { stat: 0.004158, sys: 0.0010318 } }
+  - { low: 8.78, high: 10.0, value: 0.168,
+      errors: { stat: 0.006216, sys: 0.0011928 } }
+  - { low: 10.0, high: 11.5, value: 0.178,
+      errors: { stat: 0.004628, sys: 0.001335 } }
+  - { low: 11.5, high: 13.2, value: 0.201,
+      errors: { stat: 0.00603, sys: 0.0017085 } }
+  - { low: 13.2, high: 15.1, value: 0.224,
+      errors: { stat: 0.00672, sys: 0.0020832 } }
+  - { low: 15.1, high: 17.3, value: 0.245,
+      errors: { stat: 0.007105, sys: 0.00245 } }
+  - { low: 17.3, high: 19.9, value: 0.268,
+      errors: { stat: 0.010452, sys: 0.002948 } }
+  - { low: 19.9, high: 22.8, value: 0.323,
+      errors: { stat: 0.021641, sys: 0.004522 } }
+  - { low: 22.8, high: 26.1, value: 0.35,
+      errors: { stat: 0.01575, sys: 0.0056 } }
+  - { low: 26.1, high: 30.0, value: 0.348,
+      errors: { stat: 0.013224, sys: 0.005568 } }
+  - { low: 30.0, high: 37.7, value: 0.417,
+      errors: { stat: 0.018765, sys: 0.00834 } }
+  - { low: 37.7, high: 47.5, value: 0.502,
+      errors: { stat: 0.016566, sys: 0.013554 } }
+  - { low: 47.5, high: 59.8, value: 0.53,
+      errors: { stat: 0.02014, sys: 0.01961 } }
+  - { low: 59.8, high: 75.3, value: 0.573,
+      errors: { stat: 0.034953, sys: 0.024639 } }
+  - { low: 75.3, high: 94.8, value: 0.61,
+      errors: { stat: 0.06039, sys: 0.02989 } }
+  - { low: 94.8, high: 119.0, value: 0.53,
+      errors: { stat: 0.09858, sys: 0.02438 } }
+variant: abseta0.5-0.75

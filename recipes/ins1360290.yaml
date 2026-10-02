@@ -1,0 +1,429 @@
+# ATLAS, measurement of charged-particle spectra in Pb+Pb collisions at 2.76 TeV
+# (arXiv:1504.04337, HEPData ins1360290 v2): R_CP and R_AA against pT, and the pp spectra.
+#
+# Acceptance. A table's ABS(ETA) qualifier is its window. A window that starts at 0 is an
+# eta_range [-hi, hi]; one with a nonzero lower edge is an abs_eta_range [lo, hi]. The widest
+# window of each family has no variant: |eta| < 2.0 for R_AA and the pp spectrum, 0.0-2.5 for
+# R_CP. Every other window carries the variant abseta<lo>-<hi>, the edges written as short as
+# possible: abseta0-0.25, abseta0.25-0.5, ..., abseta1.75-2 for the eight windows of Figs. 11
+# and 14, and abseta0-1 for the R_AA of Table 49 (|eta| < 1.0).
+#
+# The pp spectra in |eta| windows (Tables 10, 12, ..., 24) are the pp denominators of the R_AA
+# windows (Tables 41-48), so they are listed with the |eta| < 2.0 spectrum (Table 1).
+#
+# Not curated: the Pb+Pb spectra (Tables 2-9, and Tables 11, 13, ..., 25 in |eta| windows),
+# which are not ratios to pp; the cross sections against |eta| at fixed pT (Tables 54-89); and
+# R_AA against <Npart> (Tables 50-53) and against |eta| at fixed pT (Tables 90-121), whose
+# independent variable is not pT.
+
+record: { inspire_id: 1360290, version: 2 }
+paper: "arXiv:1504.04337"
+experiment: ATLAS
+particle: charged
+sqrt_s_nn: 2760
+system: PbPb
+centrality_definition: ATLAS_FCAL_ET
+
+datasets:
+  # R_CP over the 60-80% class, |eta| < 2.5 (Fig. 12). Tables 27, 29 and 31 are not shown in the
+  # paper's figure.
+  - table: Table 26
+    observable: rcp
+    centrality: [0, 5]
+    reference_centrality: [60, 80]
+    acceptance: { eta_range: [-2.5, 2.5] }
+    figure: "12"
+    note: >-
+      R_CP over the 60-80% class, both yields scaled by their <T_AA> (arXiv:1504.04337, Eq. 2). The
+      HEPData tables do not state the reference class; the paper chooses the 60-80% class as the
+      peripheral reference for R_CP (Sec. 4) and calls it the denominator in the caption of its Fig.
+      12. The window is the table's |eta| < 2.5, the range of the Pb+Pb tracks (Sec. 5.1).
+  - table: Table 27
+    observable: rcp
+    centrality: [5, 10]
+    reference_centrality: [60, 80]
+    acceptance: { eta_range: [-2.5, 2.5] }
+    note: >-
+      R_CP over the 60-80% class, both yields scaled by their <T_AA> (arXiv:1504.04337, Eq. 2). The
+      HEPData tables do not state the reference class; the paper chooses the 60-80% class as the
+      peripheral reference for R_CP (Sec. 4) and calls it the denominator in the caption of its Fig.
+      12. The window is the table's |eta| < 2.5, the range of the Pb+Pb tracks (Sec. 5.1). HEPData
+      describes this table as not shown in Fig. 12 of the paper.
+  - table: Table 28
+    observable: rcp
+    centrality: [10, 20]
+    reference_centrality: [60, 80]
+    acceptance: { eta_range: [-2.5, 2.5] }
+    figure: "12"
+    note: >-
+      R_CP over the 60-80% class, both yields scaled by their <T_AA> (arXiv:1504.04337, Eq. 2). The
+      HEPData tables do not state the reference class; the paper chooses the 60-80% class as the
+      peripheral reference for R_CP (Sec. 4) and calls it the denominator in the caption of its Fig.
+      12. The window is the table's |eta| < 2.5, the range of the Pb+Pb tracks (Sec. 5.1).
+  - table: Table 29
+    observable: rcp
+    centrality: [20, 30]
+    reference_centrality: [60, 80]
+    acceptance: { eta_range: [-2.5, 2.5] }
+    note: >-
+      R_CP over the 60-80% class, both yields scaled by their <T_AA> (arXiv:1504.04337, Eq. 2). The
+      HEPData tables do not state the reference class; the paper chooses the 60-80% class as the
+      peripheral reference for R_CP (Sec. 4) and calls it the denominator in the caption of its Fig.
+      12. The window is the table's |eta| < 2.5, the range of the Pb+Pb tracks (Sec. 5.1). HEPData
+      describes this table as not shown in Fig. 12 of the paper.
+  - table: Table 30
+    observable: rcp
+    centrality: [30, 40]
+    reference_centrality: [60, 80]
+    acceptance: { eta_range: [-2.5, 2.5] }
+    figure: "12"
+    note: >-
+      R_CP over the 60-80% class, both yields scaled by their <T_AA> (arXiv:1504.04337, Eq. 2). The
+      HEPData tables do not state the reference class; the paper chooses the 60-80% class as the
+      peripheral reference for R_CP (Sec. 4) and calls it the denominator in the caption of its Fig.
+      12. The window is the table's |eta| < 2.5, the range of the Pb+Pb tracks (Sec. 5.1).
+  - table: Table 31
+    observable: rcp
+    centrality: [40, 50]
+    reference_centrality: [60, 80]
+    acceptance: { eta_range: [-2.5, 2.5] }
+    note: >-
+      R_CP over the 60-80% class, both yields scaled by their <T_AA> (arXiv:1504.04337, Eq. 2). The
+      HEPData tables do not state the reference class; the paper chooses the 60-80% class as the
+      peripheral reference for R_CP (Sec. 4) and calls it the denominator in the caption of its Fig.
+      12. The window is the table's |eta| < 2.5, the range of the Pb+Pb tracks (Sec. 5.1). HEPData
+      describes this table as not shown in Fig. 12 of the paper.
+  - table: Table 32
+    observable: rcp
+    centrality: [50, 60]
+    reference_centrality: [60, 80]
+    acceptance: { eta_range: [-2.5, 2.5] }
+    figure: "12"
+    note: >-
+      R_CP over the 60-80% class, both yields scaled by their <T_AA> (arXiv:1504.04337, Eq. 2). The
+      HEPData tables do not state the reference class; the paper chooses the 60-80% class as the
+      peripheral reference for R_CP (Sec. 4) and calls it the denominator in the caption of its Fig.
+      12. The window is the table's |eta| < 2.5, the range of the Pb+Pb tracks (Sec. 5.1).
+
+  # R_AA in eight centrality classes, |eta| < 2.0 (Fig. 13). Tables 34, 36 and 38 are not shown
+  # in the paper's figure.
+  - table: Table 33
+    observable: raa
+    centrality: [0, 5]
+    acceptance: { eta_range: [-2.0, 2.0] }
+    figure: "13"
+    note: >-
+      R_AA, the Pb+Pb yield per event divided by <T_AA>, over the pp cross section that the same
+      paper measures (arXiv:1504.04337, Eq. 1; the ratio is built from the spectra of its Fig. 10,
+      Sec. 8). The paper limits the pp data and R_AA to |eta| < 2 (Sec. 5.1). Overlaps the 0-5% R_AA
+      datasets in |eta| windows of this record (Figs. 14 and 15 of the paper), which are parts of
+      this window.
+  - table: Table 34
+    observable: raa
+    centrality: [5, 10]
+    acceptance: { eta_range: [-2.0, 2.0] }
+    note: >-
+      R_AA, the Pb+Pb yield per event divided by <T_AA>, over the pp cross section that the same
+      paper measures (arXiv:1504.04337, Eq. 1; the ratio is built from the spectra of its Fig. 10,
+      Sec. 8). The paper limits the pp data and R_AA to |eta| < 2 (Sec. 5.1). HEPData describes this
+      table as not shown in Fig. 13 of the paper.
+  - table: Table 35
+    observable: raa
+    centrality: [10, 20]
+    acceptance: { eta_range: [-2.0, 2.0] }
+    figure: "13"
+    note: >-
+      R_AA, the Pb+Pb yield per event divided by <T_AA>, over the pp cross section that the same
+      paper measures (arXiv:1504.04337, Eq. 1; the ratio is built from the spectra of its Fig. 10,
+      Sec. 8). The paper limits the pp data and R_AA to |eta| < 2 (Sec. 5.1).
+  - table: Table 36
+    observable: raa
+    centrality: [20, 30]
+    acceptance: { eta_range: [-2.0, 2.0] }
+    note: >-
+      R_AA, the Pb+Pb yield per event divided by <T_AA>, over the pp cross section that the same
+      paper measures (arXiv:1504.04337, Eq. 1; the ratio is built from the spectra of its Fig. 10,
+      Sec. 8). The paper limits the pp data and R_AA to |eta| < 2 (Sec. 5.1). HEPData describes this
+      table as not shown in Fig. 13 of the paper.
+  - table: Table 37
+    observable: raa
+    centrality: [30, 40]
+    acceptance: { eta_range: [-2.0, 2.0] }
+    figure: "13"
+    note: >-
+      R_AA, the Pb+Pb yield per event divided by <T_AA>, over the pp cross section that the same
+      paper measures (arXiv:1504.04337, Eq. 1; the ratio is built from the spectra of its Fig. 10,
+      Sec. 8). The paper limits the pp data and R_AA to |eta| < 2 (Sec. 5.1).
+  - table: Table 38
+    observable: raa
+    centrality: [40, 50]
+    acceptance: { eta_range: [-2.0, 2.0] }
+    note: >-
+      R_AA, the Pb+Pb yield per event divided by <T_AA>, over the pp cross section that the same
+      paper measures (arXiv:1504.04337, Eq. 1; the ratio is built from the spectra of its Fig. 10,
+      Sec. 8). The paper limits the pp data and R_AA to |eta| < 2 (Sec. 5.1). HEPData describes this
+      table as not shown in Fig. 13 of the paper.
+  - table: Table 39
+    observable: raa
+    centrality: [50, 60]
+    acceptance: { eta_range: [-2.0, 2.0] }
+    figure: "13"
+    note: >-
+      R_AA, the Pb+Pb yield per event divided by <T_AA>, over the pp cross section that the same
+      paper measures (arXiv:1504.04337, Eq. 1; the ratio is built from the spectra of its Fig. 10,
+      Sec. 8). The paper limits the pp data and R_AA to |eta| < 2 (Sec. 5.1).
+  - table: Table 40
+    observable: raa
+    centrality: [60, 80]
+    acceptance: { eta_range: [-2.0, 2.0] }
+    figure: "13"
+    note: >-
+      R_AA, the Pb+Pb yield per event divided by <T_AA>, over the pp cross section that the same
+      paper measures (arXiv:1504.04337, Eq. 1; the ratio is built from the spectra of its Fig. 10,
+      Sec. 8). The paper limits the pp data and R_AA to |eta| < 2 (Sec. 5.1).
+
+  # R_AA of the 0-5% class in the eight |eta| windows (Fig. 14).
+  - table: Table 41
+    observable: raa
+    centrality: [0, 5]
+    acceptance: { eta_range: [-0.25, 0.25] }
+    variant: abseta0-0.25
+    figure: "14"
+    note: >-
+      R_AA of the 0-5% class in one |eta| window: the ratio of the Pb+Pb spectrum to the pp spectrum
+      of the same window (arXiv:1504.04337, Fig. 14, built from its Fig. 11 spectra, Sec. 8). Its
+      sys is much smaller than that of the 0-5% table for |eta| < 2.0 (median 1.45-1.7% over the
+      eight window tables, 4.6% there); HEPData does not say which sources the window tables leave
+      out. This window is part of the 0-5% R_AA for |eta| < 2.0 and of the one for |eta| < 1.0 of
+      this record, which overlap it.
+  - table: Table 42
+    observable: raa
+    centrality: [0, 5]
+    acceptance: { abs_eta_range: [0.25, 0.5] }
+    variant: abseta0.25-0.5
+    figure: "14"
+    note: >-
+      R_AA of the 0-5% class in one |eta| window: the ratio of the Pb+Pb spectrum to the pp spectrum
+      of the same window (arXiv:1504.04337, Fig. 14, built from its Fig. 11 spectra, Sec. 8). Its
+      sys is much smaller than that of the 0-5% table for |eta| < 2.0 (median 1.45-1.7% over the
+      eight window tables, 4.6% there); HEPData does not say which sources the window tables leave
+      out. This window is part of the 0-5% R_AA for |eta| < 2.0 and of the one for |eta| < 1.0 of
+      this record, which overlap it.
+  - table: Table 43
+    observable: raa
+    centrality: [0, 5]
+    acceptance: { abs_eta_range: [0.5, 0.75] }
+    variant: abseta0.5-0.75
+    figure: "14"
+    note: >-
+      R_AA of the 0-5% class in one |eta| window: the ratio of the Pb+Pb spectrum to the pp spectrum
+      of the same window (arXiv:1504.04337, Fig. 14, built from its Fig. 11 spectra, Sec. 8). Its
+      sys is much smaller than that of the 0-5% table for |eta| < 2.0 (median 1.45-1.7% over the
+      eight window tables, 4.6% there); HEPData does not say which sources the window tables leave
+      out. This window is part of the 0-5% R_AA for |eta| < 2.0 and of the one for |eta| < 1.0 of
+      this record, which overlap it.
+  - table: Table 44
+    observable: raa
+    centrality: [0, 5]
+    acceptance: { abs_eta_range: [0.75, 1.0] }
+    variant: abseta0.75-1
+    figure: "14"
+    note: >-
+      R_AA of the 0-5% class in one |eta| window: the ratio of the Pb+Pb spectrum to the pp spectrum
+      of the same window (arXiv:1504.04337, Fig. 14, built from its Fig. 11 spectra, Sec. 8). Its
+      sys is much smaller than that of the 0-5% table for |eta| < 2.0 (median 1.45-1.7% over the
+      eight window tables, 4.6% there); HEPData does not say which sources the window tables leave
+      out. This window is part of the 0-5% R_AA for |eta| < 2.0 and of the one for |eta| < 1.0 of
+      this record, which overlap it.
+  - table: Table 45
+    observable: raa
+    centrality: [0, 5]
+    acceptance: { abs_eta_range: [1.0, 1.25] }
+    variant: abseta1-1.25
+    figure: "14"
+    note: >-
+      R_AA of the 0-5% class in one |eta| window: the ratio of the Pb+Pb spectrum to the pp spectrum
+      of the same window (arXiv:1504.04337, Fig. 14, built from its Fig. 11 spectra, Sec. 8). Its
+      sys is much smaller than that of the 0-5% table for |eta| < 2.0 (median 1.45-1.7% over the
+      eight window tables, 4.6% there); HEPData does not say which sources the window tables leave
+      out. This window is part of the 0-5% R_AA for |eta| < 2.0 of this record, which overlaps it.
+  - table: Table 46
+    observable: raa
+    centrality: [0, 5]
+    acceptance: { abs_eta_range: [1.25, 1.5] }
+    variant: abseta1.25-1.5
+    figure: "14"
+    note: >-
+      R_AA of the 0-5% class in one |eta| window: the ratio of the Pb+Pb spectrum to the pp spectrum
+      of the same window (arXiv:1504.04337, Fig. 14, built from its Fig. 11 spectra, Sec. 8). Its
+      sys is much smaller than that of the 0-5% table for |eta| < 2.0 (median 1.45-1.7% over the
+      eight window tables, 4.6% there); HEPData does not say which sources the window tables leave
+      out. This window is part of the 0-5% R_AA for |eta| < 2.0 of this record, which overlaps it.
+  - table: Table 47
+    observable: raa
+    centrality: [0, 5]
+    acceptance: { abs_eta_range: [1.5, 1.75] }
+    variant: abseta1.5-1.75
+    figure: "14"
+    note: >-
+      R_AA of the 0-5% class in one |eta| window: the ratio of the Pb+Pb spectrum to the pp spectrum
+      of the same window (arXiv:1504.04337, Fig. 14, built from its Fig. 11 spectra, Sec. 8). Its
+      sys is much smaller than that of the 0-5% table for |eta| < 2.0 (median 1.45-1.7% over the
+      eight window tables, 4.6% there); HEPData does not say which sources the window tables leave
+      out. This window is part of the 0-5% R_AA for |eta| < 2.0 of this record, which overlaps it.
+  - table: Table 48
+    observable: raa
+    centrality: [0, 5]
+    acceptance: { abs_eta_range: [1.75, 2.0] }
+    variant: abseta1.75-2
+    figure: "14"
+    note: >-
+      R_AA of the 0-5% class in one |eta| window: the ratio of the Pb+Pb spectrum to the pp spectrum
+      of the same window (arXiv:1504.04337, Fig. 14, built from its Fig. 11 spectra, Sec. 8). Its
+      sys is much smaller than that of the 0-5% table for |eta| < 2.0 (median 1.45-1.7% over the
+      eight window tables, 4.6% there); HEPData does not say which sources the window tables leave
+      out. This window is part of the 0-5% R_AA for |eta| < 2.0 of this record, which overlaps it.
+
+  # R_AA of the 0-5% class for |eta| < 1.0 (Fig. 15).
+  - table: Table 49
+    observable: raa
+    centrality: [0, 5]
+    acceptance: { eta_range: [-1.0, 1.0] }
+    variant: abseta0-1
+    figure: "15"
+    note: >-
+      R_AA of the 0-5% class evaluated for |eta| < 1, the window of the CMS measurement it is
+      compared with in Fig. 15 of arXiv:1504.04337 (Sec. 8). It is part of the 0-5% R_AA for |eta| <
+      2.0 of this record and contains that record's |eta| windows below 1.0 (abseta0-0.25 to
+      abseta0.75-1); these overlap it.
+
+  # pp spectrum for |eta| < 2.0 (Fig. 10): 1/(2 pi pT) d^2 sigma/(dpT d eta).
+  - table: Table 1
+    observable: pp_cross_section
+    system: pp
+    definition: INVARIANT_CROSS_SECTION_DETA
+    centrality_definition: null
+    acceptance: { eta_range: [-2.0, 2.0] }
+    figure: "10"
+    note: >-
+      HEPData titles the quantity 1/(2 pi pT) d^2 sigma/(dpT d eta) in mb/GeV^2, the invariant cross
+      section per unit pseudorapidity. In Sec. 7.1 of arXiv:1504.04337 the paper names the invariant
+      cross section as carrying the 3% pp luminosity uncertainty, and it shows the spectrum as the
+      pp cross section in its Fig. 10. The pp data are limited to |eta| < 2 (Sec. 5.1). Overlaps the
+      pp datasets in |eta| windows of this record, which are parts of it.
+
+  # pp spectra in the eight |eta| windows (Fig. 11).
+  - table: Table 10
+    observable: pp_cross_section
+    system: pp
+    definition: INVARIANT_CROSS_SECTION_DETA
+    centrality_definition: null
+    acceptance: { eta_range: [-0.25, 0.25] }
+    variant: abseta0-0.25
+    figure: "11"
+    note: >-
+      The same quantity as the |eta| < 2.0 pp dataset of this record (HEPData: 1/(2 pi pT) d^2
+      sigma/(dpT d eta), mb/GeV^2) in one |eta| window (arXiv:1504.04337, Fig. 11). The paper
+      divides the Pb+Pb spectrum of the same window by it to make the R_AA of its Fig. 14 (Sec. 8).
+      Overlaps the |eta| < 2.0 pp dataset, which contains this window.
+  - table: Table 12
+    observable: pp_cross_section
+    system: pp
+    definition: INVARIANT_CROSS_SECTION_DETA
+    centrality_definition: null
+    acceptance: { abs_eta_range: [0.25, 0.5] }
+    variant: abseta0.25-0.5
+    figure: "11"
+    note: >-
+      The same quantity as the |eta| < 2.0 pp dataset of this record (HEPData: 1/(2 pi pT) d^2
+      sigma/(dpT d eta), mb/GeV^2) in one |eta| window (arXiv:1504.04337, Fig. 11). The paper
+      divides the Pb+Pb spectrum of the same window by it to make the R_AA of its Fig. 14 (Sec. 8).
+      Overlaps the |eta| < 2.0 pp dataset, which contains this window.
+  - table: Table 14
+    observable: pp_cross_section
+    system: pp
+    definition: INVARIANT_CROSS_SECTION_DETA
+    centrality_definition: null
+    acceptance: { abs_eta_range: [0.5, 0.75] }
+    variant: abseta0.5-0.75
+    figure: "11"
+    note: >-
+      The same quantity as the |eta| < 2.0 pp dataset of this record (HEPData: 1/(2 pi pT) d^2
+      sigma/(dpT d eta), mb/GeV^2) in one |eta| window (arXiv:1504.04337, Fig. 11). The paper
+      divides the Pb+Pb spectrum of the same window by it to make the R_AA of its Fig. 14 (Sec. 8).
+      Overlaps the |eta| < 2.0 pp dataset, which contains this window.
+  - table: Table 16
+    observable: pp_cross_section
+    system: pp
+    definition: INVARIANT_CROSS_SECTION_DETA
+    centrality_definition: null
+    acceptance: { abs_eta_range: [0.75, 1.0] }
+    variant: abseta0.75-1
+    figure: "11"
+    note: >-
+      The same quantity as the |eta| < 2.0 pp dataset of this record (HEPData: 1/(2 pi pT) d^2
+      sigma/(dpT d eta), mb/GeV^2) in one |eta| window (arXiv:1504.04337, Fig. 11). The paper
+      divides the Pb+Pb spectrum of the same window by it to make the R_AA of its Fig. 14 (Sec. 8).
+      Overlaps the |eta| < 2.0 pp dataset, which contains this window.
+  - table: Table 18
+    observable: pp_cross_section
+    system: pp
+    definition: INVARIANT_CROSS_SECTION_DETA
+    centrality_definition: null
+    acceptance: { abs_eta_range: [1.0, 1.25] }
+    variant: abseta1-1.25
+    figure: "11"
+    note: >-
+      The same quantity as the |eta| < 2.0 pp dataset of this record (HEPData: 1/(2 pi pT) d^2
+      sigma/(dpT d eta), mb/GeV^2) in one |eta| window (arXiv:1504.04337, Fig. 11). The paper
+      divides the Pb+Pb spectrum of the same window by it to make the R_AA of its Fig. 14 (Sec. 8).
+      Overlaps the |eta| < 2.0 pp dataset, which contains this window.
+  - table: Table 20
+    observable: pp_cross_section
+    system: pp
+    definition: INVARIANT_CROSS_SECTION_DETA
+    centrality_definition: null
+    acceptance: { abs_eta_range: [1.25, 1.5] }
+    variant: abseta1.25-1.5
+    figure: "11"
+    note: >-
+      The same quantity as the |eta| < 2.0 pp dataset of this record (HEPData: 1/(2 pi pT) d^2
+      sigma/(dpT d eta), mb/GeV^2) in one |eta| window (arXiv:1504.04337, Fig. 11). The paper
+      divides the Pb+Pb spectrum of the same window by it to make the R_AA of its Fig. 14 (Sec. 8).
+      Overlaps the |eta| < 2.0 pp dataset, which contains this window.
+  - table: Table 22
+    observable: pp_cross_section
+    system: pp
+    definition: INVARIANT_CROSS_SECTION_DETA
+    centrality_definition: null
+    acceptance: { abs_eta_range: [1.5, 1.75] }
+    variant: abseta1.5-1.75
+    figure: "11"
+    note: >-
+      The same quantity as the |eta| < 2.0 pp dataset of this record (HEPData: 1/(2 pi pT) d^2
+      sigma/(dpT d eta), mb/GeV^2) in one |eta| window (arXiv:1504.04337, Fig. 11). The paper
+      divides the Pb+Pb spectrum of the same window by it to make the R_AA of its Fig. 14 (Sec. 8).
+      Overlaps the |eta| < 2.0 pp dataset, which contains this window.
+  - table: Table 24
+    observable: pp_cross_section
+    system: pp
+    definition: INVARIANT_CROSS_SECTION_DETA
+    centrality_definition: null
+    acceptance: { abs_eta_range: [1.75, 2.0] }
+    variant: abseta1.75-2
+    figure: "11"
+    note: >-
+      The same quantity as the |eta| < 2.0 pp dataset of this record (HEPData: 1/(2 pi pT) d^2
+      sigma/(dpT d eta), mb/GeV^2) in one |eta| window (arXiv:1504.04337, Fig. 11). The paper
+      divides the Pb+Pb spectrum of the same window by it to make the R_AA of its Fig. 14 (Sec. 8).
+      Overlaps the |eta| < 2.0 pp dataset, which contains this window.
+
+errors:
+  sys:
+    note: >-
+      The total systematic uncertainty: HEPData gives one number per point and does not split it
+      into sources. The paper adds the uncertainties of its sources in quadrature and applies each
+      variation to the Pb+Pb and pp data at once, so that R_AA and R_CP follow the correlated
+      changes of numerator and denominator (arXiv:1504.04337, Sec. 7). Its Table 4 lists the maximum
+      size of each source for the spectra, R_CP and R_AA, among them the pp luminosity, <T_AA> and
+      <T_AA>/<T_AA(60-80%)>.

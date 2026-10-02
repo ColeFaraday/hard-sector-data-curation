@@ -1,0 +1,45 @@
+format_version: 1
+key: vn__PbPb2760__ALICE__charged__0-5__cumulant2__n6__gap1
+observable: vn
+system: PbPb
+sqrt_s_nn: 2760
+experiment: ALICE
+particle: charged
+centrality: [0, 5]
+centrality_definition: ALICE_V0M
+harmonic: 6
+method: cumulant2
+acceptance: { eta_range: [-0.8, 0.8], delta_eta_gap: 1 }
+source:
+  hepdata:
+    inspire_id: 1666817
+    version: 1
+    table: Table 22
+    column: 0
+    location: Figure 3
+    doi: "10.17182/hepdata.83737.v1/t22"
+  paper: "arXiv:1804.02944"
+  inspireHEPKey: "ALICE:2018rtz"
+note: "Two-particle cumulant v_n{2, |Delta eta| > 1}: the pairs are formed between tracks on opposite sides of the TPC, -0.8 < eta < -0.5 and 0.5 < eta < 0.8, and one particle of the pT bin is correlated with particles over the whole range 0.2 < pT < 50 GeV/c (arXiv:1804.02944, Sec. 2). The other methods of this record for the same harmonic, class and energy come from the same Pb-Pb data sample (Sec. 2), so those datasets overlap this one."
+x: { name: pt, units: GeV }
+y: { name: vn }
+errors:
+  stat: { label: stat }
+  sys: { label: sys, note: "The paper's total systematic uncertainty: variations of the track and event selections (a variation counts if it is significant by the Barlow criterion) and an alternative centrality estimator, added in quadrature as uncorrelated sources; track quality and the centrality determination dominate (arXiv:1804.02944, Sec. 2)." }
+bins:
+  - { low: 0.2, high: 0.4, value: 0.00048,
+      errors: { stat: 0.00098, sys: 0.00109 } }
+  - { low: 0.4, high: 0.6, value: 0.0008,
+      errors: { stat: 0.00104, sys: 0.00074 } }
+  - { low: 0.6, high: 0.8, value: 0.002,
+      errors: { stat: 0.00126, sys: 0.00109 } }
+  - { low: 0.8, high: 1, value: 0.00146,
+      errors: { stat: 0.0015, sys: 0.00112 } }
+  - { low: 1, high: 1.4, value: 0.00307,
+      errors: { stat: 0.0013, sys: 0.00121 } }
+  - { low: 1.4, high: 2, value: 0.00406,
+      errors: { stat: 0.00223, sys: 0.00137 } }
+  - { low: 2, high: 3, value: 0.00854,
+      errors: { stat: 0.00322, sys: 0.0016 } }
+  - { low: 3, high: 4, value: 0.01321,
+      errors: { stat: 0.00799, sys: 0.00156 } }

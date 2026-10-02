@@ -1,0 +1,234 @@
+format_version: 1
+key: pp_cross_section__pp5020__ATLAS__charged__INVARIANT_CROSS_SECTION_DY__ystarm2.2-m1.9
+observable: pp_cross_section
+system: pp
+sqrt_s_nn: 5020
+experiment: ATLAS
+particle: charged
+acceptance: { y_range: [-2.2, -1.9] }
+source:
+  hepdata:
+    inspire_id: 2601282
+    version: 2
+    table: Table 149
+    column: 0
+    doi: "10.17182/hepdata.135676.v2/t150"
+  paper: "arXiv:2211.15257"
+  inspireHEPKey: "ATLAS:2022kqu"
+note: "One of 15 y* slices of width 0.3 that tile -2.5 < y* < 2.0 (HEPData lists them as charged-hadron spectra in y*/eta slices); overlaps the full-window dataset (Table 1)."
+x: { name: pt, units: GeV }
+y: { name: cross_section, units: MB/GeV2, definition: INVARIANT_CROSS_SECTION_DY }
+errors:
+  stat: { label: stat }
+  track_selection: { label: "syst, track selection" }
+  track_matching: { label: "syst, track to particle matching" }
+  particle_composition: { label: "syst, particle composition" }
+  fakes_secondaries: { label: "syst, fake and secondary tracks" }
+  pt_resolution: { label: "syst, pT resolution correction" }
+  eta_resolution: { label: "syst, eta resolution correction" }
+  unfolding: { label: "syst, unfolding procedure" }
+  tracking_efficiency: { label: "syst, track reconstruction efficiency" }
+  material: { label: "syst, material" }
+  lumi: { label: "syst, luminosity", note: "The uncertainty of the integrated luminosity of the pp data, calibrated with beam-separation scans (arXiv:2211.15257, Sec. 7). The heavy-ion spectra of this HEPData record are per-event yields without a luminosity uncertainty, so in R_AA and R_pPb it enters through the pp reference." }
+bins:
+  - { low: 0.31, high: 0.407, value: 162.817,
+      errors: { stat: 0.07899, track_selection: 7.99819, track_matching: 0.00285383,
+                particle_composition: 0.0878374, fakes_secondaries: 3.82878,
+                pt_resolution: 0.0656748, eta_resolution: 0.181586, unfolding: 0.129654,
+                tracking_efficiency: 0.85378, material: 6.49224, lumi: 3.09352 } }
+  - { low: 0.407, high: 0.5, value: 102.807,
+      errors: { stat: 0.0518675, track_selection: 4.09681, track_matching: 0.000560909,
+                particle_composition: 0.104729, fakes_secondaries: 2.12481,
+                pt_resolution: 0.0531919, eta_resolution: 0.0744606, unfolding: 0.00906579,
+                tracking_efficiency: 0.539437, material: 5.80736, lumi: 1.95333 } }
+  - { low: 0.5, high: 0.575, value: 69.3992,
+      errors: { stat: 0.0404566, track_selection: 2.37604, track_matching: 0.00168422,
+                particle_composition: 0.0941214, fakes_secondaries: 1.31264,
+                pt_resolution: 0.0777511, eta_resolution: 0.0474757, unfolding: 0.00459297,
+                tracking_efficiency: 0.36375, material: 2.84793, lumi: 1.31859 } }
+  - { low: 0.575, high: 0.66, value: 48.2395,
+      errors: { stat: 0.0294073, track_selection: 1.3293, track_matching: 0.00100996,
+                particle_composition: 0.0804886, fakes_secondaries: 0.911991,
+                pt_resolution: 0.0464353, eta_resolution: 0.0516507, unfolding: 0.0178401,
+                tracking_efficiency: 0.252737, material: 1.82156, lumi: 0.916551 } }
+  - { low: 0.66, high: 0.755, value: 33.4191,
+      errors: { stat: 0.0216991, track_selection: 0.80131, track_matching: 0.0070379,
+                particle_composition: 0.0888045, fakes_secondaries: 0.605312,
+                pt_resolution: 0.0685825, eta_resolution: 0.0309198, unfolding: 0.00827261,
+                tracking_efficiency: 0.175023, material: 1.2159, lumi: 0.634962 } }
+  - { low: 0.755, high: 0.86, value: 22.8273,
+      errors: { stat: 0.0159791, track_selection: 0.432723, track_matching: 0.00772161,
+                particle_composition: 0.0587545, fakes_secondaries: 0.405441,
+                pt_resolution: 0.00292623, eta_resolution: 0.00521437, unfolding: 0.0145609,
+                tracking_efficiency: 0.119838, material: 0.820024, lumi: 0.433719 } }
+  - { low: 0.86, high: 0.999, value: 14.897,
+      errors: { stat: 0.0109329, track_selection: 0.21511, track_matching: 0.00929346,
+                particle_composition: 0.0619947, fakes_secondaries: 0.259342,
+                pt_resolution: 0.0125795, eta_resolution: 0.00722742, unfolding: 0.0149717,
+                tracking_efficiency: 0.0780957, material: 0.521674, lumi: 0.283043 } }
+  - { low: 0.999, high: 1.13, value: 9.44876,
+      errors: { stat: 0.00806494, track_selection: 0.105143, track_matching: 0.0132364,
+                particle_composition: 0.0646551, fakes_secondaries: 0.161447,
+                pt_resolution: 0.0173422, eta_resolution: 0.00662092, unfolding: 0.0118092,
+                tracking_efficiency: 0.0495354, material: 0.332602, lumi: 0.179527 } }
+  - { low: 1.13, high: 1.3, value: 5.82917,
+      errors: { stat: 0.0053687, track_selection: 0.0506928, track_matching: 0.00166687,
+                particle_composition: 0.0415112, fakes_secondaries: 0.0974099,
+                pt_resolution: 0.000522948, eta_resolution: 0.00163268, unfolding: 0.00191826,
+                tracking_efficiency: 0.030558, material: 0.191172, lumi: 0.110754 } }
+  - { low: 1.3, high: 1.5, value: 3.37005,
+      errors: { stat: 0.00355722, track_selection: 0.0246953, track_matching: 0.000619012,
+                particle_composition: 0.0293921, fakes_secondaries: 0.0547654,
+                pt_resolution: 0.00183194, eta_resolution: 0.000861041, unfolding: 0.00399986,
+                tracking_efficiency: 0.0176564, material: 0.112339, lumi: 0.064031 } }
+  - { low: 1.5, high: 1.7, value: 1.9157,
+      errors: { stat: 0.00242113, track_selection: 0.0127513, track_matching: 0.000416785,
+                particle_composition: 0.0191006, fakes_secondaries: 0.0301501,
+                pt_resolution: 0.00120874, eta_resolution: 0.00617556, unfolding: 0.00322971,
+                tracking_efficiency: 0.0100472, material: 0.0611586, lumi: 0.0363982 } }
+  - { low: 1.7, high: 1.95, value: 1.06585,
+      errors: { stat: 0.00154951, track_selection: 0.00635109, track_matching: 0.000270705,
+                particle_composition: 0.0118752, fakes_secondaries: 0.016152,
+                pt_resolution: 0.000771343, eta_resolution: 0.000694387, unfolding: 0.00155338,
+                tracking_efficiency: 0.00558864, material: 0.0335217, lumi: 0.0202511 } }
+  - { low: 1.95, high: 2.25, value: 0.553599,
+      errors: { stat: 0.000958708, track_selection: 0.00251267, track_matching: 0.000170643,
+                particle_composition: 0.00673953, fakes_secondaries: 0.00798173,
+                pt_resolution: 0.000459525, eta_resolution: 0.00100299, unfolding: 0.000592158,
+                tracking_efficiency: 0.0028998, material: 0.0175215, lumi: 0.0105184 } }
+  - { low: 2.25, high: 2.57, value: 0.276783,
+      errors: { stat: 0.000602774, track_selection: 0.00113522, track_matching: 0.000121332,
+                particle_composition: 0.00363043, fakes_secondaries: 0.00376647,
+                pt_resolution: 0.000273348, eta_resolution: 0.000227913, unfolding: 7.64614e-05,
+                tracking_efficiency: 0.00145194, material: 0.00883209, lumi: 0.00525888 } }
+  - { low: 2.57, high: 2.95, value: 0.136797,
+      errors: { stat: 0.00036833, track_selection: 0.000536591, track_matching: 4.11473e-05,
+                particle_composition: 0.00199303, fakes_secondaries: 0.00174169,
+                pt_resolution: 0.000198749, eta_resolution: 0.000221794, unfolding: 0.000118311,
+                tracking_efficiency: 0.000715839, material: 0.00440849, lumi: 0.00259915 } }
+  - { low: 2.95, high: 3.35, value: 0.0653922,
+      errors: { stat: 0.000226017, track_selection: 0.00034576, track_matching: 6.60139e-05,
+                particle_composition: 0.00095324, fakes_secondaries: 0.000778562,
+                pt_resolution: 9.38299e-05, eta_resolution: 0.000103821, unfolding: 5.66059e-05,
+                tracking_efficiency: 0.000342928, material: 0.00210968, lumi: 0.00124245 } }
+  - { low: 3.35, high: 3.87, value: 0.0299922,
+      errors: { stat: 0.000127946, track_selection: 0.000159296, track_matching: 1.83912e-05,
+                particle_composition: 0.000459688, fakes_secondaries: 0.000324597,
+                pt_resolution: 1.44417e-05, eta_resolution: 2.13937e-05, unfolding: 5.55644e-05,
+                tracking_efficiency: 0.00015729, material: 0.000969409, lumi: 0.000569852 } }
+  - { low: 3.87, high: 4.45, value: 0.0130226,
+      errors: { stat: 7.32832e-05, track_selection: 7.72569e-05, track_matching: 1.62833e-06,
+                particle_composition: 0.000210524, fakes_secondaries: 0.000127768,
+                pt_resolution: 6.2737e-06, eta_resolution: 9.29056e-06, unfolding: 2.4138e-05,
+                tracking_efficiency: 6.83048e-05, material: 0.000423328, lumi: 0.00024743 } }
+  - { low: 4.45, high: 5.1, value: 0.00571989,
+      errors: { stat: 4.23123e-05, track_selection: 2.81189e-05, track_matching: 9.90971e-07,
+                particle_composition: 9.64793e-05, fakes_secondaries: 5.09459e-05,
+                pt_resolution: 2.37652e-06, eta_resolution: 3.29626e-06, unfolding: 6.30284e-06,
+                tracking_efficiency: 2.99757e-05, material: 0.000188771, lumi: 0.000108678 } }
+  - { low: 5.1, high: 5.85, value: 0.00246652,
+      errors: { stat: 2.40362e-05, track_selection: 1.18604e-05, track_matching: 5.53105e-07,
+                particle_composition: 4.29524e-05, fakes_secondaries: 1.99865e-05,
+                pt_resolution: 1.01386e-06, eta_resolution: 1.4008e-06, unfolding: 2.66245e-06,
+                tracking_efficiency: 1.29373e-05, material: 8.28211e-05, lumi: 4.6864e-05 } }
+  - { low: 5.85, high: 6.7, value: 0.00105564,
+      errors: { stat: 1.36571e-05, track_selection: 6.54765e-06, track_matching: 3.59977e-07,
+                particle_composition: 1.86784e-05, fakes_secondaries: 7.89257e-06,
+                pt_resolution: 7.99566e-07, eta_resolution: 1.44671e-06, unfolding: 2.47612e-06,
+                tracking_efficiency: 5.54222e-06, material: 3.6152e-05, lumi: 2.00571e-05 } }
+  - { low: 6.7, high: 7.65, value: 0.000459735,
+      errors: { stat: 7.76087e-06, track_selection: 3.1096e-06, track_matching: 6.10574e-08,
+                particle_composition: 8.12908e-06, fakes_secondaries: 3.27178e-06,
+                pt_resolution: 3.4926e-07, eta_resolution: 6.30239e-07, unfolding: 1.08287e-06,
+                tracking_efficiency: 2.41225e-06, material: 1.60865e-05, lumi: 8.73497e-06 } }
+  - { low: 7.65, high: 8.8, value: 0.000198312,
+      errors: { stat: 4.21464e-06, track_selection: 2.92691e-06, track_matching: 3.56875e-08,
+                particle_composition: 3.98131e-06, fakes_secondaries: 1.37107e-06,
+                pt_resolution: 1.28811e-07, eta_resolution: 8.63054e-08, unfolding: 5.31081e-08,
+                tracking_efficiency: 1.04037e-06, material: 7.11156e-06, lumi: 3.76793e-06 } }
+  - { low: 8.8, high: 10, value: 8.30423e-05,
+      errors: { stat: 2.30841e-06, track_selection: 1.33573e-06, track_matching: 2.10938e-08,
+                particle_composition: 1.92744e-06, fakes_secondaries: 5.72369e-07,
+                pt_resolution: 5.63968e-08, eta_resolution: 3.5573e-08, unfolding: 2.16897e-08,
+                tracking_efficiency: 4.34115e-07, material: 3.06399e-06, lumi: 1.5778e-06 } }
+  - { low: 10, high: 11.5, value: 3.69224e-05,
+      errors: { stat: 1.24249e-06, track_selection: 6.50347e-07, track_matching: 3.02865e-09,
+                particle_composition: 8.4181e-07, fakes_secondaries: 2.52663e-07,
+                pt_resolution: 3.85629e-08, eta_resolution: 1.52064e-08, unfolding: 2.47534e-08,
+                tracking_efficiency: 1.93715e-07, material: 1.40246e-06, lumi: 7.01525e-07 } }
+  - { low: 11.5, high: 13.2, value: 1.65865e-05,
+      errors: { stat: 6.93223e-07, track_selection: 3.50916e-07, track_matching: 1.41486e-08,
+                particle_composition: 3.49855e-07, fakes_secondaries: 1.13245e-07,
+                pt_resolution: 1.75683e-08, eta_resolution: 6.75627e-09, unfolding: 1.11182e-08,
+                tracking_efficiency: 8.73383e-08, material: 6.52384e-07, lumi: 3.15144e-07 } }
+  - { low: 13.2, high: 15.1, value: 6.85763e-06,
+      errors: { stat: 3.34769e-07, track_selection: 1.53028e-07, track_matching: 9.14274e-09,
+                particle_composition: 1.60852e-07, fakes_secondaries: 4.69206e-08,
+                pt_resolution: 1.41239e-08, eta_resolution: 2.02669e-09, unfolding: 3.77113e-09,
+                tracking_efficiency: 3.59873e-08, material: 2.70465e-07, lumi: 1.30295e-07 } }
+  - { low: 15.1, high: 17.3, value: 2.82859e-06,
+      errors: { stat: 1.5305e-07, track_selection: 5.80909e-08, track_matching: 2.84764e-09,
+                particle_composition: 6.6784e-08, fakes_secondaries: 1.93345e-08,
+                pt_resolution: 5.79614e-09, eta_resolution: 8.26706e-10, unfolding: 1.56761e-09,
+                tracking_efficiency: 1.4849e-08, material: 1.11542e-07, lumi: 5.37433e-08 } }
+  - { low: 17.3, high: 20, value: 1.21171e-06,
+      errors: { stat: 7.09932e-08, track_selection: 2.97593e-08, track_matching: 7.79352e-10,
+                particle_composition: 2.86828e-08, fakes_secondaries: 8.30763e-09,
+                pt_resolution: 2.35792e-09, eta_resolution: 3.02345e-10, unfolding: 9.22711e-10,
+                tracking_efficiency: 6.34257e-09, material: 4.77802e-08, lumi: 2.30226e-08 } }
+  - { low: 20, high: 23, value: 4.79947e-07,
+      errors: { stat: 2.02667e-08, track_selection: 9.23134e-09, track_matching: 5.59664e-10,
+                particle_composition: 1.16929e-08, fakes_secondaries: 3.27441e-09,
+                pt_resolution: 9.27322e-10, eta_resolution: 1.15995e-10, unfolding: 3.76515e-10,
+                tracking_efficiency: 2.51523e-09, material: 1.89075e-08, lumi: 9.11898e-09 } }
+  - { low: 23, high: 26, value: 2.19637e-07,
+      errors: { stat: 1.4626e-08, track_selection: 3.88654e-09, track_matching: 4.24255e-10,
+                particle_composition: 5.57746e-09, fakes_secondaries: 1.51415e-09,
+                pt_resolution: 2.02059e-10, eta_resolution: 1.19491e-11, unfolding: 1.57642e-10,
+                tracking_efficiency: 1.14583e-09, material: 8.6648e-09, lumi: 4.1731e-09 } }
+  - { low: 26, high: 30, value: 9.71109e-08,
+      errors: { stat: 3.57816e-09, track_selection: 1.62259e-09, track_matching: 2.17145e-10,
+                particle_composition: 2.73918e-09, fakes_secondaries: 6.66196e-10,
+                pt_resolution: 8.66264e-11, eta_resolution: 5.03636e-12, unfolding: 6.69709e-11,
+                tracking_efficiency: 5.06838e-10, material: 3.82665e-09, lumi: 1.84511e-09 } }
+  - { low: 30, high: 37.5, value: 3.0212e-08,
+      errors: { stat: 5.43835e-10, track_selection: 6.72311e-10, track_matching: 2.94336e-11,
+                particle_composition: 7.94093e-10, fakes_secondaries: 2.06605e-10,
+                pt_resolution: 6.18618e-11, eta_resolution: 9.59375e-12, unfolding: 1.08007e-11,
+                tracking_efficiency: 1.58255e-10, material: 1.19077e-09, lumi: 5.74027e-10 } }
+  - { low: 37.5, high: 47.5, value: 7.03564e-09,
+      errors: { stat: 1.49109e-10, track_selection: 1.73807e-10, track_matching: 1.059e-11,
+                particle_composition: 1.89671e-10, fakes_secondaries: 4.80116e-11,
+                pt_resolution: 1.46969e-11, eta_resolution: 2.24987e-12, unfolding: 2.44936e-12,
+                tracking_efficiency: 3.69781e-11, material: 2.77419e-10, lumi: 1.33677e-10 } }
+  - { low: 47.5, high: 60, value: 1.48913e-09,
+      errors: { stat: 1.45315e-11, track_selection: 2.49796e-11, track_matching: 9.89179e-13,
+                particle_composition: 3.85545e-11, fakes_secondaries: 1.01485e-11,
+                pt_resolution: 3.60532e-12, eta_resolution: 3.76237e-13, unfolding: 4.85994e-13,
+                tracking_efficiency: 7.82414e-12, material: 5.86915e-11, lumi: 2.82934e-11 } }
+  - { low: 60, high: 75, value: 3.23396e-10,
+      errors: { stat: 3.26036e-12, track_selection: 1.18598e-11, track_matching: 3.55834e-13,
+                particle_composition: 7.59096e-12, fakes_secondaries: 2.20813e-12,
+                pt_resolution: 7.80041e-13, eta_resolution: 8.11827e-14, unfolding: 1.06599e-13,
+                tracking_efficiency: 1.69729e-12, material: 1.27483e-11, lumi: 6.14453e-12 } }
+  - { low: 75, high: 95, value: 6.50954e-11,
+      errors: { stat: 6.65709e-13, track_selection: 4.48947e-12, track_matching: 8.84543e-14,
+                particle_composition: 1.34126e-12, fakes_secondaries: 4.43e-13,
+                pt_resolution: 7.65353e-14, eta_resolution: 1.11997e-14, unfolding: 3.92698e-14,
+                tracking_efficiency: 3.42318e-13, material: 2.56533e-12, lumi: 1.23681e-12 } }
+  - { low: 95, high: 120, value: 1.1921e-11,
+      errors: { stat: 1.77695e-13, track_selection: 1.02494e-12, track_matching: 1.84534e-14,
+                particle_composition: 2.36446e-13, fakes_secondaries: 8.09425e-14,
+                pt_resolution: 1.36525e-14, eta_resolution: 2.01319e-15, unfolding: 6.9937e-15,
+                tracking_efficiency: 6.26633e-14, material: 4.6946e-13, lumi: 2.265e-13 } }
+  - { low: 120, high: 150, value: 2.05646e-12,
+      errors: { stat: 5.19998e-14, track_selection: 2.39455e-13, track_matching: 4.51826e-15,
+                particle_composition: 3.17311e-14, fakes_secondaries: 1.3992e-14,
+                pt_resolution: 7.8805e-15, eta_resolution: 5.30172e-17, unfolding: 4.72854e-16,
+                tracking_efficiency: 1.07894e-14, material: 8.0984e-14, lumi: 3.90727e-14 } }
+  - { low: 150, high: 190, value: 3.64752e-13,
+      errors: { stat: 1.63755e-14, track_selection: 6.05108e-14, track_matching: 7.3192e-16,
+                particle_composition: 5.09524e-15, fakes_secondaries: 2.48269e-15,
+                pt_resolution: 1.4029e-15, eta_resolution: 9.42082e-18, unfolding: 8.34891e-17,
+                tracking_efficiency: 1.90895e-15, material: 1.43551e-14, lumi: 6.93028e-15 } }
+variant: ystarm2.2-m1.9

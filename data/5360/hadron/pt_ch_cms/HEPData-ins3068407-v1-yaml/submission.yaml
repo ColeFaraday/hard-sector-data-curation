@@ -1,0 +1,71 @@
+additional_resources:
+- {description: Webpage with all figures and tables, location: 'https://cms-results.web.cern.ch/cms-results/public-results/preliminary-results/HIN-25-008/index.html'}
+comment: A hot medium, known as the quark-gluon plasma (QGP), is created in collisions
+  of relativistic heavy nuclei such as lead or gold. Highly energetic quarks and gluons,collectively
+  referred to as partons, lose energy as they travel through the QGP leading to suppressed
+  production of particles with transverse momenta (pT) of roughly 10 - 100 GeV. This
+  suppression is typically quantified with the nuclear modification factor (RAA).
+  Questions regarding what minimum system size is required to see parton energy loss
+  effects remain, as no such suppression has been seen in smaller proton-lead collisions.
+  Experiments involving light nuclei examine a domain that lies between these two
+  extreme cases. Using 6.1 $nb^{-1}$ of oxygen-oxygen (OO) collisions and 1.02 $pb^{-1}$
+  of proton-proton data collected at a nucleon-nucleon center-of-mass energy of $\sqrt{s_{NN}}=5.36
+  TeV$ by the CMS experiment at the CERN LHC, charged particle invariant cross sections
+  and the OO charged particle R_{AA} are measured as a function of particle $p_{T}$
+  for the first time. The $R_{AA}$ is notably suppressed, with a local minimum of
+  $0.69 \pm 0.04$ at $p_{T}=6 GeV$, but increases to a value of $0.97 \pm 0.06$ at
+  $p_{T}=100 \text{GeV}$. To evaluate if parton energy loss effects may be present
+  in OO collisions, the data are compared to previous measurements of other collision
+  systems and a variety of theoretical models.
+hepdata_doi: 10.17182/hepdata.165512.v1
+---
+data_file: data1.yaml
+description: Inclusive charged particle spectra for pp collisions at 5.36 TeV for
+  $3 < p_{T} (GeV) <103.6$. The errors represent statistical, systematics and normalization
+  uncertainties.
+keywords:
+- name: reactions
+  values: [PP --> CHARGED HADRON X]
+- name: cmenergies
+  values: [5360.0]
+- name: observables
+  values: [Inclusive spectra]
+- name: phrases
+  values: [Particle spectra, Oxygen-Oxygen collisions, Nuclear modification factor]
+location: Figure 1, black markers
+name: Table 1
+table_doi: 10.17182/hepdata.165512.v1/t1
+---
+data_file: data2.yaml
+description: "Inclusive charged particle\tspectra\tfor OO collisions at 5.36 TeV for
+  $3 < p_{T} (GeV) <103.6$. The errors represent statistical, systematics and normalization
+  uncertainties."
+keywords:
+- name: reactions
+  values: [OO --> CHARGED HADRON X]
+- name: cmenergies
+  values: [5360.0]
+- name: observables
+  values: [Inclusive spectra]
+- name: phrases
+  values: [Particle spectra, Oxygen-Oxygen collisions, Nuclear modification factor]
+location: Figure 1, blue markers
+name: Table 2
+table_doi: 10.17182/hepdata.165512.v1/t2
+---
+data_file: data3.yaml
+description: Inclusive charged particle R_{AA} for 5.36 TeV OO collisions for $3 <
+  p_{T} (GeV) <103.6$. The errors represent statistical, systematics and normalization
+  uncertainties.
+keywords:
+- name: reactions
+  values: [OO --> CHARGED HADRON X]
+- name: cmenergies
+  values: [5360.0]
+- name: observables
+  values: [RAA]
+- name: phrases
+  values: [Particle spectra, Oxygen-Oxygen collisions, Nuclear modification factor]
+location: Figure 2, black markers
+name: Table 3
+table_doi: 10.17182/hepdata.165512.v1/t3

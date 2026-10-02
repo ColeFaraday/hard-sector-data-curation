@@ -1,0 +1,271 @@
+format_version: 1
+key: raa__PbPb5020__ATLAS__charged__50-60
+observable: raa
+system: PbPb
+sqrt_s_nn: 5020
+experiment: ATLAS
+particle: charged
+centrality: [50, 60]
+centrality_definition: ATLAS_FCAL_ET
+acceptance: { eta_range: [-2.5, 2.5] }
+source:
+  hepdata:
+    inspire_id: 2601282
+    version: 2
+    table: Table 42
+    column: 0
+    location: Data from F12
+    doi: "10.17182/hepdata.135676.v2/t43"
+  paper: "arXiv:2211.15257"
+  inspireHEPKey: "ATLAS:2022kqu"
+note: "R_AA of Eq. (1) of arXiv:2211.15257: the per-event Pb+Pb yield divided by <T_AA> and by the pp cross section in the same |eta| range at the same energy (Table 10 of the same HEPData record)."
+x: { name: pt, units: GeV }
+y: { name: raa }
+errors:
+  stat: { label: stat }
+  track_selection: { label: "syst, track selection" }
+  momentum_bias: { label: "syst, momentum bias" }
+  track_matching: { label: "syst, track to particle matching" }
+  particle_composition: { label: "syst, particle composition" }
+  fakes_secondaries: { label: "syst, fake and secondary tracks" }
+  pt_resolution: { label: "syst, pT resolution correction" }
+  eta_resolution: { label: "syst, eta resolution correction" }
+  unfolding: { label: "syst, unfolding procedure" }
+  tracking_efficiency: { label: "syst, track reconstruction efficiency" }
+  lumi: { label: "syst, luminosity", note: "The uncertainty of the integrated luminosity of the pp data, calibrated with beam-separation scans (arXiv:2211.15257, Sec. 7). The heavy-ion spectra of this HEPData record are per-event yields without a luminosity uncertainty, so in R_AA and R_pPb it enters through the pp reference." }
+  taa: { label: "syst, TAA", note: "The uncertainty of the mean nuclear thickness function: <T_AA> for Pb+Pb and Xe+Xe, <T_pPb> for p+Pb (HEPData labels both syst, TAA). The paper says it arises from the geometric modelling and from the fraction of selected inelastic collisions, with values in its Table 2 (arXiv:2211.15257, Sec. 7), and that it is always fully correlated across the whole pT range (Sec. 8)." }
+bins:
+  - { low: 0.5, high: 0.575, value: 0.486049,
+      errors: { stat: 9.92908e-05, track_selection: 0.0136724, momentum_bias: 0,
+                track_matching: 0.000126403, particle_composition: 0.000478445,
+                fakes_secondaries: 0.00450302, pt_resolution: 0.00121318,
+                eta_resolution: 0.000931659, unfolding: 0.000516257,
+                tracking_efficiency: 0.00767174, lumi: 0.00923494, taa: 0.023425 } }
+  - { low: 0.575, high: 0.66, value: 0.506266,
+      errors: { stat: 0.000108046, track_selection: 0.0120703, momentum_bias: 0,
+                track_matching: 8.48942e-05, particle_composition: 0.000517069,
+                fakes_secondaries: 0.00495587, pt_resolution: 0.00122937,
+                eta_resolution: 0.000897196, unfolding: 0.000555932,
+                tracking_efficiency: 0.00801832, lumi: 0.00961905, taa: 0.0243993 } }
+  - { low: 0.66, high: 0.755, value: 0.532296,
+      errors: { stat: 0.000120945, track_selection: 0.0109879, momentum_bias: 0,
+                track_matching: 6.28152e-05, particle_composition: 0.000660257,
+                fakes_secondaries: 0.00540795, pt_resolution: 0.00202265,
+                eta_resolution: 0.00108574, unfolding: 0.000431131,
+                tracking_efficiency: 0.0084122, lumi: 0.0101136, taa: 0.0256538 } }
+  - { low: 0.755, high: 0.86, value: 0.556179,
+      errors: { stat: 0.000136453, track_selection: 0.0098291, momentum_bias: 0,
+                track_matching: 0.000260925, particle_composition: 0.00104578,
+                fakes_secondaries: 0.00576902, pt_resolution: 0.00153429,
+                eta_resolution: 0.000897373, unfolding: 0.000872155,
+                tracking_efficiency: 0.00878156, lumi: 0.0105674, taa: 0.0268049 } }
+  - { low: 0.86, high: 0.999, value: 0.583146,
+      errors: { stat: 0.000148948, track_selection: 0.00929461, momentum_bias: 0,
+                track_matching: 0.000478836, particle_composition: 0.00162506,
+                fakes_secondaries: 0.00604297, pt_resolution: 0.00124836,
+                eta_resolution: 0.000911311, unfolding: 0.000700727,
+                tracking_efficiency: 0.00920044, lumi: 0.0110798, taa: 0.0281046 } }
+  - { low: 0.999, high: 1.13, value: 0.60997,
+      errors: { stat: 0.000183137, track_selection: 0.00839688, momentum_bias: 0,
+                track_matching: 0.000922042, particle_composition: 0.00266835,
+                fakes_secondaries: 0.00622086, pt_resolution: 0.000764839,
+                eta_resolution: 0.00128729, unfolding: 0.00132605,
+                tracking_efficiency: 0.0096115, lumi: 0.0115894, taa: 0.0293973 } }
+  - { low: 1.13, high: 1.3, value: 0.635276,
+      errors: { stat: 0.000203506, track_selection: 0.00794617, momentum_bias: 1.23179e-13,
+                track_matching: 0.000278492, particle_composition: 0.00266729,
+                fakes_secondaries: 0.0062822, pt_resolution: 0.00021368,
+                eta_resolution: 0.00121957, unfolding: 0.000477142,
+                tracking_efficiency: 0.0100014, lumi: 0.0120702, taa: 0.0306169 } }
+  - { low: 1.3, high: 1.5, value: 0.663414,
+      errors: { stat: 0.000241407, track_selection: 0.00765277, momentum_bias: 1.82216e-12,
+                track_matching: 0.00025958, particle_composition: 0.00395953,
+                fakes_secondaries: 0.00627188, pt_resolution: 0.000187895,
+                eta_resolution: 0.00156391, unfolding: 0.00072599,
+                tracking_efficiency: 0.0104311, lumi: 0.0126049, taa: 0.0319731 } }
+  - { low: 1.5, high: 1.7, value: 0.685225,
+      errors: { stat: 0.000301031, track_selection: 0.00722464, momentum_bias: 8.95062e-11,
+                track_matching: 0.000229662, particle_composition: 0.00529807,
+                fakes_secondaries: 0.00614351, pt_resolution: 0.000225228,
+                eta_resolution: 0.00127438, unfolding: 0.000703508,
+                tracking_efficiency: 0.010768, lumi: 0.0130193, taa: 0.0330242 } }
+  - { low: 1.7, high: 1.95, value: 0.69886,
+      errors: { stat: 0.000348372, track_selection: 0.00679899, momentum_bias: 7.70211e-09,
+                track_matching: 0.000177284, particle_composition: 0.00647887,
+                fakes_secondaries: 0.00589397, pt_resolution: 0.000265975,
+                eta_resolution: 0.00122523, unfolding: 0.00105666,
+                tracking_efficiency: 0.0109687, lumi: 0.0132783, taa: 0.0336813 } }
+  - { low: 1.95, high: 2.25, value: 0.70296,
+      errors: { stat: 0.000416406, track_selection: 0.00611989, momentum_bias: 4.59107e-08,
+                track_matching: 0.000139696, particle_composition: 0.00740548,
+                fakes_secondaries: 0.00547938, pt_resolution: 0.000311248,
+                eta_resolution: 0.00209256, unfolding: 0.0010372, tracking_efficiency: 0.011017,
+                lumi: 0.0133562, taa: 0.033879 } }
+  - { low: 2.25, high: 2.57, value: 0.692021,
+      errors: { stat: 0.000515153, track_selection: 0.00541004, momentum_bias: 6.26063e-08,
+                track_matching: 0.000152787, particle_composition: 0.0078566,
+                fakes_secondaries: 0.00493043, pt_resolution: 0.000368678,
+                eta_resolution: 0.00235575, unfolding: 0.00110163,
+                tracking_efficiency: 0.0108215, lumi: 0.0131484, taa: 0.0333517 } }
+  - { low: 2.57, high: 2.95, value: 0.668389,
+      errors: { stat: 0.000611848, track_selection: 0.0050211, momentum_bias: 8.72881e-08,
+                track_matching: 0.000362455, particle_composition: 0.00792352,
+                fakes_secondaries: 0.00427376, pt_resolution: 0.000581185,
+                eta_resolution: 0.00118313, unfolding: 0.000906792,
+                tracking_efficiency: 0.0104372, lumi: 0.0126994, taa: 0.0322128 } }
+  - { low: 2.95, high: 3.35, value: 0.640782,
+      errors: { stat: 0.00075541, track_selection: 0.00445185, momentum_bias: 1.38701e-07,
+                track_matching: 0.000617555, particle_composition: 0.00744283,
+                fakes_secondaries: 0.00365806, pt_resolution: 0.000553526,
+                eta_resolution: 0.0011276, unfolding: 0.000862305,
+                tracking_efficiency: 0.00999217, lumi: 0.0121749, taa: 0.0308823 } }
+  - { low: 3.35, high: 3.87, value: 0.603381,
+      errors: { stat: 0.00086672, track_selection: 0.00405036, momentum_bias: 2.3117e-07,
+                track_matching: 0.000348156, particle_composition: 0.00674173,
+                fakes_secondaries: 0.0028855, pt_resolution: 0.000529717,
+                eta_resolution: 0.000774614, unfolding: 0.000367634,
+                tracking_efficiency: 0.00939969, lumi: 0.0114642, taa: 0.0290798 } }
+  - { low: 3.87, high: 4.45, value: 0.565536,
+      errors: { stat: 0.00107268, track_selection: 0.00399615, momentum_bias: 4.73779e-07,
+                track_matching: 0.000485009, particle_composition: 0.00605456,
+                fakes_secondaries: 0.00220126, pt_resolution: 0.000493706,
+                eta_resolution: 0.000723841, unfolding: 0.000342676,
+                tracking_efficiency: 0.00879615, lumi: 0.0107452, taa: 0.0272558 } }
+  - { low: 4.45, high: 5.1, value: 0.536061,
+      errors: { stat: 0.0013414, track_selection: 0.00385858, momentum_bias: 7.58747e-07,
+                track_matching: 0.000512781, particle_composition: 0.00516944,
+                fakes_secondaries: 0.00164434, pt_resolution: 0.000541501,
+                eta_resolution: 0.000963196, unfolding: 0.000762064,
+                tracking_efficiency: 0.00833048, lumi: 0.0101852, taa: 0.0258353 } }
+  - { low: 5.1, high: 5.85, value: 0.515428,
+      errors: { stat: 0.00168646, track_selection: 0.00411327, momentum_bias: 1.41794e-06,
+                track_matching: 0.000535152, particle_composition: 0.00437869,
+                fakes_secondaries: 0.00119611, pt_resolution: 0.000519025,
+                eta_resolution: 0.000927136, unfolding: 0.000734156,
+                tracking_efficiency: 0.00800214, lumi: 0.00979314, taa: 0.0248409 } }
+  - { low: 5.85, high: 6.7, value: 0.516198,
+      errors: { stat: 0.00223719, track_selection: 0.00461178, momentum_bias: 2.4475e-06,
+                track_matching: 0.000634793, particle_composition: 0.00391025,
+                fakes_secondaries: 0.000881425, pt_resolution: 0.000663899,
+                eta_resolution: 0.00105057, unfolding: 0.000755488,
+                tracking_efficiency: 0.00801326, lumi: 0.00980777, taa: 0.024878 } }
+  - { low: 6.7, high: 7.65, value: 0.518828,
+      errors: { stat: 0.00294704, track_selection: 0.00521418, momentum_bias: 4.26269e-06,
+                track_matching: 0.000807361, particle_composition: 0.00347873,
+                fakes_secondaries: 0.000719982, pt_resolution: 0.000665108,
+                eta_resolution: 0.00105261, unfolding: 0.000758899,
+                tracking_efficiency: 0.00805187, lumi: 0.00985773, taa: 0.0250048 } }
+  - { low: 7.65, high: 8.8, value: 0.525631,
+      errors: { stat: 0.0037331, track_selection: 0.00689506, momentum_bias: 7.97197e-06,
+                track_matching: 0.000642424, particle_composition: 0.00284729,
+                fakes_secondaries: 0.000633691, pt_resolution: 0.000735962,
+                eta_resolution: 0.000492075, unfolding: 0.000331609,
+                tracking_efficiency: 0.00814621, lumi: 0.009987, taa: 0.0253326 } }
+  - { low: 8.8, high: 10, value: 0.535235,
+      errors: { stat: 0.00490814, track_selection: 0.00742956, momentum_bias: 1.70556e-05,
+                track_matching: 0.000675431, particle_composition: 0.00264672,
+                fakes_secondaries: 0.000604023, pt_resolution: 0.000748761,
+                eta_resolution: 0.000499691, unfolding: 0.000336842,
+                tracking_efficiency: 0.00828642, lumi: 0.0101695, taa: 0.0257955 } }
+  - { low: 10, high: 11.5, value: 0.567883,
+      errors: { stat: 0.006302, track_selection: 0.00916814, momentum_bias: 2.61231e-05,
+                track_matching: 0.0010831, particle_composition: 0.00340868,
+                fakes_secondaries: 0.000635609, pt_resolution: 0.0015814,
+                eta_resolution: 0.000509621, unfolding: 0.00067256,
+                tracking_efficiency: 0.0087833, lumi: 0.0107898, taa: 0.027369 } }
+  - { low: 11.5, high: 13.2, value: 0.573735,
+      errors: { stat: 0.0078384, track_selection: 0.0101893, momentum_bias: 4.65908e-05,
+                track_matching: 0.000997912, particle_composition: 0.00350095,
+                fakes_secondaries: 0.000658573, pt_resolution: 0.00159547,
+                eta_resolution: 0.000513076, unfolding: 0.000678591,
+                tracking_efficiency: 0.008871, lumi: 0.010901, taa: 0.027651 } }
+  - { low: 13.2, high: 15.1, value: 0.601721,
+      errors: { stat: 0.00986266, track_selection: 0.0128576, momentum_bias: 8.81896e-05,
+                track_matching: 0.00125704, particle_composition: 0.00421901,
+                fakes_secondaries: 0.000706039, pt_resolution: 0.00206874,
+                eta_resolution: 0.000505152, unfolding: 0.000457898,
+                tracking_efficiency: 0.0092913, lumi: 0.0114327, taa: 0.0289997 } }
+  - { low: 15.1, high: 17.3, value: 0.63622,
+      errors: { stat: 0.0116503, track_selection: 0.0184527, momentum_bias: 0.000105493,
+                track_matching: 0.0011606, particle_composition: 0.00495207,
+                fakes_secondaries: 0.000755285, pt_resolution: 0.00218278,
+                eta_resolution: 0.000532124, unfolding: 0.000483078,
+                tracking_efficiency: 0.00981175, lumi: 0.0120882, taa: 0.0306625 } }
+  - { low: 17.3, high: 20, value: 0.655251,
+      errors: { stat: 0.0130425, track_selection: 0.0183779, momentum_bias: 0.000199712,
+                track_matching: 0.00152001, particle_composition: 0.00475644,
+                fakes_secondaries: 0.000776841, pt_resolution: 0.00198694,
+                eta_resolution: 0.000908377, unfolding: 0.000778057,
+                tracking_efficiency: 0.0101138, lumi: 0.0124498, taa: 0.0315796 } }
+  - { low: 20, high: 23, value: 0.697702,
+      errors: { stat: 0.0124462, track_selection: 0.0190177, momentum_bias: 0.000462187,
+                track_matching: 0.00150499, particle_composition: 0.00545749,
+                fakes_secondaries: 0.000831809, pt_resolution: 0.00212242,
+                eta_resolution: 0.000969309, unfolding: 0.000830177,
+                tracking_efficiency: 0.0107657, lumi: 0.0132563, taa: 0.0336255 } }
+  - { low: 23, high: 26, value: 0.690939,
+      errors: { stat: 0.01595, track_selection: 0.0182761, momentum_bias: 0.000663108,
+                track_matching: 0.0018271, particle_composition: 0.00694035,
+                fakes_secondaries: 0.000821267, pt_resolution: 0.00233641,
+                eta_resolution: 0.000723972, unfolding: 0.00114587,
+                tracking_efficiency: 0.010637, lumi: 0.0131279, taa: 0.0332996 } }
+  - { low: 26, high: 30, value: 0.729933,
+      errors: { stat: 0.0132047, track_selection: 0.0119348, momentum_bias: 0.00105412,
+                track_matching: 0.00130298, particle_composition: 0.00666811,
+                fakes_secondaries: 0.000866313, pt_resolution: 0.0024822,
+                eta_resolution: 0.000758836, unfolding: 0.00123191,
+                tracking_efficiency: 0.0112062, lumi: 0.0138687, taa: 0.0351789 } }
+  - { low: 30, high: 37.5, value: 0.758514,
+      errors: { stat: 0.0192767, track_selection: 0.0322632, momentum_bias: 0.00165353,
+                track_matching: 0.00127726, particle_composition: 0.0060815,
+                fakes_secondaries: 0.000898537, pt_resolution: 0.00296907,
+                eta_resolution: 0.000579868, unfolding: 0.00061529,
+                tracking_efficiency: 0.0116385, lumi: 0.0144118, taa: 0.0365563 } }
+  - { low: 37.5, high: 47.5, value: 0.809299,
+      errors: { stat: 0.0153951, track_selection: 0.0215411, momentum_bias: 0.00421225,
+                track_matching: 0.00145321, particle_composition: 0.00669181,
+                fakes_secondaries: 0.000967242, pt_resolution: 0.00311442,
+                eta_resolution: 0.000618894, unfolding: 0.000648599,
+                tracking_efficiency: 0.0123338, lumi: 0.0153767, taa: 0.0390039 } }
+  - { low: 47.5, high: 60, value: 0.847391,
+      errors: { stat: 0.0182815, track_selection: 0.0224884, momentum_bias: 0.00739743,
+                track_matching: 0.00197045, particle_composition: 0.00872437,
+                fakes_secondaries: 0.00100563, pt_resolution: 0.00223009,
+                eta_resolution: 0.000801143, unfolding: 0.000846662,
+                tracking_efficiency: 0.0128619, lumi: 0.0161004, taa: 0.0408398 } }
+  - { low: 60, high: 75, value: 0.827144,
+      errors: { stat: 0.0186807, track_selection: 0.0306586, momentum_bias: 0.0137846,
+                track_matching: 0.0016007, particle_composition: 0.00606669,
+                fakes_secondaries: 0.00097427, pt_resolution: 0.00218488,
+                eta_resolution: 0.000730467, unfolding: 0.000827599,
+                tracking_efficiency: 0.0125745, lumi: 0.0157157, taa: 0.0398639 } }
+  - { low: 75, high: 95, value: 0.873982,
+      errors: { stat: 0.0239329, track_selection: 0.046643, momentum_bias: 0.0240824,
+                track_matching: 0.00162228, particle_composition: 0.00676674,
+                fakes_secondaries: 0.00109464, pt_resolution: 0.00360486,
+                eta_resolution: 0.00060314, unfolding: 0.000797499,
+                tracking_efficiency: 0.013158, lumi: 0.0166057, taa: 0.0421213 } }
+  - { low: 95, high: 120, value: 0.843739,
+      errors: { stat: 0.0375428, track_selection: 0.0579506, momentum_bias: 0.0561646,
+                track_matching: 0.00346575, particle_composition: 0.00963358,
+                fakes_secondaries: 0.0010288, pt_resolution: 0.00309113,
+                eta_resolution: 0.000572065, unfolding: 0.00075795,
+                tracking_efficiency: 0.0127113, lumi: 0.016031, taa: 0.0406638 } }
+  - { low: 120, high: 150, value: 0.787305,
+      errors: { stat: 0.0453184, track_selection: 0.0631614, momentum_bias: 0.0761902,
+                track_matching: 0.00464285, particle_composition: 0.0138241,
+                fakes_secondaries: 0.000916503, pt_resolution: 0.008936,
+                eta_resolution: 0.00077398, unfolding: 0.00498293,
+                tracking_efficiency: 0.0117361, lumi: 0.0149588, taa: 0.0379439 } }
+  - { low: 150, high: 190, value: 0.750589,
+      errors: { stat: 0.0673243, track_selection: 0.0644907, momentum_bias: 0.101392,
+                track_matching: 0.00510805, particle_composition: 0.0202243,
+                fakes_secondaries: 0.000849328, pt_resolution: 0.00757387,
+                eta_resolution: 0.00108636, unfolding: 0.00590574,
+                tracking_efficiency: 0.0107838, lumi: 0.0142612, taa: 0.0361744 } }
+  - { low: 190, high: 300, value: 0.778625,
+      errors: { stat: 0.0991338, track_selection: 0.101563, momentum_bias: 0.12881,
+                track_matching: 0.00395496, particle_composition: 0.0234813,
+                fakes_secondaries: 0.000739845, pt_resolution: 0.0139225,
+                eta_resolution: 0.00125486, unfolding: 0.023332, tracking_efficiency: 0.0106822,
+                lumi: 0.0147939, taa: 0.0375256 } }

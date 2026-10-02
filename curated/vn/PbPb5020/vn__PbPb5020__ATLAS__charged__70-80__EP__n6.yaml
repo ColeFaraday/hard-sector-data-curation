@@ -1,0 +1,47 @@
+format_version: 1
+key: vn__PbPb5020__ATLAS__charged__70-80__EP__n6
+observable: vn
+system: PbPb
+sqrt_s_nn: 5020
+experiment: ATLAS
+particle: charged
+centrality: [70, 80]
+centrality_definition: ATLAS_FCAL_ET
+harmonic: 6
+method: EP
+acceptance: { eta_range: [-2.5, 2.5] }
+source:
+  hepdata:
+    inspire_id: 1686834
+    version: 1
+    table: Table 340
+    column: 0
+    location: Data from Figure 16
+    doi: "10.17182/hepdata.84427.v1/t340"
+  paper: "arXiv:1808.03951"
+  inspireHEPKey: "ATLAS:2018ezv"
+note: "Event plane method: the FCal reference flow vector (3.2 < |eta| < 4.9) is normalised to unity (arXiv:1808.03951, Sec. 4.2). The paper says it uses the EP method only to compare with the Run 1 (2.76 TeV) results. HEPData's Figure 16 has no counterpart in the arXiv text, which has Figures 1-14. All the methods of this record use the same minimum-bias sample (arXiv:1808.03951, Sec. 4)."
+x: { name: pt, units: GeV }
+y: { name: vn }
+errors:
+  stat: { label: stat }
+  sys: { label: sys, note: "HEPData gives one systematic uncertainty per point. The paper lists the individual sources for selected pT intervals (Tables 3 and 4) and says the total systematic uncertainty is their sum in quadrature (arXiv:1808.03951, Sec. 5)." }
+bins:
+  - { low: 0.5, high: 0.6, value: 0.0023412,
+      errors: { stat: 0.00279, sys: 0.000512 } }
+  - { low: 0.6, high: 0.8, value: 0.0011705,
+      errors: { stat: 0.00219, sys: 0.000512 } }
+  - { low: 0.8, high: 1, value: -0.0017429,
+      errors: { stat: 0.00273, sys: 0.000512 } }
+  - { low: 1, high: 1.2, value: 0.0026934,
+      errors: { stat: 0.00339, sys: 0.000513 } }
+  - { low: 1.2, high: 1.5, value: -0.0032913,
+      errors: { stat: 0.00358, sys: 0.000512 } }
+  - { low: 1.5, high: 2, value: -0.0020804,
+      errors: { stat: 0.00408, sys: 0.000514 } }
+  - { low: 2, high: 2.5, value: 0.0054008,
+      errors: { stat: 0.00615, sys: 0.000526 } }
+  - { low: 2.5, high: 4, value: 0.013964,
+      errors: { stat: 0.00829, sys: 0.000524 } }
+  - { low: 4, high: 60, value: 0.011418,
+      errors: { stat: 0.0173, sys: 0.0026 } }
