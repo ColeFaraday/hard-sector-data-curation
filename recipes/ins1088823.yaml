@@ -1,0 +1,38 @@
+# CMS, study of high-pT charged particle suppression in PbPb compared to pp collisions at
+# 2.76 TeV (arXiv:1202.2554, HEPData ins1088823 v1): R_AA, R_CP and the pp spectrum.
+#
+# Not curated: the PbPb yields (Tables 3-4) and the scaled cross section against x_T
+# (Table 2), neither of which is a ratio against pp as a function of pT.
+
+# HEPData labels the PbPb tables of this record (Tables 5 to 7) with the reaction
+# 'P P --> CHARGED X' in their RE qualifier; their descriptions and the paper say PbPb. The
+# build's reaction check would warn about it, so it is explained here.
+known_warnings:
+  - "the table's reaction is 'P P --> CHARGED X' but the recipe says PbPb"
+
+record: { inspire_id: 1088823, version: 1 }
+paper: "arXiv:1202.2554"
+experiment: CMS
+particle: charged
+sqrt_s_nn: 2760
+acceptance: { eta_range: [-1.0, 1.0] }
+centrality_definition: CMS_HF_ENERGY_2760
+
+datasets:
+  - { table: Table 5, column: 0, observable: raa, system: PbPb, centrality: [0, 5] }
+  - { table: Table 5, column: 1, observable: raa, system: PbPb, centrality: [5, 10] }
+  - { table: Table 5, column: 2, observable: raa, system: PbPb, centrality: [10, 30] }
+  - { table: Table 6, column: 0, observable: raa, system: PbPb, centrality: [30, 50] }
+  - { table: Table 6, column: 1, observable: raa, system: PbPb, centrality: [50, 70] }
+  - { table: Table 6, column: 2, observable: raa, system: PbPb, centrality: [70, 90] }
+  # R_CP: each class over 50-90%, scaled by <T_AA>.
+  - { table: Table 7, column: 0, observable: rcp, system: PbPb, centrality: [0, 5], reference_centrality: [50, 90] }
+  - { table: Table 7, column: 1, observable: rcp, system: PbPb, centrality: [5, 10], reference_centrality: [50, 90] }
+  - { table: Table 7, column: 2, observable: rcp, system: PbPb, centrality: [10, 30], reference_centrality: [50, 90] }
+  - { table: Table 7, column: 3, observable: rcp, system: PbPb, centrality: [30, 50], reference_centrality: [50, 90] }
+  - table: Table 1
+    observable: pp_cross_section
+    system: pp
+    definition: INVARIANT_YIELD_DETA
+    centrality_definition: null
+    note: "HEPData titles the quantity E d^3N/dp^3 in GeV^-2 for |eta| < 1, the invariant differential yield of pp collisions."
