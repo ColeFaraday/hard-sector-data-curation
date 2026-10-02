@@ -1,0 +1,611 @@
+dependent_variables:
+- header: {name: 1/NEVT 1/(2*PI*PT) 1/<TPPB> D2(N)/DPT/DY, units: MB/GeV2}
+  qualifiers:
+  - {name: Y*, value: -1.6 - -1.3}
+  - {name: CENTRALITY, units: pct, value: 60 - 90}
+  - {name: RE, value: P PB --> CHARGED X}
+  - {name: SQRT(S)/NUCLEON, units: GeV, value: '5020.0'}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.0647077}
+    - {label: 'syst, track selection', symerror: 1.05715}
+    - {label: 'syst, track to particle matching', symerror: 0.00669799}
+    - {label: 'syst, particle composition', symerror: 0.687441}
+    - {label: 'syst, fake and secondary tracks', symerror: 2.68274}
+    - {label: 'syst, pT resolution correction', symerror: 0.115944}
+    - {label: 'syst, eta resolution correction', symerror: 0.0320061}
+    - {label: 'syst, unfolding procedure', symerror: 0.0604022}
+    - {label: 'syst, track reconstruction efficiency', symerror: 1.53884}
+    - {label: 'syst, material', symerror: 3.46841}
+    - asymerror: {minus: -9.18548, plus: 12.7832}
+      label: syst, TAA
+    value: 131.786
+  - errors:
+    - {label: stat, symerror: 0.0428184}
+    - {label: 'syst, track selection', symerror: 0.895458}
+    - {label: 'syst, track to particle matching', symerror: 0.00320591}
+    - {label: 'syst, particle composition', symerror: 0.531676}
+    - {label: 'syst, fake and secondary tracks', symerror: 1.1935}
+    - {label: 'syst, pT resolution correction', symerror: 0.0515886}
+    - {label: 'syst, eta resolution correction', symerror: 0.0506189}
+    - {label: 'syst, unfolding procedure', symerror: 0.00890178}
+    - {label: 'syst, track reconstruction efficiency', symerror: 0.934238}
+    - {label: 'syst, material', symerror: 1.85317}
+    - asymerror: {minus: -5.5789, plus: 7.76403}
+      label: syst, TAA
+    value: 80.0415
+  - errors:
+    - {label: stat, symerror: 0.0342982}
+    - {label: 'syst, track selection', symerror: 0.661916}
+    - {label: 'syst, track to particle matching', symerror: 0.00150885}
+    - {label: 'syst, particle composition', symerror: 0.384737}
+    - {label: 'syst, fake and secondary tracks', symerror: 0.627255}
+    - {label: 'syst, pT resolution correction', symerror: 0.0655311}
+    - {label: 'syst, eta resolution correction', symerror: 0.0152532}
+    - {label: 'syst, unfolding procedure', symerror: 0.00380114}
+    - {label: 'syst, track reconstruction efficiency', symerror: 0.622247}
+    - {label: 'syst, material', symerror: 1.23442}
+    - asymerror: {minus: -3.71571, plus: 5.17107}
+      label: syst, TAA
+    value: 53.31
+  - errors:
+    - {label: stat, symerror: 0.0253875}
+    - {label: 'syst, track selection', symerror: 0.49622}
+    - {label: 'syst, track to particle matching', symerror: 0.000879847}
+    - {label: 'syst, particle composition', symerror: 0.268625}
+    - {label: 'syst, fake and secondary tracks', symerror: 0.384156}
+    - {label: 'syst, pT resolution correction', symerror: 0.02597}
+    - {label: 'syst, eta resolution correction', symerror: 0.009434}
+    - {label: 'syst, unfolding procedure', symerror: 0.00391696}
+    - {label: 'syst, track reconstruction efficiency', symerror: 0.437157}
+    - {label: 'syst, material', symerror: 0.866824}
+    - asymerror: {minus: -2.60982, plus: 3.63204}
+      label: syst, TAA
+    value: 37.4437
+  - errors:
+    - {label: stat, symerror: 0.0186233}
+    - {label: 'syst, track selection', symerror: 0.290814}
+    - {label: 'syst, track to particle matching', symerror: 0.000410409}
+    - {label: 'syst, particle composition', symerror: 0.191832}
+    - {label: 'syst, fake and secondary tracks', symerror: 0.238882}
+    - {label: 'syst, pT resolution correction', symerror: 0.0226922}
+    - {label: 'syst, eta resolution correction', symerror: 0.00529162}
+    - {label: 'syst, unfolding procedure', symerror: 0.00319856}
+    - {label: 'syst, track reconstruction efficiency', symerror: 0.300732}
+    - {label: 'syst, material', symerror: 0.596659}
+    - asymerror: {minus: -1.79599, plus: 2.49943}
+      label: syst, TAA
+    value: 25.7674
+  - errors:
+    - {label: stat, symerror: 0.0134668}
+    - {label: 'syst, track selection', symerror: 0.233128}
+    - {label: 'syst, track to particle matching', symerror: 0.00341285}
+    - {label: 'syst, particle composition', symerror: 0.14308}
+    - {label: 'syst, fake and secondary tracks', symerror: 0.147509}
+    - {label: 'syst, pT resolution correction', symerror: 0.0158753}
+    - {label: 'syst, eta resolution correction', symerror: 0.00691459}
+    - {label: 'syst, unfolding procedure', symerror: 0.0020415}
+    - {label: 'syst, track reconstruction efficiency', symerror: 0.202765}
+    - {label: 'syst, material', symerror: 0.402097}
+    - asymerror: {minus: -1.21083, plus: 1.68508}
+      label: syst, TAA
+    value: 17.372
+  - errors:
+    - {label: stat, symerror: 0.00902802}
+    - {label: 'syst, track selection', symerror: 0.160793}
+    - {label: 'syst, track to particle matching', symerror: 0.00298393}
+    - {label: 'syst, particle composition', symerror: 0.114094}
+    - {label: 'syst, fake and secondary tracks', symerror: 0.0887939}
+    - {label: 'syst, pT resolution correction', symerror: 0.00755041}
+    - {label: 'syst, eta resolution correction', symerror: 0.00313318}
+    - {label: 'syst, unfolding procedure', symerror: 0.00095821}
+    - {label: 'syst, track reconstruction efficiency', symerror: 0.131181}
+    - {label: 'syst, material', symerror: 0.260151}
+    - asymerror: {minus: -0.783442, plus: 1.0903}
+      label: syst, TAA
+    value: 11.2402
+  - errors:
+    - {label: stat, symerror: 0.00680325}
+    - {label: 'syst, track selection', symerror: 0.0785448}
+    - {label: 'syst, track to particle matching', symerror: 0.00711813}
+    - {label: 'syst, particle composition', symerror: 0.0758251}
+    - {label: 'syst, fake and secondary tracks', symerror: 0.0535117}
+    - {label: 'syst, pT resolution correction', symerror: 0.00712635}
+    - {label: 'syst, eta resolution correction', symerror: 0.00169196}
+    - {label: 'syst, unfolding procedure', symerror: 0.001419}
+    - {label: 'syst, track reconstruction efficiency', symerror: 0.0836225}
+    - {label: 'syst, material', symerror: 0.165866}
+    - asymerror: {minus: -0.499363, plus: 0.694952}
+      label: syst, TAA
+    value: 7.16446
+  - errors:
+    - {label: stat, symerror: 0.00450969}
+    - {label: 'syst, track selection', symerror: 0.0525462}
+    - {label: 'syst, track to particle matching', symerror: 0.000119669}
+    - {label: 'syst, particle composition', symerror: 0.0519305}
+    - {label: 'syst, fake and secondary tracks', symerror: 0.0317239}
+    - {label: 'syst, pT resolution correction', symerror: 4.72308e-05}
+    - {label: 'syst, eta resolution correction', symerror: 0.00148812}
+    - {label: 'syst, unfolding procedure', symerror: 0.000495361}
+    - {label: 'syst, track reconstruction efficiency', symerror: 0.0523601}
+    - {label: 'syst, material', symerror: 0.10384}
+    - asymerror: {minus: -0.312649, plus: 0.435107}
+      label: syst, TAA
+    value: 4.48563
+  - errors:
+    - {label: stat, symerror: 0.00295682}
+    - {label: 'syst, track selection', symerror: 0.0268454}
+    - {label: 'syst, track to particle matching', symerror: 0.000174756}
+    - {label: 'syst, particle composition', symerror: 0.0311479}
+    - {label: 'syst, fake and secondary tracks', symerror: 0.0173632}
+    - {label: 'syst, pT resolution correction', symerror: 0.000118177}
+    - {label: 'syst, eta resolution correction', symerror: 0.000880585}
+    - {label: 'syst, unfolding procedure', symerror: 0.00130143}
+    - {label: 'syst, track reconstruction efficiency', symerror: 0.0303745}
+    - {label: 'syst, material', symerror: 0.0602292}
+    - asymerror: {minus: -0.181345, plus: 0.252374}
+      label: syst, TAA
+    value: 2.6018
+  - errors:
+    - {label: stat, symerror: 0.00208368}
+    - {label: 'syst, track selection', symerror: 0.0165209}
+    - {label: 'syst, track to particle matching', symerror: 7.89982e-05}
+    - {label: 'syst, particle composition', symerror: 0.019369}
+    - {label: 'syst, fake and secondary tracks', symerror: 0.00953082}
+    - {label: 'syst, pT resolution correction', symerror: 8.16945e-05}
+    - {label: 'syst, eta resolution correction', symerror: 0.00085366}
+    - {label: 'syst, unfolding procedure', symerror: 0.000755698}
+    - {label: 'syst, track reconstruction efficiency', symerror: 0.0176849}
+    - {label: 'syst, material', symerror: 0.0350836}
+    - asymerror: {minus: -0.105627, plus: 0.146999}
+      label: syst, TAA
+    value: 1.51545
+  - errors:
+    - {label: stat, symerror: 0.00132943}
+    - {label: 'syst, track selection', symerror: 0.00972986}
+    - {label: 'syst, track to particle matching', symerror: 7.30268e-05}
+    - {label: 'syst, particle composition', symerror: 0.012071}
+    - {label: 'syst, fake and secondary tracks', symerror: 0.00504414}
+    - {label: 'syst, pT resolution correction', symerror: 6.50897e-05}
+    - {label: 'syst, eta resolution correction', symerror: 0.000198177}
+    - {label: 'syst, unfolding procedure', symerror: 0.000215084}
+    - {label: 'syst, track reconstruction efficiency', symerror: 0.00999258}
+    - {label: 'syst, material', symerror: 0.0198273}
+    - asymerror: {minus: -0.0596997, plus: 0.0830828}
+      label: syst, TAA
+    value: 0.856523
+  - errors:
+    - {label: stat, symerror: 0.000824701}
+    - {label: 'syst, track selection', symerror: 0.0048802}
+    - {label: 'syst, track to particle matching', symerror: 3.19164e-05}
+    - {label: 'syst, particle composition', symerror: 0.00612716}
+    - {label: 'syst, fake and secondary tracks', symerror: 0.00243914}
+    - {label: 'syst, pT resolution correction', symerror: 3.17702e-05}
+    - {label: 'syst, eta resolution correction', symerror: 0.000360276}
+    - {label: 'syst, unfolding procedure', symerror: 0.000131225}
+    - {label: 'syst, track reconstruction efficiency', symerror: 0.00524191}
+    - {label: 'syst, material', symerror: 0.0103935}
+    - asymerror: {minus: -0.0312963, plus: 0.0435544}
+      label: syst, TAA
+    value: 0.449014
+  - errors:
+    - {label: stat, symerror: 0.000527015}
+    - {label: 'syst, track selection', symerror: 0.00215546}
+    - {label: 'syst, track to particle matching', symerror: 2.64119e-05}
+    - {label: 'syst, particle composition', symerror: 0.00315034}
+    - {label: 'syst, fake and secondary tracks', symerror: 0.00114494}
+    - {label: 'syst, pT resolution correction', symerror: 2.05865e-05}
+    - {label: 'syst, eta resolution correction', symerror: 0.000196113}
+    - {label: 'syst, unfolding procedure', symerror: 0.000190417}
+    - {label: 'syst, track reconstruction efficiency', symerror: 0.00267798}
+    - {label: 'syst, material', symerror: 0.00531155}
+    - asymerror: {minus: -0.0159938, plus: 0.0222583}
+      label: syst, TAA
+    value: 0.229467
+  - errors:
+    - {label: stat, symerror: 0.000320699}
+    - {label: 'syst, track selection', symerror: 0.00123666}
+    - {label: 'syst, track to particle matching', symerror: 2.35399e-05}
+    - {label: 'syst, particle composition', symerror: 0.00157886}
+    - {label: 'syst, fake and secondary tracks', symerror: 0.000522778}
+    - {label: 'syst, pT resolution correction', symerror: 1.34738e-06}
+    - {label: 'syst, eta resolution correction', symerror: 9.35612e-05}
+    - {label: 'syst, unfolding procedure', symerror: 6.16429e-05}
+    - {label: 'syst, track reconstruction efficiency', symerror: 0.0013311}
+    - {label: 'syst, material', symerror: 0.00264194}
+    - asymerror: {minus: -0.00795116, plus: 0.0110655}
+      label: syst, TAA
+    value: 0.114077
+  - errors:
+    - {label: stat, symerror: 0.000203155}
+    - {label: 'syst, track selection', symerror: 0.000792417}
+    - {label: 'syst, track to particle matching', symerror: 3.74183e-05}
+    - {label: 'syst, particle composition', symerror: 0.000932604}
+    - {label: 'syst, fake and secondary tracks', symerror: 0.000241314}
+    - {label: 'syst, pT resolution correction', symerror: 6.63205e-07}
+    - {label: 'syst, eta resolution correction', symerror: 4.66552e-05}
+    - {label: 'syst, unfolding procedure', symerror: 3.03096e-05}
+    - {label: 'syst, track reconstruction efficiency', symerror: 0.000655851}
+    - {label: 'syst, material', symerror: 0.00130102}
+    - asymerror: {minus: -0.00391984, plus: 0.00545516}
+      label: syst, TAA
+    value: 0.0562388
+  - errors:
+    - {label: stat, symerror: 0.00011434}
+    - {label: 'syst, track selection', symerror: 0.00033663}
+    - {label: 'syst, track to particle matching', symerror: 1.08803e-06}
+    - {label: 'syst, particle composition', symerror: 0.000460136}
+    - {label: 'syst, fake and secondary tracks', symerror: 0.000107049}
+    - {label: 'syst, pT resolution correction', symerror: 2.44827e-06}
+    - {label: 'syst, eta resolution correction', symerror: 3.27588e-05}
+    - {label: 'syst, unfolding procedure', symerror: 4.18055e-06}
+    - {label: 'syst, track reconstruction efficiency', symerror: 0.000304998}
+    - {label: 'syst, material', symerror: 0.000605486}
+    - asymerror: {minus: -0.00182265, plus: 0.00253655}
+      label: syst, TAA
+    value: 0.02615
+  - errors:
+    - {label: stat, symerror: 6.58367e-05}
+    - {label: 'syst, track selection', symerror: 0.000106617}
+    - {label: 'syst, track to particle matching', symerror: 1.02088e-06}
+    - {label: 'syst, particle composition', symerror: 0.000183767}
+    - {label: 'syst, fake and secondary tracks', symerror: 4.65245e-05}
+    - {label: 'syst, pT resolution correction', symerror: 1.07187e-06}
+    - {label: 'syst, eta resolution correction', symerror: 1.4332e-05}
+    - {label: 'syst, unfolding procedure', symerror: 1.82861e-06}
+    - {label: 'syst, track reconstruction efficiency', symerror: 0.00013336}
+    - {label: 'syst, material', symerror: 0.000264814}
+    - asymerror: {minus: -0.000797048, plus: 0.00110923}
+      label: syst, TAA
+    value: 0.0114354
+  - errors:
+    - {label: stat, symerror: 3.9084e-05}
+    - {label: 'syst, track selection', symerror: 7.31539e-05}
+    - {label: 'syst, track to particle matching', symerror: 5.42597e-07}
+    - {label: 'syst, particle composition', symerror: 9.77673e-05}
+    - {label: 'syst, fake and secondary tracks', symerror: 2.08482e-05}
+    - {label: 'syst, pT resolution correction', symerror: 6.47381e-07}
+    - {label: 'syst, eta resolution correction', symerror: 2.02441e-06}
+    - {label: 'syst, unfolding procedure', symerror: 8.05033e-06}
+    - {label: 'syst, track reconstruction efficiency', symerror: 5.97532e-05}
+    - {label: 'syst, material', symerror: 0.000118439}
+    - asymerror: {minus: -0.000356778, plus: 0.00049652}
+      label: syst, TAA
+    value: 0.00511876
+  - errors:
+    - {label: stat, symerror: 2.2445e-05}
+    - {label: 'syst, track selection', symerror: 2.72331e-05}
+    - {label: 'syst, track to particle matching', symerror: 2.74352e-07}
+    - {label: 'syst, particle composition', symerror: 4.88073e-05}
+    - {label: 'syst, fake and secondary tracks', symerror: 9.13211e-06}
+    - {label: 'syst, pT resolution correction', symerror: 2.82411e-07}
+    - {label: 'syst, eta resolution correction', symerror: 8.91405e-07}
+    - {label: 'syst, unfolding procedure', symerror: 3.53779e-06}
+    - {label: 'syst, track reconstruction efficiency', symerror: 2.6157e-05}
+    - {label: 'syst, material', symerror: 5.18802e-05}
+    - asymerror: {minus: -0.000156169, plus: 0.000217337}
+      label: syst, TAA
+    value: 0.00224059
+  - errors:
+    - {label: stat, symerror: 1.27643e-05}
+    - {label: 'syst, track selection', symerror: 1.26601e-05}
+    - {label: 'syst, track to particle matching', symerror: 1.4601e-07}
+    - {label: 'syst, particle composition', symerror: 1.78789e-05}
+    - {label: 'syst, fake and secondary tracks', symerror: 3.94591e-06}
+    - {label: 'syst, pT resolution correction', symerror: 2.08029e-06}
+    - {label: 'syst, eta resolution correction', symerror: 5.95036e-07}
+    - {label: 'syst, unfolding procedure', symerror: 4.94197e-07}
+    - {label: 'syst, track reconstruction efficiency', symerror: 1.13168e-05}
+    - {label: 'syst, material', symerror: 2.24612e-05}
+    - asymerror: {minus: -6.76424e-05, plus: 9.41365e-05}
+      label: syst, TAA
+    value: 0.00097048
+  - errors:
+    - {label: stat, symerror: 7.53802e-06}
+    - {label: 'syst, track selection', symerror: 1.11722e-05}
+    - {label: 'syst, track to particle matching', symerror: 2.45837e-07}
+    - {label: 'syst, particle composition', symerror: 1.21197e-05}
+    - {label: 'syst, fake and secondary tracks', symerror: 1.79618e-06}
+    - {label: 'syst, pT resolution correction', symerror: 9.45242e-07}
+    - {label: 'syst, eta resolution correction', symerror: 2.70333e-07}
+    - {label: 'syst, unfolding procedure', symerror: 2.24659e-07}
+    - {label: 'syst, track reconstruction efficiency', symerror: 5.15124e-06}
+    - {label: 'syst, material', symerror: 1.02203e-05}
+    - asymerror: {minus: -3.07838e-05, plus: 4.28412e-05}
+      label: syst, TAA
+    value: 0.000441662
+  - errors:
+    - {label: stat, symerror: 4.10793e-06}
+    - {label: 'syst, track selection', symerror: 3.24681e-06}
+    - {label: 'syst, track to particle matching', symerror: 1.65645e-07}
+    - {label: 'syst, particle composition', symerror: 5.3306e-06}
+    - {label: 'syst, fake and secondary tracks', symerror: 7.60098e-07}
+    - {label: 'syst, pT resolution correction', symerror: 1.74625e-06}
+    - {label: 'syst, eta resolution correction', symerror: 7.47279e-08}
+    - {label: 'syst, unfolding procedure', symerror: 1.31443e-06}
+    - {label: 'syst, track reconstruction efficiency', symerror: 2.17761e-06}
+    - {label: 'syst, material', symerror: 4.32039e-06}
+    - asymerror: {minus: -1.30049e-05, plus: 1.80987e-05}
+      label: syst, TAA
+    value: 0.000186584
+  - errors:
+    - {label: stat, symerror: 2.40439e-06}
+    - {label: 'syst, track selection', symerror: 1.61719e-06}
+    - {label: 'syst, track to particle matching', symerror: 6.63255e-07}
+    - {label: 'syst, particle composition', symerror: 2.60703e-06}
+    - {label: 'syst, fake and secondary tracks', symerror: 3.3632e-07}
+    - {label: 'syst, pT resolution correction', symerror: 7.45408e-07}
+    - {label: 'syst, eta resolution correction', symerror: 3.29816e-08}
+    - {label: 'syst, unfolding procedure', symerror: 5.76917e-07}
+    - {label: 'syst, track reconstruction efficiency', symerror: 9.6682e-07}
+    - {label: 'syst, material', symerror: 1.91636e-06}
+    - asymerror: {minus: -5.78331e-06, plus: 8.04851e-06}
+      label: syst, TAA
+    value: 8.29744e-05
+  - errors:
+    - {label: stat, symerror: 1.27611e-06}
+    - {label: 'syst, track selection', symerror: 3.37563e-06}
+    - {label: 'syst, track to particle matching', symerror: 3.4342e-07}
+    - {label: 'syst, particle composition', symerror: 1.42004e-06}
+    - {label: 'syst, fake and secondary tracks', symerror: 1.48148e-07}
+    - {label: 'syst, pT resolution correction', symerror: 2.59027e-07}
+    - {label: 'syst, eta resolution correction', symerror: 2.38374e-07}
+    - {label: 'syst, unfolding procedure', symerror: 4.47554e-07}
+    - {label: 'syst, track reconstruction efficiency', symerror: 4.26759e-07}
+    - {label: 'syst, material', symerror: 8.48005e-07}
+    - asymerror: {minus: -2.55917e-06, plus: 3.56154e-06}
+      label: syst, TAA
+    value: 3.67169e-05
+  - errors:
+    - {label: stat, symerror: 6.85329e-07}
+    - {label: 'syst, track selection', symerror: 3.29138e-07}
+    - {label: 'syst, track to particle matching', symerror: 1.36552e-08}
+    - {label: 'syst, particle composition', symerror: 4.98476e-07}
+    - {label: 'syst, fake and secondary tracks', symerror: 6.09977e-08}
+    - {label: 'syst, pT resolution correction', symerror: 1.02834e-07}
+    - {label: 'syst, eta resolution correction', symerror: 9.76937e-08}
+    - {label: 'syst, unfolding procedure', symerror: 1.80405e-07}
+    - {label: 'syst, track reconstruction efficiency', symerror: 1.75033e-07}
+    - {label: 'syst, material', symerror: 3.47211e-07}
+    - asymerror: {minus: -1.04626e-06, plus: 1.45606e-06}
+      label: syst, TAA
+    value: 1.5011e-05
+  - errors:
+    - {label: stat, symerror: 3.87236e-07}
+    - {label: 'syst, track selection', symerror: 1.76196e-07}
+    - {label: 'syst, track to particle matching', symerror: 2.69439e-09}
+    - {label: 'syst, particle composition', symerror: 1.74187e-07}
+    - {label: 'syst, fake and secondary tracks', symerror: 2.78595e-08}
+    - {label: 'syst, pT resolution correction', symerror: 6.03153e-09}
+    - {label: 'syst, eta resolution correction', symerror: 9.19478e-09}
+    - {label: 'syst, unfolding procedure', symerror: 1.16865e-08}
+    - {label: 'syst, track reconstruction efficiency', symerror: 7.96408e-08}
+    - {label: 'syst, material', symerror: 1.58264e-07}
+    - asymerror: {minus: -4.75376e-07, plus: 6.61571e-07}
+      label: syst, TAA
+    value: 6.82032e-06
+  - errors:
+    - {label: stat, symerror: 2.04927e-07}
+    - {label: 'syst, track selection', symerror: 1.56807e-07}
+    - {label: 'syst, track to particle matching', symerror: 5.04585e-09}
+    - {label: 'syst, particle composition', symerror: 1.04758e-07}
+    - {label: 'syst, fake and secondary tracks', symerror: 1.24359e-08}
+    - {label: 'syst, pT resolution correction', symerror: 2.79435e-09}
+    - {label: 'syst, eta resolution correction', symerror: 4.10818e-09}
+    - {label: 'syst, unfolding procedure', symerror: 5.34294e-09}
+    - {label: 'syst, track reconstruction efficiency', symerror: 3.54512e-08}
+    - {label: 'syst, material', symerror: 7.03357e-08}
+    - asymerror: {minus: -2.11074e-07, plus: 2.93747e-07}
+      label: syst, TAA
+    value: 3.02832e-06
+  - errors:
+    - {label: stat, symerror: 1.05517e-07}
+    - {label: 'syst, track selection', symerror: 6.12303e-08}
+    - {label: 'syst, track to particle matching', symerror: 2.835e-09}
+    - {label: 'syst, particle composition', symerror: 5.02299e-08}
+    - {label: 'syst, fake and secondary tracks', symerror: 5.74363e-09}
+    - {label: 'syst, pT resolution correction', symerror: 2.83215e-09}
+    - {label: 'syst, eta resolution correction', symerror: 1.46962e-09}
+    - {label: 'syst, unfolding procedure', symerror: 4.04493e-09}
+    - {label: 'syst, track reconstruction efficiency', symerror: 1.62769e-08}
+    - {label: 'syst, material', symerror: 3.23055e-08}
+    - asymerror: {minus: -9.65738e-08, plus: 1.344e-07}
+      label: syst, TAA
+    value: 1.38556e-06
+  - errors:
+    - {label: stat, symerror: 2.6817e-08}
+    - {label: 'syst, track selection', symerror: 2.15813e-08}
+    - {label: 'syst, track to particle matching', symerror: 9.49278e-10}
+    - {label: 'syst, particle composition', symerror: 1.64481e-08}
+    - {label: 'syst, fake and secondary tracks', symerror: 1.93395e-09}
+    - {label: 'syst, pT resolution correction', symerror: 8.76486e-10}
+    - {label: 'syst, eta resolution correction', symerror: 4.77165e-10}
+    - {label: 'syst, unfolding procedure', symerror: 1.295e-09}
+    - {label: 'syst, track reconstruction efficiency', symerror: 5.49871e-09}
+    - {label: 'syst, material', symerror: 1.08642e-08}
+    - asymerror: {minus: -3.26175e-08, plus: 4.5393e-08}
+      label: syst, TAA
+    value: 4.67969e-07
+  - errors:
+    - {label: stat, symerror: 1.32487e-08}
+    - {label: 'syst, track selection', symerror: 9.8517e-09}
+    - {label: 'syst, track to particle matching', symerror: 7.31063e-10}
+    - {label: 'syst, particle composition', symerror: 8.12989e-09}
+    - {label: 'syst, fake and secondary tracks', symerror: 8.8294e-10}
+    - {label: 'syst, pT resolution correction', symerror: 6.1775e-10}
+    - {label: 'syst, eta resolution correction', symerror: 3.09415e-11}
+    - {label: 'syst, unfolding procedure', symerror: 3.79731e-10}
+    - {label: 'syst, track reconstruction efficiency', symerror: 2.52068e-09}
+    - {label: 'syst, material', symerror: 4.9895e-09}
+    - asymerror: {minus: -1.5004e-08, plus: 2.08807e-08}
+      label: syst, TAA
+    value: 2.15265e-07
+  - errors:
+    - {label: stat, symerror: 7.90899e-09}
+    - {label: 'syst, track selection', symerror: 6.0472e-09}
+    - {label: 'syst, track to particle matching', symerror: 3.46294e-10}
+    - {label: 'syst, particle composition', symerror: 3.21842e-09}
+    - {label: 'syst, fake and secondary tracks', symerror: 4.4164e-10}
+    - {label: 'syst, pT resolution correction', symerror: 3.28273e-10}
+    - {label: 'syst, eta resolution correction', symerror: 1.34076e-11}
+    - {label: 'syst, unfolding procedure', symerror: 1.63189e-10}
+    - {label: 'syst, track reconstruction efficiency', symerror: 1.26974e-09}
+    - {label: 'syst, material', symerror: 2.50419e-09}
+    - asymerror: {minus: -7.57687e-09, plus: 1.05446e-08}
+      label: syst, TAA
+    value: 1.08707e-07
+  - errors:
+    - {label: stat, symerror: 1.88811e-09}
+    - {label: 'syst, track selection', symerror: 2.04087e-09}
+    - {label: 'syst, track to particle matching', symerror: 1.11601e-10}
+    - {label: 'syst, particle composition', symerror: 1.1468e-09}
+    - {label: 'syst, fake and secondary tracks', symerror: 1.43107e-10}
+    - {label: 'syst, pT resolution correction', symerror: 2.99896e-11}
+    - {label: 'syst, eta resolution correction', symerror: 8.63164e-12}
+    - {label: 'syst, unfolding procedure', symerror: 2.17645e-10}
+    - {label: 'syst, track reconstruction efficiency', symerror: 4.07254e-10}
+    - {label: 'syst, material', symerror: 8.08658e-10}
+    - asymerror: {minus: -2.42316e-09, plus: 3.37226e-09}
+      label: syst, TAA
+    value: 3.47656e-08
+  - errors:
+    - {label: stat, symerror: 7.48034e-10}
+    - {label: 'syst, track selection', symerror: 1.85754e-09}
+    - {label: 'syst, track to particle matching', symerror: 3.87907e-11}
+    - {label: 'syst, particle composition', symerror: 2.93709e-10}
+    - {label: 'syst, fake and secondary tracks', symerror: 3.95424e-11}
+    - {label: 'syst, pT resolution correction', symerror: 3.90367e-11}
+    - {label: 'syst, eta resolution correction', symerror: 1.38691e-10}
+    - {label: 'syst, unfolding procedure', symerror: 1.38394e-10}
+    - {label: 'syst, track reconstruction efficiency', symerror: 1.13096e-10}
+    - {label: 'syst, material', symerror: 2.24728e-10}
+    - asymerror: {minus: -6.75255e-10, plus: 9.39738e-10}
+      label: syst, TAA
+    value: 9.68802e-09
+  - errors:
+    - {label: stat, symerror: 1.03274e-10}
+    - {label: 'syst, track selection', symerror: 1.1559e-10}
+    - {label: 'syst, track to particle matching', symerror: 1.25418e-11}
+    - {label: 'syst, particle composition', symerror: 5.88079e-11}
+    - {label: 'syst, fake and secondary tracks', symerror: 7.85242e-12}
+    - {label: 'syst, pT resolution correction', symerror: 7.72949e-12}
+    - {label: 'syst, eta resolution correction', symerror: 2.74668e-11}
+    - {label: 'syst, unfolding procedure', symerror: 3.99668e-12}
+    - {label: 'syst, track reconstruction efficiency', symerror: 2.24405e-11}
+    - {label: 'syst, material', symerror: 4.44313e-11}
+    - asymerror: {minus: -1.33676e-10, plus: 1.86034e-10}
+      label: syst, TAA
+    value: 1.91787e-09
+  - errors:
+    - {label: stat, symerror: 3.1326e-11}
+    - {label: 'syst, track selection', symerror: 2.27334e-11}
+    - {label: 'syst, track to particle matching', symerror: 2.92695e-12}
+    - {label: 'syst, particle composition', symerror: 1.50359e-11}
+    - {label: 'syst, fake and secondary tracks', symerror: 2.12213e-12}
+    - {label: 'syst, pT resolution correction', symerror: 7.44693e-12}
+    - {label: 'syst, eta resolution correction', symerror: 1.97577e-13}
+    - {label: 'syst, unfolding procedure', symerror: 1.16613e-12}
+    - {label: 'syst, track reconstruction efficiency', symerror: 6.08422e-12}
+    - {label: 'syst, material', symerror: 1.20137e-11}
+    - asymerror: {minus: -3.62658e-11, plus: 5.04703e-11}
+      label: syst, TAA
+    value: 5.20313e-10
+  - errors:
+    - {label: stat, symerror: 6.31691e-12}
+    - {label: 'syst, track selection', symerror: 6.48542e-12}
+    - {label: 'syst, track to particle matching', symerror: 1.24253e-13}
+    - {label: 'syst, particle composition', symerror: 1.7844e-12}
+    - {label: 'syst, fake and secondary tracks', symerror: 3.66467e-13}
+    - {label: 'syst, pT resolution correction', symerror: 1.24851e-12}
+    - {label: 'syst, eta resolution correction', symerror: 3.50058e-14}
+    - {label: 'syst, unfolding procedure', symerror: 2.08348e-13}
+    - {label: 'syst, track reconstruction efficiency', symerror: 1.04733e-12}
+    - {label: 'syst, material', symerror: 2.06241e-12}
+    - asymerror: {minus: -6.22209e-12, plus: 8.65915e-12}
+      label: syst, TAA
+    value: 8.92696e-11
+  - errors:
+    - {label: stat, symerror: 2.00469e-12}
+    - {label: 'syst, track selection', symerror: 2.17516e-12}
+    - {label: 'syst, track to particle matching', symerror: 3.248e-14}
+    - {label: 'syst, particle composition', symerror: 3.36326e-13}
+    - {label: 'syst, fake and secondary tracks', symerror: 8.23063e-14}
+    - {label: 'syst, pT resolution correction', symerror: 2.70049e-13}
+    - {label: 'syst, eta resolution correction', symerror: 6.96614e-14}
+    - {label: 'syst, unfolding procedure', symerror: 4.82793e-14}
+    - {label: 'syst, track reconstruction efficiency', symerror: 2.34469e-13}
+    - {label: 'syst, material', symerror: 4.61897e-13}
+    - asymerror: {minus: -1.39045e-12, plus: 1.93506e-12}
+      label: syst, TAA
+    value: 1.99491e-11
+  - errors:
+    - {label: stat, symerror: 8.59363e-13}
+    - {label: 'syst, track selection', symerror: 1.05591e-12}
+    - {label: 'syst, track to particle matching', symerror: 1.97415e-14}
+    - {label: 'syst, particle composition', symerror: 2.11537e-13}
+    - {label: 'syst, fake and secondary tracks', symerror: 2.06051e-14}
+    - {label: 'syst, pT resolution correction', symerror: 6.95195e-14}
+    - {label: 'syst, eta resolution correction', symerror: 1.80007e-14}
+    - {label: 'syst, unfolding procedure', symerror: 1.29841e-14}
+    - {label: 'syst, track reconstruction efficiency', symerror: 5.90583e-14}
+    - {label: 'syst, material', symerror: 1.19602e-13}
+    - asymerror: {minus: -3.56465e-13, plus: 4.96085e-13}
+      label: syst, TAA
+    value: 5.11428e-12
+  - errors:
+    - {label: stat, symerror: 3.12465e-13}
+    - {label: 'syst, track selection', symerror: 2.67064e-13}
+    - {label: 'syst, track to particle matching', symerror: 1.28511e-14}
+    - {label: 'syst, particle composition', symerror: 4.89522e-14}
+    - {label: 'syst, fake and secondary tracks', symerror: 4.76389e-15}
+    - {label: 'syst, pT resolution correction', symerror: 2.06738e-14}
+    - {label: 'syst, eta resolution correction', symerror: 1.74151e-13}
+    - {label: 'syst, unfolding procedure', symerror: 2.92494e-15}
+    - {label: 'syst, track reconstruction efficiency', symerror: 1.34892e-14}
+    - {label: 'syst, material', symerror: 2.70552e-14}
+    - asymerror: {minus: -8.04184e-14, plus: 1.11917e-13}
+      label: syst, TAA
+    value: 1.15378e-12
+independent_variables:
+- header: {name: PT, units: GeV}
+  values:
+  - {high: 0.407, low: 0.31}
+  - {high: 0.5, low: 0.407}
+  - {high: 0.575, low: 0.5}
+  - {high: 0.66, low: 0.575}
+  - {high: 0.755, low: 0.66}
+  - {high: 0.86, low: 0.755}
+  - {high: 0.999, low: 0.86}
+  - {high: 1.13, low: 0.999}
+  - {high: 1.3, low: 1.13}
+  - {high: 1.5, low: 1.3}
+  - {high: 1.7, low: 1.5}
+  - {high: 1.95, low: 1.7}
+  - {high: 2.25, low: 1.95}
+  - {high: 2.57, low: 2.25}
+  - {high: 2.95, low: 2.57}
+  - {high: 3.35, low: 2.95}
+  - {high: 3.87, low: 3.35}
+  - {high: 4.45, low: 3.87}
+  - {high: 5.1, low: 4.45}
+  - {high: 5.85, low: 5.1}
+  - {high: 6.7, low: 5.85}
+  - {high: 7.65, low: 6.7}
+  - {high: 8.8, low: 7.65}
+  - {high: 10, low: 8.8}
+  - {high: 11.5, low: 10}
+  - {high: 13.2, low: 11.5}
+  - {high: 15.1, low: 13.2}
+  - {high: 17.3, low: 15.1}
+  - {high: 20, low: 17.3}
+  - {high: 23, low: 20}
+  - {high: 26, low: 23}
+  - {high: 30, low: 26}
+  - {high: 37.5, low: 30}
+  - {high: 47.5, low: 37.5}
+  - {high: 60, low: 47.5}
+  - {high: 75, low: 60}
+  - {high: 95, low: 75}
+  - {high: 120, low: 95}
+  - {high: 150, low: 120}
+  - {high: 190, low: 150}
