@@ -1,0 +1,48 @@
+format_version: 1
+key: vn__PbPb5020__ATLAS__charged__70-80__SP__n6
+observable: vn
+system: PbPb
+sqrt_s_nn: 5020
+experiment: ATLAS
+particle: charged
+centrality: [70, 80]
+centrality_definition: ATLAS_FCAL_ET
+harmonic: 6
+method: SP
+acceptance: { eta_range: [-2.5, 2.5] }
+source:
+  hepdata:
+    inspire_id: 1686834
+    version: 1
+    table: Table 53
+    column: 0
+    location: Data from Figure 5
+    doi: "10.17182/hepdata.84427.v1/t53"
+  paper: "arXiv:1808.03951"
+  figure: "5"
+  inspireHEPKey: "ATLAS:2018ezv"
+note: "Reference flow vector from the FCal, 3.2 < |eta| < 4.9, on the side that maximises the eta gap to the track (arXiv:1808.03951, Sec. 4.2). All the methods of this record use the same minimum-bias sample (arXiv:1808.03951, Sec. 4)."
+x: { name: pt, units: GeV }
+y: { name: vn }
+errors:
+  stat: { label: stat }
+  sys: { label: sys, note: "HEPData gives one systematic uncertainty per point. The paper lists the individual sources for selected pT intervals (Tables 3 and 4) and says the total systematic uncertainty is their sum in quadrature (arXiv:1808.03951, Sec. 5)." }
+bins:
+  - { low: 0.5, high: 0.6, value: 0.0045542,
+      errors: { stat: 0.0047, sys: 0.000527 } }
+  - { low: 0.6, high: 0.8, value: 0.00041859,
+      errors: { stat: 0.0037, sys: 0.000527 } }
+  - { low: 0.8, high: 1, value: -0.0079385,
+      errors: { stat: 0.00461, sys: 0.000527 } }
+  - { low: 1, high: 1.2, value: 0.0046471,
+      errors: { stat: 0.00574, sys: 0.000529 } }
+  - { low: 1.2, high: 1.5, value: -0.0097766,
+      errors: { stat: 0.00608, sys: 0.000527 } }
+  - { low: 1.5, high: 2, value: -0.00196,
+      errors: { stat: 0.00696, sys: 0.000533 } }
+  - { low: 2, high: 2.5, value: 0.011545,
+      errors: { stat: 0.0105, sys: 0.000544 } }
+  - { low: 2.5, high: 4, value: 0.028177,
+      errors: { stat: 0.0143, sys: 0.000548 } }
+  - { low: 4, high: 60, value: 0.049238,
+      errors: { stat: 0.0302, sys: 0.00264 } }

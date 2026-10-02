@@ -1,0 +1,71 @@
+format_version: 1
+key: vn__PbPb2760__ALICE__charged__30-40__SP__n3__gap2
+observable: vn
+system: PbPb
+sqrt_s_nn: 2760
+experiment: ALICE
+particle: charged
+centrality: [30, 40]
+centrality_definition: ALICE_V0M
+harmonic: 3
+method: SP
+acceptance: { eta_range: [-0.8, 0.8], delta_eta_gap: 2 }
+source:
+  hepdata:
+    inspire_id: 1666817
+    version: 1
+    table: Table 116
+    column: 0
+    location: Figure 4
+    doi: "10.17182/hepdata.83737.v1/t116"
+  paper: "arXiv:1804.02944"
+  inspireHEPKey: "ALICE:2018rtz"
+note: "Scalar-product measurement, named v_n{2, |Delta eta| > 2} in the paper: tracks at |eta| < 0.8 are correlated with the n-th harmonic Q-vector of the V0A, calculated from the energy deposited in it (2.8 < eta < 5.1). The paper says it can be used reliably only up to n = 4, because the V0 has 8 azimuthal sectors (arXiv:1804.02944, Sec. 2 and the caption of Fig. 4). The other methods of this record for the same harmonic, class and energy come from the same Pb-Pb data sample (Sec. 2), so those datasets overlap this one."
+x: { name: pt, units: GeV }
+y: { name: vn }
+errors:
+  stat: { label: stat }
+  sys: { label: sys, note: "The paper's total systematic uncertainty: variations of the track and event selections (a variation counts if it is significant by the Barlow criterion) and an alternative centrality estimator, added in quadrature as uncorrelated sources; track quality and the centrality determination dominate (arXiv:1804.02944, Sec. 2)." }
+bins:
+  - { low: 0.2, high: 0.3, value: 0.007019,
+      errors: { stat: 0.000401, sys: 0.000401 } }
+  - { low: 0.3, high: 0.4, value: 0.01158,
+      errors: { stat: 0.000411, sys: 0.000411 } }
+  - { low: 0.4, high: 0.5, value: 0.017212,
+      errors: { stat: 0.00044, sys: 0.00044 } }
+  - { low: 0.5, high: 0.6, value: 0.022444,
+      errors: { stat: 0.000481, sys: 0.000481 } }
+  - { low: 0.6, high: 0.7, value: 0.027386,
+      errors: { stat: 0.00053, sys: 0.00053 } }
+  - { low: 0.7, high: 0.8, value: 0.033432,
+      errors: { stat: 0.000586, sys: 0.000586 } }
+  - { low: 0.8, high: 0.9, value: 0.038889,
+      errors: { stat: 0.00065, sys: 0.00065 } }
+  - { low: 0.9, high: 1, value: 0.044452,
+      errors: { stat: 0.000721, sys: 0.000721 } }
+  - { low: 1, high: 1.25, value: 0.052741,
+      errors: { stat: 0.000543, sys: 0.000543 } }
+  - { low: 1.25, high: 1.5, value: 0.064998,
+      errors: { stat: 0.000699, sys: 0.000699 } }
+  - { low: 1.5, high: 1.75, value: 0.075361,
+      errors: { stat: 0.000902, sys: 0.000902 } }
+  - { low: 1.75, high: 2, value: 0.084935,
+      errors: { stat: 0.001165, sys: 0.001165 } }
+  - { low: 2, high: 2.5, value: 0.094543,
+      errors: { stat: 0.001182, sys: 0.001182 } }
+  - { low: 2.5, high: 3, value: 0.105626,
+      errors: { stat: 0.001907, sys: 0.001907 } }
+  - { low: 3, high: 3.5, value: 0.109861,
+      errors: { stat: 0.002977, sys: 0.002977 } }
+  - { low: 3.5, high: 4, value: 0.098165,
+      errors: { stat: 0.004482, sys: 0.004482 } }
+  - { low: 4, high: 5, value: 0.096314,
+      errors: { stat: 0.005273, sys: 0.005273 } }
+  - { low: 5, high: 6, value: 0.065306,
+      errors: { stat: 0.009534, sys: 0.009534 } }
+  - { low: 6, high: 8, value: 0.048862,
+      errors: { stat: 0.012589, sys: 0.012589 } }
+  - { low: 8, high: 10, value: 0.037616,
+      errors: { stat: 0.024153, sys: 0.024153 } }
+  - { low: 10, high: 14, value: -0.027545,
+      errors: { stat: 0.034207, sys: 0.034207 } }

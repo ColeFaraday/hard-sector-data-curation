@@ -1,0 +1,52 @@
+format_version: 1
+key: vn__PbPb5020__ATLAS__charged__60-70__SP__n5
+observable: vn
+system: PbPb
+sqrt_s_nn: 5020
+experiment: ATLAS
+particle: charged
+centrality: [60, 70]
+centrality_definition: ATLAS_FCAL_ET
+harmonic: 5
+method: SP
+acceptance: { eta_range: [-2.5, 2.5] }
+source:
+  hepdata:
+    inspire_id: 1686834
+    version: 1
+    table: Table 43
+    column: 0
+    location: Data from Figure 5
+    doi: "10.17182/hepdata.84427.v1/t43"
+  paper: "arXiv:1808.03951"
+  figure: "5"
+  inspireHEPKey: "ATLAS:2018ezv"
+note: "Reference flow vector from the FCal, 3.2 < |eta| < 4.9, on the side that maximises the eta gap to the track (arXiv:1808.03951, Sec. 4.2). All the methods of this record use the same minimum-bias sample (arXiv:1808.03951, Sec. 4)."
+x: { name: pt, units: GeV }
+y: { name: vn }
+errors:
+  stat: { label: stat }
+  sys: { label: sys, note: "HEPData gives one systematic uncertainty per point. The paper lists the individual sources for selected pT intervals (Tables 3 and 4) and says the total systematic uncertainty is their sum in quadrature (arXiv:1808.03951, Sec. 5)." }
+bins:
+  - { low: 0.5, high: 0.6, value: 0.0033733,
+      errors: { stat: 0.00137, sys: 0.00101 } }
+  - { low: 0.6, high: 0.8, value: 0.0026395,
+      errors: { stat: 0.00106, sys: 0.00103 } }
+  - { low: 0.8, high: 1, value: 0.0014067,
+      errors: { stat: 0.00131, sys: 0.0011 } }
+  - { low: 1, high: 1.2, value: 0.0084785,
+      errors: { stat: 0.00161, sys: 0.0012 } }
+  - { low: 1.2, high: 1.5, value: 0.0077858,
+      errors: { stat: 0.0017, sys: 0.0012 } }
+  - { low: 1.5, high: 2, value: 0.018361,
+      errors: { stat: 0.00193, sys: 0.00192 } }
+  - { low: 2, high: 2.5, value: 0.017068,
+      errors: { stat: 0.00292, sys: 0.00107 } }
+  - { low: 2.5, high: 3, value: 0.014899,
+      errors: { stat: 0.00558, sys: 0.00116 } }
+  - { low: 3, high: 4, value: 0.017286,
+      errors: { stat: 0.00579, sys: 0.00119 } }
+  - { low: 4, high: 7, value: -0.018146,
+      errors: { stat: 0.0091, sys: 0.00446 } }
+  - { low: 7, high: 60, value: -0.048139,
+      errors: { stat: 0.027, sys: 0.00446 } }

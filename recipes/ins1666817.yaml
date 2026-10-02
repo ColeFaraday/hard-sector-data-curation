@@ -1,0 +1,263 @@
+# ALICE, energy dependence and fluctuations of anisotropic flow in Pb-Pb collisions at 5.02 and
+# 2.76 TeV (arXiv:1804.02944, HEPData ins1666817 v1): v_n of charged particles against pT in
+# centrality classes, from the two-particle (|Delta eta| > 1), four-particle and scalar-product
+# (|Delta eta| > 2) measurements. 121 of the record's 230 tables: all of Figures 3 and 4.
+#
+# The method of each group of tables is taken from the paper (Sec. 2, the captions of Figs. 3 and 4,
+# the first paragraphs of Sec. 3), not from the table names:
+#   Figure 3, names v22Deta1 ... v62Deta1: two-particle cumulant with |Delta eta| > 1
+#                                          -> method cumulant2, delta_eta_gap 1
+#   Figure 3, names v24:                   four-particle cumulant -> method cumulant4
+#   Figure 4, names v22Deta2 ... v42Deta2: NOT a cumulant. The paper obtains v_n{2, |Delta eta| > 2}
+#                                          with the scalar product method, correlating the tracks
+#                                          at |eta| < 0.8 with the Q-vector of the V0A (2.8 < eta < 5.1)
+#                                          -> method SP, delta_eta_gap 2 (the paper's own label)
+#
+# Acceptance: every table gives ABS(ETA) < 0.8 for the tracks, so eta_range is [-0.8, 0.8]. For the
+# |Delta eta| > 1 cumulant the paper forms its pairs between -0.8 < eta < -0.5 and 0.5 < eta < 0.8;
+# that is said in the dataset note, not in the acceptance.
+#
+# Keys: method, harmonic and delta_eta_gap tell the datasets apart, so no `variant` is used. The
+# centrality classes of this record are disjoint. Datasets of different methods for the same class,
+# harmonic and energy come from the same Pb-Pb data sample, which the notes say.
+#
+# Not curated (table numbers of the record):
+#   1-10, 193-200  v_n and v_2{m} against centrality, integrated over 0.2-3 GeV/c (Figs. 1, 9): the
+#                  independent variable is the centrality, not pT
+#   11-14          ratios of the two energies against centrality (Fig. 2)
+#   137-145        ratios of v_n(pT) between 5.02 and 2.76 TeV (Fig. 5)
+#   146-168        v_n(pT) ratios to the 20-30% class, the RatioTo2030 tables (Fig. 7)
+#   169-192        ratios v_n(pT) / v_m(pT)^(n/m) (Fig. 8)
+#   201-208        cumulants c_2{m} against centrality (Fig. 10)
+#   209-215        ratios and differences of v_2{m} against centrality (Figs. 11, 13, 14)
+#   216-219        skewness and Elliptic Power parameters against centrality (Figs. 15, 16)
+#   220-231        distributions P(v_2 / <v_2>) (Fig. 17 and the appendix): fluctuation observables
+
+record: { inspire_id: 1666817, version: 1 }
+paper: "arXiv:1804.02944"
+experiment: ALICE
+particle: charged
+observable: vn
+system: PbPb
+centrality_definition: ALICE_V0M
+acceptance: { eta_range: [-0.8, 0.8] }
+
+datasets:
+  # ===== Pb-Pb at 5.02 TeV =====
+  # v_2{2, |Delta eta| > 1}, two-particle cumulant (Figure 3): 8 classes
+  - table: Table 15
+    sqrt_s_nn: 5020
+    centrality: [0, 5]
+    harmonic: 2
+    method: cumulant2
+    acceptance: { delta_eta_gap: 1 }
+    note: &note_cumulant2_n2 >-
+      Two-particle cumulant v_n{2, |Delta eta| > 1}: the pairs are formed between tracks on
+      opposite sides of the TPC, -0.8 < eta < -0.5 and 0.5 < eta < 0.8, and one particle of the pT
+      bin is correlated with particles over the whole range 0.2 < pT < 50 GeV/c (arXiv:1804.02944,
+      Sec. 2). The other methods of this record for the same harmonic, class and energy come from
+      the same Pb-Pb data sample (Sec. 2), so those datasets overlap this one. For 10 < pT < 50
+      GeV/c the paper finds v_2{2, |Delta eta| > 1} larger than v_2{2, |Delta eta| > 2}, by about
+      3% in 0-5% to about 10% in 40-50%, and attributes the difference to small residual non-flow
+      that the larger gap suppresses (Sec. 3).
+  - { table: Table 23, sqrt_s_nn: 5020, centrality: [5, 10], harmonic: 2, method: cumulant2, acceptance: { delta_eta_gap: 1 }, note: *note_cumulant2_n2 }
+  - { table: Table 33, sqrt_s_nn: 5020, centrality: [10, 20], harmonic: 2, method: cumulant2, acceptance: { delta_eta_gap: 1 }, note: *note_cumulant2_n2 }
+  - { table: Table 43, sqrt_s_nn: 5020, centrality: [20, 30], harmonic: 2, method: cumulant2, acceptance: { delta_eta_gap: 1 }, note: *note_cumulant2_n2 }
+  - { table: Table 53, sqrt_s_nn: 5020, centrality: [30, 40], harmonic: 2, method: cumulant2, acceptance: { delta_eta_gap: 1 }, note: *note_cumulant2_n2 }
+  - { table: Table 63, sqrt_s_nn: 5020, centrality: [40, 50], harmonic: 2, method: cumulant2, acceptance: { delta_eta_gap: 1 }, note: *note_cumulant2_n2 }
+  - { table: Table 73, sqrt_s_nn: 5020, centrality: [50, 60], harmonic: 2, method: cumulant2, acceptance: { delta_eta_gap: 1 }, note: *note_cumulant2_n2 }
+  - { table: Table 82, sqrt_s_nn: 5020, centrality: [60, 70], harmonic: 2, method: cumulant2, acceptance: { delta_eta_gap: 1 }, note: *note_cumulant2_n2 }
+
+  # v_3{2, |Delta eta| > 1}, two-particle cumulant (Figure 3): 8 classes
+  - table: Table 17
+    sqrt_s_nn: 5020
+    centrality: [0, 5]
+    harmonic: 3
+    method: cumulant2
+    acceptance: { delta_eta_gap: 1 }
+    note: &note_cumulant2_n3_to_6 >-
+      Two-particle cumulant v_n{2, |Delta eta| > 1}: the pairs are formed between tracks on
+      opposite sides of the TPC, -0.8 < eta < -0.5 and 0.5 < eta < 0.8, and one particle of the pT
+      bin is correlated with particles over the whole range 0.2 < pT < 50 GeV/c (arXiv:1804.02944,
+      Sec. 2). The other methods of this record for the same harmonic, class and energy come from
+      the same Pb-Pb data sample (Sec. 2), so those datasets overlap this one.
+  - { table: Table 25, sqrt_s_nn: 5020, centrality: [5, 10], harmonic: 3, method: cumulant2, acceptance: { delta_eta_gap: 1 }, note: *note_cumulant2_n3_to_6 }
+  - { table: Table 35, sqrt_s_nn: 5020, centrality: [10, 20], harmonic: 3, method: cumulant2, acceptance: { delta_eta_gap: 1 }, note: *note_cumulant2_n3_to_6 }
+  - { table: Table 45, sqrt_s_nn: 5020, centrality: [20, 30], harmonic: 3, method: cumulant2, acceptance: { delta_eta_gap: 1 }, note: *note_cumulant2_n3_to_6 }
+  - { table: Table 55, sqrt_s_nn: 5020, centrality: [30, 40], harmonic: 3, method: cumulant2, acceptance: { delta_eta_gap: 1 }, note: *note_cumulant2_n3_to_6 }
+  - { table: Table 65, sqrt_s_nn: 5020, centrality: [40, 50], harmonic: 3, method: cumulant2, acceptance: { delta_eta_gap: 1 }, note: *note_cumulant2_n3_to_6 }
+  - { table: Table 75, sqrt_s_nn: 5020, centrality: [50, 60], harmonic: 3, method: cumulant2, acceptance: { delta_eta_gap: 1 }, note: *note_cumulant2_n3_to_6 }
+  - { table: Table 84, sqrt_s_nn: 5020, centrality: [60, 70], harmonic: 3, method: cumulant2, acceptance: { delta_eta_gap: 1 }, note: *note_cumulant2_n3_to_6 }
+
+  # v_4{2, |Delta eta| > 1}, two-particle cumulant (Figure 3): 7 classes; the record has no table for 60-70%
+  - { table: Table 19, sqrt_s_nn: 5020, centrality: [0, 5], harmonic: 4, method: cumulant2, acceptance: { delta_eta_gap: 1 }, note: *note_cumulant2_n3_to_6 }
+  - { table: Table 27, sqrt_s_nn: 5020, centrality: [5, 10], harmonic: 4, method: cumulant2, acceptance: { delta_eta_gap: 1 }, note: *note_cumulant2_n3_to_6 }
+  - { table: Table 37, sqrt_s_nn: 5020, centrality: [10, 20], harmonic: 4, method: cumulant2, acceptance: { delta_eta_gap: 1 }, note: *note_cumulant2_n3_to_6 }
+  - { table: Table 47, sqrt_s_nn: 5020, centrality: [20, 30], harmonic: 4, method: cumulant2, acceptance: { delta_eta_gap: 1 }, note: *note_cumulant2_n3_to_6 }
+  - { table: Table 57, sqrt_s_nn: 5020, centrality: [30, 40], harmonic: 4, method: cumulant2, acceptance: { delta_eta_gap: 1 }, note: *note_cumulant2_n3_to_6 }
+  - { table: Table 67, sqrt_s_nn: 5020, centrality: [40, 50], harmonic: 4, method: cumulant2, acceptance: { delta_eta_gap: 1 }, note: *note_cumulant2_n3_to_6 }
+  - { table: Table 77, sqrt_s_nn: 5020, centrality: [50, 60], harmonic: 4, method: cumulant2, acceptance: { delta_eta_gap: 1 }, note: *note_cumulant2_n3_to_6 }
+
+  # v_2{4}, four-particle cumulant (Figure 3): 7 classes; the record has no table for 0-5%
+  - table: Table 31
+    sqrt_s_nn: 5020
+    centrality: [5, 10]
+    harmonic: 2
+    method: cumulant4
+    note: &note_cumulant4_n2 >-
+      Four-particle cumulant v_2{4}: one particle of the pT bin is correlated with three particles
+      over the whole range 0.2 < pT < 50 GeV/c (arXiv:1804.02944, Sec. 2). The other methods of
+      this record for the same harmonic, class and energy come from the same Pb-Pb data sample
+      (Sec. 2), so those datasets overlap this one.
+  - { table: Table 41, sqrt_s_nn: 5020, centrality: [10, 20], harmonic: 2, method: cumulant4, note: *note_cumulant4_n2 }
+  - { table: Table 51, sqrt_s_nn: 5020, centrality: [20, 30], harmonic: 2, method: cumulant4, note: *note_cumulant4_n2 }
+  - { table: Table 61, sqrt_s_nn: 5020, centrality: [30, 40], harmonic: 2, method: cumulant4, note: *note_cumulant4_n2 }
+  - { table: Table 71, sqrt_s_nn: 5020, centrality: [40, 50], harmonic: 2, method: cumulant4, note: *note_cumulant4_n2 }
+  - { table: Table 80, sqrt_s_nn: 5020, centrality: [50, 60], harmonic: 2, method: cumulant4, note: *note_cumulant4_n2 }
+  - { table: Table 87, sqrt_s_nn: 5020, centrality: [60, 70], harmonic: 2, method: cumulant4, note: *note_cumulant4_n2 }
+
+  # v_2{2, |Delta eta| > 2}, scalar product with respect to the V0A Q-vector (Figure 4): 8 classes
+  - table: Table 89
+    sqrt_s_nn: 5020
+    centrality: [0, 5]
+    harmonic: 2
+    method: SP
+    acceptance: { delta_eta_gap: 2 }
+    note: &note_sp_n2 >-
+      Scalar-product measurement, named v_n{2, |Delta eta| > 2} in the paper: tracks at |eta| <
+      0.8 are correlated with the n-th harmonic Q-vector of the V0A, calculated from the energy
+      deposited in it (2.8 < eta < 5.1). The paper says it can be used reliably only up to n = 4,
+      because the V0 has 8 azimuthal sectors (arXiv:1804.02944, Sec. 2 and the caption of Fig. 4).
+      The other methods of this record for the same harmonic, class and energy come from the same
+      Pb-Pb data sample (Sec. 2), so those datasets overlap this one. For 10 < pT < 50 GeV/c the
+      paper finds v_2{2, |Delta eta| > 1} larger than v_2{2, |Delta eta| > 2}, by about 3% in 0-5%
+      to about 10% in 40-50%, and attributes the difference to small residual non-flow that the
+      larger gap suppresses (Sec. 3).
+  - { table: Table 95, sqrt_s_nn: 5020, centrality: [5, 10], harmonic: 2, method: SP, acceptance: { delta_eta_gap: 2 }, note: *note_sp_n2 }
+  - { table: Table 101, sqrt_s_nn: 5020, centrality: [10, 20], harmonic: 2, method: SP, acceptance: { delta_eta_gap: 2 }, note: *note_sp_n2 }
+  - { table: Table 107, sqrt_s_nn: 5020, centrality: [20, 30], harmonic: 2, method: SP, acceptance: { delta_eta_gap: 2 }, note: *note_sp_n2 }
+  - { table: Table 113, sqrt_s_nn: 5020, centrality: [30, 40], harmonic: 2, method: SP, acceptance: { delta_eta_gap: 2 }, note: *note_sp_n2 }
+  - { table: Table 119, sqrt_s_nn: 5020, centrality: [40, 50], harmonic: 2, method: SP, acceptance: { delta_eta_gap: 2 }, note: *note_sp_n2 }
+  - { table: Table 125, sqrt_s_nn: 5020, centrality: [50, 60], harmonic: 2, method: SP, acceptance: { delta_eta_gap: 2 }, note: *note_sp_n2 }
+  - { table: Table 131, sqrt_s_nn: 5020, centrality: [60, 70], harmonic: 2, method: SP, acceptance: { delta_eta_gap: 2 }, note: *note_sp_n2 }
+
+  # v_3{2, |Delta eta| > 2}, scalar product with respect to the V0A Q-vector (Figure 4): 8 classes
+  - table: Table 91
+    sqrt_s_nn: 5020
+    centrality: [0, 5]
+    harmonic: 3
+    method: SP
+    acceptance: { delta_eta_gap: 2 }
+    note: &note_sp_n3_4 >-
+      Scalar-product measurement, named v_n{2, |Delta eta| > 2} in the paper: tracks at |eta| <
+      0.8 are correlated with the n-th harmonic Q-vector of the V0A, calculated from the energy
+      deposited in it (2.8 < eta < 5.1). The paper says it can be used reliably only up to n = 4,
+      because the V0 has 8 azimuthal sectors (arXiv:1804.02944, Sec. 2 and the caption of Fig. 4).
+      The other methods of this record for the same harmonic, class and energy come from the same
+      Pb-Pb data sample (Sec. 2), so those datasets overlap this one.
+  - { table: Table 97, sqrt_s_nn: 5020, centrality: [5, 10], harmonic: 3, method: SP, acceptance: { delta_eta_gap: 2 }, note: *note_sp_n3_4 }
+  - { table: Table 103, sqrt_s_nn: 5020, centrality: [10, 20], harmonic: 3, method: SP, acceptance: { delta_eta_gap: 2 }, note: *note_sp_n3_4 }
+  - { table: Table 109, sqrt_s_nn: 5020, centrality: [20, 30], harmonic: 3, method: SP, acceptance: { delta_eta_gap: 2 }, note: *note_sp_n3_4 }
+  - { table: Table 115, sqrt_s_nn: 5020, centrality: [30, 40], harmonic: 3, method: SP, acceptance: { delta_eta_gap: 2 }, note: *note_sp_n3_4 }
+  - { table: Table 121, sqrt_s_nn: 5020, centrality: [40, 50], harmonic: 3, method: SP, acceptance: { delta_eta_gap: 2 }, note: *note_sp_n3_4 }
+  - { table: Table 127, sqrt_s_nn: 5020, centrality: [50, 60], harmonic: 3, method: SP, acceptance: { delta_eta_gap: 2 }, note: *note_sp_n3_4 }
+  - { table: Table 133, sqrt_s_nn: 5020, centrality: [60, 70], harmonic: 3, method: SP, acceptance: { delta_eta_gap: 2 }, note: *note_sp_n3_4 }
+
+  # v_4{2, |Delta eta| > 2}, scalar product with respect to the V0A Q-vector (Figure 4): 8 classes
+  - { table: Table 93, sqrt_s_nn: 5020, centrality: [0, 5], harmonic: 4, method: SP, acceptance: { delta_eta_gap: 2 }, note: *note_sp_n3_4 }
+  - { table: Table 99, sqrt_s_nn: 5020, centrality: [5, 10], harmonic: 4, method: SP, acceptance: { delta_eta_gap: 2 }, note: *note_sp_n3_4 }
+  - { table: Table 105, sqrt_s_nn: 5020, centrality: [10, 20], harmonic: 4, method: SP, acceptance: { delta_eta_gap: 2 }, note: *note_sp_n3_4 }
+  - { table: Table 111, sqrt_s_nn: 5020, centrality: [20, 30], harmonic: 4, method: SP, acceptance: { delta_eta_gap: 2 }, note: *note_sp_n3_4 }
+  - { table: Table 117, sqrt_s_nn: 5020, centrality: [30, 40], harmonic: 4, method: SP, acceptance: { delta_eta_gap: 2 }, note: *note_sp_n3_4 }
+  - { table: Table 123, sqrt_s_nn: 5020, centrality: [40, 50], harmonic: 4, method: SP, acceptance: { delta_eta_gap: 2 }, note: *note_sp_n3_4 }
+  - { table: Table 129, sqrt_s_nn: 5020, centrality: [50, 60], harmonic: 4, method: SP, acceptance: { delta_eta_gap: 2 }, note: *note_sp_n3_4 }
+  - { table: Table 135, sqrt_s_nn: 5020, centrality: [60, 70], harmonic: 4, method: SP, acceptance: { delta_eta_gap: 2 }, note: *note_sp_n3_4 }
+  # ===== Pb-Pb at 2.76 TeV =====
+  # v_2{2, |Delta eta| > 1}, two-particle cumulant (Figure 3): 8 classes
+  - { table: Table 16, sqrt_s_nn: 2760, centrality: [0, 5], harmonic: 2, method: cumulant2, acceptance: { delta_eta_gap: 1 }, note: *note_cumulant2_n2 }
+  - { table: Table 24, sqrt_s_nn: 2760, centrality: [5, 10], harmonic: 2, method: cumulant2, acceptance: { delta_eta_gap: 1 }, note: *note_cumulant2_n2 }
+  - { table: Table 34, sqrt_s_nn: 2760, centrality: [10, 20], harmonic: 2, method: cumulant2, acceptance: { delta_eta_gap: 1 }, note: *note_cumulant2_n2 }
+  - { table: Table 44, sqrt_s_nn: 2760, centrality: [20, 30], harmonic: 2, method: cumulant2, acceptance: { delta_eta_gap: 1 }, note: *note_cumulant2_n2 }
+  - { table: Table 54, sqrt_s_nn: 2760, centrality: [30, 40], harmonic: 2, method: cumulant2, acceptance: { delta_eta_gap: 1 }, note: *note_cumulant2_n2 }
+  - { table: Table 64, sqrt_s_nn: 2760, centrality: [40, 50], harmonic: 2, method: cumulant2, acceptance: { delta_eta_gap: 1 }, note: *note_cumulant2_n2 }
+  - { table: Table 74, sqrt_s_nn: 2760, centrality: [50, 60], harmonic: 2, method: cumulant2, acceptance: { delta_eta_gap: 1 }, note: *note_cumulant2_n2 }
+  - { table: Table 83, sqrt_s_nn: 2760, centrality: [60, 70], harmonic: 2, method: cumulant2, acceptance: { delta_eta_gap: 1 }, note: *note_cumulant2_n2 }
+
+  # v_3{2, |Delta eta| > 1}, two-particle cumulant (Figure 3): 8 classes
+  - { table: Table 18, sqrt_s_nn: 2760, centrality: [0, 5], harmonic: 3, method: cumulant2, acceptance: { delta_eta_gap: 1 }, note: *note_cumulant2_n3_to_6 }
+  - { table: Table 26, sqrt_s_nn: 2760, centrality: [5, 10], harmonic: 3, method: cumulant2, acceptance: { delta_eta_gap: 1 }, note: *note_cumulant2_n3_to_6 }
+  - { table: Table 36, sqrt_s_nn: 2760, centrality: [10, 20], harmonic: 3, method: cumulant2, acceptance: { delta_eta_gap: 1 }, note: *note_cumulant2_n3_to_6 }
+  - { table: Table 46, sqrt_s_nn: 2760, centrality: [20, 30], harmonic: 3, method: cumulant2, acceptance: { delta_eta_gap: 1 }, note: *note_cumulant2_n3_to_6 }
+  - { table: Table 56, sqrt_s_nn: 2760, centrality: [30, 40], harmonic: 3, method: cumulant2, acceptance: { delta_eta_gap: 1 }, note: *note_cumulant2_n3_to_6 }
+  - { table: Table 66, sqrt_s_nn: 2760, centrality: [40, 50], harmonic: 3, method: cumulant2, acceptance: { delta_eta_gap: 1 }, note: *note_cumulant2_n3_to_6 }
+  - { table: Table 76, sqrt_s_nn: 2760, centrality: [50, 60], harmonic: 3, method: cumulant2, acceptance: { delta_eta_gap: 1 }, note: *note_cumulant2_n3_to_6 }
+  - { table: Table 85, sqrt_s_nn: 2760, centrality: [60, 70], harmonic: 3, method: cumulant2, acceptance: { delta_eta_gap: 1 }, note: *note_cumulant2_n3_to_6 }
+
+  # v_4{2, |Delta eta| > 1}, two-particle cumulant (Figure 3): 8 classes
+  - { table: Table 20, sqrt_s_nn: 2760, centrality: [0, 5], harmonic: 4, method: cumulant2, acceptance: { delta_eta_gap: 1 }, note: *note_cumulant2_n3_to_6 }
+  - { table: Table 28, sqrt_s_nn: 2760, centrality: [5, 10], harmonic: 4, method: cumulant2, acceptance: { delta_eta_gap: 1 }, note: *note_cumulant2_n3_to_6 }
+  - { table: Table 38, sqrt_s_nn: 2760, centrality: [10, 20], harmonic: 4, method: cumulant2, acceptance: { delta_eta_gap: 1 }, note: *note_cumulant2_n3_to_6 }
+  - { table: Table 48, sqrt_s_nn: 2760, centrality: [20, 30], harmonic: 4, method: cumulant2, acceptance: { delta_eta_gap: 1 }, note: *note_cumulant2_n3_to_6 }
+  - { table: Table 58, sqrt_s_nn: 2760, centrality: [30, 40], harmonic: 4, method: cumulant2, acceptance: { delta_eta_gap: 1 }, note: *note_cumulant2_n3_to_6 }
+  - { table: Table 68, sqrt_s_nn: 2760, centrality: [40, 50], harmonic: 4, method: cumulant2, acceptance: { delta_eta_gap: 1 }, note: *note_cumulant2_n3_to_6 }
+  - { table: Table 78, sqrt_s_nn: 2760, centrality: [50, 60], harmonic: 4, method: cumulant2, acceptance: { delta_eta_gap: 1 }, note: *note_cumulant2_n3_to_6 }
+  - { table: Table 86, sqrt_s_nn: 2760, centrality: [60, 70], harmonic: 4, method: cumulant2, acceptance: { delta_eta_gap: 1 }, note: *note_cumulant2_n3_to_6 }
+
+  # v_5{2, |Delta eta| > 1}, two-particle cumulant (Figure 3): 7 classes; the record has no table for 60-70%
+  - { table: Table 21, sqrt_s_nn: 2760, centrality: [0, 5], harmonic: 5, method: cumulant2, acceptance: { delta_eta_gap: 1 }, note: *note_cumulant2_n3_to_6 }
+  - { table: Table 29, sqrt_s_nn: 2760, centrality: [5, 10], harmonic: 5, method: cumulant2, acceptance: { delta_eta_gap: 1 }, note: *note_cumulant2_n3_to_6 }
+  - { table: Table 39, sqrt_s_nn: 2760, centrality: [10, 20], harmonic: 5, method: cumulant2, acceptance: { delta_eta_gap: 1 }, note: *note_cumulant2_n3_to_6 }
+  - { table: Table 49, sqrt_s_nn: 2760, centrality: [20, 30], harmonic: 5, method: cumulant2, acceptance: { delta_eta_gap: 1 }, note: *note_cumulant2_n3_to_6 }
+  - { table: Table 59, sqrt_s_nn: 2760, centrality: [30, 40], harmonic: 5, method: cumulant2, acceptance: { delta_eta_gap: 1 }, note: *note_cumulant2_n3_to_6 }
+  - { table: Table 69, sqrt_s_nn: 2760, centrality: [40, 50], harmonic: 5, method: cumulant2, acceptance: { delta_eta_gap: 1 }, note: *note_cumulant2_n3_to_6 }
+  - { table: Table 79, sqrt_s_nn: 2760, centrality: [50, 60], harmonic: 5, method: cumulant2, acceptance: { delta_eta_gap: 1 }, note: *note_cumulant2_n3_to_6 }
+
+  # v_6{2, |Delta eta| > 1}, two-particle cumulant (Figure 3): 6 classes; the record has no table for 50-60%, 60-70%
+  - { table: Table 22, sqrt_s_nn: 2760, centrality: [0, 5], harmonic: 6, method: cumulant2, acceptance: { delta_eta_gap: 1 }, note: *note_cumulant2_n3_to_6 }
+  - { table: Table 30, sqrt_s_nn: 2760, centrality: [5, 10], harmonic: 6, method: cumulant2, acceptance: { delta_eta_gap: 1 }, note: *note_cumulant2_n3_to_6 }
+  - { table: Table 40, sqrt_s_nn: 2760, centrality: [10, 20], harmonic: 6, method: cumulant2, acceptance: { delta_eta_gap: 1 }, note: *note_cumulant2_n3_to_6 }
+  - { table: Table 50, sqrt_s_nn: 2760, centrality: [20, 30], harmonic: 6, method: cumulant2, acceptance: { delta_eta_gap: 1 }, note: *note_cumulant2_n3_to_6 }
+  - { table: Table 60, sqrt_s_nn: 2760, centrality: [30, 40], harmonic: 6, method: cumulant2, acceptance: { delta_eta_gap: 1 }, note: *note_cumulant2_n3_to_6 }
+  - { table: Table 70, sqrt_s_nn: 2760, centrality: [40, 50], harmonic: 6, method: cumulant2, acceptance: { delta_eta_gap: 1 }, note: *note_cumulant2_n3_to_6 }
+
+  # v_2{4}, four-particle cumulant (Figure 3): 7 classes; the record has no table for 0-5%
+  - { table: Table 32, sqrt_s_nn: 2760, centrality: [5, 10], harmonic: 2, method: cumulant4, note: *note_cumulant4_n2 }
+  - { table: Table 42, sqrt_s_nn: 2760, centrality: [10, 20], harmonic: 2, method: cumulant4, note: *note_cumulant4_n2 }
+  - { table: Table 52, sqrt_s_nn: 2760, centrality: [20, 30], harmonic: 2, method: cumulant4, note: *note_cumulant4_n2 }
+  - { table: Table 62, sqrt_s_nn: 2760, centrality: [30, 40], harmonic: 2, method: cumulant4, note: *note_cumulant4_n2 }
+  - { table: Table 72, sqrt_s_nn: 2760, centrality: [40, 50], harmonic: 2, method: cumulant4, note: *note_cumulant4_n2 }
+  - { table: Table 81, sqrt_s_nn: 2760, centrality: [50, 60], harmonic: 2, method: cumulant4, note: *note_cumulant4_n2 }
+  - { table: Table 88, sqrt_s_nn: 2760, centrality: [60, 70], harmonic: 2, method: cumulant4, note: *note_cumulant4_n2 }
+
+  # v_2{2, |Delta eta| > 2}, scalar product with respect to the V0A Q-vector (Figure 4): 8 classes
+  - { table: Table 90, sqrt_s_nn: 2760, centrality: [0, 5], harmonic: 2, method: SP, acceptance: { delta_eta_gap: 2 }, note: *note_sp_n2 }
+  - { table: Table 96, sqrt_s_nn: 2760, centrality: [5, 10], harmonic: 2, method: SP, acceptance: { delta_eta_gap: 2 }, note: *note_sp_n2 }
+  - { table: Table 102, sqrt_s_nn: 2760, centrality: [10, 20], harmonic: 2, method: SP, acceptance: { delta_eta_gap: 2 }, note: *note_sp_n2 }
+  - { table: Table 108, sqrt_s_nn: 2760, centrality: [20, 30], harmonic: 2, method: SP, acceptance: { delta_eta_gap: 2 }, note: *note_sp_n2 }
+  - { table: Table 114, sqrt_s_nn: 2760, centrality: [30, 40], harmonic: 2, method: SP, acceptance: { delta_eta_gap: 2 }, note: *note_sp_n2 }
+  - { table: Table 120, sqrt_s_nn: 2760, centrality: [40, 50], harmonic: 2, method: SP, acceptance: { delta_eta_gap: 2 }, note: *note_sp_n2 }
+  - { table: Table 126, sqrt_s_nn: 2760, centrality: [50, 60], harmonic: 2, method: SP, acceptance: { delta_eta_gap: 2 }, note: *note_sp_n2 }
+  - { table: Table 132, sqrt_s_nn: 2760, centrality: [60, 70], harmonic: 2, method: SP, acceptance: { delta_eta_gap: 2 }, note: *note_sp_n2 }
+
+  # v_3{2, |Delta eta| > 2}, scalar product with respect to the V0A Q-vector (Figure 4): 8 classes
+  - { table: Table 92, sqrt_s_nn: 2760, centrality: [0, 5], harmonic: 3, method: SP, acceptance: { delta_eta_gap: 2 }, note: *note_sp_n3_4 }
+  - { table: Table 98, sqrt_s_nn: 2760, centrality: [5, 10], harmonic: 3, method: SP, acceptance: { delta_eta_gap: 2 }, note: *note_sp_n3_4 }
+  - { table: Table 104, sqrt_s_nn: 2760, centrality: [10, 20], harmonic: 3, method: SP, acceptance: { delta_eta_gap: 2 }, note: *note_sp_n3_4 }
+  - { table: Table 110, sqrt_s_nn: 2760, centrality: [20, 30], harmonic: 3, method: SP, acceptance: { delta_eta_gap: 2 }, note: *note_sp_n3_4 }
+  - { table: Table 116, sqrt_s_nn: 2760, centrality: [30, 40], harmonic: 3, method: SP, acceptance: { delta_eta_gap: 2 }, note: *note_sp_n3_4 }
+  - { table: Table 122, sqrt_s_nn: 2760, centrality: [40, 50], harmonic: 3, method: SP, acceptance: { delta_eta_gap: 2 }, note: *note_sp_n3_4 }
+  - { table: Table 128, sqrt_s_nn: 2760, centrality: [50, 60], harmonic: 3, method: SP, acceptance: { delta_eta_gap: 2 }, note: *note_sp_n3_4 }
+  - { table: Table 134, sqrt_s_nn: 2760, centrality: [60, 70], harmonic: 3, method: SP, acceptance: { delta_eta_gap: 2 }, note: *note_sp_n3_4 }
+
+  # v_4{2, |Delta eta| > 2}, scalar product with respect to the V0A Q-vector (Figure 4): 7 classes; the record has no table for 60-70%
+  - { table: Table 94, sqrt_s_nn: 2760, centrality: [0, 5], harmonic: 4, method: SP, acceptance: { delta_eta_gap: 2 }, note: *note_sp_n3_4 }
+  - { table: Table 100, sqrt_s_nn: 2760, centrality: [5, 10], harmonic: 4, method: SP, acceptance: { delta_eta_gap: 2 }, note: *note_sp_n3_4 }
+  - { table: Table 106, sqrt_s_nn: 2760, centrality: [10, 20], harmonic: 4, method: SP, acceptance: { delta_eta_gap: 2 }, note: *note_sp_n3_4 }
+  - { table: Table 112, sqrt_s_nn: 2760, centrality: [20, 30], harmonic: 4, method: SP, acceptance: { delta_eta_gap: 2 }, note: *note_sp_n3_4 }
+  - { table: Table 118, sqrt_s_nn: 2760, centrality: [30, 40], harmonic: 4, method: SP, acceptance: { delta_eta_gap: 2 }, note: *note_sp_n3_4 }
+  - { table: Table 124, sqrt_s_nn: 2760, centrality: [40, 50], harmonic: 4, method: SP, acceptance: { delta_eta_gap: 2 }, note: *note_sp_n3_4 }
+  - { table: Table 130, sqrt_s_nn: 2760, centrality: [50, 60], harmonic: 4, method: SP, acceptance: { delta_eta_gap: 2 }, note: *note_sp_n3_4 }
+
+errors:
+  sys:
+    note: "The paper's total systematic uncertainty: variations of the track and event selections (a variation counts if it is significant by the Barlow criterion) and an alternative centrality estimator, added in quadrature as uncorrelated sources; track quality and the centrality determination dominate (arXiv:1804.02944, Sec. 2)."

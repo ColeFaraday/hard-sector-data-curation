@@ -1,0 +1,71 @@
+format_version: 1
+key: vn__PbPb5020__CMS__charged__5-10__SP__n3__gap3
+observable: vn
+system: PbPb
+sqrt_s_nn: 5020
+experiment: CMS
+particle: charged
+centrality: [5, 10]
+centrality_definition: CMS_HF_ENERGY
+harmonic: 3
+method: SP
+acceptance: { eta_range: [-1.0, 1.0], delta_eta_gap: 3 }
+source:
+  hepdata:
+    inspire_id: 1511868
+    version: 1
+    table: Table 9
+    column: 0
+    location: Data from Figure 1
+    doi: "10.17182/hepdata.77603.v1/t9"
+  paper: "arXiv:1702.00630"
+  inspireHEPKey: "CMS:2017xgk"
+note: "Scalar product method. The paper imposes a large eta gap between the track vector (|eta| < 1) and the HF vector taken on the opposite side of the tracker (HF covering 3 < |eta| < 5); the table gives it as |Delta eta| > 3. The qualifier pT > 1.0 GeV/c is the lower pT limit of the tracks, since the paper restricts primary tracks to |eta| < 1 and pT > 1 GeV/c; pT is the table's independent variable, so the qualifier is not recorded as a pt_range (arXiv:1702.00630, sections 'Analysis technique' and 'Event and track selections'). The paper says the relative systematic uncertainties of v2 are applied to v3, except the few-particle-correlation part, because the v3 statistical uncertainties at high pT are too large to separate statistical fluctuations from systematic effects (section 'Systematic uncertainties')."
+x: { name: pt, units: GeV }
+y: { name: vn }
+errors:
+  stat: { label: stat }
+  sys: { label: sys, note: "The shaded boxes of the paper's figures. The paper names the sources (arXiv:1702.00630, section 'Systematic uncertainties'): the vertex position selection and the pT dependence of the tracking efficiency corrections (below 1% and independent of pT and centrality, common to the SP and cumulant results); the track selection, for misreconstructed tracks (about 2% at low pT rising to about 50% above 60 GeV/c for SP and to about 12% for the cumulants); and, for SP only, few-particle correlations, from varying the eta gap (0 to 0.022 in absolute value for v2 and 0 to 0.030 for v3)." }
+bins:
+  - { centre: 1.1, value: 0.0387,
+      errors: { stat: 0.0001, sys: 0.0008 } }
+  - { centre: 1.4, value: 0.0483,
+      errors: { stat: 0.0001, sys: 0.001 } }
+  - { centre: 1.7, value: 0.0604,
+      errors: { stat: 0.0001, sys: 0.0012 } }
+  - { centre: 2.2, value: 0.077,
+      errors: { stat: 0.0001, sys: 0.0016 } }
+  - { centre: 2.7, value: 0.0906,
+      errors: { stat: 0.0002, sys: 0.0018 } }
+  - { centre: 3.2, value: 0.1003,
+      errors: { stat: 0.0003, sys: 0.002 } }
+  - { centre: 3.7, value: 0.1022,
+      errors: { stat: 0.0005, sys: 0.0021 } }
+  - { centre: 4.4, value: 0.0953,
+      errors: { stat: 0.0006, sys: 0.0019 } }
+  - { centre: 5.4, value: 0.0744,
+      errors: { stat: 0.0011, sys: 0.0015 } }
+  - { centre: 6.4, value: 0.0547,
+      errors: { stat: 0.0017, sys: 0.0012 } }
+  - { centre: 7.4, value: 0.0384,
+      errors: { stat: 0.0025, sys: 0.0009 } }
+  - { centre: 8.8, value: 0.0314,
+      errors: { stat: 0.0026, sys: 0.0007 } }
+  - { centre: 10.9, value: 0.0235,
+      errors: { stat: 0.0042, sys: 0.0006 } }
+  - { centre: 12.9, value: 0.0153,
+      errors: { stat: 0.006, sys: 0.0005 } }
+  - { centre: 16.2, value: 0.0126,
+      errors: { stat: 0.0011, sys: 0.0011 } }
+  - { centre: 22.4, value: 0.0067,
+      errors: { stat: 0.0021, sys: 0.0021 } }
+  - { centre: 29.5, value: 0.0006,
+      errors: { stat: 0.0029, sys: 0.0038 } }
+  - { centre: 39.1, value: -0.004,
+      errors: { stat: 0.0042, sys: 0.0054 } }
+  - { centre: 50.8, value: -0.001,
+      errors: { stat: 0.0065, sys: 0.01 } }
+  - { centre: 67.7, value: -0.0004,
+      errors: { stat: 0.0115, sys: 0.012 } }
+  - { centre: 87.9, value: 0.0142,
+      errors: { stat: 0.0231, sys: 0.0127 } }

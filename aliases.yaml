@@ -1,0 +1,35 @@
+# Raw spellings -> common names, once for all records. An unknown spelling fails the
+# build and names the record, so it is added here and every later record benefits. A
+# recipe can override a spelling for one record where it means something else there.
+#
+# Common names are what an analysis config refers to ("all `taa` sources"). They are
+# names, not interpretations: whether a source is correlated, symmetric or independent is
+# decided by the analysis.
+
+errors:
+  stat: ["stat"]
+  sys: ["sys"]
+  total: ["total"]
+  taa: ["sys,TAA", "syst, TAA", "sys,TpA"]    # nuclear overlap function <T_AA> or <T_pA>
+  lumi: ["sys,lumi", "syst, luminosity"]
+  norm: ["norm"]                              # a normalisation that is not split further
+  # ATLAS charged-hadron detector sources (ins2601282)
+  track_selection: ["syst, track selection"]
+  track_matching: ["syst, track to particle matching"]
+  particle_composition: ["syst, particle composition"]
+  fakes_secondaries: ["syst, fake and secondary tracks"]
+  pt_resolution: ["syst, pT resolution correction"]
+  eta_resolution: ["syst, eta resolution correction"]
+  unfolding: ["syst, unfolding procedure"]
+  tracking_efficiency: ["syst, track reconstruction efficiency"]
+  material: ["syst, material"]
+  momentum_bias: ["syst, momentum bias"]
+  extrapolation: ["syst, extrapolation"]
+
+# Independent variables.
+x:
+  pt: ["PT", "$p_{T}$", "pT"]
+
+# Units of an independent variable.
+units:
+  GeV: ["GEV", "GeV", "GEV/c", "GEV/C", "GeV/c"]

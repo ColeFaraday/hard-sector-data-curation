@@ -1,0 +1,297 @@
+# ATLAS, azimuthal anisotropy of charged particles in Pb+Pb collisions at 5.02 TeV
+# (arXiv:1808.03951, HEPData ins1686834 v1): v_n against pT in centrality classes, n = 2 to 7,
+# by the scalar product (SP), event plane (EP) and two-particle correlation (2PC) methods.
+#
+# Curated: every table whose independent variable is pT and that gives v_n in a centrality
+# class, 190 datasets. All of them are for tracks with |eta| < 2.5 (the tables' ETARAP), the
+# widest window of the record. No table gives v_n against pT in a narrower eta window (v_n in
+# eta bins is only given against eta, which is not curated), so no dataset has an eta-window
+# variant. The 2PC datasets also carry the pair gap, delta_eta_gap 2.
+#
+#   family            HEPData figure  tables    harmonics and classes
+#   SP                Fig. 5          1-60      v2-v5 0-0.1% to 70-80%; v6 0-5% to 70-80%; v7 0-5% to 50-60%
+#   EP                Fig. 16         288-347   the same harmonics and classes as SP
+#   EP, run1-bins     Fig. 10         136-150   v2-v6 in 0-5%, 20-30% and 40-50%
+#   2PC               Fig. 6          61-103    v2-v4 0-5% to 70-80%; v5 and v6 0-5% to 60-70%
+#   2PC, total-err    Fig. 13         260-271   v2 and v3 in 0-5%, 10-15%, 20-25%, ..., 50-55%
+#
+# Variant labels. A family without a variant is the main table of its method; a variant names
+# how another family differs from it. run1-bins: the EP data in pT bins matched to the Run 1
+# (2.76 TeV) result (Fig. 10; HEPData's description says so). total-err: the 2PC data of Fig.
+# 13, which carry one total uncertainty instead of stat and sys. A variant family repeats the
+# class and method of the main family (EP and run1-bins, 2PC and total-err), which the dataset
+# notes say. The SP, EP and 2PC datasets of one class come from the same minimum-bias events
+# (arXiv:1808.03951, Sec. 4); the SP and EP datasets of the 0-1% and 0-0.1% classes also use
+# the ultra-central trigger samples (Secs. 3 and 4).
+#
+# A note shared by several datasets is written once, with a YAML anchor (&name) at its first
+# use, and referred to afterwards with an alias (*name).
+#
+# Not curated, because pT is not their independent variable or they are not v_n itself:
+#   - the ratios v_n{SP}/v_n{EP} against pT and <Npart> (Fig. 7, tables 104-123) and
+#     v_n{SP}/v_n{2PC} against pT (Fig. 8, tables 124-135);
+#   - v_n against pseudorapidity (Figs. 11 and 17, tables 151-217 and 348-414);
+#   - v_n against <Npart> (Figs. 12 and 18, tables 218-259 and 415-456);
+#   - the scaled v_2 and v_3 against pT (Fig. 13 right panels, tables 272-283) and the pT and
+#     v_n scale factors against centrality (Fig. 14, tables 284-287).
+
+record: { inspire_id: 1686834, version: 1 }
+paper: "arXiv:1808.03951"
+experiment: ATLAS
+particle: charged
+sqrt_s_nn: 5020
+system: PbPb
+observable: vn
+centrality_definition: ATLAS_FCAL_ET
+acceptance: { eta_range: [-2.5, 2.5] }
+
+datasets:
+  # --- SP, HEPData Figure 5 (paper Fig. 5): tables 1-60 ---
+  # v2, tables 1-11
+  - { table: Table 1, harmonic: 2, method: SP, centrality: [0, 0.1], figure: "5",
+      note: &sp_nest0_0p1 "Overlaps the 0-1% and 0-5% datasets of this method and harmonic: the narrower class lies inside the wider one. The paper uses events from the UCC-2 ultra-central trigger over this interval (arXiv:1808.03951, Sec. 3). Reference flow vector from the FCal, 3.2 < |eta| < 4.9, on the side that maximises the eta gap to the track (arXiv:1808.03951, Sec. 4.2). All the methods of this record use the same minimum-bias sample (arXiv:1808.03951, Sec. 4)." }
+  - { table: Table 2, harmonic: 2, method: SP, centrality: [0, 1], figure: "5",
+      note: &sp_nest0_1 "Overlaps the 0-0.1% and 0-5% datasets of this method and harmonic: the narrower class lies inside the wider one. The paper uses events from the UCC-1 ultra-central trigger over this interval (arXiv:1808.03951, Sec. 3). Reference flow vector from the FCal, 3.2 < |eta| < 4.9, on the side that maximises the eta gap to the track (arXiv:1808.03951, Sec. 4.2). All the methods of this record use the same minimum-bias sample (arXiv:1808.03951, Sec. 4)." }
+  - { table: Table 3, harmonic: 2, method: SP, centrality: [0, 5], figure: "5",
+      note: &sp_nest0_5 "Overlaps the 0-0.1% and 0-1% datasets of this method and harmonic: the narrower class lies inside the wider one. Reference flow vector from the FCal, 3.2 < |eta| < 4.9, on the side that maximises the eta gap to the track (arXiv:1808.03951, Sec. 4.2). All the methods of this record use the same minimum-bias sample (arXiv:1808.03951, Sec. 4)." }
+  - { table: Table 4, harmonic: 2, method: SP, centrality: [5, 10], figure: "5",
+      note: &sp_plain "Reference flow vector from the FCal, 3.2 < |eta| < 4.9, on the side that maximises the eta gap to the track (arXiv:1808.03951, Sec. 4.2). All the methods of this record use the same minimum-bias sample (arXiv:1808.03951, Sec. 4)." }
+  - { table: Table 5, harmonic: 2, method: SP, centrality: [10, 20], figure: "5", note: *sp_plain }
+  - { table: Table 6, harmonic: 2, method: SP, centrality: [20, 30], figure: "5", note: *sp_plain }
+  - { table: Table 7, harmonic: 2, method: SP, centrality: [30, 40], figure: "5", note: *sp_plain }
+  - { table: Table 8, harmonic: 2, method: SP, centrality: [40, 50], figure: "5", note: *sp_plain }
+  - { table: Table 9, harmonic: 2, method: SP, centrality: [50, 60], figure: "5", note: *sp_plain }
+  - { table: Table 10, harmonic: 2, method: SP, centrality: [60, 70], figure: "5", note: *sp_plain }
+  - { table: Table 11, harmonic: 2, method: SP, centrality: [70, 80], figure: "5", note: *sp_plain }
+  # v3, tables 12-22
+  - { table: Table 12, harmonic: 3, method: SP, centrality: [0, 0.1], figure: "5", note: *sp_nest0_0p1 }
+  - { table: Table 13, harmonic: 3, method: SP, centrality: [0, 1], figure: "5", note: *sp_nest0_1 }
+  - { table: Table 14, harmonic: 3, method: SP, centrality: [0, 5], figure: "5", note: *sp_nest0_5 }
+  - { table: Table 15, harmonic: 3, method: SP, centrality: [5, 10], figure: "5", note: *sp_plain }
+  - { table: Table 16, harmonic: 3, method: SP, centrality: [10, 20], figure: "5", note: *sp_plain }
+  - { table: Table 17, harmonic: 3, method: SP, centrality: [20, 30], figure: "5", note: *sp_plain }
+  - { table: Table 18, harmonic: 3, method: SP, centrality: [30, 40], figure: "5", note: *sp_plain }
+  - { table: Table 19, harmonic: 3, method: SP, centrality: [40, 50], figure: "5", note: *sp_plain }
+  - { table: Table 20, harmonic: 3, method: SP, centrality: [50, 60], figure: "5", note: *sp_plain }
+  - { table: Table 21, harmonic: 3, method: SP, centrality: [60, 70], figure: "5", note: *sp_plain }
+  - { table: Table 22, harmonic: 3, method: SP, centrality: [70, 80], figure: "5", note: *sp_plain }
+  # v4, tables 23-33
+  - { table: Table 23, harmonic: 4, method: SP, centrality: [0, 0.1], figure: "5", note: *sp_nest0_0p1 }
+  - { table: Table 24, harmonic: 4, method: SP, centrality: [0, 1], figure: "5", note: *sp_nest0_1 }
+  - { table: Table 25, harmonic: 4, method: SP, centrality: [0, 5], figure: "5", note: *sp_nest0_5 }
+  - { table: Table 26, harmonic: 4, method: SP, centrality: [5, 10], figure: "5", note: *sp_plain }
+  - { table: Table 27, harmonic: 4, method: SP, centrality: [10, 20], figure: "5", note: *sp_plain }
+  - { table: Table 28, harmonic: 4, method: SP, centrality: [20, 30], figure: "5", note: *sp_plain }
+  - { table: Table 29, harmonic: 4, method: SP, centrality: [30, 40], figure: "5", note: *sp_plain }
+  - { table: Table 30, harmonic: 4, method: SP, centrality: [40, 50], figure: "5", note: *sp_plain }
+  - { table: Table 31, harmonic: 4, method: SP, centrality: [50, 60], figure: "5", note: *sp_plain }
+  - { table: Table 32, harmonic: 4, method: SP, centrality: [60, 70], figure: "5", note: *sp_plain }
+  - { table: Table 33, harmonic: 4, method: SP, centrality: [70, 80], figure: "5", note: *sp_plain }
+  # v5, tables 34-44
+  - { table: Table 34, harmonic: 5, method: SP, centrality: [0, 0.1], figure: "5", note: *sp_nest0_0p1 }
+  - { table: Table 35, harmonic: 5, method: SP, centrality: [0, 1], figure: "5", note: *sp_nest0_1 }
+  - { table: Table 36, harmonic: 5, method: SP, centrality: [0, 5], figure: "5", note: *sp_nest0_5 }
+  - { table: Table 37, harmonic: 5, method: SP, centrality: [5, 10], figure: "5", note: *sp_plain }
+  - { table: Table 38, harmonic: 5, method: SP, centrality: [10, 20], figure: "5", note: *sp_plain }
+  - { table: Table 39, harmonic: 5, method: SP, centrality: [20, 30], figure: "5", note: *sp_plain }
+  - { table: Table 40, harmonic: 5, method: SP, centrality: [30, 40], figure: "5", note: *sp_plain }
+  - { table: Table 41, harmonic: 5, method: SP, centrality: [40, 50], figure: "5", note: *sp_plain }
+  - { table: Table 42, harmonic: 5, method: SP, centrality: [50, 60], figure: "5", note: *sp_plain }
+  - { table: Table 43, harmonic: 5, method: SP, centrality: [60, 70], figure: "5", note: *sp_plain }
+  - { table: Table 44, harmonic: 5, method: SP, centrality: [70, 80], figure: "5", note: *sp_plain }
+  # v6, tables 45-53
+  - { table: Table 45, harmonic: 6, method: SP, centrality: [0, 5], figure: "5", note: *sp_plain }
+  - { table: Table 46, harmonic: 6, method: SP, centrality: [5, 10], figure: "5", note: *sp_plain }
+  - { table: Table 47, harmonic: 6, method: SP, centrality: [10, 20], figure: "5", note: *sp_plain }
+  - { table: Table 48, harmonic: 6, method: SP, centrality: [20, 30], figure: "5", note: *sp_plain }
+  - { table: Table 49, harmonic: 6, method: SP, centrality: [30, 40], figure: "5", note: *sp_plain }
+  - { table: Table 50, harmonic: 6, method: SP, centrality: [40, 50], figure: "5", note: *sp_plain }
+  - { table: Table 51, harmonic: 6, method: SP, centrality: [50, 60], figure: "5", note: *sp_plain }
+  - { table: Table 52, harmonic: 6, method: SP, centrality: [60, 70], figure: "5", note: *sp_plain }
+  - { table: Table 53, harmonic: 6, method: SP, centrality: [70, 80], figure: "5", note: *sp_plain }
+  # v7, tables 54-60
+  - { table: Table 54, harmonic: 7, method: SP, centrality: [0, 5], figure: "5", note: *sp_plain }
+  - { table: Table 55, harmonic: 7, method: SP, centrality: [5, 10], figure: "5", note: *sp_plain }
+  - { table: Table 56, harmonic: 7, method: SP, centrality: [10, 20], figure: "5", note: *sp_plain }
+  - { table: Table 57, harmonic: 7, method: SP, centrality: [20, 30], figure: "5", note: *sp_plain }
+  - { table: Table 58, harmonic: 7, method: SP, centrality: [30, 40], figure: "5", note: *sp_plain }
+  - { table: Table 59, harmonic: 7, method: SP, centrality: [40, 50], figure: "5", note: *sp_plain }
+  - { table: Table 60, harmonic: 7, method: SP, centrality: [50, 60], figure: "5", note: *sp_plain }
+  # --- EP, HEPData Figure 16 (no counterpart in the arXiv text): tables 288-347 ---
+  # v2, tables 288-298
+  - { table: Table 288, harmonic: 2, method: EP, centrality: [0, 0.1],
+      note: &ep_nest0_0p1_inrun1_0_5 "Overlaps the 0-1% and 0-5% datasets of this method and harmonic: the narrower class lies inside the wider one. The paper uses events from the UCC-2 ultra-central trigger over this interval (arXiv:1808.03951, Sec. 3). It also lies inside the 0-5% dataset of variant run1-bins (Fig. 10). Event plane method: the FCal reference flow vector (3.2 < |eta| < 4.9) is normalised to unity (arXiv:1808.03951, Sec. 4.2). The paper says it uses the EP method only to compare with the Run 1 (2.76 TeV) results. HEPData's Figure 16 has no counterpart in the arXiv text, which has Figures 1-14. All the methods of this record use the same minimum-bias sample (arXiv:1808.03951, Sec. 4)." }
+  - { table: Table 289, harmonic: 2, method: EP, centrality: [0, 1],
+      note: &ep_nest0_1_inrun1_0_5 "Overlaps the 0-0.1% and 0-5% datasets of this method and harmonic: the narrower class lies inside the wider one. The paper uses events from the UCC-1 ultra-central trigger over this interval (arXiv:1808.03951, Sec. 3). It also lies inside the 0-5% dataset of variant run1-bins (Fig. 10). Event plane method: the FCal reference flow vector (3.2 < |eta| < 4.9) is normalised to unity (arXiv:1808.03951, Sec. 4.2). The paper says it uses the EP method only to compare with the Run 1 (2.76 TeV) results. HEPData's Figure 16 has no counterpart in the arXiv text, which has Figures 1-14. All the methods of this record use the same minimum-bias sample (arXiv:1808.03951, Sec. 4)." }
+  - { table: Table 290, harmonic: 2, method: EP, centrality: [0, 5],
+      note: &ep_nest0_5_twin "Overlaps the 0-0.1% and 0-1% datasets of this method and harmonic: the narrower class lies inside the wider one. Also published in pT bins matched to Run 1 (variant run1-bins, Fig. 10). Event plane method: the FCal reference flow vector (3.2 < |eta| < 4.9) is normalised to unity (arXiv:1808.03951, Sec. 4.2). The paper says it uses the EP method only to compare with the Run 1 (2.76 TeV) results. HEPData's Figure 16 has no counterpart in the arXiv text, which has Figures 1-14. All the methods of this record use the same minimum-bias sample (arXiv:1808.03951, Sec. 4)." }
+  - { table: Table 291, harmonic: 2, method: EP, centrality: [5, 10],
+      note: &ep_plain "Event plane method: the FCal reference flow vector (3.2 < |eta| < 4.9) is normalised to unity (arXiv:1808.03951, Sec. 4.2). The paper says it uses the EP method only to compare with the Run 1 (2.76 TeV) results. HEPData's Figure 16 has no counterpart in the arXiv text, which has Figures 1-14. All the methods of this record use the same minimum-bias sample (arXiv:1808.03951, Sec. 4)." }
+  - { table: Table 292, harmonic: 2, method: EP, centrality: [10, 20], note: *ep_plain }
+  - { table: Table 293, harmonic: 2, method: EP, centrality: [20, 30],
+      note: &ep_twin "Also published in pT bins matched to Run 1 (variant run1-bins, Fig. 10). Event plane method: the FCal reference flow vector (3.2 < |eta| < 4.9) is normalised to unity (arXiv:1808.03951, Sec. 4.2). The paper says it uses the EP method only to compare with the Run 1 (2.76 TeV) results. HEPData's Figure 16 has no counterpart in the arXiv text, which has Figures 1-14. All the methods of this record use the same minimum-bias sample (arXiv:1808.03951, Sec. 4)." }
+  - { table: Table 294, harmonic: 2, method: EP, centrality: [30, 40], note: *ep_plain }
+  - { table: Table 295, harmonic: 2, method: EP, centrality: [40, 50], note: *ep_twin }
+  - { table: Table 296, harmonic: 2, method: EP, centrality: [50, 60], note: *ep_plain }
+  - { table: Table 297, harmonic: 2, method: EP, centrality: [60, 70], note: *ep_plain }
+  - { table: Table 298, harmonic: 2, method: EP, centrality: [70, 80], note: *ep_plain }
+  # v3, tables 299-309
+  - { table: Table 299, harmonic: 3, method: EP, centrality: [0, 0.1], note: *ep_nest0_0p1_inrun1_0_5 }
+  - { table: Table 300, harmonic: 3, method: EP, centrality: [0, 1], note: *ep_nest0_1_inrun1_0_5 }
+  - { table: Table 301, harmonic: 3, method: EP, centrality: [0, 5], note: *ep_nest0_5_twin }
+  - { table: Table 302, harmonic: 3, method: EP, centrality: [5, 10], note: *ep_plain }
+  - { table: Table 303, harmonic: 3, method: EP, centrality: [10, 20], note: *ep_plain }
+  - { table: Table 304, harmonic: 3, method: EP, centrality: [20, 30], note: *ep_twin }
+  - { table: Table 305, harmonic: 3, method: EP, centrality: [30, 40], note: *ep_plain }
+  - { table: Table 306, harmonic: 3, method: EP, centrality: [40, 50], note: *ep_twin }
+  - { table: Table 307, harmonic: 3, method: EP, centrality: [50, 60], note: *ep_plain }
+  - { table: Table 308, harmonic: 3, method: EP, centrality: [60, 70], note: *ep_plain }
+  - { table: Table 309, harmonic: 3, method: EP, centrality: [70, 80], note: *ep_plain }
+  # v4, tables 310-320
+  - { table: Table 310, harmonic: 4, method: EP, centrality: [0, 0.1], note: *ep_nest0_0p1_inrun1_0_5 }
+  - { table: Table 311, harmonic: 4, method: EP, centrality: [0, 1], note: *ep_nest0_1_inrun1_0_5 }
+  - { table: Table 312, harmonic: 4, method: EP, centrality: [0, 5], note: *ep_nest0_5_twin }
+  - { table: Table 313, harmonic: 4, method: EP, centrality: [5, 10], note: *ep_plain }
+  - { table: Table 314, harmonic: 4, method: EP, centrality: [10, 20], note: *ep_plain }
+  - { table: Table 315, harmonic: 4, method: EP, centrality: [20, 30], note: *ep_twin }
+  - { table: Table 316, harmonic: 4, method: EP, centrality: [30, 40], note: *ep_plain }
+  - { table: Table 317, harmonic: 4, method: EP, centrality: [40, 50], note: *ep_twin }
+  - { table: Table 318, harmonic: 4, method: EP, centrality: [50, 60], note: *ep_plain }
+  - { table: Table 319, harmonic: 4, method: EP, centrality: [60, 70], note: *ep_plain }
+  - { table: Table 320, harmonic: 4, method: EP, centrality: [70, 80], note: *ep_plain }
+  # v5, tables 321-331
+  - { table: Table 321, harmonic: 5, method: EP, centrality: [0, 0.1], note: *ep_nest0_0p1_inrun1_0_5 }
+  - { table: Table 322, harmonic: 5, method: EP, centrality: [0, 1], note: *ep_nest0_1_inrun1_0_5 }
+  - { table: Table 323, harmonic: 5, method: EP, centrality: [0, 5], note: *ep_nest0_5_twin }
+  - { table: Table 324, harmonic: 5, method: EP, centrality: [5, 10], note: *ep_plain }
+  - { table: Table 325, harmonic: 5, method: EP, centrality: [10, 20], note: *ep_plain }
+  - { table: Table 326, harmonic: 5, method: EP, centrality: [20, 30], note: *ep_twin }
+  - { table: Table 327, harmonic: 5, method: EP, centrality: [30, 40], note: *ep_plain }
+  - { table: Table 328, harmonic: 5, method: EP, centrality: [40, 50], note: *ep_twin }
+  - { table: Table 329, harmonic: 5, method: EP, centrality: [50, 60], note: *ep_plain }
+  - { table: Table 330, harmonic: 5, method: EP, centrality: [60, 70], note: *ep_plain }
+  - { table: Table 331, harmonic: 5, method: EP, centrality: [70, 80], note: *ep_plain }
+  # v6, tables 332-340
+  - { table: Table 332, harmonic: 6, method: EP, centrality: [0, 5], note: *ep_twin }
+  - { table: Table 333, harmonic: 6, method: EP, centrality: [5, 10], note: *ep_plain }
+  - { table: Table 334, harmonic: 6, method: EP, centrality: [10, 20], note: *ep_plain }
+  - { table: Table 335, harmonic: 6, method: EP, centrality: [20, 30], note: *ep_twin }
+  - { table: Table 336, harmonic: 6, method: EP, centrality: [30, 40], note: *ep_plain }
+  - { table: Table 337, harmonic: 6, method: EP, centrality: [40, 50], note: *ep_twin }
+  - { table: Table 338, harmonic: 6, method: EP, centrality: [50, 60], note: *ep_plain }
+  - { table: Table 339, harmonic: 6, method: EP, centrality: [60, 70], note: *ep_plain }
+  - { table: Table 340, harmonic: 6, method: EP, centrality: [70, 80], note: *ep_plain }
+  # v7, tables 341-347
+  - { table: Table 341, harmonic: 7, method: EP, centrality: [0, 5], note: *ep_plain }
+  - { table: Table 342, harmonic: 7, method: EP, centrality: [5, 10], note: *ep_plain }
+  - { table: Table 343, harmonic: 7, method: EP, centrality: [10, 20], note: *ep_plain }
+  - { table: Table 344, harmonic: 7, method: EP, centrality: [20, 30], note: *ep_plain }
+  - { table: Table 345, harmonic: 7, method: EP, centrality: [30, 40], note: *ep_plain }
+  - { table: Table 346, harmonic: 7, method: EP, centrality: [40, 50], note: *ep_plain }
+  - { table: Table 347, harmonic: 7, method: EP, centrality: [50, 60], note: *ep_plain }
+  # --- EP in pT bins matched to Run 1, HEPData Figure 10 (paper Fig. 10): tables 136-150 ---
+  # v2, tables 136-138
+  - { table: Table 136, harmonic: 2, method: EP, centrality: [0, 5], variant: run1-bins, figure: "10",
+      note: &ep_run1_same_holds0_0p1_0_1 "Same class, method and harmonic as the EP dataset without a variant (HEPData Figure 16), in different pT bins. The 0-0.1% and 0-1% EP datasets without a variant (Fig. 16) lie inside this class. Event plane method, 5.02 TeV points in pT bins matched to the Run 1 (2.76 TeV) EP measurement, as HEPData says; the Run 1 comparison is Fig. 10 (arXiv:1808.03951, Sec. 6.1.3). All the methods of this record use the same minimum-bias sample (arXiv:1808.03951, Sec. 4)." }
+  - { table: Table 137, harmonic: 2, method: EP, centrality: [20, 30], variant: run1-bins, figure: "10",
+      note: &ep_run1_same "Same class, method and harmonic as the EP dataset without a variant (HEPData Figure 16), in different pT bins. Event plane method, 5.02 TeV points in pT bins matched to the Run 1 (2.76 TeV) EP measurement, as HEPData says; the Run 1 comparison is Fig. 10 (arXiv:1808.03951, Sec. 6.1.3). All the methods of this record use the same minimum-bias sample (arXiv:1808.03951, Sec. 4)." }
+  - { table: Table 138, harmonic: 2, method: EP, centrality: [40, 50], variant: run1-bins, figure: "10", note: *ep_run1_same }
+  # v3, tables 139-141
+  - { table: Table 139, harmonic: 3, method: EP, centrality: [0, 5], variant: run1-bins, figure: "10", note: *ep_run1_same_holds0_0p1_0_1 }
+  - { table: Table 140, harmonic: 3, method: EP, centrality: [20, 30], variant: run1-bins, figure: "10", note: *ep_run1_same }
+  - { table: Table 141, harmonic: 3, method: EP, centrality: [40, 50], variant: run1-bins, figure: "10", note: *ep_run1_same }
+  # v4, tables 142-144
+  - { table: Table 142, harmonic: 4, method: EP, centrality: [0, 5], variant: run1-bins, figure: "10", note: *ep_run1_same_holds0_0p1_0_1 }
+  - { table: Table 143, harmonic: 4, method: EP, centrality: [20, 30], variant: run1-bins, figure: "10", note: *ep_run1_same }
+  - { table: Table 144, harmonic: 4, method: EP, centrality: [40, 50], variant: run1-bins, figure: "10", note: *ep_run1_same }
+  # v5, tables 145-147
+  - { table: Table 145, harmonic: 5, method: EP, centrality: [0, 5], variant: run1-bins, figure: "10", note: *ep_run1_same_holds0_0p1_0_1 }
+  - { table: Table 146, harmonic: 5, method: EP, centrality: [20, 30], variant: run1-bins, figure: "10", note: *ep_run1_same }
+  - { table: Table 147, harmonic: 5, method: EP, centrality: [40, 50], variant: run1-bins, figure: "10", note: *ep_run1_same }
+  # v6, tables 148-150
+  - { table: Table 148, harmonic: 6, method: EP, centrality: [0, 5], variant: run1-bins, figure: "10", note: *ep_run1_same }
+  - { table: Table 149, harmonic: 6, method: EP, centrality: [20, 30], variant: run1-bins, figure: "10", note: *ep_run1_same }
+  - { table: Table 150, harmonic: 6, method: EP, centrality: [40, 50], variant: run1-bins, figure: "10", note: *ep_run1_same }
+  # --- 2PC, HEPData Figure 6 (paper Fig. 6): tables 61-103 ---
+  # v2, tables 61-69
+  - { table: Table 61, harmonic: 2, method: 2PC, centrality: [0, 5], acceptance: { delta_eta_gap: 2 }, figure: "6",
+      note: &twopc_with0_5 "Same class, method and harmonic as the 0-5% dataset of variant total-err (Fig. 13), with the same values up to 10 GeV and one total uncertainty instead of stat and sys. Pairs with 2 < |delta eta| < 5 and a reference particle with 0.5 < pT_a < 5 GeV; the pT of the dataset is that of the other particle, pT_b (arXiv:1808.03951, Fig. 6 caption and Sec. 6.1). All the methods of this record use the same minimum-bias sample (arXiv:1808.03951, Sec. 4)." }
+  - { table: Table 62, harmonic: 2, method: 2PC, centrality: [5, 10], acceptance: { delta_eta_gap: 2 }, figure: "6",
+      note: &twopc_plain "Pairs with 2 < |delta eta| < 5 and a reference particle with 0.5 < pT_a < 5 GeV; the pT of the dataset is that of the other particle, pT_b (arXiv:1808.03951, Fig. 6 caption and Sec. 6.1). All the methods of this record use the same minimum-bias sample (arXiv:1808.03951, Sec. 4)." }
+  - { table: Table 63, harmonic: 2, method: 2PC, centrality: [10, 20], acceptance: { delta_eta_gap: 2 }, figure: "6",
+      note: &twopc_has10_15 "The 10-15% dataset of variant total-err (Fig. 13) lies inside this class. Pairs with 2 < |delta eta| < 5 and a reference particle with 0.5 < pT_a < 5 GeV; the pT of the dataset is that of the other particle, pT_b (arXiv:1808.03951, Fig. 6 caption and Sec. 6.1). All the methods of this record use the same minimum-bias sample (arXiv:1808.03951, Sec. 4)." }
+  - { table: Table 64, harmonic: 2, method: 2PC, centrality: [20, 30], acceptance: { delta_eta_gap: 2 }, figure: "6",
+      note: &twopc_has20_25 "The 20-25% dataset of variant total-err (Fig. 13) lies inside this class. Pairs with 2 < |delta eta| < 5 and a reference particle with 0.5 < pT_a < 5 GeV; the pT of the dataset is that of the other particle, pT_b (arXiv:1808.03951, Fig. 6 caption and Sec. 6.1). All the methods of this record use the same minimum-bias sample (arXiv:1808.03951, Sec. 4)." }
+  - { table: Table 65, harmonic: 2, method: 2PC, centrality: [30, 40], acceptance: { delta_eta_gap: 2 }, figure: "6",
+      note: &twopc_has30_35 "The 30-35% dataset of variant total-err (Fig. 13) lies inside this class. Pairs with 2 < |delta eta| < 5 and a reference particle with 0.5 < pT_a < 5 GeV; the pT of the dataset is that of the other particle, pT_b (arXiv:1808.03951, Fig. 6 caption and Sec. 6.1). All the methods of this record use the same minimum-bias sample (arXiv:1808.03951, Sec. 4)." }
+  - { table: Table 66, harmonic: 2, method: 2PC, centrality: [40, 50], acceptance: { delta_eta_gap: 2 }, figure: "6",
+      note: &twopc_has40_45 "The 40-45% dataset of variant total-err (Fig. 13) lies inside this class. Pairs with 2 < |delta eta| < 5 and a reference particle with 0.5 < pT_a < 5 GeV; the pT of the dataset is that of the other particle, pT_b (arXiv:1808.03951, Fig. 6 caption and Sec. 6.1). All the methods of this record use the same minimum-bias sample (arXiv:1808.03951, Sec. 4)." }
+  - { table: Table 67, harmonic: 2, method: 2PC, centrality: [50, 60], acceptance: { delta_eta_gap: 2 }, figure: "6",
+      note: &twopc_has50_55 "The 50-55% dataset of variant total-err (Fig. 13) lies inside this class. Pairs with 2 < |delta eta| < 5 and a reference particle with 0.5 < pT_a < 5 GeV; the pT of the dataset is that of the other particle, pT_b (arXiv:1808.03951, Fig. 6 caption and Sec. 6.1). All the methods of this record use the same minimum-bias sample (arXiv:1808.03951, Sec. 4)." }
+  - { table: Table 68, harmonic: 2, method: 2PC, centrality: [60, 70], acceptance: { delta_eta_gap: 2 }, figure: "6", note: *twopc_plain }
+  - { table: Table 69, harmonic: 2, method: 2PC, centrality: [70, 80], acceptance: { delta_eta_gap: 2 }, figure: "6", note: *twopc_plain }
+  # v3, tables 70-78
+  - { table: Table 70, harmonic: 3, method: 2PC, centrality: [0, 5], acceptance: { delta_eta_gap: 2 }, figure: "6", note: *twopc_with0_5 }
+  - { table: Table 71, harmonic: 3, method: 2PC, centrality: [5, 10], acceptance: { delta_eta_gap: 2 }, figure: "6", note: *twopc_plain }
+  - { table: Table 72, harmonic: 3, method: 2PC, centrality: [10, 20], acceptance: { delta_eta_gap: 2 }, figure: "6", note: *twopc_has10_15 }
+  - { table: Table 73, harmonic: 3, method: 2PC, centrality: [20, 30], acceptance: { delta_eta_gap: 2 }, figure: "6", note: *twopc_has20_25 }
+  - { table: Table 74, harmonic: 3, method: 2PC, centrality: [30, 40], acceptance: { delta_eta_gap: 2 }, figure: "6", note: *twopc_has30_35 }
+  - { table: Table 75, harmonic: 3, method: 2PC, centrality: [40, 50], acceptance: { delta_eta_gap: 2 }, figure: "6", note: *twopc_has40_45 }
+  - { table: Table 76, harmonic: 3, method: 2PC, centrality: [50, 60], acceptance: { delta_eta_gap: 2 }, figure: "6", note: *twopc_has50_55 }
+  - { table: Table 77, harmonic: 3, method: 2PC, centrality: [60, 70], acceptance: { delta_eta_gap: 2 }, figure: "6", note: *twopc_plain }
+  - { table: Table 78, harmonic: 3, method: 2PC, centrality: [70, 80], acceptance: { delta_eta_gap: 2 }, figure: "6", note: *twopc_plain }
+  # v4, tables 79-87
+  - { table: Table 79, harmonic: 4, method: 2PC, centrality: [0, 5], acceptance: { delta_eta_gap: 2 }, figure: "6", note: *twopc_plain }
+  - { table: Table 80, harmonic: 4, method: 2PC, centrality: [5, 10], acceptance: { delta_eta_gap: 2 }, figure: "6", note: *twopc_plain }
+  - { table: Table 81, harmonic: 4, method: 2PC, centrality: [10, 20], acceptance: { delta_eta_gap: 2 }, figure: "6", note: *twopc_plain }
+  - { table: Table 82, harmonic: 4, method: 2PC, centrality: [20, 30], acceptance: { delta_eta_gap: 2 }, figure: "6", note: *twopc_plain }
+  - { table: Table 83, harmonic: 4, method: 2PC, centrality: [30, 40], acceptance: { delta_eta_gap: 2 }, figure: "6", note: *twopc_plain }
+  - { table: Table 84, harmonic: 4, method: 2PC, centrality: [40, 50], acceptance: { delta_eta_gap: 2 }, figure: "6", note: *twopc_plain }
+  - { table: Table 85, harmonic: 4, method: 2PC, centrality: [50, 60], acceptance: { delta_eta_gap: 2 }, figure: "6", note: *twopc_plain }
+  - { table: Table 86, harmonic: 4, method: 2PC, centrality: [60, 70], acceptance: { delta_eta_gap: 2 }, figure: "6", note: *twopc_plain }
+  - { table: Table 87, harmonic: 4, method: 2PC, centrality: [70, 80], acceptance: { delta_eta_gap: 2 }, figure: "6", note: *twopc_plain }
+  # v5, tables 88-95
+  - { table: Table 88, harmonic: 5, method: 2PC, centrality: [0, 5], acceptance: { delta_eta_gap: 2 }, figure: "6", note: *twopc_plain }
+  - { table: Table 89, harmonic: 5, method: 2PC, centrality: [5, 10], acceptance: { delta_eta_gap: 2 }, figure: "6", note: *twopc_plain }
+  - { table: Table 90, harmonic: 5, method: 2PC, centrality: [10, 20], acceptance: { delta_eta_gap: 2 }, figure: "6", note: *twopc_plain }
+  - { table: Table 91, harmonic: 5, method: 2PC, centrality: [20, 30], acceptance: { delta_eta_gap: 2 }, figure: "6", note: *twopc_plain }
+  - { table: Table 92, harmonic: 5, method: 2PC, centrality: [30, 40], acceptance: { delta_eta_gap: 2 }, figure: "6", note: *twopc_plain }
+  - { table: Table 93, harmonic: 5, method: 2PC, centrality: [40, 50], acceptance: { delta_eta_gap: 2 }, figure: "6", note: *twopc_plain }
+  - { table: Table 94, harmonic: 5, method: 2PC, centrality: [50, 60], acceptance: { delta_eta_gap: 2 }, figure: "6", note: *twopc_plain }
+  - { table: Table 95, harmonic: 5, method: 2PC, centrality: [60, 70], acceptance: { delta_eta_gap: 2 }, figure: "6", note: *twopc_plain }
+  # v6, tables 96-103
+  - { table: Table 96, harmonic: 6, method: 2PC, centrality: [0, 5], acceptance: { delta_eta_gap: 2 }, figure: "6", note: *twopc_plain }
+  - { table: Table 97, harmonic: 6, method: 2PC, centrality: [5, 10], acceptance: { delta_eta_gap: 2 }, figure: "6", note: *twopc_plain }
+  - { table: Table 98, harmonic: 6, method: 2PC, centrality: [10, 20], acceptance: { delta_eta_gap: 2 }, figure: "6", note: *twopc_plain }
+  - { table: Table 99, harmonic: 6, method: 2PC, centrality: [20, 30], acceptance: { delta_eta_gap: 2 }, figure: "6", note: *twopc_plain }
+  - { table: Table 100, harmonic: 6, method: 2PC, centrality: [30, 40], acceptance: { delta_eta_gap: 2 }, figure: "6", note: *twopc_plain }
+  - { table: Table 101, harmonic: 6, method: 2PC, centrality: [40, 50], acceptance: { delta_eta_gap: 2 }, figure: "6", note: *twopc_plain }
+  - { table: Table 102, harmonic: 6, method: 2PC, centrality: [50, 60], acceptance: { delta_eta_gap: 2 }, figure: "6", note: *twopc_plain }
+  - { table: Table 103, harmonic: 6, method: 2PC, centrality: [60, 70], acceptance: { delta_eta_gap: 2 }, figure: "6", note: *twopc_plain }
+  # --- 2PC with one total uncertainty, HEPData Figure 13 (paper Fig. 13): tables 260-271 ---
+  # v2, tables 260-265
+  - { table: Table 260, harmonic: 2, method: 2PC, centrality: [0, 5], acceptance: { delta_eta_gap: 2 }, variant: total-err, figure: "13",
+      note: &twopc_total_same0_5 "Same class, method and harmonic as the 0-5% Fig. 6 dataset (no variant), with the same values up to 10 GeV; here the uncertainty is one total. Left panels of Fig. 13 (arXiv:1808.03951, Sec. 6.4). The paper gives no reference-particle window or eta gap for this figure; the 0-5% values equal the Fig. 6 ones (0.5 < pT_a < 5 GeV, 2 < |delta eta| < 5), and the gap of 2 is the one the paper gives for its 2PC method (Sec. 6.1.2). All the methods of this record use the same minimum-bias sample (arXiv:1808.03951, Sec. 4)." }
+  - { table: Table 261, harmonic: 2, method: 2PC, centrality: [10, 15], acceptance: { delta_eta_gap: 2 }, variant: total-err, figure: "13",
+      note: &twopc_total_in10_20 "Lies inside the 10-20% Fig. 6 dataset (no variant). Left panels of Fig. 13 (arXiv:1808.03951, Sec. 6.4). The paper gives no reference-particle window or eta gap for this figure; the 0-5% values equal the Fig. 6 ones (0.5 < pT_a < 5 GeV, 2 < |delta eta| < 5), and the gap of 2 is the one the paper gives for its 2PC method (Sec. 6.1.2). All the methods of this record use the same minimum-bias sample (arXiv:1808.03951, Sec. 4)." }
+  - { table: Table 262, harmonic: 2, method: 2PC, centrality: [20, 25], acceptance: { delta_eta_gap: 2 }, variant: total-err, figure: "13",
+      note: &twopc_total_in20_30 "Lies inside the 20-30% Fig. 6 dataset (no variant). Left panels of Fig. 13 (arXiv:1808.03951, Sec. 6.4). The paper gives no reference-particle window or eta gap for this figure; the 0-5% values equal the Fig. 6 ones (0.5 < pT_a < 5 GeV, 2 < |delta eta| < 5), and the gap of 2 is the one the paper gives for its 2PC method (Sec. 6.1.2). All the methods of this record use the same minimum-bias sample (arXiv:1808.03951, Sec. 4)." }
+  - { table: Table 263, harmonic: 2, method: 2PC, centrality: [30, 35], acceptance: { delta_eta_gap: 2 }, variant: total-err, figure: "13",
+      note: &twopc_total_in30_40 "Lies inside the 30-40% Fig. 6 dataset (no variant). Left panels of Fig. 13 (arXiv:1808.03951, Sec. 6.4). The paper gives no reference-particle window or eta gap for this figure; the 0-5% values equal the Fig. 6 ones (0.5 < pT_a < 5 GeV, 2 < |delta eta| < 5), and the gap of 2 is the one the paper gives for its 2PC method (Sec. 6.1.2). All the methods of this record use the same minimum-bias sample (arXiv:1808.03951, Sec. 4)." }
+  - { table: Table 264, harmonic: 2, method: 2PC, centrality: [40, 45], acceptance: { delta_eta_gap: 2 }, variant: total-err, figure: "13",
+      note: &twopc_total_in40_50 "Lies inside the 40-50% Fig. 6 dataset (no variant). Left panels of Fig. 13 (arXiv:1808.03951, Sec. 6.4). The paper gives no reference-particle window or eta gap for this figure; the 0-5% values equal the Fig. 6 ones (0.5 < pT_a < 5 GeV, 2 < |delta eta| < 5), and the gap of 2 is the one the paper gives for its 2PC method (Sec. 6.1.2). All the methods of this record use the same minimum-bias sample (arXiv:1808.03951, Sec. 4)." }
+  - { table: Table 265, harmonic: 2, method: 2PC, centrality: [50, 55], acceptance: { delta_eta_gap: 2 }, variant: total-err, figure: "13",
+      note: &twopc_total_in50_60 "Lies inside the 50-60% Fig. 6 dataset (no variant). Left panels of Fig. 13 (arXiv:1808.03951, Sec. 6.4). The paper gives no reference-particle window or eta gap for this figure; the 0-5% values equal the Fig. 6 ones (0.5 < pT_a < 5 GeV, 2 < |delta eta| < 5), and the gap of 2 is the one the paper gives for its 2PC method (Sec. 6.1.2). All the methods of this record use the same minimum-bias sample (arXiv:1808.03951, Sec. 4)." }
+  # v3, tables 266-271
+  - { table: Table 266, harmonic: 3, method: 2PC, centrality: [0, 5], acceptance: { delta_eta_gap: 2 }, variant: total-err, figure: "13", note: *twopc_total_same0_5 }
+  - { table: Table 267, harmonic: 3, method: 2PC, centrality: [10, 15], acceptance: { delta_eta_gap: 2 }, variant: total-err, figure: "13", note: *twopc_total_in10_20 }
+  - { table: Table 268, harmonic: 3, method: 2PC, centrality: [20, 25], acceptance: { delta_eta_gap: 2 }, variant: total-err, figure: "13", note: *twopc_total_in20_30 }
+  - { table: Table 269, harmonic: 3, method: 2PC, centrality: [30, 35], acceptance: { delta_eta_gap: 2 }, variant: total-err, figure: "13", note: *twopc_total_in30_40 }
+  - { table: Table 270, harmonic: 3, method: 2PC, centrality: [40, 45], acceptance: { delta_eta_gap: 2 }, variant: total-err, figure: "13", note: *twopc_total_in40_50 }
+  - { table: Table 271, harmonic: 3, method: 2PC, centrality: [50, 55], acceptance: { delta_eta_gap: 2 }, variant: total-err, figure: "13", note: *twopc_total_in50_60 }
+
+errors:
+  sys:
+    note: "HEPData gives one systematic uncertainty per point. The paper lists the individual sources for selected pT intervals (Tables 3 and 4) and says the total systematic uncertainty is their sum in quadrature (arXiv:1808.03951, Sec. 5)."
+  total:
+    note: "The statistical and systematic uncertainties added in quadrature, as the caption of Fig. 13 of arXiv:1808.03951 says. For the 0-5% class it reproduces the stat and sys of the Fig. 6 table within the rounding of the published digits."

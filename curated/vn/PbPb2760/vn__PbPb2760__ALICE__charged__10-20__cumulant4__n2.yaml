@@ -1,0 +1,101 @@
+format_version: 1
+key: vn__PbPb2760__ALICE__charged__10-20__cumulant4__n2
+observable: vn
+system: PbPb
+sqrt_s_nn: 2760
+experiment: ALICE
+particle: charged
+centrality: [10, 20]
+centrality_definition: ALICE_V0M
+harmonic: 2
+method: cumulant4
+acceptance: { eta_range: [-0.8, 0.8] }
+source:
+  hepdata:
+    inspire_id: 1666817
+    version: 1
+    table: Table 42
+    column: 0
+    location: Figure 3
+    doi: "10.17182/hepdata.83737.v1/t42"
+  paper: "arXiv:1804.02944"
+  inspireHEPKey: "ALICE:2018rtz"
+note: "Four-particle cumulant v_2{4}: one particle of the pT bin is correlated with three particles over the whole range 0.2 < pT < 50 GeV/c (arXiv:1804.02944, Sec. 2). The other methods of this record for the same harmonic, class and energy come from the same Pb-Pb data sample (Sec. 2), so those datasets overlap this one."
+x: { name: pt, units: GeV }
+y: { name: vn }
+errors:
+  stat: { label: stat }
+  sys: { label: sys, note: "The paper's total systematic uncertainty: variations of the track and event selections (a variation counts if it is significant by the Barlow criterion) and an alternative centrality estimator, added in quadrature as uncorrelated sources; track quality and the centrality determination dominate (arXiv:1804.02944, Sec. 2)." }
+bins:
+  - { low: 0.2, high: 0.3, value: 0.02255,
+      errors: { stat: 7.0e-05, sys: 0.00201 } }
+  - { low: 0.3, high: 0.4, value: 0.03094,
+      errors: { stat: 8.0e-05, sys: 0.00202 } }
+  - { low: 0.4, high: 0.5, value: 0.03933,
+      errors: { stat: 9.0e-05, sys: 0.00202 } }
+  - { low: 0.5, high: 0.6, value: 0.04726,
+      errors: { stat: 0.0001, sys: 0.00203 } }
+  - { low: 0.6, high: 0.7, value: 0.05469,
+      errors: { stat: 0.00011, sys: 0.00204 } }
+  - { low: 0.7, high: 0.8, value: 0.06167,
+      errors: { stat: 0.00012, sys: 0.00203 } }
+  - { low: 0.8, high: 0.9, value: 0.06822,
+      errors: { stat: 0.00013, sys: 0.00206 } }
+  - { low: 0.9, high: 1, value: 0.07436,
+      errors: { stat: 0.00014, sys: 0.00208 } }
+  - { low: 1, high: 1.25, value: 0.08371,
+      errors: { stat: 0.00014, sys: 0.00209 } }
+  - { low: 1.25, high: 1.5, value: 0.09636,
+      errors: { stat: 0.00017, sys: 0.00214 } }
+  - { low: 1.5, high: 1.75, value: 0.10781,
+      errors: { stat: 0.00019, sys: 0.00216 } }
+  - { low: 1.75, high: 2, value: 0.11828,
+      errors: { stat: 0.00022, sys: 0.00214 } }
+  - { low: 2, high: 2.25, value: 0.12772,
+      errors: { stat: 0.00026, sys: 0.00213 } }
+  - { low: 2.25, high: 2.5, value: 0.13599,
+      errors: { stat: 0.0003, sys: 0.00212 } }
+  - { low: 2.5, high: 2.75, value: 0.14217,
+      errors: { stat: 0.00037, sys: 0.00214 } }
+  - { low: 2.75, high: 3, value: 0.14708,
+      errors: { stat: 0.00046, sys: 0.00211 } }
+  - { low: 3, high: 3.25, value: 0.15033,
+      errors: { stat: 0.00057, sys: 0.00165 } }
+  - { low: 3.25, high: 3.5, value: 0.15103,
+      errors: { stat: 0.0007, sys: 0.00186 } }
+  - { low: 3.5, high: 3.75, value: 0.14985,
+      errors: { stat: 0.00083, sys: 0.00186 } }
+  - { low: 3.75, high: 4, value: 0.14698,
+      errors: { stat: 0.00097, sys: 0.00186 } }
+  - { low: 4, high: 4.5, value: 0.14108,
+      errors: { stat: 0.00092, sys: 0.00186 } }
+  - { low: 4.5, high: 5, value: 0.12868,
+      errors: { stat: 0.00118, sys: 0.00163 } }
+  - { low: 5, high: 5.5, value: 0.11582,
+      errors: { stat: 0.00147, sys: 0.00365 } }
+  - { low: 5.5, high: 6, value: 0.10208,
+      errors: { stat: 0.00181, sys: 0.00186 } }
+  - { low: 6, high: 7, value: 0.08945,
+      errors: { stat: 0.00178, sys: 0.00186 } }
+  - { low: 7, high: 8, value: 0.07451,
+      errors: { stat: 0.00243, sys: 0.00292 } }
+  - { low: 8, high: 9, value: 0.06341,
+      errors: { stat: 0.0032, sys: 0.00282 } }
+  - { low: 9, high: 10, value: 0.06298,
+      errors: { stat: 0.00411, sys: 0.00186 } }
+  - { low: 10, high: 12, value: 0.05094,
+      errors: { stat: 0.00406, sys: 0.00279 } }
+  - { low: 12, high: 14, value: 0.05533,
+      errors: { stat: 0.0059, sys: 0.00186 } }
+  - { low: 14, high: 17, value: 0.05771,
+      errors: { stat: 0.00697, sys: 0.003 } }
+  - { low: 17, high: 20, value: 0.02459,
+      errors: { stat: 0.01066, sys: 0.00186 } }
+  - { low: 20, high: 25, value: 0.03458,
+      errors: { stat: 0.01301, sys: 0.00295 } }
+  - { low: 25, high: 30, value: 0.02739,
+      errors: { stat: 0.02018, sys: 0.00186 } }
+  - { low: 30, high: 40, value: 0.01535,
+      errors: { stat: 0.02551, sys: 0.00309 } }
+  - { low: 40, high: 50, value: 0.02239,
+      errors: { stat: 0.04851, sys: 0.00186 } }

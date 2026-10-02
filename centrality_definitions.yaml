@@ -1,0 +1,77 @@
+# What each experiment ranked events by to make its centrality classes.
+#
+# A dataset names one of these in `centrality_definition`; a name that is not here fails
+# the build. Each entry is filled from the paper that defines it, and cites it.
+#
+# experiment  ALICE, ATLAS, CMS, ...
+# quantity    what is summed: charged_multiplicity, energy, transverse_energy,
+#             impact_parameter or event_selection (minimum bias only)
+# detector    the detector or sub-detector, in the paper's words
+# eta_range   one or more [lo, hi] pseudorapidity windows; omitted when the paper gives none
+# pt_range    [lo, hi] where the quantity has a pT threshold, else omitted
+# reference   paper and section
+# note        anything else the paper says that matters, such as the minimum-bias selection
+
+ALICE_V0M:
+  experiment: ALICE
+  quantity: charged_multiplicity
+  detector: "V0A and V0C scintillator arrays, the sum of the two amplitudes (V0M)"
+  eta_range: [[2.8, 5.1], [-3.7, -1.7]]
+  reference: "arXiv:1802.09145 (Pb-Pb centrality, V0A+V0C amplitudes; analysis limited to 0-80%); arXiv:1804.02944 (same estimator for v_n); V0 acceptance from arXiv:1301.4361"
+  note: "The V0 amplitude is proportional to the number of charged tracks in its acceptance (arXiv:1804.02944). That paper gives the V0C window as -3.6 < eta < -1.7; arXiv:1301.4361 gives -3.7 < eta < -1.7, which is used here."
+
+ALICE_PPB_NSD:
+  experiment: ALICE
+  quantity: event_selection
+  detector: "V0A and V0C scintillator arrays and the Silicon Pixel Detector (SPD) in coincidence with two beam bunches crossing"
+  eta_range: [[2.8, 5.1], [-3.7, -1.7]]
+  reference: "arXiv:1802.09145 (minimum-bias trigger; p-Pb spectra are for non-single-diffractive events)"
+  note: "No centrality classes: the p-Pb spectra are for non-single-diffractive (NSD) events. The eta windows are the V0 arrays'; the SPD acceptance is not given in the paper's trigger description."
+
+ATLAS_FCAL_ET:
+  experiment: ATLAS
+  quantity: transverse_energy
+  detector: "forward calorimeters (FCal), the sum of both sides"
+  eta_range: [[-4.9, -3.1], [3.1, 4.9]]
+  reference: "arXiv:2211.15257 (Pb+Pb and Xe+Xe); arXiv:1504.04337 (Pb+Pb at 2.76 TeV); arXiv:1808.03951 (v_n)"
+  note: "Classes are percentiles of the FCal sum E_T distribution of minimum-bias events. arXiv:1808.03951 gives the FCal coverage as 3.2 < |eta| < 4.9; the other two give 3.1 < |eta| < 4.9. In arXiv:1808.03951 the 0-1% and 0-0.1% intervals come from events recorded with the dedicated ultra-central triggers UCC-1 and UCC-2, which select a high total E_T in the FCal at L1, and the analysis is limited to 0-80% to avoid diffractive and photonuclear processes."
+
+ATLAS_FCAL_ET_PB_SIDE:
+  experiment: ATLAS
+  quantity: transverse_energy
+  detector: "forward calorimeters (FCal), the Pb-going side only"
+  eta_range: []
+  reference: "arXiv:2211.15257 (p+Pb centrality)"
+  note: "Only the Pb-going side of the FCal is used for p+Pb. The paper presents p+Pb results with the p-going direction towards positive rapidity, so in that convention the Pb-going side is the negative one, but it gives no eta window for the side, so none is recorded here; the FCal covers 3.1 < |eta| < 4.9 on each side."
+
+CMS_HF_ENERGY:
+  experiment: CMS
+  quantity: transverse_energy
+  detector: "both hadron forward (HF) calorimeters"
+  eta_range: [[-5.2, -2.9], [2.9, 5.2]]
+  reference: "arXiv:1611.01664 (centrality from the total E_T in both HF calorimeters); arXiv:1702.00630 (same estimator for v_n; HF covers 2.9 < |eta| < 5.2 on either side)"
+  note: "Classes are percentages of the total hadronic cross section. For the 0-100% class the paper corrects an event selection efficiency of 99 +- 2%."
+
+CMS_HF_ENERGY_2760:
+  experiment: CMS
+  quantity: energy
+  detector: "both hadron forward (HF) calorimeters"
+  eta_range: []
+  reference: "arXiv:1202.2554 (event-by-event total energy deposition in both HF calorimeters; 40 bins of 2.5% of the inelastic cross section in minimum-bias events)"
+  note: "The 2.76 TeV paper says total energy; the 5.02 TeV papers say transverse energy (CMS_HF_ENERGY). The paper states no eta window for the HF."
+
+CMS_PPB_DOUBLE_SIDED:
+  experiment: CMS
+  quantity: event_selection
+  detector: "forward hadron (HF) calorimeters: at least one tower above 3 GeV on each side"
+  eta_range: [[-5.0, -3.0], [3.0, 5.0]]
+  reference: "arXiv:1502.05387 (pPb minimum-bias selection and the double-sided event class)"
+  note: "No centrality classes: the spectra are corrected to double-sided (DS) events, those with a particle of lifetime above 1e-18 s and energy above 3 GeV in each of -5 < eta_lab < -3 and 3 < eta_lab < 5. The R_pPb in arXiv:1611.01664 uses these data with its own pp reference."
+
+CMS_OO_MINIMUM_BIAS:
+  experiment: CMS
+  quantity: event_selection
+  detector: "forward hadron (HF) calorimeters: a trigger on one or more energy deposits of at least 7 GeV in either of them"
+  eta_range: []
+  reference: "arXiv:2510.09864"
+  note: "Inclusive OO collisions, no centrality classes. The pp reference was taken with a trigger that only required two colliding bunches."

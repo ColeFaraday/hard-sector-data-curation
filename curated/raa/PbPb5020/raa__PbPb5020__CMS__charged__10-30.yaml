@@ -1,0 +1,98 @@
+format_version: 1
+key: raa__PbPb5020__CMS__charged__10-30
+observable: raa
+system: PbPb
+sqrt_s_nn: 5020
+experiment: CMS
+particle: charged
+centrality: [10, 30]
+centrality_definition: CMS_HF_ENERGY
+acceptance: { eta_range: [-1.0, 1.0] }
+source:
+  hepdata:
+    inspire_id: 1496050
+    version: 2
+    table: Table 10
+    column: 0
+    location: Data from Fig. 3 Middle Left Panel
+    doi: "10.17182/hepdata.77101.v2/t10"
+  paper: "arXiv:1611.01664"
+  inspireHEPKey: "CMS:2016xef"
+x: { name: pt, units: GeV }
+y: { name: raa }
+errors:
+  stat: { label: stat }
+  sys: { label: sys }
+  taa: { label: "sys,TAA", note: "The uncertainty of the nuclear overlap function, asymmetric as published: <T_AA> of the class for PbPb, where the paper's Table 1 lists <N_coll> and <T_AA> with their uncertainties, and <T_pA> for pPb (labelled sys,TpA)." }
+  lumi: { label: "sys,lumi", note: "The pp integrated luminosity uncertainty, 2.3% (arXiv:1611.01664, systematic uncertainties); HEPData's description of the pp table calls it fully correlated. It enters R_AA through the pp reference: no luminosity is used for PbPb, whose yields are per event." }
+bins:
+  - { low: 0.7, high: 0.8, value: 0.345625,
+      errors: { stat: 1.7e-05, sys: 0.027069, taa: [-0.011751, 0.009331], lumi: 0.007949 } }
+  - { low: 0.8, high: 0.9, value: 0.369594,
+      errors: { stat: 1.9e-05, sys: 0.02923, taa: [-0.012566, 0.009979], lumi: 0.0085 } }
+  - { low: 0.9, high: 1.0, value: 0.404274,
+      errors: { stat: 2.2e-05, sys: 0.032123, taa: [-0.013745, 0.010915], lumi: 0.009298 } }
+  - { low: 1.0, high: 1.1, value: 0.425955,
+      errors: { stat: 2.5e-05, sys: 0.036377, taa: [-0.014482, 0.0115], lumi: 0.009796 } }
+  - { low: 1.1, high: 1.2, value: 0.445204,
+      errors: { stat: 2.8e-05, sys: 0.037816, taa: [-0.015136, 0.01202], lumi: 0.010239 } }
+  - { low: 1.2, high: 1.4, value: 0.466304,
+      errors: { stat: 2.4e-05, sys: 0.045156, taa: [-0.015854, 0.01259], lumi: 0.010725 } }
+  - { low: 1.4, high: 1.6, value: 0.487476,
+      errors: { stat: 3.2e-05, sys: 0.050542, taa: [-0.016574, 0.013161], lumi: 0.011212 } }
+  - { low: 1.6, high: 1.8, value: 0.507425,
+      errors: { stat: 4.0e-05, sys: 0.061522, taa: [-0.017252, 0.0137], lumi: 0.01167 } }
+  - { low: 1.8, high: 2.0, value: 0.50941,
+      errors: { stat: 4.9e-05, sys: 0.061751, taa: [-0.017319, 0.013754], lumi: 0.011716 } }
+  - { low: 2.0, high: 2.2, value: 0.509455,
+      errors: { stat: 5.8e-05, sys: 0.071327, taa: [-0.017321, 0.013755], lumi: 0.011717 } }
+  - { low: 2.2, high: 2.4, value: 0.50034,
+      errors: { stat: 6.8e-05, sys: 0.07005, taa: [-0.017011, 0.013509], lumi: 0.011507 } }
+  - { low: 2.4, high: 3.2, value: 0.465809,
+      errors: { stat: 4.6e-05, sys: 0.073065, taa: [-0.015837, 0.012576], lumi: 0.010713 } }
+  - { low: 3.2, high: 4.0, value: 0.378497,
+      errors: { stat: 7.0e-05, sys: 0.063602, taa: [-0.012868, 0.010219], lumi: 0.008705 } }
+  - { low: 4.0, high: 4.8, value: 0.29457,
+      errors: { stat: 9.3e-05, sys: 0.044625, taa: [-0.010015, 0.007953], lumi: 0.006775 } }
+  - { low: 4.8, high: 5.6, value: 0.2453,
+      errors: { stat: 0.00012, sys: 0.02913, taa: [-0.00834, 0.00662], lumi: 0.00564 } }
+  - { low: 5.6, high: 6.4, value: 0.22335,
+      errors: { stat: 0.00016, sys: 0.02329, taa: [-0.00759, 0.00603], lumi: 0.00513 } }
+  - { low: 6.4, high: 7.2, value: 0.22058,
+      errors: { stat: 0.00022, sys: 0.02102, taa: [-0.0075, 0.00595], lumi: 0.00507 } }
+  - { low: 7.2, high: 9.6, value: 0.23141,
+      errors: { stat: 0.00022, sys: 0.02084, taa: [-0.00786, 0.00624], lumi: 0.00532 } }
+  - { low: 9.6, high: 12.0, value: 0.27334,
+      errors: { stat: 0.00049, sys: 0.02463, taa: [-0.00929, 0.00738], lumi: 0.00628 } }
+  - { low: 12.0, high: 14.4, value: 0.29255,
+      errors: { stat: 0.00085, sys: 0.02887, taa: [-0.00994, 0.00789], lumi: 0.00672 } }
+  - { low: 14.4, high: 19.2, value: 0.3405,
+      errors: { stat: 0.0012, sys: 0.0336, taa: [-0.0115, 0.0092], lumi: 0.0078 } }
+  - { low: 19.2, high: 24.0, value: 0.4004,
+      errors: { stat: 0.0025, sys: 0.0387, taa: [-0.0136, 0.0108], lumi: 0.0092 } }
+  - { low: 24.0, high: 28.8, value: 0.4515,
+      errors: { stat: 0.0044, sys: 0.0436, taa: [-0.0153, 0.0122], lumi: 0.0103 } }
+  - { low: 28.8, high: 35.2, value: 0.4666,
+      errors: { stat: 0.0058, sys: 0.0451, taa: [-0.0158, 0.0126], lumi: 0.0107 } }
+  - { low: 35.2, high: 41.6, value: 0.5255,
+      errors: { stat: 0.0084, sys: 0.0508, taa: [-0.0178, 0.0142], lumi: 0.012 } }
+  - { low: 41.6, high: 48.0, value: 0.598,
+      errors: { stat: 0.01, sys: 0.058, taa: [-0.02, 0.016], lumi: 0.014 } }
+  - { low: 48.0, high: 60.8, value: 0.6384,
+      errors: { stat: 0.0083, sys: 0.062, taa: [-0.022, 0.0172], lumi: 0.0147 } }
+  - { low: 60.8, high: 73.6, value: 0.693,
+      errors: { stat: 0.012, sys: 0.068, taa: [-0.024, 0.019], lumi: 0.016 } }
+  - { low: 73.6, high: 86.4, value: 0.744,
+      errors: { stat: 0.013, sys: 0.073, taa: [-0.025, 0.02], lumi: 0.017 } }
+  - { low: 86.4, high: 103.6, value: 0.789,
+      errors: { stat: 0.015, sys: 0.078, taa: [-0.027, 0.021], lumi: 0.018 } }
+  - { low: 103.6, high: 120.8, value: 0.767,
+      errors: { stat: 0.024, sys: 0.076, taa: [-0.026, 0.021], lumi: 0.018 } }
+  - { low: 120.8, high: 140.0, value: 0.799,
+      errors: { stat: 0.035, sys: 0.079, taa: [-0.027, 0.022], lumi: 0.018 } }
+  - { low: 140.0, high: 165.0, value: 0.82,
+      errors: { stat: 0.048, sys: 0.081, taa: [-0.028, 0.022], lumi: 0.019 } }
+  - { low: 165.0, high: 250.0, value: 0.799,
+      errors: { stat: 0.059, sys: 0.08, taa: [-0.027, 0.022], lumi: 0.018 } }
+  - { low: 250.0, high: 400.0, value: 1.008,
+      errors: { stat: 0.231, sys: 0.102, taa: [-0.034, 0.027], lumi: 0.023 } }
