@@ -1,0 +1,24 @@
+# CMS, observation of suppressed charged-particle production in oxygen-oxygen collisions at
+# 5.36 TeV (arXiv:2510.09864, HEPData ins3068407 v1): R_OO and the pp reference spectrum.
+#
+# Not curated: the OO spectrum (Table 2), which is not a ratio to pp.
+
+record: { inspire_id: 3068407, version: 1 }
+paper: "arXiv:2510.09864"
+experiment: CMS
+particle: charged
+sqrt_s_nn: 5360
+acceptance: { eta_range: [-1.0, 1.0] }
+
+datasets:
+  - table: Table 3
+    observable: raa
+    system: OO
+    centrality: [0, 100]
+    centrality_definition: CMS_OO_MINIMUM_BIAS
+    note: "R_AA for inclusive OO collisions. The reference is the pp spectrum measured with 2024 data at the same energy (Table 1 of this record)."
+  - table: Table 1
+    observable: pp_cross_section
+    system: pp
+    definition: INVARIANT_CROSS_SECTION_DETA
+    note: "HEPData titles the quantity 1/(2 pi pT L) d sigma/dpT in mb/GeV^2 for |eta| < 1, an invariant cross section."

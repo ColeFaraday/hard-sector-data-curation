@@ -1,0 +1,49 @@
+# CMS, charged-particle nuclear modification factors in PbPb and pPb collisions at 5.02 TeV
+# (arXiv:1611.01664, HEPData ins1496050 v2), and the pp reference spectrum.
+#
+# Not curated: the per-event PbPb yields (Tables 1-6), which are spectra rather than
+# anything the model predicts as a ratio to pp.
+
+record: { inspire_id: 1496050, version: 2 }
+paper: "arXiv:1611.01664"
+experiment: CMS
+particle: charged
+sqrt_s_nn: 5020
+acceptance: { eta_range: [-1.0, 1.0] }
+
+datasets:
+  - { table: Table 8, observable: raa, system: PbPb, centrality: [0, 5], centrality_definition: CMS_HF_ENERGY }
+  - { table: Table 9, observable: raa, system: PbPb, centrality: [5, 10], centrality_definition: CMS_HF_ENERGY }
+  - { table: Table 10, observable: raa, system: PbPb, centrality: [10, 30], centrality_definition: CMS_HF_ENERGY }
+  - { table: Table 11, observable: raa, system: PbPb, centrality: [30, 50], centrality_definition: CMS_HF_ENERGY }
+  - { table: Table 12, observable: raa, system: PbPb, centrality: [50, 70], centrality_definition: CMS_HF_ENERGY }
+  - { table: Table 13, observable: raa, system: PbPb, centrality: [70, 90], centrality_definition: CMS_HF_ENERGY }
+  - table: Table 14
+    observable: raa
+    system: PbPb
+    centrality: [0, 10]
+    centrality_definition: CMS_HF_ENERGY
+    note: "Overlaps the 0-5% and 5-10% datasets of this record: the same events are in all three."
+  - table: Table 15
+    observable: raa
+    system: PbPb
+    centrality: [0, 100]
+    centrality_definition: CMS_HF_ENERGY
+    note: "Inclusive in centrality. Overlaps every other PbPb dataset of this record. For quantities inclusive in centrality the paper corrects an event selection efficiency of 99 +- 2%."
+  - table: Table 16
+    observable: raa
+    system: pPb
+    centrality: [0, 100]
+    centrality_definition: CMS_PPB_DOUBLE_SIDED
+    note: "R_pPb, named R_pA in the paper: the previously published CMS pPb spectrum (arXiv:1502.05387, minimum bias) over the pp reference spectrum of this paper, which replaces the interpolated reference of that publication. The pseudorapidity is in the nucleon-nucleon centre-of-mass frame."
+  - table: Table 7
+    observable: pp_cross_section
+    system: pp
+    definition: INVARIANT_YIELD_DETA
+    note: "The pp cross section divided by 70 mb, about the total inelastic pp cross section, to give a per-event yield comparable with the PbPb yields. HEPData titles the quantity (1/N) E d^3N/dp^3; the measurement is for |eta| < 1, so the pseudorapidity form is chosen, and the rapidity form is the same number for massless particles."
+
+errors:
+  taa:
+    note: "The uncertainty of the nuclear overlap function, asymmetric as published: <T_AA> of the class for PbPb, where the paper's Table 1 lists <N_coll> and <T_AA> with their uncertainties, and <T_pA> for pPb (labelled sys,TpA)."
+  lumi:
+    note: "The pp integrated luminosity uncertainty, 2.3% (arXiv:1611.01664, systematic uncertainties); HEPData's description of the pp table calls it fully correlated. It enters R_AA through the pp reference: no luminosity is used for PbPb, whose yields are per event."

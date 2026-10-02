@@ -1,0 +1,102 @@
+# ALICE, transverse momentum spectra and nuclear modification factors of charged particles in
+# pp, p-Pb and Pb-Pb collisions at the LHC (arXiv:1802.09145, HEPData ins1657384 v1):
+# R_AA in Pb-Pb at 5.02 and 2.76 TeV, R_pPb at 5.02 TeV, and the pp spectra.
+#
+# Not curated: the Pb-Pb and p-Pb spectra (Tables 1-3), which are not ratios to pp, the
+# data/MC ratios (Table 5) and the 5.02/2.76 TeV spectra ratios (Table 6).
+
+# HEPData labels the Pb-Pb R_AA tables of this record (Tables 7 and 8) with the reaction
+# 'P P --> CHARGED X' in their RE qualifier; their keywords, descriptions and the paper say
+# Pb-Pb. The build's reaction check would warn about it, so it is explained here.
+known_warnings:
+  - "the table's reaction is 'P P --> CHARGED X' but the recipe says PbPb"
+
+record: { inspire_id: 1657384, version: 1 }
+paper: "arXiv:1802.09145"
+experiment: ALICE
+particle: charged
+acceptance: { eta_range: [-0.8, 0.8] }
+
+datasets:
+  # Pb-Pb at 5.02 TeV: Table 8, one column per centrality class.
+  - { table: Table 8, column: 0, observable: raa, system: PbPb, sqrt_s_nn: 5020, centrality: [0, 5], centrality_definition: ALICE_V0M }
+  - { table: Table 8, column: 1, observable: raa, system: PbPb, sqrt_s_nn: 5020, centrality: [5, 10], centrality_definition: ALICE_V0M }
+  - { table: Table 8, column: 2, observable: raa, system: PbPb, sqrt_s_nn: 5020, centrality: [10, 20], centrality_definition: ALICE_V0M }
+  - { table: Table 8, column: 3, observable: raa, system: PbPb, sqrt_s_nn: 5020, centrality: [20, 30], centrality_definition: ALICE_V0M }
+  - { table: Table 8, column: 4, observable: raa, system: PbPb, sqrt_s_nn: 5020, centrality: [30, 40], centrality_definition: ALICE_V0M }
+  - { table: Table 8, column: 5, observable: raa, system: PbPb, sqrt_s_nn: 5020, centrality: [40, 50], centrality_definition: ALICE_V0M }
+  - { table: Table 8, column: 6, observable: raa, system: PbPb, sqrt_s_nn: 5020, centrality: [50, 60], centrality_definition: ALICE_V0M }
+  - { table: Table 8, column: 7, observable: raa, system: PbPb, sqrt_s_nn: 5020, centrality: [60, 70], centrality_definition: ALICE_V0M }
+  - { table: Table 8, column: 8, observable: raa, system: PbPb, sqrt_s_nn: 5020, centrality: [70, 80], centrality_definition: ALICE_V0M }
+  # Pb-Pb at 2.76 TeV: Table 7.
+  - { table: Table 7, column: 0, observable: raa, system: PbPb, sqrt_s_nn: 2760, centrality: [0, 5], centrality_definition: ALICE_V0M }
+  - { table: Table 7, column: 1, observable: raa, system: PbPb, sqrt_s_nn: 2760, centrality: [5, 10], centrality_definition: ALICE_V0M }
+  - { table: Table 7, column: 2, observable: raa, system: PbPb, sqrt_s_nn: 2760, centrality: [10, 20], centrality_definition: ALICE_V0M }
+  - { table: Table 7, column: 3, observable: raa, system: PbPb, sqrt_s_nn: 2760, centrality: [20, 30], centrality_definition: ALICE_V0M }
+  - { table: Table 7, column: 4, observable: raa, system: PbPb, sqrt_s_nn: 2760, centrality: [30, 40], centrality_definition: ALICE_V0M }
+  - { table: Table 7, column: 5, observable: raa, system: PbPb, sqrt_s_nn: 2760, centrality: [40, 50], centrality_definition: ALICE_V0M }
+  - { table: Table 7, column: 6, observable: raa, system: PbPb, sqrt_s_nn: 2760, centrality: [50, 60], centrality_definition: ALICE_V0M }
+  - { table: Table 7, column: 7, observable: raa, system: PbPb, sqrt_s_nn: 2760, centrality: [60, 70], centrality_definition: ALICE_V0M }
+  - { table: Table 7, column: 8, observable: raa, system: PbPb, sqrt_s_nn: 2760, centrality: [70, 80], centrality_definition: ALICE_V0M }
+  # p-Pb at 5.02 TeV: one inclusive class, non-single-diffractive events.
+  - table: Table 9
+    observable: raa
+    system: pPb
+    sqrt_s_nn: 5020
+    centrality: [0, 100]
+    centrality_definition: ALICE_PPB_NSD
+    acceptance: { eta_range: [-0.3, 1.3] }
+    note: "R_pPb for non-single-diffractive (NSD) p-Pb events. The pseudorapidity window is the table's ETARAP, in the nucleon-nucleon centre-of-mass frame."
+  # pp spectra: one column per collision energy.
+  - table: Table 4
+    column: 0
+    observable: pp_cross_section
+    system: pp
+    sqrt_s_nn: 5020
+    definition: YIELD_DPT_DETA
+    note: "HEPData titles the quantity (1/N_evt) d^2N/(d eta dpT), a per-event yield, and its magnitude agrees (about 6.7 per GeV/c at pT = 0.15-0.2 GeV/c); the paper says the pp data are presented as differential cross sections for inelastic (INEL) collisions."
+  - table: Table 4
+    column: 1
+    observable: pp_cross_section
+    system: pp
+    sqrt_s_nn: 2760
+    definition: YIELD_DPT_DETA
+    note: "HEPData titles the quantity (1/N_evt) d^2N/(d eta dpT), a per-event yield; the paper says the pp data are presented as differential cross sections for inelastic (INEL) collisions."
+
+# The tables list a normalisation uncertainty per class only in their description, as
+# 'Additional systematic error for PBPB 0-5 pct data: +2.7 pct -2.7 pct'. The paper says the
+# normalisation uncertainties of R_AA come from the pp measurement and the centrality
+# determination, added in quadrature.
+additional:
+  norm:
+    - origin: description
+      for: { table: Table 8 }
+      note: "Normalisation uncertainty of R_AA from the pp measurement and the centrality determination, added in quadrature (arXiv:1802.09145, nuclear modification factors); listed per class in the table description."
+      relative:
+        "0-5": [-0.027, 0.027]
+        "5-10": [-0.035, 0.035]
+        "10-20": [-0.035, 0.035]
+        "20-30": [-0.041, 0.041]
+        "30-40": [-0.037, 0.037]
+        "40-50": [-0.039, 0.039]
+        "50-60": [-0.036, 0.036]
+        "60-70": [-0.046, 0.046]
+        "70-80": [-0.059, 0.059]
+    - origin: description
+      for: { table: Table 7 }
+      note: "Normalisation uncertainty of R_AA from the pp measurement and the centrality determination, added in quadrature (arXiv:1802.09145, nuclear modification factors); listed per class in the table description."
+      relative:
+        "0-5": [-0.022, 0.022]
+        "5-10": [-0.022, 0.022]
+        "10-20": [-0.024, 0.024]
+        "20-30": [-0.027, 0.027]
+        "30-40": [-0.034, 0.034]
+        "40-50": [-0.037, 0.037]
+        "50-60": [-0.049, 0.049]
+        "60-70": [-0.067, 0.067]
+        "70-80": [-0.071, 0.071]
+    - origin: description
+      for: { table: Table 9 }
+      sample: "P-PB NSD"
+      note: "Listed in the table description as 'Additional systematic error for P-PB NSD data'."
+      relative: [-0.046, 0.046]

@@ -1,0 +1,259 @@
+# ATLAS, charged-hadron production in pp, p+Pb, Pb+Pb and Xe+Xe collisions at 5 TeV
+# (arXiv:2211.15257, HEPData ins2601282 v1): R_AA in Pb+Pb at 5.02 TeV and in Xe+Xe at
+# 5.44 TeV and R_pPb at 5.02 TeV, all as functions of pT, and the pp reference spectra.
+#
+# Version 1, not 2. Version 2 adds only tables 140-490: the spectra in y* and |eta| slices.
+# Tables 1-139 are the same in both, but for one systematic error in each of Tables 34, 57, 61
+# and 65, rounded differently in the seventh digit; and a model without rapidity dependence is
+# compared with the full windows.
+#
+# Acceptance. Each table's window is written as its qualifier gives it: an ABS(ETA) window
+# from 0 is an eta_range [-hi, hi], a Y* window a y_range as written, with its sign.
+#
+# pp reference. HEPData's header gives 1/(2 pi pT) d2(sigma)/dpT/dy for the y* windows and
+# 1/(2 pi pT) d2(sigma)/dpT/deta for the |eta| windows, in mb/GeV^2, so the datasets are
+# INVARIANT_CROSS_SECTION_DY and INVARIANT_CROSS_SECTION_DETA. The pp tables at 5.44 TeV are the
+# baseline of the Xe+Xe R_AA: the paper gets them by extrapolating its 5.02 TeV pp spectrum
+# (Secs. 1 and 6); the HEPData descriptions of those tables do not say so.
+#
+# Not curated:
+#  - the heavy-ion spectra divided by <T_AA> or <T_pPb> (24 tables: 2-9, 11-18, 20-27), which
+#    are per-event yields, not ratios to pp;
+#  - R_pPb against y* and R_AA against |eta|, each in fixed pT windows (88 tables, 52-139:
+#    R_pPb 32, Pb+Pb 32, Xe+Xe 24). Their independent variable is not pT and HEPData gives it
+#    no units; vocab.py's raa has pT as its only x, and the build refuses an x without units;
+#  - the Overview table, which has no data.
+
+record: { inspire_id: 2601282, version: 1 }
+paper: "arXiv:2211.15257"
+experiment: ATLAS
+particle: charged
+
+datasets:
+  # R_AA in Pb+Pb at 5.02 TeV, |eta| < 2.5 (Tables 36-43, HEPData: Fig. 12)
+  - table: Table 36
+    observable: raa
+    system: PbPb
+    sqrt_s_nn: 5020
+    centrality: [0, 5]
+    centrality_definition: ATLAS_FCAL_ET
+    acceptance: { eta_range: [-2.5, 2.5] }
+    note: "R_AA of Eq. (1) of arXiv:2211.15257: the per-event Pb+Pb yield divided by <T_AA> and by the pp cross section in the same |eta| range at the same energy (Table 10 of the same HEPData record)."
+  - table: Table 37
+    observable: raa
+    system: PbPb
+    sqrt_s_nn: 5020
+    centrality: [5, 10]
+    centrality_definition: ATLAS_FCAL_ET
+    acceptance: { eta_range: [-2.5, 2.5] }
+    note: "R_AA of Eq. (1) of arXiv:2211.15257: the per-event Pb+Pb yield divided by <T_AA> and by the pp cross section in the same |eta| range at the same energy (Table 10 of the same HEPData record)."
+  - table: Table 38
+    observable: raa
+    system: PbPb
+    sqrt_s_nn: 5020
+    centrality: [10, 20]
+    centrality_definition: ATLAS_FCAL_ET
+    acceptance: { eta_range: [-2.5, 2.5] }
+    note: "R_AA of Eq. (1) of arXiv:2211.15257: the per-event Pb+Pb yield divided by <T_AA> and by the pp cross section in the same |eta| range at the same energy (Table 10 of the same HEPData record)."
+  - table: Table 39
+    observable: raa
+    system: PbPb
+    sqrt_s_nn: 5020
+    centrality: [20, 30]
+    centrality_definition: ATLAS_FCAL_ET
+    acceptance: { eta_range: [-2.5, 2.5] }
+    note: "R_AA of Eq. (1) of arXiv:2211.15257: the per-event Pb+Pb yield divided by <T_AA> and by the pp cross section in the same |eta| range at the same energy (Table 10 of the same HEPData record)."
+  - table: Table 40
+    observable: raa
+    system: PbPb
+    sqrt_s_nn: 5020
+    centrality: [30, 40]
+    centrality_definition: ATLAS_FCAL_ET
+    acceptance: { eta_range: [-2.5, 2.5] }
+    note: "R_AA of Eq. (1) of arXiv:2211.15257: the per-event Pb+Pb yield divided by <T_AA> and by the pp cross section in the same |eta| range at the same energy (Table 10 of the same HEPData record)."
+  - table: Table 41
+    observable: raa
+    system: PbPb
+    sqrt_s_nn: 5020
+    centrality: [40, 50]
+    centrality_definition: ATLAS_FCAL_ET
+    acceptance: { eta_range: [-2.5, 2.5] }
+    note: "R_AA of Eq. (1) of arXiv:2211.15257: the per-event Pb+Pb yield divided by <T_AA> and by the pp cross section in the same |eta| range at the same energy (Table 10 of the same HEPData record)."
+  - table: Table 42
+    observable: raa
+    system: PbPb
+    sqrt_s_nn: 5020
+    centrality: [50, 60]
+    centrality_definition: ATLAS_FCAL_ET
+    acceptance: { eta_range: [-2.5, 2.5] }
+    note: "R_AA of Eq. (1) of arXiv:2211.15257: the per-event Pb+Pb yield divided by <T_AA> and by the pp cross section in the same |eta| range at the same energy (Table 10 of the same HEPData record)."
+  - table: Table 43
+    observable: raa
+    system: PbPb
+    sqrt_s_nn: 5020
+    centrality: [60, 80]
+    centrality_definition: ATLAS_FCAL_ET
+    acceptance: { eta_range: [-2.5, 2.5] }
+    note: "R_AA of Eq. (1) of arXiv:2211.15257: the per-event Pb+Pb yield divided by <T_AA> and by the pp cross section in the same |eta| range at the same energy (Table 10 of the same HEPData record)."
+  # R_AA in Xe+Xe at 5.44 TeV, |eta| < 2.5 (Tables 44-51, HEPData: Fig. 13)
+  - table: Table 44
+    observable: raa
+    system: XeXe
+    sqrt_s_nn: 5440
+    centrality: [0, 5]
+    centrality_definition: ATLAS_FCAL_ET
+    acceptance: { eta_range: [-2.5, 2.5] }
+    note: "R_AA of Eq. (1) of arXiv:2211.15257: the per-event Xe+Xe yield divided by <T_AA> and by the pp cross section in the same |eta| range (Table 19 of the same HEPData record). That pp reference is not measured at 5.44 TeV: it is the pp spectrum measured at 5.02 TeV, extrapolated with a multiplicative factor from generated spectra (arXiv:2211.15257, Sec. 6)."
+  - table: Table 45
+    observable: raa
+    system: XeXe
+    sqrt_s_nn: 5440
+    centrality: [5, 10]
+    centrality_definition: ATLAS_FCAL_ET
+    acceptance: { eta_range: [-2.5, 2.5] }
+    note: "R_AA of Eq. (1) of arXiv:2211.15257: the per-event Xe+Xe yield divided by <T_AA> and by the pp cross section in the same |eta| range (Table 19 of the same HEPData record). That pp reference is not measured at 5.44 TeV: it is the pp spectrum measured at 5.02 TeV, extrapolated with a multiplicative factor from generated spectra (arXiv:2211.15257, Sec. 6)."
+  - table: Table 46
+    observable: raa
+    system: XeXe
+    sqrt_s_nn: 5440
+    centrality: [10, 20]
+    centrality_definition: ATLAS_FCAL_ET
+    acceptance: { eta_range: [-2.5, 2.5] }
+    note: "R_AA of Eq. (1) of arXiv:2211.15257: the per-event Xe+Xe yield divided by <T_AA> and by the pp cross section in the same |eta| range (Table 19 of the same HEPData record). That pp reference is not measured at 5.44 TeV: it is the pp spectrum measured at 5.02 TeV, extrapolated with a multiplicative factor from generated spectra (arXiv:2211.15257, Sec. 6)."
+  - table: Table 47
+    observable: raa
+    system: XeXe
+    sqrt_s_nn: 5440
+    centrality: [20, 30]
+    centrality_definition: ATLAS_FCAL_ET
+    acceptance: { eta_range: [-2.5, 2.5] }
+    note: "R_AA of Eq. (1) of arXiv:2211.15257: the per-event Xe+Xe yield divided by <T_AA> and by the pp cross section in the same |eta| range (Table 19 of the same HEPData record). That pp reference is not measured at 5.44 TeV: it is the pp spectrum measured at 5.02 TeV, extrapolated with a multiplicative factor from generated spectra (arXiv:2211.15257, Sec. 6)."
+  - table: Table 48
+    observable: raa
+    system: XeXe
+    sqrt_s_nn: 5440
+    centrality: [30, 40]
+    centrality_definition: ATLAS_FCAL_ET
+    acceptance: { eta_range: [-2.5, 2.5] }
+    note: "R_AA of Eq. (1) of arXiv:2211.15257: the per-event Xe+Xe yield divided by <T_AA> and by the pp cross section in the same |eta| range (Table 19 of the same HEPData record). That pp reference is not measured at 5.44 TeV: it is the pp spectrum measured at 5.02 TeV, extrapolated with a multiplicative factor from generated spectra (arXiv:2211.15257, Sec. 6)."
+  - table: Table 49
+    observable: raa
+    system: XeXe
+    sqrt_s_nn: 5440
+    centrality: [40, 50]
+    centrality_definition: ATLAS_FCAL_ET
+    acceptance: { eta_range: [-2.5, 2.5] }
+    note: "R_AA of Eq. (1) of arXiv:2211.15257: the per-event Xe+Xe yield divided by <T_AA> and by the pp cross section in the same |eta| range (Table 19 of the same HEPData record). That pp reference is not measured at 5.44 TeV: it is the pp spectrum measured at 5.02 TeV, extrapolated with a multiplicative factor from generated spectra (arXiv:2211.15257, Sec. 6)."
+  - table: Table 50
+    observable: raa
+    system: XeXe
+    sqrt_s_nn: 5440
+    centrality: [50, 60]
+    centrality_definition: ATLAS_FCAL_ET
+    acceptance: { eta_range: [-2.5, 2.5] }
+    note: "R_AA of Eq. (1) of arXiv:2211.15257: the per-event Xe+Xe yield divided by <T_AA> and by the pp cross section in the same |eta| range (Table 19 of the same HEPData record). That pp reference is not measured at 5.44 TeV: it is the pp spectrum measured at 5.02 TeV, extrapolated with a multiplicative factor from generated spectra (arXiv:2211.15257, Sec. 6)."
+  - table: Table 51
+    observable: raa
+    system: XeXe
+    sqrt_s_nn: 5440
+    centrality: [60, 80]
+    centrality_definition: ATLAS_FCAL_ET
+    acceptance: { eta_range: [-2.5, 2.5] }
+    note: "R_AA of Eq. (1) of arXiv:2211.15257: the per-event Xe+Xe yield divided by <T_AA> and by the pp cross section in the same |eta| range (Table 19 of the same HEPData record). That pp reference is not measured at 5.44 TeV: it is the pp spectrum measured at 5.02 TeV, extrapolated with a multiplicative factor from generated spectra (arXiv:2211.15257, Sec. 6)."
+  # R_pPb at 5.02 TeV, -2.5 < y* < 2.0 (Tables 28-34, HEPData: Fig. 11; Table 35, 0-90%, Fig. 10)
+  - table: Table 28
+    observable: raa
+    system: pPb
+    sqrt_s_nn: 5020
+    centrality: [0, 5]
+    centrality_definition: ATLAS_FCAL_ET_PB_SIDE
+    acceptance: { y_range: [-2.5, 2.0] }
+    note: "R_pPb of Eq. (1) of arXiv:2211.15257: the per-event p+Pb yield divided by <T_pPb> and by the pp cross section in the same y* range at the same energy (Table 1 of the same HEPData record). y* is the rapidity in the nucleon-nucleon centre-of-mass frame, and results are presented with the p-going direction at positive rapidity (arXiv:2211.15257, Secs. 1 and 3.1)."
+  - table: Table 29
+    observable: raa
+    system: pPb
+    sqrt_s_nn: 5020
+    centrality: [5, 10]
+    centrality_definition: ATLAS_FCAL_ET_PB_SIDE
+    acceptance: { y_range: [-2.5, 2.0] }
+    note: "R_pPb of Eq. (1) of arXiv:2211.15257: the per-event p+Pb yield divided by <T_pPb> and by the pp cross section in the same y* range at the same energy (Table 1 of the same HEPData record). y* is the rapidity in the nucleon-nucleon centre-of-mass frame, and results are presented with the p-going direction at positive rapidity (arXiv:2211.15257, Secs. 1 and 3.1)."
+  - table: Table 30
+    observable: raa
+    system: pPb
+    sqrt_s_nn: 5020
+    centrality: [10, 20]
+    centrality_definition: ATLAS_FCAL_ET_PB_SIDE
+    acceptance: { y_range: [-2.5, 2.0] }
+    note: "R_pPb of Eq. (1) of arXiv:2211.15257: the per-event p+Pb yield divided by <T_pPb> and by the pp cross section in the same y* range at the same energy (Table 1 of the same HEPData record). y* is the rapidity in the nucleon-nucleon centre-of-mass frame, and results are presented with the p-going direction at positive rapidity (arXiv:2211.15257, Secs. 1 and 3.1)."
+  - table: Table 31
+    observable: raa
+    system: pPb
+    sqrt_s_nn: 5020
+    centrality: [20, 30]
+    centrality_definition: ATLAS_FCAL_ET_PB_SIDE
+    acceptance: { y_range: [-2.5, 2.0] }
+    note: "R_pPb of Eq. (1) of arXiv:2211.15257: the per-event p+Pb yield divided by <T_pPb> and by the pp cross section in the same y* range at the same energy (Table 1 of the same HEPData record). y* is the rapidity in the nucleon-nucleon centre-of-mass frame, and results are presented with the p-going direction at positive rapidity (arXiv:2211.15257, Secs. 1 and 3.1)."
+  - table: Table 32
+    observable: raa
+    system: pPb
+    sqrt_s_nn: 5020
+    centrality: [30, 40]
+    centrality_definition: ATLAS_FCAL_ET_PB_SIDE
+    acceptance: { y_range: [-2.5, 2.0] }
+    note: "R_pPb of Eq. (1) of arXiv:2211.15257: the per-event p+Pb yield divided by <T_pPb> and by the pp cross section in the same y* range at the same energy (Table 1 of the same HEPData record). y* is the rapidity in the nucleon-nucleon centre-of-mass frame, and results are presented with the p-going direction at positive rapidity (arXiv:2211.15257, Secs. 1 and 3.1)."
+  - table: Table 33
+    observable: raa
+    system: pPb
+    sqrt_s_nn: 5020
+    centrality: [40, 60]
+    centrality_definition: ATLAS_FCAL_ET_PB_SIDE
+    acceptance: { y_range: [-2.5, 2.0] }
+    note: "R_pPb of Eq. (1) of arXiv:2211.15257: the per-event p+Pb yield divided by <T_pPb> and by the pp cross section in the same y* range at the same energy (Table 1 of the same HEPData record). y* is the rapidity in the nucleon-nucleon centre-of-mass frame, and results are presented with the p-going direction at positive rapidity (arXiv:2211.15257, Secs. 1 and 3.1)."
+  - table: Table 34
+    observable: raa
+    system: pPb
+    sqrt_s_nn: 5020
+    centrality: [60, 90]
+    centrality_definition: ATLAS_FCAL_ET_PB_SIDE
+    acceptance: { y_range: [-2.5, 2.0] }
+    note: "R_pPb of Eq. (1) of arXiv:2211.15257: the per-event p+Pb yield divided by <T_pPb> and by the pp cross section in the same y* range at the same energy (Table 1 of the same HEPData record). y* is the rapidity in the nucleon-nucleon centre-of-mass frame, and results are presented with the p-going direction at positive rapidity (arXiv:2211.15257, Secs. 1 and 3.1)."
+  - table: Table 35
+    observable: raa
+    system: pPb
+    sqrt_s_nn: 5020
+    centrality: [0, 90]
+    centrality_definition: ATLAS_FCAL_ET_PB_SIDE
+    acceptance: { y_range: [-2.5, 2.0] }
+    note: "R_pPb of Eq. (1) of arXiv:2211.15257: the per-event p+Pb yield divided by <T_pPb> and by the pp cross section in the same y* range at the same energy (Table 1 of the same HEPData record). y* is the rapidity in the nucleon-nucleon centre-of-mass frame, and results are presented with the p-going direction at positive rapidity (arXiv:2211.15257, Secs. 1 and 3.1). Inclusive in centrality: it is the union of the seven other p+Pb classes of this HEPData record, which it overlaps."
+  # pp reference at 5.02 TeV, -2.5 < y* < 2.0 (Table 1, HEPData: Fig. 7)
+  - table: Table 1
+    observable: pp_cross_section
+    system: pp
+    sqrt_s_nn: 5020
+    definition: INVARIANT_CROSS_SECTION_DY
+    acceptance: { y_range: [-2.5, 2.0] }
+    note: "The pp cross section for -2.5 < y* < 2.0, the pp baseline of the R_pPb in this HEPData record (its overview: the pp reference for p+Pb). As for the p+Pb data, its corrections are made as a function of y* with the pion mass assumed for all particles (arXiv:2211.15257, Sec. 6)."
+  # pp reference at 5.02 TeV, |eta| < 2.5 (Table 10, HEPData: Fig. 8)
+  - table: Table 10
+    observable: pp_cross_section
+    system: pp
+    sqrt_s_nn: 5020
+    definition: INVARIANT_CROSS_SECTION_DETA
+    acceptance: { eta_range: [-2.5, 2.5] }
+    note: "The pp cross section for |eta| < 2.5 at 5.02 TeV, the pp baseline of the Pb+Pb R_AA in this HEPData record (its overview: the pp reference for Pb+Pb); the paper defines it for inelastic pp collisions (arXiv:2211.15257, introduction)."
+  # pp reference at 5.44 TeV, |eta| < 2.5 (Table 19, HEPData: Fig. 9)
+  - table: Table 19
+    observable: pp_cross_section
+    system: pp
+    sqrt_s_nn: 5440
+    definition: INVARIANT_CROSS_SECTION_DETA
+    acceptance: { eta_range: [-2.5, 2.5] }
+    note: "The pp cross section for |eta| < 2.5 used as the baseline of the Xe+Xe R_AA in this HEPData record (its overview: the pp reference for Xe+Xe). Not measured at 5.44 TeV: it is the pp spectrum measured at 5.02 TeV, extrapolated with a multiplicative factor estimated from the ratio of generated spectra at 5.44 and 5.02 TeV (arXiv:2211.15257, Sec. 6)."
+
+errors:
+  taa:
+    note: "The uncertainty of the mean nuclear thickness function: <T_AA> for Pb+Pb and Xe+Xe, <T_pPb> for p+Pb (HEPData labels both syst, TAA). The paper says it arises from the geometric modelling and from the fraction of selected inelastic collisions, with values in its Table 2 (arXiv:2211.15257, Sec. 7), and that it is always fully correlated across the whole pT range (Sec. 8)."
+  lumi:
+    note: "The uncertainty of the integrated luminosity of the pp data, calibrated with beam-separation scans (arXiv:2211.15257, Sec. 7). The heavy-ion spectra of this HEPData record are per-event yields without a luminosity uncertainty, so in R_AA and R_pPb it enters through the pp reference."
+  extrapolation:
+    note: "The uncertainty of the extrapolation of the pp spectrum from 5.02 to 5.44 TeV. The paper tests the same method on an extrapolation of its 2.76 TeV pp spectrum to 5.02 TeV, finds the increase of the cross section underestimated, and assumes the same percentage for 5.44 TeV, with its uncertainty (arXiv:2211.15257, Sec. 7)."
