@@ -1,0 +1,122 @@
+# Observable registry. Adding an observable is adding an entry under `observables`.
+# schema/dataset.schema.json is generated from this file (`hsdc build` or `hsdc schema`).
+#
+# fields:       every dataset field an observable may require, with its type.
+#               where: top (default), y (inside `y`) or acceptance (inside `acceptance`);
+#               global: true allows the field on every observable.
+# observables:
+#   y            name of the measured quantity, written to `y.name`
+#   x            independent variables a dataset may have (names from aliases.yaml `x`)
+#   systems      collision systems the observable exists for
+#   required     fields every dataset must have
+#   optional     fields a dataset may have
+#   distinguish  fields that tell datasets of one class apart; they follow the class in
+#                the key, in this order, and are skipped when a dataset lacks them
+#   key_format   how a distinguishing value is written in the key; {} is the value
+#   final        the CapeTownEloss final observable that computes it: a name, or
+#                {by: <field>, kinds: {<value>: <name>}} for the values the model can compute
+
+fields:
+  centrality:
+    type: range
+    description: "Event class [lo, hi] in per cent of the cross section; minimum bias is [0, 100]."
+  centrality_definition:
+    type: centrality_definition
+    description: "A name in centrality_definitions.yaml: what the experiment ranked events by."
+  reference_centrality:
+    type: range
+    description: "The class [lo, hi] a central-to-peripheral ratio is divided by."
+  harmonic:
+    type: integer
+    minimum: 1
+    description: "The flow harmonic n."
+  method:
+    type: enum
+    values: [SP, EP, 2PC, cumulant2, cumulant4, cumulant6, cumulant8]
+    description: "How v_n was measured: scalar product, event plane, two-particle correlation (2PC, from the delta phi distribution of long-range pairs), or an m-particle cumulant."
+  definition:
+    type: enum
+    where: y
+    values:
+      - CROSS_SECTION_DPT_DETA          # d^2 sigma / dpT deta
+      - CROSS_SECTION_DPT_DY            # d^2 sigma / dpT dy
+      - INVARIANT_CROSS_SECTION_DETA    # 1/(2 pi pT) d^2 sigma / dpT deta
+      - INVARIANT_CROSS_SECTION_DY      # 1/(2 pi pT) d^2 sigma / dpT dy
+      - YIELD_DPT_DETA                  # 1/N_evt d^2 N / dpT deta
+      - YIELD_DPT_DY                    # 1/N_evt d^2 N / dpT dy
+      - INVARIANT_YIELD_DETA            # 1/N_evt 1/(2 pi pT) d^2 N / dpT deta
+      - INVARIANT_YIELD_DY              # 1/N_evt 1/(2 pi pT) d^2 N / dpT dy
+      - YIELD_PER_TAA_DPT_DETA          # the yield divided by <T_AA> (or <T_pA>)
+      - YIELD_PER_TAA_DPT_DY
+      - INVARIANT_YIELD_PER_TAA_DETA
+      - INVARIANT_YIELD_PER_TAA_DY
+    description: "Which spectrum a cross section or yield is: the convention of the quantity."
+  eta_range:
+    type: range
+    where: acceptance
+    global: true
+    description: "Pseudorapidity window [lo, hi] of the measurement."
+  abs_eta_range:
+    type: range
+    where: acceptance
+    global: true
+    description: "|eta| window [lo, hi] with lo > 0, which is two windows and so cannot be an eta_range. A window symmetric about zero is an eta_range [-hi, hi]."
+  y_range:
+    type: range
+    where: acceptance
+    global: true
+    description: "Rapidity window [lo, hi] when the measurement is in rapidity."
+  pt_range:
+    type: range
+    where: acceptance
+    global: true
+    description: "A fixed pT window [lo, hi] when pT is not the independent variable."
+  variant:
+    type: token
+    description: "A short label that tells datasets apart when nothing else in the key does, such as an acceptance window: eta0.5-1."
+  delta_eta_gap:
+    type: number
+    minimum: 0
+    where: acceptance
+    description: "Minimum |delta eta| between the particles of a pair (the eta gap of v_n{2})."
+
+observables:
+  raa:
+    y: raa
+    x: [pt]
+    systems: [pPb, PbPb, XeXe, AuAu, OO, NeNe]
+    required: [centrality, centrality_definition]
+    optional: [variant]
+    distinguish: [variant]
+    final: HADRON_RAA
+  rcp:
+    y: rcp
+    x: [pt]
+    systems: [pPb, PbPb, XeXe, AuAu, OO, NeNe]
+    required: [centrality, centrality_definition, reference_centrality]
+    optional: [variant]
+    distinguish: [variant]
+    final: HADRON_RAA            # with reference = { centrality = [...] }
+  vn:
+    y: vn
+    x: [pt]
+    systems: [pPb, PbPb, XeXe, AuAu, OO, NeNe]
+    required: [centrality, centrality_definition, harmonic, method]
+    optional: [delta_eta_gap, variant]
+    distinguish: [method, harmonic, delta_eta_gap, variant]
+    key_format: { harmonic: "n{}", delta_eta_gap: "gap{}" }
+    final: { by: method, kinds: { SP: HADRON_VN_SP } }
+  pp_cross_section:
+    y: cross_section
+    x: [pt]
+    systems: [pp]
+    required: [definition]
+    optional: [variant]
+    distinguish: [definition, variant]
+    final:
+      by: definition
+      kinds:
+        CROSS_SECTION_DPT_DETA: HADRON_CROSS_SECTION
+        CROSS_SECTION_DPT_DY: HADRON_CROSS_SECTION
+        INVARIANT_CROSS_SECTION_DETA: HADRON_CROSS_SECTION
+        INVARIANT_CROSS_SECTION_DY: HADRON_CROSS_SECTION

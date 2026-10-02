@@ -1,0 +1,678 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "dataset.schema.json",
+  "title": "A curated experimental dataset",
+  "description": "Generated from observables.yaml, aliases.yaml and centrality_definitions.yaml by `hsdc schema`; do not edit.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "format_version",
+    "key",
+    "observable",
+    "system",
+    "sqrt_s_nn",
+    "experiment",
+    "particle",
+    "source",
+    "x",
+    "y",
+    "errors",
+    "bins"
+  ],
+  "properties": {
+    "format_version": {
+      "const": 1
+    },
+    "key": {
+      "type": "string",
+      "minLength": 1
+    },
+    "observable": {
+      "enum": [
+        "pp_cross_section",
+        "raa",
+        "rcp",
+        "vn"
+      ]
+    },
+    "system": {
+      "enum": [
+        "pp",
+        "pPb",
+        "PbPb",
+        "XeXe",
+        "AuAu",
+        "OO",
+        "NeNe"
+      ]
+    },
+    "sqrt_s_nn": {
+      "type": "number",
+      "exclusiveMinimum": 0
+    },
+    "experiment": {
+      "enum": [
+        "ALICE",
+        "ATLAS",
+        "CMS",
+        "LHCb",
+        "STAR",
+        "PHENIX",
+        "PHOBOS",
+        "BRAHMS"
+      ]
+    },
+    "particle": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9]+(_[A-Za-z0-9]+)*$"
+    },
+    "source": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "hepdata": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "inspire_id",
+            "version",
+            "table",
+            "column"
+          ],
+          "properties": {
+            "inspire_id": {
+              "type": "integer",
+              "minimum": 1
+            },
+            "version": {
+              "type": "integer",
+              "minimum": 1
+            },
+            "table": {
+              "type": "string",
+              "minLength": 1
+            },
+            "column": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "location": {
+              "type": "string",
+              "minLength": 1
+            },
+            "doi": {
+              "type": "string",
+              "minLength": 1
+            }
+          }
+        },
+        "paper": {
+          "type": "string",
+          "minLength": 1
+        },
+        "figure": {
+          "type": "string",
+          "minLength": 1
+        },
+        "inspireHEPKey": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "anyOf": [
+        {
+          "required": [
+            "hepdata"
+          ]
+        },
+        {
+          "required": [
+            "paper"
+          ]
+        }
+      ]
+    },
+    "note": {
+      "type": "string",
+      "minLength": 1
+    },
+    "x": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "name",
+        "units"
+      ],
+      "properties": {
+        "name": {
+          "enum": [
+            "pt"
+          ]
+        },
+        "units": {
+          "enum": [
+            "GeV"
+          ]
+        }
+      }
+    },
+    "errors": {
+      "type": "object",
+      "propertyNames": {
+        "enum": [
+          "eta_resolution",
+          "extrapolation",
+          "fakes_secondaries",
+          "lumi",
+          "material",
+          "momentum_bias",
+          "norm",
+          "particle_composition",
+          "pt_resolution",
+          "stat",
+          "sys",
+          "taa",
+          "total",
+          "track_matching",
+          "track_selection",
+          "tracking_efficiency",
+          "unfolding"
+        ]
+      },
+      "additionalProperties": {
+        "$ref": "#/$defs/errorSource"
+      }
+    },
+    "bins": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/bin"
+      }
+    },
+    "centrality": {
+      "type": "array",
+      "minItems": 2,
+      "maxItems": 2,
+      "items": {
+        "type": "number"
+      }
+    },
+    "centrality_definition": {
+      "enum": [
+        "ALICE_PPB_NSD",
+        "ALICE_V0M",
+        "ATLAS_FCAL_ET",
+        "ATLAS_FCAL_ET_PB_SIDE",
+        "CMS_HF_ENERGY",
+        "CMS_HF_ENERGY_2760",
+        "CMS_OO_MINIMUM_BIAS",
+        "CMS_PPB_DOUBLE_SIDED"
+      ]
+    },
+    "reference_centrality": {
+      "type": "array",
+      "minItems": 2,
+      "maxItems": 2,
+      "items": {
+        "type": "number"
+      }
+    },
+    "harmonic": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "method": {
+      "enum": [
+        "SP",
+        "EP",
+        "2PC",
+        "cumulant2",
+        "cumulant4",
+        "cumulant6",
+        "cumulant8"
+      ]
+    },
+    "variant": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9.\\-]*$"
+    },
+    "y": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "name": {
+          "type": "string",
+          "minLength": 1
+        },
+        "units": {
+          "type": "string",
+          "minLength": 1
+        },
+        "definition": {
+          "enum": [
+            "CROSS_SECTION_DPT_DETA",
+            "CROSS_SECTION_DPT_DY",
+            "INVARIANT_CROSS_SECTION_DETA",
+            "INVARIANT_CROSS_SECTION_DY",
+            "YIELD_DPT_DETA",
+            "YIELD_DPT_DY",
+            "INVARIANT_YIELD_DETA",
+            "INVARIANT_YIELD_DY",
+            "YIELD_PER_TAA_DPT_DETA",
+            "YIELD_PER_TAA_DPT_DY",
+            "INVARIANT_YIELD_PER_TAA_DETA",
+            "INVARIANT_YIELD_PER_TAA_DY"
+          ]
+        }
+      }
+    },
+    "acceptance": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "eta_range": {
+          "type": "array",
+          "minItems": 2,
+          "maxItems": 2,
+          "items": {
+            "type": "number"
+          }
+        },
+        "abs_eta_range": {
+          "type": "array",
+          "minItems": 2,
+          "maxItems": 2,
+          "items": {
+            "type": "number"
+          }
+        },
+        "y_range": {
+          "type": "array",
+          "minItems": 2,
+          "maxItems": 2,
+          "items": {
+            "type": "number"
+          }
+        },
+        "pt_range": {
+          "type": "array",
+          "minItems": 2,
+          "maxItems": 2,
+          "items": {
+            "type": "number"
+          }
+        },
+        "delta_eta_gap": {
+          "type": "number",
+          "minimum": 0
+        }
+      }
+    }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "observable": {
+            "const": "pp_cross_section"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "system": {
+            "enum": [
+              "pp"
+            ]
+          },
+          "x": {
+            "properties": {
+              "name": {
+                "enum": [
+                  "pt"
+                ]
+              }
+            }
+          },
+          "y": {
+            "required": [
+              "name",
+              "definition",
+              "units"
+            ],
+            "properties": {
+              "name": {
+                "const": "cross_section"
+              }
+            }
+          },
+          "centrality": {
+            "not": {}
+          },
+          "centrality_definition": {
+            "not": {}
+          },
+          "reference_centrality": {
+            "not": {}
+          },
+          "harmonic": {
+            "not": {}
+          },
+          "method": {
+            "not": {}
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "observable": {
+            "const": "raa"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "system": {
+            "enum": [
+              "pPb",
+              "PbPb",
+              "XeXe",
+              "AuAu",
+              "OO",
+              "NeNe"
+            ]
+          },
+          "x": {
+            "properties": {
+              "name": {
+                "enum": [
+                  "pt"
+                ]
+              }
+            }
+          },
+          "y": {
+            "required": [
+              "name"
+            ],
+            "properties": {
+              "name": {
+                "const": "raa"
+              }
+            }
+          },
+          "reference_centrality": {
+            "not": {}
+          },
+          "harmonic": {
+            "not": {}
+          },
+          "method": {
+            "not": {}
+          }
+        },
+        "required": [
+          "centrality",
+          "centrality_definition"
+        ]
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "observable": {
+            "const": "rcp"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "system": {
+            "enum": [
+              "pPb",
+              "PbPb",
+              "XeXe",
+              "AuAu",
+              "OO",
+              "NeNe"
+            ]
+          },
+          "x": {
+            "properties": {
+              "name": {
+                "enum": [
+                  "pt"
+                ]
+              }
+            }
+          },
+          "y": {
+            "required": [
+              "name"
+            ],
+            "properties": {
+              "name": {
+                "const": "rcp"
+              }
+            }
+          },
+          "harmonic": {
+            "not": {}
+          },
+          "method": {
+            "not": {}
+          }
+        },
+        "required": [
+          "centrality",
+          "centrality_definition",
+          "reference_centrality"
+        ]
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "observable": {
+            "const": "vn"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "system": {
+            "enum": [
+              "pPb",
+              "PbPb",
+              "XeXe",
+              "AuAu",
+              "OO",
+              "NeNe"
+            ]
+          },
+          "x": {
+            "properties": {
+              "name": {
+                "enum": [
+                  "pt"
+                ]
+              }
+            }
+          },
+          "y": {
+            "required": [
+              "name"
+            ],
+            "properties": {
+              "name": {
+                "const": "vn"
+              }
+            }
+          },
+          "reference_centrality": {
+            "not": {}
+          }
+        },
+        "required": [
+          "centrality",
+          "centrality_definition",
+          "harmonic",
+          "method"
+        ]
+      }
+    }
+  ],
+  "$defs": {
+    "errorSource": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "label": {
+          "type": "string"
+        },
+        "origin": {
+          "enum": [
+            "description",
+            "paper",
+            "manual"
+          ]
+        },
+        "reference": {
+          "type": "string",
+          "minLength": 1
+        },
+        "entered_by": {
+          "type": "string",
+          "minLength": 1
+        },
+        "percent": {
+          "const": true
+        },
+        "relative": {
+          "anyOf": [
+            {
+              "type": [
+                "number",
+                "null"
+              ]
+            },
+            {
+              "type": "array",
+              "minItems": 2,
+              "maxItems": 2,
+              "items": {
+                "type": [
+                  "number",
+                  "null"
+                ]
+              }
+            }
+          ]
+        },
+        "note": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "oneOf": [
+        {
+          "required": [
+            "label"
+          ]
+        },
+        {
+          "required": [
+            "origin"
+          ]
+        }
+      ],
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "origin": {
+                "const": "paper"
+              }
+            },
+            "required": [
+              "origin"
+            ]
+          },
+          "then": {
+            "required": [
+              "reference"
+            ]
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "origin": {
+                "const": "manual"
+              }
+            },
+            "required": [
+              "origin"
+            ]
+          },
+          "then": {
+            "required": [
+              "entered_by"
+            ]
+          }
+        }
+      ]
+    },
+    "bin": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "value"
+      ],
+      "properties": {
+        "low": {
+          "type": "number"
+        },
+        "high": {
+          "type": "number"
+        },
+        "centre": {
+          "type": "number"
+        },
+        "value": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "errors": {
+          "type": "object",
+          "additionalProperties": {
+            "anyOf": [
+              {
+                "type": [
+                  "number",
+                  "null"
+                ]
+              },
+              {
+                "type": "array",
+                "minItems": 2,
+                "maxItems": 2,
+                "items": {
+                  "type": [
+                    "number",
+                    "null"
+                  ]
+                }
+              }
+            ]
+          }
+        }
+      }
+    }
+  }
+}
