@@ -1,0 +1,46 @@
+# PHENIX, neutral pion production with respect to centrality and reaction plane in Au+Au
+# collisions at 200 GeV (arXiv:1208.2254, HEPData ins1127262 v2): the pi0 R_AA.
+#
+# Not curated: the yields (Figure 5), eta/pi0 (Figure 8) and the R_AA against the reaction
+# plane (Figures 20-*).
+#
+# HEPData names the centrality qualifier `$p_T$` and gives the x axis no units; pT is in
+# GeV/c in the paper, so the recipe sets x_units.
+
+record: { inspire_id: 1127262, version: 2 }
+paper: "arXiv:1208.2254"
+experiment: PHENIX
+particle: neutral_pion
+sqrt_s_nn: 200
+system: AuAu
+observable: raa
+centrality_definition: PHENIX_AUAU_BBC
+x_units: GeV
+figure: "11"
+
+datasets:
+  - { table: Figure 11, column: 0, centrality: [0, 10] }
+  - { table: Figure 11, column: 1, centrality: [10, 20] }
+  - { table: Figure 11, column: 2, centrality: [20, 30] }
+  - { table: Figure 11, column: 3, centrality: [30, 40] }
+  - { table: Figure 11, column: 4, centrality: [40, 50] }
+  - { table: Figure 11, column: 5, centrality: [50, 60] }
+  - { table: Figure 11, column: 6, centrality: [60, 70] }
+  - { table: Figure 11, column: 7, centrality: [70, 80] }
+  - { table: Figure 11, column: 8, centrality: [80, 93] }
+  - table: Figure 11
+    column: 10
+    centrality: [0, 5]
+    note: "Overlaps the 0-10% dataset of this record: the same events."
+  - table: Figure 11
+    column: 9
+    centrality: [0, 93]
+    note: "All centralities, 0-93% (PHENIX's minimum bias). Overlaps every other dataset of this record."
+
+errors:
+  uncorr:
+    note: "PHENIX type A: uncorrelated from point to point; the statistical uncertainty is in it, and HEPData gives no separate stat."
+  sys:
+    note: "PHENIX type B: correlated in pT, the form of the correlation unknown (arXiv:1208.2254)."
+  norm:
+    note: "PHENIX type C, moving every point of the class together: the quadratic sum of the uncertainties of N_coll, the pp normalisation and the off-vertex pi0 contribution (arXiv:1208.2254, the text presenting the R_AA)."
