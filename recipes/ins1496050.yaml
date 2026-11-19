@@ -44,6 +44,6 @@ datasets:
 
 errors:
   taa:
-    note: "The uncertainty of the nuclear overlap function, asymmetric as published: <T_AA> of the class for PbPb, where the paper's Table 1 lists <N_coll> and <T_AA> with their uncertainties, and <T_pA> for pPb (labelled sys,TpA)."
+    note: "The uncertainty of the nuclear overlap function, asymmetric as published: <T_AA> of the class for PbPb, where the paper's Table 1 lists <N_coll> and <T_AA> with their uncertainties, and <T_pA> for pPb (labelled sys,TpA). The sides are <T_AA>'s own, not turned round for R_AA ~ 1/<T_AA>: for 0-5% Table 1 gives 26.0 +0.5 -0.8 mb^-1, +1.9% -3.1%, and HEPData's R_AA error is -3.0% +1.8%. An analysis that uses the asymmetry should swap the sides."
   lumi:
     note: "The pp integrated luminosity uncertainty, 2.3% (arXiv:1611.01664, systematic uncertainties); HEPData's description of the pp table calls it fully correlated. It enters R_AA through the pp reference: no luminosity is used for PbPb, whose yields are per event."
