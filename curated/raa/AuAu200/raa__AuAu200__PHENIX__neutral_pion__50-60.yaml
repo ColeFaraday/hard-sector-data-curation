@@ -1,0 +1,56 @@
+format_version: 1
+key: raa__AuAu200__PHENIX__neutral_pion__50-60
+observable: raa
+system: AuAu
+sqrt_s_nn: 200
+experiment: PHENIX
+particle: neutral_pion
+centrality: [50, 60]
+centrality_definition: PHENIX_AUAU_BBC
+source:
+  hepdata:
+    inspire_id: 1127262
+    version: 2
+    table: Figure 11
+    column: 5
+    doi: "10.17182/hepdata.96561.v2/t3"
+  paper: "arXiv:1208.2254"
+  figure: "11"
+  inspireHEPKey: "PHENIX:2012jha"
+x: { name: pt, units: GeV }
+y: { name: raa }
+errors:
+  uncorr: { label: "$p_{T}$ Uncorr", note: "PHENIX type A: uncorrelated from point to point; the statistical uncertainty is in it, and HEPData gives no separate stat." }
+  sys: { label: "$p_{T}$ Corr", note: "PHENIX type B: correlated in pT, the form of the correlation unknown (arXiv:1208.2254)." }
+  norm: { label: Global, note: "PHENIX type C, moving every point of the class together: the quadratic sum of the uncertainties of N_coll, the pp normalisation and the off-vertex pi0 contribution (arXiv:1208.2254, the text presenting the R_AA)." }
+bins:
+  - { low: 5, high: 5.5, value: 0.66913,
+      errors: { uncorr: 0.0061648, sys: 0.08557, norm: 0.11418 } }
+  - { low: 5.5, high: 6, value: 0.65167,
+      errors: { uncorr: 0.0082129, sys: 0.083529, norm: 0.1112 } }
+  - { low: 6, high: 6.5, value: 0.67756,
+      errors: { uncorr: 0.011231, sys: 0.087038, norm: 0.11562 } }
+  - { low: 6.5, high: 7, value: 0.67646,
+      errors: { uncorr: 0.014583, sys: 0.087097, norm: 0.11543 } }
+  - { low: 7, high: 7.5, value: 0.65326,
+      errors: { uncorr: 0.018283, sys: 0.084337, norm: 0.11147 } }
+  - { low: 7.5, high: 8, value: 0.65625,
+      errors: { uncorr: 0.022857, sys: 0.084974, norm: 0.11198 } }
+  - { low: 8, high: 8.5, value: 0.68512,
+      errors: { uncorr: 0.029741, sys: 0.083274, norm: 0.11691 } }
+  - { low: 8.5, high: 9, value: 0.63994,
+      errors: { uncorr: 0.034364, sys: 0.078132, norm: 0.1092 } }
+  - { low: 9, high: 9.5, value: 0.63385,
+      errors: { uncorr: 0.043123, sys: 0.077918, norm: 0.10816 } }
+  - { low: 9.5, high: 10, value: 0.72547,
+      errors: { uncorr: 0.055419, sys: 0.09173, norm: 0.12379 } }
+  - { low: 10, high: 12, value: 0.64485,
+      errors: { uncorr: 0.037804, sys: 0.096489, norm: 0.11003 } }
+  - { low: 12, high: 14, value: 0.73783,
+      errors: { uncorr: 0.085261, sys: 0.15408, norm: 0.1259 } }
+  - { low: 14, high: 16, value: 0.82173,
+      errors: { uncorr: 0.16, sys: 0.22947, norm: 0.14022 } }
+  - { low: 16, high: 18, value: 0.50973,
+      errors: { uncorr: 0.23775, sys: 0.18193, norm: 0.086978 } }
+  - { low: 18, high: 20, value: 0.3762,
+      errors: { uncorr: 0.3843, sys: 0.1642, norm: 0.064193 } }

@@ -1,0 +1,91 @@
+format_version: 1
+key: raa__AuAu200__STAR__charged__30-40
+observable: raa
+system: AuAu
+sqrt_s_nn: 200
+experiment: STAR
+particle: charged
+centrality: [30, 40]
+centrality_definition: STAR_AUAU_TPC_MULTIPLICITY
+acceptance: { eta_range: [-0.5, 0.5] }
+source:
+  hepdata:
+    inspire_id: 619063
+    version: 1
+    table: Table 3
+    column: 3
+    location: Data from Figure 3
+    doi: "10.17182/hepdata.93908.v1/t3"
+  paper: nucl-ex/0305015
+  figure: "3"
+  inspireHEPKey: "STAR:2003fka"
+x: { name: pt, units: GeV }
+y: { name: raa }
+errors:
+  total: { label: "sys + stat", note: "The quadrature sum of the Au+Au statistical and systematic uncertainties and the pp spectrum's, except the pp normalisation (nucl-ex/0305015, Fig. 3 caption and text)." }
+  norm: { origin: paper, reference: "nucl-ex/0305015, Fig. 3 (grey band about the N_bin scaling line; values from HEPData's qualifier of each column)", relative: [-0.22, 0.2], note: "The R_AA normalisation of the class: <N_bin> in quadrature with the pp normalisation, as the band published, minus side first." }
+bins:
+  - { low: 0.4, high: 0.5, value: 0.39,
+      errors: { total: 0.03, norm: [-0.0858, 0.078] } }
+  - { low: 0.5, high: 0.6, value: 0.43,
+      errors: { total: 0.04, norm: [-0.0946, 0.086] } }
+  - { low: 0.6, high: 0.7, value: 0.46,
+      errors: { total: 0.04, norm: [-0.1012, 0.092] } }
+  - { low: 0.7, high: 0.8, value: 0.51,
+      errors: { total: 0.04, norm: [-0.1122, 0.102] } }
+  - { low: 0.8, high: 0.9, value: 0.54,
+      errors: { total: 0.04, norm: [-0.1188, 0.108] } }
+  - { low: 0.9, high: 1.0, value: 0.58,
+      errors: { total: 0.04, norm: [-0.1276, 0.116] } }
+  - { low: 1.0, high: 1.1, value: 0.62,
+      errors: { total: 0.05, norm: [-0.1364, 0.124] } }
+  - { low: 1.1, high: 1.2, value: 0.66,
+      errors: { total: 0.05, norm: [-0.1452, 0.132] } }
+  - { low: 1.2, high: 1.3, value: 0.7,
+      errors: { total: 0.05, norm: [-0.154, 0.14] } }
+  - { low: 1.3, high: 1.4, value: 0.72,
+      errors: { total: 0.06, norm: [-0.1584, 0.144] } }
+  - { low: 1.4, high: 1.5, value: 0.75,
+      errors: { total: 0.06, norm: [-0.165, 0.15] } }
+  - { low: 1.5, high: 1.6, value: 0.78,
+      errors: { total: 0.06, norm: [-0.1716, 0.156] } }
+  - { low: 1.6, high: 1.7, value: 0.81,
+      errors: { total: 0.07, norm: [-0.1782, 0.162] } }
+  - { low: 1.7, high: 1.8, value: 0.83,
+      errors: { total: 0.08, norm: [-0.1826, 0.166] } }
+  - { low: 1.8, high: 1.9, value: 0.84,
+      errors: { total: 0.08, norm: [-0.1848, 0.168] } }
+  - { low: 1.9, high: 2.0, value: 0.86,
+      errors: { total: 0.09, norm: [-0.1892, 0.172] } }
+  - { low: 2.0, high: 2.1, value: 0.9,
+      errors: { total: 0.1, norm: [-0.198, 0.18] } }
+  - { low: 2.1, high: 2.2, value: 0.9,
+      errors: { total: 0.1, norm: [-0.198, 0.18] } }
+  - { low: 2.2, high: 2.3, value: 0.93,
+      errors: { total: 0.11, norm: [-0.2046, 0.186] } }
+  - { low: 2.3, high: 2.4, value: 0.94,
+      errors: { total: 0.12, norm: [-0.2068, 0.188] } }
+  - { low: 2.4, high: 2.6, value: 0.97,
+      errors: { total: 0.14, norm: [-0.2134, 0.194] } }
+  - { low: 2.6, high: 2.8, value: 0.93,
+      errors: { total: 0.13, norm: [-0.2046, 0.186] } }
+  - { low: 2.8, high: 3.0, value: 0.83,
+      errors: { total: 0.09, norm: [-0.1826, 0.166] } }
+  - { low: 3.0, high: 3.35, value: 0.76,
+      errors: { total: 0.07, norm: [-0.1672, 0.152] } }
+  - { low: 3.35, high: 3.8, value: 0.74,
+      errors: { total: 0.07, norm: [-0.1628, 0.148] } }
+  - { low: 3.8, high: 4.4, value: 0.68,
+      errors: { total: 0.07, norm: [-0.1496, 0.136] } }
+  - { low: 4.4, high: 5.1, value: 0.67,
+      errors: { total: 0.08, norm: [-0.1474, 0.134] } }
+  - { low: 5.1, high: 6.0, value: 0.55,
+      errors: { total: 0.07, norm: [-0.121, 0.11] } }
+  - { low: 6.0, high: 7.0, value: 0.56,
+      errors: { total: 0.09, norm: [-0.1232, 0.112] } }
+  - { low: 7.0, high: 8.0, value: 0.43,
+      errors: { total: 0.09, norm: [-0.0946, 0.086] } }
+  - { low: 8.0, high: 9.0, value: 0.53,
+      errors: { total: 0.17, norm: [-0.1166, 0.106] } }
+  - { low: 9.0, high: 10.0, value: 0.43,
+      errors: { total: 0.18, norm: [-0.0946, 0.086] } }

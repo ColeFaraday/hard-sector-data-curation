@@ -1,0 +1,91 @@
+format_version: 1
+key: vn__PbPb2760__ALICE__charged__50-60__cumulant4__n2
+observable: vn
+system: PbPb
+sqrt_s_nn: 2760
+experiment: ALICE
+particle: charged
+centrality: [50, 60]
+centrality_definition: ALICE_V0M
+harmonic: 2
+method: cumulant4
+acceptance: { eta_range: [-0.8, 0.8] }
+source:
+  hepdata:
+    inspire_id: 1666817
+    version: 1
+    table: Table 81
+    column: 0
+    location: Figure 3
+    doi: "10.17182/hepdata.83737.v1/t81"
+  paper: "arXiv:1804.02944"
+  inspireHEPKey: "ALICE:2018rtz"
+note: "Four-particle cumulant v_2{4}: one particle of the pT bin is correlated with three particles over the whole range 0.2 < pT < 50 GeV/c (arXiv:1804.02944, Sec. 2). The other methods of this record for the same harmonic, class and energy come from the same Pb-Pb data sample (Sec. 2), so those datasets overlap this one."
+x: { name: pt, units: GeV }
+y: { name: vn }
+errors:
+  stat: { label: stat }
+  sys: { label: sys, note: "The paper's total systematic uncertainty: variations of the track and event selections (a variation counts if it is significant by the Barlow criterion) and an alternative centrality estimator, added in quadrature as uncorrelated sources; track quality and the centrality determination dominate (arXiv:1804.02944, Sec. 2)." }
+bins:
+  - { low: 0.2, high: 0.3, value: 0.03121,
+      errors: { stat: 0.0003, sys: 0.00336 } }
+  - { low: 0.3, high: 0.4, value: 0.04657,
+      errors: { stat: 0.0003, sys: 0.00312 } }
+  - { low: 0.4, high: 0.5, value: 0.06067,
+      errors: { stat: 0.00033, sys: 0.00323 } }
+  - { low: 0.5, high: 0.6, value: 0.0745,
+      errors: { stat: 0.00036, sys: 0.00327 } }
+  - { low: 0.6, high: 0.7, value: 0.08678,
+      errors: { stat: 0.0004, sys: 0.0033 } }
+  - { low: 0.7, high: 0.8, value: 0.09843,
+      errors: { stat: 0.00045, sys: 0.00312 } }
+  - { low: 0.8, high: 0.9, value: 0.10911,
+      errors: { stat: 0.0005, sys: 0.00312 } }
+  - { low: 0.9, high: 1, value: 0.11823,
+      errors: { stat: 0.00056, sys: 0.0035 } }
+  - { low: 1, high: 1.25, value: 0.13165,
+      errors: { stat: 0.00044, sys: 0.00331 } }
+  - { low: 1.25, high: 1.5, value: 0.14881,
+      errors: { stat: 0.00056, sys: 0.00351 } }
+  - { low: 1.5, high: 1.75, value: 0.16085,
+      errors: { stat: 0.00071, sys: 0.00241 } }
+  - { low: 1.75, high: 2, value: 0.16909,
+      errors: { stat: 0.00091, sys: 0.00363 } }
+  - { low: 2, high: 2.25, value: 0.17388,
+      errors: { stat: 0.00115, sys: 0.00318 } }
+  - { low: 2.25, high: 2.5, value: 0.17553,
+      errors: { stat: 0.00144, sys: 0.00376 } }
+  - { low: 2.5, high: 2.75, value: 0.17331,
+      errors: { stat: 0.00173, sys: 0.00479 } }
+  - { low: 2.75, high: 3, value: 0.17235,
+      errors: { stat: 0.00205, sys: 0.00515 } }
+  - { low: 3, high: 3.25, value: 0.16942,
+      errors: { stat: 0.0024, sys: 0.00557 } }
+  - { low: 3.25, high: 3.5, value: 0.15539,
+      errors: { stat: 0.00279, sys: 0.00502 } }
+  - { low: 3.5, high: 3.75, value: 0.15709,
+      errors: { stat: 0.00324, sys: 0.00577 } }
+  - { low: 3.75, high: 4, value: 0.15017,
+      errors: { stat: 0.00375, sys: 0.00471 } }
+  - { low: 4, high: 4.5, value: 0.14251,
+      errors: { stat: 0.00344, sys: 0.00312 } }
+  - { low: 4.5, high: 5, value: 0.13587,
+      errors: { stat: 0.00444, sys: 0.00534 } }
+  - { low: 5, high: 5.5, value: 0.12457,
+      errors: { stat: 0.00568, sys: 0.00528 } }
+  - { low: 5.5, high: 6, value: 0.1061,
+      errors: { stat: 0.00712, sys: 0.00312 } }
+  - { low: 6, high: 7, value: 0.10585,
+      errors: { stat: 0.00686, sys: 0.00312 } }
+  - { low: 7, high: 8, value: 0.10377,
+      errors: { stat: 0.00971, sys: 0.00312 } }
+  - { low: 8, high: 9, value: 0.09991,
+      errors: { stat: 0.0132, sys: 0.00312 } }
+  - { low: 9, high: 10, value: 0.11322,
+      errors: { stat: 0.01763, sys: 0.00547 } }
+  - { low: 10, high: 12, value: 0.11448,
+      errors: { stat: 0.01764, sys: 0.00312 } }
+  - { low: 12, high: 14, value: 0.09349,
+      errors: { stat: 0.02662, sys: 0.00312 } }
+  - { low: 14, high: 17, value: 0.01709,
+      errors: { stat: 0.03404, sys: 0.00312 } }

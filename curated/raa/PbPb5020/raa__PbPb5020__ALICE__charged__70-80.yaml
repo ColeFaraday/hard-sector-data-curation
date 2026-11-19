@@ -1,0 +1,105 @@
+format_version: 1
+key: raa__PbPb5020__ALICE__charged__70-80
+observable: raa
+system: PbPb
+sqrt_s_nn: 5020
+experiment: ALICE
+particle: charged
+centrality: [70, 80]
+centrality_definition: ALICE_V0M
+acceptance: { eta_range: [-0.8, 0.8] }
+source:
+  hepdata:
+    inspire_id: 1657384
+    version: 1
+    table: Table 8
+    column: 8
+    location: Data from Figure 6
+    doi: "10.17182/hepdata.86210.v1/t8"
+  paper: "arXiv:1802.09145"
+  inspireHEPKey: "ALICE:2018vuu"
+x: { name: pt, units: GeV }
+y: { name: raa }
+errors:
+  stat: { label: stat }
+  sys: { label: sys }
+  norm: { origin: description, relative: [-0.059, 0.059], note: "Normalisation uncertainty of R_AA from the pp measurement and the centrality determination, added in quadrature (arXiv:1802.09145, nuclear modification factors); listed per class in the table description." }
+bins:
+  - { low: 0.15, high: 0.2, value: 0.612843,
+      errors: { stat: 0.00041482, sys: 0.027371, norm: [-0.036157737, 0.036157737] } }
+  - { low: 0.2, high: 0.25, value: 0.605806,
+      errors: { stat: 0.00026678, sys: 0.01897, norm: [-0.035742554, 0.035742554] } }
+  - { low: 0.25, high: 0.3, value: 0.608506,
+      errors: { stat: 0.00025409, sys: 0.016917, norm: [-0.035901854, 0.035901854] } }
+  - { low: 0.3, high: 0.35, value: 0.615657,
+      errors: { stat: 0.00025566, sys: 0.014702, norm: [-0.036323763, 0.036323763] } }
+  - { low: 0.35, high: 0.4, value: 0.624577,
+      errors: { stat: 0.00026445, sys: 0.014438, norm: [-0.036850043, 0.036850043] } }
+  - { low: 0.4, high: 0.45, value: 0.634146,
+      errors: { stat: 0.00027838, sys: 0.0153, norm: [-0.037414614, 0.037414614] } }
+  - { low: 0.45, high: 0.5, value: 0.645121,
+      errors: { stat: 0.00030246, sys: 0.016171, norm: [-0.038062139, 0.038062139] } }
+  - { low: 0.5, high: 0.55, value: 0.656529,
+      errors: { stat: 0.00033473, sys: 0.016257, norm: [-0.038735211, 0.038735211] } }
+  - { low: 0.55, high: 0.6, value: 0.668245,
+      errors: { stat: 0.0003672, sys: 0.01568, norm: [-0.039426455, 0.039426455] } }
+  - { low: 0.6, high: 0.65, value: 0.67925,
+      errors: { stat: 0.00040387, sys: 0.015695, norm: [-0.04007575, 0.04007575] } }
+  - { low: 0.65, high: 0.7, value: 0.688718,
+      errors: { stat: 0.00044518, sys: 0.01536, norm: [-0.040634362, 0.040634362] } }
+  - { low: 0.7, high: 0.75, value: 0.698341,
+      errors: { stat: 0.00048624, sys: 0.014904, norm: [-0.041202119, 0.041202119] } }
+  - { low: 0.75, high: 0.8, value: 0.707458,
+      errors: { stat: 0.00053076, sys: 0.01479, norm: [-0.041740022, 0.041740022] } }
+  - { low: 0.8, high: 0.85, value: 0.715108,
+      errors: { stat: 0.00057774, sys: 0.01475, norm: [-0.042191372, 0.042191372] } }
+  - { low: 0.85, high: 0.9, value: 0.722773,
+      errors: { stat: 0.00062783, sys: 0.013922, norm: [-0.042643607, 0.042643607] } }
+  - { low: 0.9, high: 0.95, value: 0.728586,
+      errors: { stat: 0.00067865, sys: 0.013089, norm: [-0.042986574, 0.042986574] } }
+  - { low: 0.95, high: 1.0, value: 0.733835,
+      errors: { stat: 0.0007254, sys: 0.013367, norm: [-0.043296265, 0.043296265] } }
+  - { low: 1.0, high: 1.1, value: 0.738654,
+      errors: { stat: 0.00055576, sys: 0.014106, norm: [-0.043580586, 0.043580586] } }
+  - { low: 1.1, high: 1.2, value: 0.747146,
+      errors: { stat: 0.00061932, sys: 0.014102, norm: [-0.044081614, 0.044081614] } }
+  - { low: 1.2, high: 1.4, value: 0.752749,
+      errors: { stat: 0.00048115, sys: 0.01554, norm: [-0.044412191, 0.044412191] } }
+  - { low: 1.4, high: 1.6, value: 0.76207,
+      errors: { stat: 0.00058895, sys: 0.017037, norm: [-0.04496213, 0.04496213] } }
+  - { low: 1.6, high: 1.8, value: 0.764124,
+      errors: { stat: 0.00070893, sys: 0.018676, norm: [-0.045083316, 0.045083316] } }
+  - { low: 1.8, high: 2.0, value: 0.763671,
+      errors: { stat: 0.00084137, sys: 0.019626, norm: [-0.045056589, 0.045056589] } }
+  - { low: 2.0, high: 2.2, value: 0.763553,
+      errors: { stat: 0.0010467, sys: 0.019799, norm: [-0.045049627, 0.045049627] } }
+  - { low: 2.2, high: 2.4, value: 0.756974,
+      errors: { stat: 0.0012257, sys: 0.019206, norm: [-0.044661466, 0.044661466] } }
+  - { low: 2.4, high: 2.6, value: 0.750963,
+      errors: { stat: 0.0014202, sys: 0.018845, norm: [-0.044306817, 0.044306817] } }
+  - { low: 2.6, high: 2.8, value: 0.743261,
+      errors: { stat: 0.0016407, sys: 0.019385, norm: [-0.043852399, 0.043852399] } }
+  - { low: 2.8, high: 3.0, value: 0.735648,
+      errors: { stat: 0.0018821, sys: 0.019385, norm: [-0.043403232, 0.043403232] } }
+  - { low: 3.0, high: 3.2, value: 0.731987,
+      errors: { stat: 0.0021485, sys: 0.018818, norm: [-0.043187233, 0.043187233] } }
+  - { low: 3.2, high: 3.6, value: 0.732126,
+      errors: { stat: 0.0018014, sys: 0.018867, norm: [-0.043195434, 0.043195434] } }
+  - { low: 3.6, high: 4.0, value: 0.714316,
+      errors: { stat: 0.0022969, sys: 0.017909, norm: [-0.042144644, 0.042144644] } }
+  - { low: 4.0, high: 5.0, value: 0.706452,
+      errors: { stat: 0.0021054, sys: 0.017906, norm: [-0.041680668, 0.041680668] } }
+  - { low: 5.0, high: 6.0, value: 0.703458,
+      errors: { stat: 0.0034625, sys: 0.015384, norm: [-0.041504022, 0.041504022] } }
+  - { low: 6.0, high: 8.0, value: 0.696775,
+      errors: { stat: 0.004316, sys: 0.015672, norm: [-0.041109725, 0.041109725] } }
+  - { low: 8.0, high: 10.0, value: 0.726998,
+      errors: { stat: 0.0086671, sys: 0.018939, norm: [-0.042892882, 0.042892882] } }
+  - { low: 10.0, high: 13.0, value: 0.735024,
+      errors: { stat: 0.013241, sys: 0.0223, norm: [-0.043366416, 0.043366416] } }
+  - { low: 13.0, high: 20.0, value: 0.748473,
+      errors: { stat: 0.020519, sys: 0.031248, norm: [-0.044159907, 0.044159907] } }
+  - { low: 20.0, high: 30.0, value: 0.860148,
+      errors: { stat: 0.057364, sys: 0.043851, norm: [-0.050748732, 0.050748732] } }
+  - { low: 30.0, high: 50.0, value: 1.001153,
+      errors: { stat: 0.14561, sys: 0.058829, norm: [-0.059068027, 0.059068027] } }
