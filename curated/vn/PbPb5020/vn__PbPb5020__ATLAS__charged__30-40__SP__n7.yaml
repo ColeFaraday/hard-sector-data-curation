@@ -1,0 +1,58 @@
+format_version: 1
+key: vn__PbPb5020__ATLAS__charged__30-40__SP__n7
+observable: vn
+system: PbPb
+sqrt_s_nn: 5020
+experiment: ATLAS
+particle: charged
+centrality: [30, 40]
+centrality_definition: ATLAS_FCAL_ET
+harmonic: 7
+method: SP
+acceptance: { eta_range: [-2.5, 2.5] }
+source:
+  hepdata:
+    inspire_id: 1686834
+    version: 1
+    table: Table 58
+    column: 0
+    location: Data from Figure 5
+    doi: "10.17182/hepdata.84427.v1/t58"
+  paper: "arXiv:1808.03951"
+  figure: "5"
+  inspireHEPKey: "ATLAS:2018ezv"
+note: "Reference flow vector from the FCal, 3.2 < |eta| < 4.9, on the side that maximises the eta gap to the track (arXiv:1808.03951, Sec. 4.2). All the methods of this record use the same minimum-bias sample (arXiv:1808.03951, Sec. 4)."
+x: { name: pt, units: GeV }
+y: { name: vn }
+errors:
+  stat: { label: stat }
+  sys: { label: sys, note: "HEPData gives one systematic uncertainty per point. The paper lists the individual sources for selected pT intervals (Tables 3 and 4) and says the total systematic uncertainty is their sum in quadrature (arXiv:1808.03951, Sec. 5)." }
+bins:
+  - { low: 0.5, high: 0.6, value: -0.00014932,
+      errors: { stat: 0.000436, sys: 0.000346 } }
+  - { low: 0.6, high: 0.8, value: 0.00042969,
+      errors: { stat: 0.000328, sys: 0.000346 } }
+  - { low: 0.8, high: 1, value: 0.00058233,
+      errors: { stat: 0.000394, sys: 0.000346 } }
+  - { low: 1, high: 1.2, value: 0.00086827,
+      errors: { stat: 0.000475, sys: 0.000346 } }
+  - { low: 1.2, high: 1.5, value: 0.0018828,
+      errors: { stat: 0.00049, sys: 0.000346 } }
+  - { low: 1.5, high: 2, value: 0.0029394,
+      errors: { stat: 0.000548, sys: 0.000346 } }
+  - { low: 2, high: 2.5, value: 0.0069523,
+      errors: { stat: 0.000828, sys: 0.000346 } }
+  - { low: 2.5, high: 3, value: 0.0099483,
+      errors: { stat: 0.00161, sys: 0.00208 } }
+  - { low: 3, high: 3.5, value: 0.010401,
+      errors: { stat: 0.00198, sys: 0.00208 } }
+  - { low: 3.5, high: 4, value: 0.0077448,
+      errors: { stat: 0.00363, sys: 0.00208 } }
+  - { low: 4, high: 4.6, value: 0.010548,
+      errors: { stat: 0.00419, sys: 0.00208 } }
+  - { low: 4.6, high: 5.6, value: -0.0011904,
+      errors: { stat: 0.00534, sys: 0.00208 } }
+  - { low: 5.6, high: 7, value: -0.0026538,
+      errors: { stat: 0.00724, sys: 0.00208 } }
+  - { low: 7, high: 60, value: -0.028731,
+      errors: { stat: 0.00907, sys: 0.00208 } }

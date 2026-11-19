@@ -1,0 +1,82 @@
+format_version: 1
+key: raa__PbPb2760__CMS__charged__30-50
+observable: raa
+system: PbPb
+sqrt_s_nn: 2760
+experiment: CMS
+particle: charged
+centrality: [30, 50]
+centrality_definition: CMS_HF_ENERGY_2760
+acceptance: { eta_range: [-1.0, 1.0] }
+source:
+  hepdata:
+    inspire_id: 1088823
+    version: 1
+    table: Table 6
+    column: 0
+    location: Data from F 5
+    doi: "10.17182/hepdata.58980.v1/t6"
+  paper: "arXiv:1202.2554"
+  inspireHEPKey: "CMS:2012aa"
+x: { name: pt, units: GeV }
+y: { name: raa }
+errors:
+  stat: { label: stat }
+  sys: { label: sys }
+  taa: { origin: paper, reference: "arXiv:1202.2554, Table 1", relative: 0.0944, note: "The uncertainty of <T_AA> over <T_AA> for the class, from the paper's Table 1 (0-5%: 25.9 +- 1.06 mb^-1; 70-90%: 0.17 +- 0.03 mb^-1), rounded to three digits; Table 2 gives the range as 4.1-18.0%." }
+  lumi: { origin: paper, reference: "arXiv:1202.2554, Table 2", relative: 0.06, note: "The pp integrated luminosity uncertainty, 6.0% (Table 2). It enters R_AA through the pp reference." }
+bins:
+  - { low: 1.0, high: 1.1, value: 0.4708,
+      errors: { stat: 0.0004, sys: 0.0334, taa: 0.04444352, lumi: 0.028248 } }
+  - { low: 1.1, high: 1.2, value: 0.484,
+      errors: { stat: 0.0005, sys: 0.0344, taa: 0.0456896, lumi: 0.02904 } }
+  - { low: 1.2, high: 1.4, value: 0.507,
+      errors: { stat: 0.0004, sys: 0.036, taa: 0.0478608, lumi: 0.03042 } }
+  - { low: 1.4, high: 1.6, value: 0.5257,
+      errors: { stat: 0.0005, sys: 0.0373, taa: 0.04962608, lumi: 0.031542 } }
+  - { low: 1.6, high: 1.8, value: 0.5391,
+      errors: { stat: 0.0007, sys: 0.0383, taa: 0.05089104, lumi: 0.032346 } }
+  - { low: 1.8, high: 2.0, value: 0.544,
+      errors: { stat: 0.0008, sys: 0.0386, taa: 0.0513536, lumi: 0.03264 } }
+  - { low: 2.0, high: 2.2, value: 0.5473,
+      errors: { stat: 0.001, sys: 0.0389, taa: 0.05166512, lumi: 0.032838 } }
+  - { low: 2.2, high: 2.4, value: 0.5421,
+      errors: { stat: 0.0011, sys: 0.0385, taa: 0.05117424, lumi: 0.032526 } }
+  - { low: 2.4, high: 3.2, value: 0.5169,
+      errors: { stat: 0.0008, sys: 0.0367, taa: 0.04879536, lumi: 0.031014 } }
+  - { low: 3.2, high: 4.0, value: 0.4355,
+      errors: { stat: 0.0011, sys: 0.031, taa: 0.0411112, lumi: 0.02613 } }
+  - { low: 4.0, high: 4.8, value: 0.3766,
+      errors: { stat: 0.0016, sys: 0.0268, taa: 0.03555104, lumi: 0.022596 } }
+  - { low: 4.8, high: 5.6, value: 0.3447,
+      errors: { stat: 0.0022, sys: 0.0245, taa: 0.03253968, lumi: 0.020682 } }
+  - { low: 5.6, high: 6.4, value: 0.3413,
+      errors: { stat: 0.0031, sys: 0.0243, taa: 0.03221872, lumi: 0.020478 } }
+  - { low: 6.4, high: 7.2, value: 0.3468,
+      errors: { stat: 0.0043, sys: 0.0247, taa: 0.03273792, lumi: 0.020808 } }
+  - { low: 7.2, high: 9.6, value: 0.3613,
+      errors: { stat: 0.0041, sys: 0.0258, taa: 0.03410672, lumi: 0.021678 } }
+  - { low: 9.6, high: 12.0, value: 0.4165,
+      errors: { stat: 0.0088, sys: 0.03, taa: 0.0393176, lumi: 0.02499 } }
+  - { low: 12.0, high: 14.4, value: 0.4619,
+      errors: { stat: 0.0162, sys: 0.0334, taa: 0.04360336, lumi: 0.027714 } }
+  - { low: 14.4, high: 19.2, value: 0.5451,
+      errors: { stat: 0.0225, sys: 0.0404, taa: 0.05145744, lumi: 0.032706 } }
+  - { low: 19.2, high: 24.0, value: 0.629,
+      errors: { stat: 0.0454, sys: 0.0481, taa: 0.0593776, lumi: 0.03774 } }
+  - { low: 24.0, high: 28.8, value: 0.6017,
+      errors: { stat: 0.0647, sys: 0.0476, taa: 0.05680048, lumi: 0.036102 } }
+  - { low: 28.8, high: 35.2, value: 0.7022,
+      errors: { stat: 0.0908, sys: 0.0576, taa: 0.06628768, lumi: 0.042132 } }
+  - { low: 35.2, high: 41.6, value: 0.752,
+      errors: { stat: 0.11, sys: 0.069, taa: 0.0709888, lumi: 0.04512 } }
+  - { low: 41.6, high: 48.0, value: 0.872,
+      errors: { stat: 0.175, sys: 0.089, taa: 0.0823168, lumi: 0.05232 } }
+  - { low: 48.0, high: 60.8, value: 1.118,
+      errors: { stat: 0.216, sys: 0.119, taa: 0.1055392, lumi: 0.06708 } }
+  - { low: 60.8, high: 73.6, value: 0.899,
+      errors: { stat: 0.072, sys: 0.101, taa: 0.0848656, lumi: 0.05394 } }
+  - { low: 73.6, high: 86.4, value: 1.66,
+      errors: { stat: 1.01, sys: 0.19, taa: 0.156704, lumi: 0.0996 } }
+  - { low: 86.4, high: 103.6, value: 0.75,
+      errors: { stat: 0.13, sys: 0.086, taa: 0.0708, lumi: 0.045 } }

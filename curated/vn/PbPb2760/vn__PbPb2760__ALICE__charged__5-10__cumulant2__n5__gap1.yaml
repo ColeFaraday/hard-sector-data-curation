@@ -1,0 +1,65 @@
+format_version: 1
+key: vn__PbPb2760__ALICE__charged__5-10__cumulant2__n5__gap1
+observable: vn
+system: PbPb
+sqrt_s_nn: 2760
+experiment: ALICE
+particle: charged
+centrality: [5, 10]
+centrality_definition: ALICE_V0M
+harmonic: 5
+method: cumulant2
+acceptance: { eta_range: [-0.8, 0.8], delta_eta_gap: 1 }
+source:
+  hepdata:
+    inspire_id: 1666817
+    version: 1
+    table: Table 29
+    column: 0
+    location: Figure 3
+    doi: "10.17182/hepdata.83737.v1/t29"
+  paper: "arXiv:1804.02944"
+  inspireHEPKey: "ALICE:2018rtz"
+note: "Two-particle cumulant v_n{2, |Delta eta| > 1}: the pairs are formed between tracks on opposite sides of the TPC, -0.8 < eta < -0.5 and 0.5 < eta < 0.8, and one particle of the pT bin is correlated with particles over the whole range 0.2 < pT < 50 GeV/c (arXiv:1804.02944, Sec. 2). The other methods of this record for the same harmonic, class and energy come from the same Pb-Pb data sample (Sec. 2), so those datasets overlap this one."
+x: { name: pt, units: GeV }
+y: { name: vn }
+errors:
+  stat: { label: stat }
+  sys: { label: sys, note: "The paper's total systematic uncertainty: variations of the track and event selections (a variation counts if it is significant by the Barlow criterion) and an alternative centrality estimator, added in quadrature as uncorrelated sources; track quality and the centrality determination dominate (arXiv:1804.02944, Sec. 2)." }
+bins:
+  - { low: 0.2, high: 0.3, value: 0.00055,
+      errors: { stat: 0.00061, sys: 0.00141 } }
+  - { low: 0.3, high: 0.4, value: 0.00191,
+      errors: { stat: 0.00059, sys: 0.00167 } }
+  - { low: 0.4, high: 0.5, value: 0.00095,
+      errors: { stat: 0.00063, sys: 0.00151 } }
+  - { low: 0.5, high: 0.6, value: 0.0016,
+      errors: { stat: 0.00068, sys: 0.00159 } }
+  - { low: 0.6, high: 0.7, value: 0.00263,
+      errors: { stat: 0.00074, sys: 0.0015 } }
+  - { low: 0.7, high: 0.8, value: 0.00448,
+      errors: { stat: 0.00081, sys: 0.00163 } }
+  - { low: 0.8, high: 0.9, value: 0.00446,
+      errors: { stat: 0.00089, sys: 0.00174 } }
+  - { low: 0.9, high: 1, value: 0.00507,
+      errors: { stat: 0.00099, sys: 0.00152 } }
+  - { low: 1, high: 1.25, value: 0.00788,
+      errors: { stat: 0.00071, sys: 0.00158 } }
+  - { low: 1.25, high: 1.5, value: 0.01109,
+      errors: { stat: 0.00092, sys: 0.00153 } }
+  - { low: 1.5, high: 1.75, value: 0.01697,
+      errors: { stat: 0.00121, sys: 0.00156 } }
+  - { low: 1.75, high: 2, value: 0.01665,
+      errors: { stat: 0.00157, sys: 0.00197 } }
+  - { low: 2, high: 2.5, value: 0.02268,
+      errors: { stat: 0.00164, sys: 0.00155 } }
+  - { low: 2.5, high: 3, value: 0.03509,
+      errors: { stat: 0.00269, sys: 0.0023 } }
+  - { low: 3, high: 4, value: 0.04038,
+      errors: { stat: 0.00338, sys: 0.00225 } }
+  - { low: 4, high: 6, value: 0.03991,
+      errors: { stat: 0.0064, sys: 0.00248 } }
+  - { low: 6, high: 10, value: 0.02369,
+      errors: { stat: 0.01584, sys: 0.00225 } }
+  - { low: 10, high: 20, value: 0.0121,
+      errors: { stat: 0.03925, sys: 0.00267 } }
