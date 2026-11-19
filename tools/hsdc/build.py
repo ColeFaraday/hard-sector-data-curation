@@ -409,12 +409,24 @@ def _build_dataset(
             raise BuildError(
                 f"the independent variable {independent.name!r} has no alias in aliases.yaml x"
             )
-        x_units = aliases.unit(independent.units) if independent.units else None
-        if x_units is None:
-            raise BuildError(
-                f"the units {independent.units!r} of the independent variable have no alias "
-                f"in aliases.yaml units"
-            )
+        if independent.units:
+            if "x_units" in fields:
+                raise BuildError(
+                    f"the table gives the x units {independent.units!r}: drop x_units from the recipe"
+                )
+            x_units = aliases.unit(independent.units)
+            if x_units is None:
+                raise BuildError(
+                    f"the units {independent.units!r} of the independent variable have no alias "
+                    f"in aliases.yaml units"
+                )
+        else:
+            x_units = fields.get("x_units")
+            if x_units not in aliases.units:
+                raise BuildError(
+                    "the table gives no x units: set x_units in the recipe to a name in "
+                    f"aliases.yaml units ({sorted(aliases.units)})"
+                )
 
         bins = _positions(independent, dependent)
         overrides = {

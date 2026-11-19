@@ -7,12 +7,13 @@
 # decided by the analysis.
 
 errors:
-  stat: ["stat"]
-  sys: ["sys"]
-  total: ["total"]
+  stat: ["stat", "stat."]
+  sys: ["sys", "syst.", "$p_{T}$ Corr"]          # PHENIX: type B, correlated in pT
+  total: ["total", "sys + stat"]
   taa: ["sys,TAA", "syst, TAA", "sys,TpA"]    # nuclear overlap function <T_AA> or <T_pA>
   lumi: ["sys,lumi", "syst, luminosity"]
-  norm: ["norm"]                              # a normalisation that is not split further
+  norm: ["norm", "Global"]                    # a normalisation that is not split further (PHENIX: type C)
+  uncorr: ["$p_{T}$ Uncorr"]                  # PHENIX type A: point-to-point uncorrelated, statistical included
   # ATLAS charged-hadron detector sources (ins2601282)
   track_selection: ["syst, track selection"]
   track_matching: ["syst, track to particle matching"]
@@ -28,8 +29,8 @@ errors:
 
 # Independent variables.
 x:
-  pt: ["PT", "$p_{T}$", "pT"]
+  pt: ["PT", "$p_{T}$", "pT", "$p_T$", "$p_T [GeV/c]$"]
 
 # Units of an independent variable.
 units:
-  GeV: ["GEV", "GeV", "GEV/c", "GEV/C", "GeV/c"]
+  GeV: ["GEV", "GeV", "GEV/c", "GEV/C", "GeV/c", "$GeV/c$"]

@@ -91,6 +91,11 @@ Rules:
   `pt_range`. A window `lo < |eta| < hi` with `lo > 0` is two windows, so it is
   `abs_eta_range: [lo, hi]`. An eta gap is `delta_eta_gap`. HEPData's `location` ("Data from
   Fig. 3 Top Left Panel") is kept under `source.hepdata`.
+- **`particle` names the hadron as CapeTownEloss does, in lower case**: `charged` (all charged
+  hadrons), `charged_pion` (pi+ + pi-), `neutral_pion`, `charged_kaon`, `proton`, `d0`, ... so
+  that a dataset finds the model's hadron species by name.
+- **The x units come from the table.** Where HEPData gives none, the recipe sets `x_units`
+  (a name in `aliases.yaml` units); where it gives some, `x_units` is refused.
 - **Minimum bias is a class like any other**: `centrality: [0, 100]` with a definition that
   says how the sample was selected (`CMS_OO_MINIMUM_BIAS`), since 0-100% means different
   things in O+O and p+Pb.

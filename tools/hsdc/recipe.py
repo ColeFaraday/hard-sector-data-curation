@@ -24,6 +24,7 @@ BASE_FIELDS = (
     "acceptance",
     "note",
     "figure",
+    "x_units",  # the x units, for a table whose header gives none
 )
 _ENTRY_ONLY = ("table", "column", "x_index")
 _RECIPE_KEYS = {"record", "paper", "datasets", "errors", "additional", "known_warnings"}

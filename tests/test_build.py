@@ -195,8 +195,17 @@ def test_unknown_independent_variable_or_units(root):
         run(root, [table(x_name="XX")])
     with pytest.raises(BuildError, match="units 'KEV'"):
         run(root, [table(x_units="KEV")])
-    with pytest.raises(BuildError, match="units None"):
+    with pytest.raises(BuildError, match="gives no x units: set x_units"):
         run(root, [table(x_units=None)])
+
+
+def test_a_recipe_supplies_x_units_only_where_the_table_has_none(root):
+    recipe = BASIC_RECIPE.replace("particle: charged\n", "particle: charged\nx_units: GeV\n")
+    assert only(run(root, [table(x_units=None)], recipe=recipe))["x"] == {"name": "pt", "units": "GeV"}
+    with pytest.raises(BuildError, match="drop x_units"):
+        run(root, [table()], recipe=recipe)
+    with pytest.raises(BuildError, match="set x_units"):
+        run(root, [table(x_units=None)], recipe=recipe.replace("x_units: GeV", "x_units: furlong"))
 
 
 def test_units_spellings_collapse(root):
