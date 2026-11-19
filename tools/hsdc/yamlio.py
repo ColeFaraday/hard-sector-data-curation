@@ -150,6 +150,7 @@ _ORDER = (
     "reference_centrality",
     "harmonic",
     "method",
+    "variant",
     "acceptance",
     "source",
     "note",

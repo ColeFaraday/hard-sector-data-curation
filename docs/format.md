@@ -128,7 +128,8 @@ the metadata fields and never splits the key.
 
 If two datasets would get the same key the build fails. A free `variant` token (letters,
 digits, `.` and `-`) tells apart datasets that differ only in an acceptance window, such as
-`abseta0.5-1`; the widest or default window has none.
+`abseta0.5-1`; the widest or default window has none. The token is only a name: the window
+itself is `acceptance`, which follows it in the file.
 
 ## Vocabulary
 
@@ -208,7 +209,12 @@ The build only checks the format, never the physics:
 - the key is unique;
 - the result passes the schema.
 
-It warns when the table's eta window disagrees with the recipe's `eta_range`. The tests
+It warns when the table's own qualifiers disagree with the recipe: the eta or rapidity
+window with `acceptance` (an `ABS(ETA)` window is read as the `eta_range` or `abs_eta_range`
+it means), the reaction (`PB PB --> CHARGED X`) with `system`, and `SQRT(S)` with
+`sqrt_s_nn`. A warning that is a quirk of the record itself, such as HEPData labelling a
+Pb-Pb table with the pp reaction, is explained in the recipe with `known_warnings: [<text of
+the warning>]` and a comment saying why; nothing else is silenced. The tests
 check the other direction: `tests/test_curated.py` rebuilds everything and compares it to
 `curated/` byte for byte, and re-reads every curated number from the raw files by a second
 route.
