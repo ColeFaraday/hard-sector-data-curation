@@ -1,0 +1,42 @@
+# STAR, transverse momentum and collision energy dependence of high-pT hadron suppression
+# in Au+Au collisions (nucl-ex/0305015, HEPData ins619063 v1): the charged-hadron R_AA at
+# 200 GeV.
+#
+# Not curated: the spectra (Table 1), R_200/130 (Table 2) and R_CP (Table 4).
+#
+# HEPData gives the x axis no units (the header is `$p_T [GeV/c]$`), so the recipe sets
+# x_units. The quantity is (h+ + h-)/2.
+
+record: { inspire_id: 619063, version: 1 }
+paper: "nucl-ex/0305015"
+experiment: STAR
+particle: charged
+sqrt_s_nn: 200
+system: AuAu
+observable: raa
+acceptance: { eta_range: [-0.5, 0.5] }
+centrality_definition: STAR_AUAU_TPC_MULTIPLICITY
+x_units: GeV
+figure: "3"
+
+datasets:
+  - { table: Table 3, column: 0, centrality: [0, 5] }
+  - { table: Table 3, column: 1, centrality: [10, 20] }
+  - { table: Table 3, column: 2, centrality: [20, 30] }
+  - { table: Table 3, column: 3, centrality: [30, 40] }
+  - { table: Table 3, column: 4, centrality: [40, 60] }
+  - { table: Table 3, column: 5, centrality: [60, 80] }
+
+errors:
+  total:
+    note: "The quadrature sum of the Au+Au statistical and systematic uncertainties and the pp spectrum's, except the pp normalisation (nucl-ex/0305015, Fig. 3 caption and text)."
+
+# The <N_bin> scaling band of Fig. 3: the Glauber uncertainty of <N_bin> in quadrature with
+# the 14% pp normalisation, around R_AA = 1. HEPData writes it in each column's qualifier as
+# "Bands: <Nbin>[1.0+a-b]", which the build does not read, so it is typed in.
+additional:
+  norm:
+    origin: paper
+    reference: "nucl-ex/0305015, Fig. 3 (grey band about the N_bin scaling line; values from HEPData's qualifier of each column)"
+    relative: { "0-5": [-0.16, 0.16], "10-20": [-0.17, 0.17], "20-30": [-0.20, 0.18], "30-40": [-0.22, 0.20], "40-60": [-0.29, 0.23], "60-80": [-0.40, 0.34] }
+    note: "The R_AA normalisation of the class: <N_bin> in quadrature with the pp normalisation, as the band published, minus side first."

@@ -75,3 +75,18 @@ CMS_OO_MINIMUM_BIAS:
   eta_range: []
   reference: "arXiv:2510.09864"
   note: "Inclusive OO collisions, no centrality classes. The pp reference was taken with a trigger that only required two colliding bunches."
+
+PHENIX_AUAU_BBC:
+  experiment: PHENIX
+  quantity: charged_multiplicity
+  detector: "Beam-Beam Counters (BBC), the charge deposited in them"
+  eta_range: [[3.0, 3.9], [-3.9, -3.0]]
+  reference: "arXiv:1208.2254 (Sec. II: centrality from the charge deposited in the BBC, 3.0 < |eta| < 3.9, with a Glauber Monte Carlo)"
+
+STAR_AUAU_TPC_MULTIPLICITY:
+  experiment: STAR
+  quantity: charged_multiplicity
+  detector: "the Time Projection Chamber (TPC), charged-particle multiplicity"
+  reference: "nucl-ex/0305015 (centrality selection follows STAR's 130 GeV high-pT spectra paper; minimum bias is 97 +- 3% of the geometric cross section)"
+  note: "The 200 GeV paper does not restate the estimator; it refers to the 130 GeV analysis, whose selection is on the TPC charged-particle multiplicity. Its eta window is not given in the 200 GeV paper."
+
