@@ -1,4 +1,4 @@
-"""A throw-away data repository: a small registry, and synthetic HEPData records."""
+"""A throw-away data repository: small vocabulary files, and synthetic HEPData records."""
 
 from __future__ import annotations
 
@@ -39,50 +39,6 @@ TEST_HF:
   reference: "another paper"
 """
 
-OBSERVABLES = """
-fields:
-  centrality: { type: range }
-  centrality_definition: { type: centrality_definition }
-  reference_centrality: { type: range }
-  harmonic: { type: integer, minimum: 1 }
-  method: { type: enum, values: [SP, EP, cumulant2] }
-  definition: { type: enum, where: y, values: [CROSS_SECTION_DPT_DY, INVARIANT_YIELD_DETA] }
-  variant: { type: token }
-  eta_range: { type: range, where: acceptance, global: true }
-  abs_eta_range: { type: range, where: acceptance, global: true }
-  y_range: { type: range, where: acceptance, global: true }
-  delta_eta_gap: { type: number, minimum: 0, where: acceptance }
-observables:
-  raa:
-    x: [pt]
-    systems: [PbPb, pPb]
-    required: [centrality, centrality_definition]
-    optional: [variant]
-    distinguish: [variant]
-    final: HADRON_RAA
-  rcp:
-    x: [pt]
-    systems: [PbPb]
-    required: [centrality, centrality_definition, reference_centrality]
-    final: HADRON_RAA
-  vn:
-    x: [pt]
-    systems: [PbPb]
-    required: [centrality, centrality_definition, harmonic, method]
-    optional: [delta_eta_gap]
-    distinguish: [method, harmonic, delta_eta_gap]
-    key_format: { harmonic: "n{}", delta_eta_gap: "gap{}" }
-    final: { by: method, kinds: { SP: HADRON_VN_SP } }
-  pp_cross_section:
-    y: cross_section
-    x: [pt]
-    systems: [pp]
-    required: [definition]
-    distinguish: [definition]
-    final: HADRON_CROSS_SECTION
-"""
-
-
 def write(path: Path, text: str) -> Path:
     path.parent.mkdir(parents=True, exist_ok=True)
     path.write_text(textwrap.dedent(text).lstrip("\n"), encoding="utf-8")
@@ -91,10 +47,9 @@ def write(path: Path, text: str) -> Path:
 
 @pytest.fixture
 def root(tmp_path: Path) -> Path:
-    """An empty data repository with the small test registry."""
+    """An empty data repository with the small test vocabulary."""
     write(tmp_path / "aliases.yaml", ALIASES)
     write(tmp_path / "centrality_definitions.yaml", CENTRALITY)
-    write(tmp_path / "observables.yaml", OBSERVABLES)
     (tmp_path / "data").mkdir()
     (tmp_path / "recipes").mkdir()
     return tmp_path

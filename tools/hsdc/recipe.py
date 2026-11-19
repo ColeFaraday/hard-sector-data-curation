@@ -2,22 +2,19 @@
 
 from __future__ import annotations
 
-from collections.abc import Iterable
 from dataclasses import dataclass, field
 from pathlib import Path
 from typing import Any
 
 from . import yamlio
-from .registry import ERROR_ORIGINS
+from .vocab import ERROR_ORIGINS, FIELDS
 
 
 class RecipeError(ValueError):
     """A recipe is malformed."""
 
 
-# Dataset fields that every observable has. The others -- centrality, harmonic, method, variant,
-# definition and so on -- are the registry's `fields`, so that a field added there is allowed in a
-# recipe without touching this file.
+# Dataset fields that every observable has. The others are vocab.FIELDS.
 BASE_FIELDS = (
     "observable",
     "system",
@@ -121,16 +118,14 @@ def _additional(path: Path, name: str, entry: Any) -> Additional:
     )
 
 
-def load_recipe(path: str | Path, dataset_fields: Iterable[str] | None = None) -> Recipe:
-    """Read a recipe. ``dataset_fields`` are the field names a dataset may set (BASE_FIELDS plus
-    the registry's); without them only the record is read, as the update commands need."""
+def load_recipe(path: str | Path) -> Recipe:
     path = Path(path)
-    allowed = None if dataset_fields is None else set(BASE_FIELDS) | set(dataset_fields)
+    allowed = set(BASE_FIELDS) | set(FIELDS)
     raw = yamlio.load(path)
     if not isinstance(raw, dict):
         raise _fail(path, "must be a mapping")
     _text_keys(path, raw, "top level")
-    unknown = set(raw) - _RECIPE_KEYS - (allowed or set(raw))
+    unknown = set(raw) - _RECIPE_KEYS - allowed
     if unknown:
         raise _fail(path, f"unknown keys {sorted(unknown)}")
     record = raw.get("record") or {}
@@ -146,7 +141,7 @@ def load_recipe(path: str | Path, dataset_fields: Iterable[str] | None = None) -
         if not isinstance(entry, dict) or "table" not in entry:
             raise _fail(path, f"datasets[{index}] must be a mapping with a 'table'")
         _text_keys(path, entry, f"datasets[{index}]")
-        unknown = set(entry) - set(_ENTRY_ONLY) - (allowed if allowed is not None else set(entry))
+        unknown = set(entry) - set(_ENTRY_ONLY) - allowed
         if unknown:
             raise _fail(path, f"datasets[{index}] ({entry['table']}): unknown keys {sorted(unknown)}")
         merged = dict(defaults)

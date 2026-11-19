@@ -12,7 +12,6 @@ from conftest import (
     write_recipe,
 )
 from hsdc import build as builder
-from hsdc import registry as reg
 from hsdc import yamlio
 from hsdc.build import BuildError
 
@@ -20,7 +19,7 @@ from hsdc.build import BuildError
 def run(root, tables, recipe=BASIC_RECIPE, **record):
     write_record(root, tables, **record)
     path = write_recipe(root, recipe)
-    return builder.build_recipes(root, reg.load(root), [path])
+    return builder.build_recipes(root, [path])
 
 
 def only(result):
@@ -55,7 +54,7 @@ def test_a_table_becomes_one_dataset(root):
 
 def test_the_file_text_is_deterministic(root):
     first = builder.render(run(root, [table()]).built[0])
-    second = builder.render(builder.build_recipes(root, reg.load(root), [root / "recipes/ins1001.yaml"]).built[0])
+    second = builder.render(builder.build_recipes(root, [root / "recipes/ins1001.yaml"]).built[0])
     assert first == second
 
 
@@ -231,35 +230,6 @@ def test_decimal_classes_do_not_match_by_prefix(root):
         run(root, tables, recipe=recipe)
 
 
-def test_an_acceptance_that_disagrees_with_the_table_is_a_warning(root):
-    tables = [table(columns=[column(qualifiers={"TRACK ETA": "-0.8 TO 0.8"})])]
-    result = run(root, tables)
-    assert any("eta_range" in w for w in result.warnings)
-    ok = [table(columns=[column(qualifiers={"TRACK ETA": "-1.0 TO 1.0"})])]
-    assert not [w for w in run(root, ok).warnings if "eta" in w]
-
-
-@pytest.mark.parametrize(
-    "name, value, acceptance, warns",
-    [
-        ("ABS(ETA)", "0.0-2.5", "{ eta_range: [-2.5, 2.5] }", False),
-        ("ABS(ETA)", "0.0-2.5", "{ eta_range: [-2.0, 2.0] }", True),
-        ("ABS(ETA)", "0.25-0.50", "{ abs_eta_range: [0.25, 0.5] }", False),
-        ("ABS(ETA)", "0.25-0.50", "{ eta_range: [-0.5, 0.5] }", True),  # that is a different window
-        ("ABS(ETA)", "0.25-0.50", "{ abs_eta_range: [0.25, 0.6] }", True),
-        ("$|\\eta|$", "< 1", "{ eta_range: [-1.0, 1.0] }", False),
-        ("ETARAP", "-0.3 - 1.3", "{ eta_range: [-0.3, 1.3] }", False),
-        ("Y*", "-2.5-2.0", "{ y_range: [-2.5, 2.0] }", False),
-        ("Y*", "-2.5-2.0", "{ y_range: [-2.5, 2.5] }", True),
-        ("Y*", "-2.5-2.0", "{ eta_range: [-2.5, 2.0] }", True),
-    ],
-)
-def test_the_eta_and_rapidity_windows_are_compared_the_way_they_are_written(root, name, value, acceptance, warns):
-    recipe = BASIC_RECIPE.replace("acceptance: { eta_range: [-1.0, 1.0] }", f"acceptance: {acceptance}")
-    result = run(root, [table(columns=[column(qualifiers={name: value})])], recipe=recipe)
-    assert bool([w for w in result.warnings if "table gives" in w]) == warns, result.warnings
-
-
 def test_column_and_table_selection(root):
     columns = [column(values=[cell(v, sym("stat", 0.1), sym("sys", 0.1))] * 3) for v in (0.1, 0.2, 0.3)]
     tables = [table("Table 1"), table("Table 2", columns=columns)]
@@ -298,10 +268,10 @@ def test_dataset_fields_override_the_recipe_and_acceptance_merges(root):
     acceptance: { eta_range: [-1.0, 1.0] }
     datasets:
       - { table: Table 1, observable: raa, system: PbPb, centrality: [0, 5], note: "mine",
-          acceptance: { delta_eta_gap: 2 } }
+          acceptance: { pt_range: [5, 10] } }
     """
     dataset = only(run(root, [table()], recipe=recipe))
-    assert dataset["acceptance"] == {"eta_range": [-1.0, 1.0], "delta_eta_gap": 2}
+    assert dataset["acceptance"] == {"eta_range": [-1.0, 1.0], "pt_range": [5, 10]}
     assert dataset["note"] == "mine"
 
 
@@ -371,7 +341,7 @@ def test_distinguishing_fields_extend_the_key(root):
 
 def test_two_datasets_with_one_key_fail_and_say_how_to_tell_them_apart(root):
     recipe = BASIC_RECIPE + "  - { table: Table 1, observable: raa, system: PbPb, centrality: [0, 5] }\n"
-    with pytest.raises(BuildError, match="already made.*distinguish"):
+    with pytest.raises(BuildError, match="already made.*variant"):
         run(root, [table()], recipe=recipe)
 
 
@@ -538,7 +508,7 @@ def test_per_bin_values_are_copied(root):
         run(root, [table()], recipe=bad)
 
 
-def test_every_dataset_passes_the_schema_and_round_trips(root):
+def test_every_dataset_round_trips(root):
     result = run(root, [_two_classes()], recipe=ALICE_LIKE)
     for item in result.built:
         assert yamlio.loads(builder.render(item)) == item.dataset
@@ -699,26 +669,10 @@ def test_a_variant_has_to_be_a_token(root):
         run(root, [table()], recipe=recipe)
 
 
-def test_a_field_the_registry_does_not_have_is_refused_by_name(root):
+def test_an_unknown_field_is_refused_by_name(root):
     recipe = BASIC_RECIPE.replace("centrality: [0, 5] }", "centrality: [0, 5], flavour: up }")
     with pytest.raises(Exception, match=r"unknown keys \['flavour'\]"):
         run(root, [table()], recipe=recipe)
-
-
-@pytest.mark.parametrize(
-    "text, window",
-    [
-        ("-1.0 TO 1.0", (-1.0, 1.0)),
-        ("-0.8 - 0.8", (-0.8, 0.8)),
-        ("-2.5-2.0", (-2.5, 2.0)),
-        ("< 1", (-1.0, 1.0)),
-        ("< 0.8 (LAB)", (-0.8, 0.8)),
-        ("0.0-2.5 (abs)", (0.0, 2.5)),
-        ("forward", None),
-    ],
-)
-def test_parse_window(text, window):
-    assert builder.parse_window(text) == window
 
 
 def test_a_table_that_names_another_system_or_energy_is_a_warning(root):

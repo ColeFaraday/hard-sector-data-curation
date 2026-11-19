@@ -24,7 +24,7 @@
 #    their y* and |eta| slices among 141-490), which are per-event yields, not ratios to pp;
 #  - R_pPb against y* and R_AA against |eta|, each in fixed pT windows (88 tables, 52-139:
 #    R_pPb 32, Pb+Pb 32, Xe+Xe 24). Their independent variable is not pT and HEPData gives it
-#    no units; the registry's raa has pT as its only x, and the build refuses an x without units;
+#    no units; vocab.py's raa has pT as its only x, and the build refuses an x without units;
 #  - the Overview table, which has no data.
 
 record: { inspire_id: 2601282, version: 2 }

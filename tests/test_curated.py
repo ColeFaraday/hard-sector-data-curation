@@ -1,4 +1,4 @@
-"""The committed datasets against the recipes, the schema and the raw HEPData files."""
+"""The committed datasets against the recipes, the format check and the raw HEPData files."""
 
 from __future__ import annotations
 
@@ -9,9 +9,7 @@ import yaml
 
 from conftest import REPO
 from hsdc import build as builder
-from hsdc import reader
-from hsdc import registry as reg
-from hsdc import schema, yamlio
+from hsdc import check, vocab, yamlio
 
 RECIPES = sorted((REPO / "recipes").glob("*.yaml"))
 CURATED = sorted((REPO / "curated").rglob("*.yaml"))
@@ -19,13 +17,8 @@ Loader = getattr(yaml, "CSafeLoader", yaml.SafeLoader)
 
 
 @pytest.fixture(scope="module")
-def registry():
-    return reg.load(REPO)
-
-
-@pytest.fixture(scope="module")
-def rebuilt(registry):
-    result = builder.build_recipes(REPO, registry, RECIPES)
+def rebuilt():
+    result = builder.build_recipes(REPO, RECIPES)
     return {builder.target(REPO, item): builder.render(item) for item in result.built}
 
 
@@ -36,13 +29,11 @@ def test_every_recipe_builds_and_curated_is_exactly_that(rebuilt):
         assert path.read_text(encoding="utf-8") == text, f"{path.name} is out of date"
 
 
-def test_every_file_passes_the_schema(registry):
-    document = schema.dataset_schema(registry)
+def test_every_file_passes_the_format_check():
     for path in CURATED:
         data = yamlio.load(path)
-        assert schema.schema_problems(data, document) == [], path.name
-        assert schema.semantic_problems(data, registry) == [], path.name
-        assert reg.dataset_path(REPO, data) == path
+        assert check.problems(data, REPO) == [], path.name
+        assert vocab.dataset_path(REPO, data) == path
 
 
 def test_keys_are_unique_and_files_are_named_by_key():
@@ -51,7 +42,7 @@ def test_keys_are_unique_and_files_are_named_by_key():
     assert [p.stem for p in CURATED] == [yamlio.load(p)["key"] for p in CURATED]
 
 
-def test_the_registry_names_the_papers_inspire_key():
+def test_inspire_yaml_names_the_papers_inspire_key():
     keys = yamlio.load(REPO / "inspire.yaml")
     for path in CURATED:
         source = yamlio.load(path)["source"]

@@ -157,7 +157,7 @@ def find_record_directory(root: str | Path, inspire_id: int, version: int) -> Pa
     if not matches:
         raise RawError(
             f"ins{inspire_id} v{version} is not under data/: unpack HEPData-ins{inspire_id}-"
-            f"v{version}-yaml there (hsdc fetch does this)"
+            f"v{version}-yaml there (from hepdata.net)"
         )
     first = _digest(matches[0])
     for other in matches[1:]:

@@ -24,18 +24,17 @@ recipes/                     hand-written, one per record: ins1496050.yaml
 manual/                      hand-typed datasets with no HEPData record (validated, never generated)
 aliases.yaml                 raw error labels, x names and units -> common names
 centrality_definitions.yaml  what each experiment ranked events by
-observables.yaml             the observables, the fields they take, the spectrum conventions
-inspire.yaml                 INSPIRE keys of the pinned records (filled by `hsdc fill-inspire`)
-schema/dataset.schema.json   generated from the three files above
-tools/hsdc/                  the package: build, validate, reader
+inspire.yaml                 INSPIRE keys of the pinned records, typed in by hand
+tools/hsdc/                  the package: build, format check, reader
+  vocab.py                   the observables, the fields they take, the spectrum conventions
 tests/
 ```
 
 ```sh
-pip install -e .                  # PyYAML and jsonschema; pandas for the tidy tables
+pip install -e .                  # PyYAML; pandas for the tidy tables
 python3 -m hsdc build             # recipes -> curated/ (byte-identical on a rebuild)
 python3 -m hsdc build --check     # fail if curated/ is not what the recipes make
-python3 -m hsdc validate          # every file in curated/ and manual/ against the schema
+python3 -m hsdc validate          # the format check on every file in curated/ and manual/
 python3 -m pytest                 # the tools, and every curated number against the raw files
 ```
 
@@ -145,8 +144,8 @@ it comes from. A dataset naming an entry that does not exist fails the build. Th
 ranks events by a `[Centrality.<NAME>]` block, and the analysis config maps definition to
 block, so which model estimator stands in for which experimental one is written down once.
 
-**`observables.yaml`** has one entry per observable, and a `fields` catalogue they draw
-from. Adding an observable is adding an entry; the schema is generated from it.
+**`tools/hsdc/vocab.py`** has one entry per observable in `OBSERVABLES`, and the `FIELDS`
+they draw from. Adding an observable or a field is an edit there.
 
 | Observable | Quantity | `final` (CapeTownEloss) |
 |---|---|---|
@@ -168,7 +167,7 @@ apply to every dataset; a dataset entry overrides them (`acceptance` merges key 
 field set to `null` drops the default).
 
 ```yaml
-record: { inspire_id: 1496050, version: 2 }     # the pin; `hsdc build --update` moves it
+record: { inspire_id: 1496050, version: 2 }     # the pin
 paper: "arXiv:1611.01664"
 experiment: CMS
 particle: charged
@@ -207,12 +206,11 @@ The build only checks the format, never the physics:
   classes of a ratio qualifier `0-5%/50-90%` match `centrality` and `reference_centrality`);
 - a value typed in from a description is on the line naming its class;
 - the key is unique;
-- the result passes the schema.
+- the result passes the format check (`hsdc/check.py`), which `hsdc validate` also runs.
 
-It warns when the table's own qualifiers disagree with the recipe: the eta or rapidity
-window with `acceptance` (an `ABS(ETA)` window is read as the `eta_range` or `abs_eta_range`
-it means), the reaction (`PB PB --> CHARGED X`) with `system`, and `SQRT(S)` with
-`sqrt_s_nn`. A warning that is a quirk of the record itself, such as HEPData labelling a
+It warns when the table's own qualifiers disagree with the recipe: the reaction
+(`PB PB --> CHARGED X`) with `system`, and `SQRT(S)` with `sqrt_s_nn`. The acceptance is
+not compared: check it against the paper when writing the recipe. A warning that is a quirk of the record itself, such as HEPData labelling a
 Pb-Pb table with the pp reaction, is explained in the recipe with `known_warnings: [<text of
 the warning>]` and a comment saying why; nothing else is silenced. The tests
 check the other direction: `tests/test_curated.py` rebuilds everything and compares it to
@@ -221,23 +219,20 @@ route.
 
 | Command | Does |
 |---|---|
-| `hsdc build` | applies the recipes, writes `curated/` and the schema; removes files no recipe makes |
+| `hsdc build` | applies the recipes, writes `curated/`; removes files no recipe makes |
 | `hsdc build --recipe R` | builds one recipe and removes nothing |
 | `hsdc build --check` | builds in memory and compares; exit 1 on any difference |
-| `hsdc build --update` | moves every pin to the newest HEPData version, downloads it next to the old one, rebuilds; the diff is then reviewed |
-| `hsdc validate [files]` | schema and format checks on `curated/` and `manual/` |
+| `hsdc validate [files]` | the format check on `curated/` and `manual/` |
 | `hsdc tables ID VERSION [TABLE...]` | lists a record's tables, columns, qualifiers and error labels |
-| `hsdc check-updates` | reports records with a newer HEPData version than pinned |
-| `hsdc fetch ID VERSION data/<sqrt_s>/<class>/<observable>` | downloads and unpacks one record |
-| `hsdc fill-inspire` | fetches the INSPIRE keys into `inspire.yaml` |
-
-Only `check-updates`, `build --update`, `fetch` and `fill-inspire` use the network, so a build
-is reproducible offline. `manual/` files are validated, never generated.
+Nothing uses the network, so a build is reproducible offline. `manual/` files are
+validated, never generated.
 
 ## Adding a record
 
-1. `hsdc fetch <id> <version> data/...` (or copy an unpacked record in), then
-   `hsdc tables <id> <version>` to see its tables.
+1. Download the record's YAML archive from `hepdata.net/record/ins<id>?version=<v>`, unpack
+   it under `data/<sqrt_s>/<class>/<observable>/`, add its INSPIRE key to `inspire.yaml`,
+   then `hsdc tables <id> <version>` to see its tables. To move to a newer HEPData version,
+   unpack it next to the old one, change the pin in the recipe, rebuild and review the diff.
 2. Write `recipes/ins<id>.yaml`: the tables you want, and for each its observable, system,
    energy, class, acceptance and centrality definition. New raw labels go in `aliases.yaml`,
    a new centrality estimator in `centrality_definitions.yaml` with its paper.

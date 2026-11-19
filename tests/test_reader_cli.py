@@ -1,14 +1,9 @@
-import io
-import json
-import tarfile
-from pathlib import Path
 
 import pandas as pd
 import pytest
 
 from conftest import BASIC_RECIPE, asym, bins, cell, column, sym, table, write_record, write_recipe
-from hsdc import cli, reader, updates, yamlio
-from hsdc import registry as reg
+from hsdc import cli, reader
 from hsdc.reader import FormatError
 
 
@@ -28,9 +23,9 @@ def built(root):
 # --- build and validate ------------------------------------------------------------------
 
 
-def test_build_writes_the_file_and_the_schema_and_a_rebuild_changes_nothing(built, capsys):
+def test_build_writes_the_file_and_a_rebuild_changes_nothing(built, capsys):
     path = built / "curated/raa/PbPb5020/raa__PbPb5020__CMS__charged__0-5.yaml"
-    assert path.exists() and (built / "schema/dataset.schema.json").exists()
+    assert path.exists()
     before = path.read_bytes()
     assert main(built, "build") == 0
     assert "0 written" in capsys.readouterr().out
@@ -153,86 +148,6 @@ def test_find_root_honours_the_environment(built, monkeypatch, tmp_path):
     assert reader.find_root(tmp_path) == built
     monkeypatch.delenv("HSDC_ROOT")
     assert reader.find_root(built / "recipes") == built
-
-
-# --- the network parts, with a fake network ----------------------------------------------
-
-
-def archive(inspire_id, version, description="new"):
-    name = f"HEPData-ins{inspire_id}-v{version}-yaml"
-    files = {
-        "submission.yaml": f"hepdata_doi: 10.1/{inspire_id}.v{version}\n---\nname: Table 1\ndata_file: data1.yaml\ndescription: {description}\n",
-        "data1.yaml": "independent_variables: []\ndependent_variables: []\n",
-    }
-    buffer = io.BytesIO()
-    with tarfile.open(fileobj=buffer, mode="w:gz") as tar:
-        for filename, text in files.items():
-            payload = text.encode()
-            info = tarfile.TarInfo(f"{name}/{filename}")
-            info.size = len(payload)
-            tar.addfile(info, io.BytesIO(payload))
-    return buffer.getvalue()
-
-
-def test_latest_version_reads_the_answer_and_refuses_a_surprise():
-    assert updates.latest_version(5, fetch=lambda url: b'{"version": 3}') == 3
-    assert updates.latest_version(5, fetch=lambda url: b'{"record": {"latest_version": 4}}') == 4
-    with pytest.raises(updates.UpdateError, match="gave no version"):
-        updates.latest_version(5, fetch=lambda url: b'{"other": 1}')
-    with pytest.raises(updates.UpdateError, match="did not answer JSON"):
-        updates.latest_version(5, fetch=lambda url: b"<html>")
-
-
-def test_download_unpacks_the_record_and_refuses_an_existing_one(tmp_path):
-    path = updates.download_record(7, 2, tmp_path, fetch=lambda url: archive(7, 2))
-    assert path.name == "HEPData-ins7-v2-yaml" and (path / "submission.yaml").exists()
-    with pytest.raises(updates.UpdateError, match="already exists"):
-        updates.download_record(7, 2, tmp_path, fetch=lambda url: archive(7, 2))
-
-
-def test_download_refuses_members_that_leave_the_folder(tmp_path):
-    buffer = io.BytesIO()
-    with tarfile.open(fileobj=buffer, mode="w:gz") as tar:
-        info = tarfile.TarInfo("../escape.txt")
-        info.size = 1
-        tar.addfile(info, io.BytesIO(b"x"))
-    with pytest.raises(updates.UpdateError, match="would leave"):
-        updates.download_record(7, 2, tmp_path / "data", fetch=lambda url: buffer.getvalue())
-    assert not (tmp_path / "escape.txt").exists()
-
-
-def test_repin_changes_only_the_version(tmp_path):
-    recipe = write_recipe(tmp_path, "# comment\nrecord: { inspire_id: 12, version: 1 }\nx: 1\n")
-    updates.repin(recipe, 5)
-    assert recipe.read_text() == "# comment\nrecord: { inspire_id: 12, version: 5 }\nx: 1\n"
-    recipe.write_text("record:\n  inspire_id: 12\n")
-    with pytest.raises(updates.UpdateError, match="one-line"):
-        updates.repin(recipe, 6)
-
-
-def test_update_downloads_the_newer_version_and_moves_the_pin(built, monkeypatch, capsys):
-    monkeypatch.setattr(updates, "fetch_url", lambda url: b'{"version": 2}' if "format=json" in url else archive(1001, 2))
-    assert main(built, "check-updates") == 1
-    assert "pinned v1  newest v2  NEWER" in capsys.readouterr().out
-    assert main(built, "build", "--update", "--dry-run") == 0
-    assert "version: 1" in (built / "recipes/ins1001.yaml").read_text()
-    # The fake v2 has no tables, so the build after the update stops there -- but the pin moved
-    # and the archive sits next to the old one.
-    assert main(built, "build", "--update") == 2
-    assert "version: 2" in (built / "recipes/ins1001.yaml").read_text()
-    assert (built / "data/5020/hadron/test/HEPData-ins1001-v2-yaml/submission.yaml").exists()
-    assert (built / "data/5020/hadron/test/HEPData-ins1001-v1-yaml").exists()
-
-
-def test_fill_inspire_writes_a_file_the_build_reads(built, monkeypatch):
-    answer = {"metadata": {"texkeys": ["CMS:2016abc"], "arxiv_eprints": [{"value": "1611.01664"}],
-                           "titles": [{"title": "A title"}]}}  # fmt: skip
-    monkeypatch.setattr(updates, "fetch_url", lambda url: json.dumps(answer).encode())
-    assert main(built, "fill-inspire") == 0
-    assert yamlio.load(built / "inspire.yaml")[1001]["texkey"] == "CMS:2016abc"
-    assert main(built, "build") == 0
-    dataset = reader.read_datasets(built)[0]
-    assert dataset.source["inspireHEPKey"] == "CMS:2016abc"
 
 
 def test_a_closed_pipe_is_not_an_error(built, monkeypatch, capsys):

@@ -24,4 +24,4 @@ datasets = read_datasets(observable="raa", system="PbPb", sqrt_s_nn=5020)
 
 Charged-hadron R_AA, R_CP, v_n and the pp reference are curated so far. The format, the
 vocabulary files and how to add a record are in [docs/format.md](docs/format.md).
-`pip install -e .` installs the package `hsdc` (needs PyYAML and jsonschema).
+`pip install -e .` installs the package `hsdc` (needs PyYAML; pandas for the tidy tables).

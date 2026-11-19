@@ -14,7 +14,6 @@ from __future__ import annotations
 
 import os
 from dataclasses import dataclass, field
-from functools import lru_cache
 from pathlib import Path
 from typing import Any, Iterable
 
@@ -56,11 +55,11 @@ class Dataset:
     centrality_definition: str | None = None
     reference_centrality: tuple[float, float] | None = None
     acceptance: dict[str, Any] = field(default_factory=dict)
-    # harmonic, method and any other field the observable registry defines.
+    # harmonic, method and any other field of vocab.FIELDS at the top level.
     extra: dict[str, Any] = field(default_factory=dict)
     note: str | None = None
     path: Path | None = None
-    # The file as loaded, for the registry's lookups.
+    # The file as loaded, for vocab's lookups.
     raw: dict[str, Any] = field(default_factory=dict, repr=False, compare=False)
 
     def get(self, name: str, default: Any = None) -> Any:
@@ -98,10 +97,11 @@ def find_root(start: str | Path | None = None) -> Path:
     here = Path.cwd().resolve()
     candidates.extend([here, *here.parents])
     for path in candidates:
-        if (path / "observables.yaml").exists():
+        if (path / "aliases.yaml").exists() and (path / "recipes").is_dir():
             return path
     raise FileNotFoundError(
-        "cannot find the data repository (no observables.yaml): pass its path or set HSDC_ROOT"
+        "cannot find the data repository (aliases.yaml and recipes/): pass its path or set "
+        "HSDC_ROOT"
     )
 
 
@@ -157,20 +157,13 @@ def read_dataset(path: str | Path) -> Dataset:
     return dataset_from_dict(yamlio.load(path), path)
 
 
-@lru_cache(maxsize=4)
-def _registry(root: str):
-    from . import registry
-
-    return registry.load(root)
-
-
 def final_kind(dataset: Dataset, root: str | Path | None = None) -> str | None:
     """The CapeTownEloss final observable that computes the dataset, or None if the model
-    cannot (a method or spectrum definition the registry gives no final for)."""
-    from . import registry
+    cannot (a method or spectrum definition with no final in vocab.py). ``root`` is unused,
+    kept so that callers need not change."""
+    from . import vocab
 
-    registry_ = _registry(str(find_root() if root is None else Path(root)))
-    return registry.final_kind(registry_.observables[dataset.observable], dataset.raw, registry_)
+    return vocab.final_kind(dataset.raw)
 
 
 def dataset_files(root: str | Path, *, curated: bool = True, manual: bool = True) -> list[Path]:

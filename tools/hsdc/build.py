@@ -13,10 +13,10 @@ from dataclasses import dataclass, field
 from pathlib import Path
 from typing import Any
 
-from . import raw, recipe as recipes, schema, yamlio
+from . import check, raw, recipe as recipes, vocab, yamlio
 from .raw import Parsed, RawError, RawRecord, Table, Variable
 from .recipe import Additional, DatasetSpec, Recipe
-from .registry import FORMAT_VERSION, Registry, class_label, dataset_path, make_key
+from .vocab import FORMAT_VERSION, Aliases, class_label, dataset_path, make_key
 
 
 class BuildError(ValueError):
@@ -46,22 +46,6 @@ def _close(a: float, b: float) -> bool:
 # --- qualifiers --------------------------------------------------------------------------
 
 _CLASS = re.compile(r"(\d+(?:\.\d+)?)\s*(?:-|\u2013|\u2014|to)\s*(\d+(?:\.\d+)?)", re.I)
-_WINDOW = re.compile(r"^\s*(-?\d+(?:\.\d+)?)\s*(?:to|-|\u2013)\s*(-?\d+(?:\.\d+)?)\s*$", re.I)
-_BELOW = re.compile(r"^\s*<\s*(\d+(?:\.\d+)?)\s*$")
-
-
-def parse_window(text: str) -> tuple[float, float] | None:
-    """[lo, hi] from '-1.0 TO 1.0', '-0.8 - 0.8', '< 1' or '< 0.8 (LAB)'; None if it is none."""
-    text = re.sub(r"\([^)]*\)", "", text)  # a remark in brackets, such as (LAB)
-    match = _WINDOW.match(text)
-    if match:
-        return float(match.group(1)), float(match.group(2))
-    match = _BELOW.match(text)
-    if match:
-        return -float(match.group(1)), float(match.group(1))
-    return None
-
-
 def _centrality_problem(column: Variable, centrality: Any) -> tuple[str | None, str | None]:
     """(error, warning) from comparing the table's centrality qualifier with the recipe's."""
     qualifier = column.qualifier("CENTRALITY", "CENT")
@@ -134,35 +118,6 @@ def _identity_warnings(column: Variable, system: str, sqrt_s_nn: float) -> list[
         if not math.isclose(value, sqrt_s_nn, rel_tol=2e-3):
             warnings.append(f"the table's {energy.name} is {energy.value!r} but the recipe says {sqrt_s_nn:g}")
     return warnings
-
-
-_ETA_NAMES = ("ETARAP", "TRACK ETA", "ETA", "ABS(ETA)", "ABS(ETARAP)", "$|\\eta|$")
-_Y_NAMES = ("Y*", "YRAP", "Y")
-
-
-def _acceptance_warning(column: Variable, acceptance: dict[str, Any]) -> str | None:
-    """Compare the table's eta and rapidity windows with the recipe's. Only ever a warning."""
-    for names, signed in ((_ETA_NAMES, "eta_range"), (_Y_NAMES, "y_range")):
-        qualifier = column.qualifier(*names)
-        window = parse_window(qualifier.value) if qualifier else None
-        if qualifier is None or window is None:
-            continue
-        key, expected = signed, list(window)
-        # |eta| in [0, hi] is the window [-hi, hi]; |eta| in [lo, hi] with lo > 0 is two windows.
-        if (qualifier.name.upper().startswith("ABS(") or "|" in qualifier.name) and window[0] >= 0:
-            if _close(window[0], 0.0):
-                expected = [-window[1], window[1]]
-            else:
-                key = "abs_" + signed
-        given = acceptance.get(key)
-        if given is None:
-            return f"the table gives {qualifier.name} {qualifier.value!r} but the recipe has no {key}"
-        if not all(_close(a, b) for a, b in zip(given, expected)):
-            return (
-                f"the table gives {qualifier.name} {qualifier.value!r} "
-                f"but the recipe has {key} {list(given)}"
-            )
-    return None
 
 
 # --- descriptions ------------------------------------------------------------------------
@@ -280,7 +235,7 @@ def _positions(
 def _table_errors(
     dependent: Variable,
     bins: list[dict[str, Any]],
-    registry: Registry,
+    aliases: Aliases,
     overrides: dict[str, str],
 ) -> dict[str, dict[str, Any]]:
     """Fill ``bins`` with the table's error sources; return their declarations."""
@@ -294,7 +249,7 @@ def _table_errors(
         errors: dict[str, Any] = {}
         for entry in cell.get("errors") or []:
             label = str(entry.get("label", ""))
-            name = overrides.get(label) or registry.error_name(label)
+            name = overrides.get(label) or aliases.error_name(label)
             if name is None:
                 shown = repr(label) if label else "(no label)"
                 raise BuildError(
@@ -415,8 +370,7 @@ def _build_dataset(
     spec: DatasetSpec,
     recipe: Recipe,
     record: RawRecord,
-    registry: Registry,
-    schema_document: dict[str, Any],
+    root: Path,
     inspire: dict[Any, Any],
 ) -> Built:
     where = _where(recipe, spec, record)
@@ -425,12 +379,13 @@ def _build_dataset(
     for name in ("observable", "system", "sqrt_s_nn", "experiment", "particle"):
         if name not in fields:
             raise BuildError(f"{where}: '{name}' is not set (neither for the dataset nor the recipe)")
-    if fields["observable"] not in registry.observables:
+    if fields["observable"] not in vocab.OBSERVABLES:
         raise BuildError(
-            f"{where}: observable {fields['observable']!r} is not in observables.yaml "
-            f"(it has {sorted(registry.observables)})"
+            f"{where}: observable {fields['observable']!r} is not one of "
+            f"{sorted(vocab.OBSERVABLES)} (hsdc/vocab.py)"
         )
-    observable = registry.observables[fields["observable"]]
+    observable = vocab.OBSERVABLES[fields["observable"]]
+    aliases = vocab.aliases(root)
     warnings: list[str] = []
 
     try:
@@ -449,12 +404,12 @@ def _build_dataset(
                 f"with x_index"
             )
 
-        x_name = registry.x_name(independent.name)
+        x_name = aliases.x_name(independent.name)
         if x_name is None:
             raise BuildError(
                 f"the independent variable {independent.name!r} has no alias in aliases.yaml x"
             )
-        x_units = registry.unit(independent.units) if independent.units else None
+        x_units = aliases.unit(independent.units) if independent.units else None
         if x_units is None:
             raise BuildError(
                 f"the units {independent.units!r} of the independent variable have no alias "
@@ -465,7 +420,7 @@ def _build_dataset(
         overrides = {
             entry["label"]: name for name, entry in recipe.errors.items() if "label" in entry
         }
-        declared = _table_errors(dependent, bins, registry, overrides)
+        declared = _table_errors(dependent, bins, aliases, overrides)
         _apply_additional(recipe.additional, fields, spec, table, bins, declared, where)
     except (BuildError, RawError) as exc:
         message = str(exc)
@@ -484,9 +439,6 @@ def _build_dataset(
         raise BuildError(f"{where}: {error}")
     if warning:
         warnings.append(f"{where}: {warning}")
-    warning = _acceptance_warning(dependent, fields.get("acceptance") or {})
-    if warning:
-        warnings.append(f"{where}: {warning}")
     warnings.extend(
         f"{where}: {w}"
         for w in _identity_warnings(dependent, fields["system"], fields["sqrt_s_nn"])
@@ -500,7 +452,7 @@ def _build_dataset(
         "experiment": fields["experiment"],
         "particle": fields["particle"],
     }
-    for name, definition in registry.fields.items():
+    for name, definition in vocab.FIELDS.items():
         if definition.where == "top" and name in fields:
             dataset[name] = fields[name]
     if fields.get("acceptance"):
@@ -537,11 +489,9 @@ def _build_dataset(
     dataset["y"] = y
     dataset["errors"] = declared
     dataset["bins"] = bins
-    dataset["key"] = make_key(dataset, registry)
+    dataset["key"] = make_key(dataset)
 
-    problems = schema.schema_problems(dataset, schema_document)
-    if not problems:
-        problems = schema.semantic_problems(dataset, registry)
+    problems = check.problems(dataset, root)
     if problems:
         raise BuildError(f"{where}: " + "; ".join(problems))
     return Built(dataset=dataset, recipe=recipe.path, warnings=warnings)
@@ -561,26 +511,24 @@ def load_inspire(root: Path) -> dict[Any, Any]:
     return (yamlio.load(path) if path.exists() else None) or {}
 
 
-def build_recipes(root: str | Path, registry: Registry, paths: list[Path]) -> BuildResult:
+def build_recipes(root: str | Path, paths: list[Path]) -> BuildResult:
     root = Path(root)
     inspire = load_inspire(root)
-    schema_document = schema.dataset_schema(registry)
     built: list[Built] = []
     seen: dict[str, Path] = {}
     for path in paths:
-        recipe = recipes.load_recipe(path, registry.fields)
+        recipe = recipes.load_recipe(path)
         used: set[str] = set()
         try:
             record = raw.open_record(root, recipe.inspire_id, recipe.version)
         except RawError as exc:
             raise BuildError(f"{path.name}: {exc}") from None
         for spec in recipe.datasets:
-            item = _build_dataset(spec, recipe, record, registry, schema_document, inspire)
+            item = _build_dataset(spec, recipe, record, root, inspire)
             if item.key in seen:
                 raise BuildError(
                     f"{path.name} datasets[{spec.index}]: key {item.key} is already made by "
-                    f"{seen[item.key].name}; add a field that tells them apart to `distinguish` "
-                    f"in observables.yaml, or leave one out"
+                    f"{seen[item.key].name}; set a `variant` on one, or leave one out"
                 )
             seen[item.key] = path
             # A recipe can explain a warning that is a quirk of the record, in a comment.
