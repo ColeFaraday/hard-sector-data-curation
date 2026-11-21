@@ -1,0 +1,172 @@
+# CMS, azimuthal anisotropy of charged particles with transverse momentum up to 100 GeV/c in PbPb
+# collisions at 5.02 TeV (arXiv:1702.00630, HEPData ins1511868 v1): v2 and v3 by the scalar
+# product method and v2 by the 4-, 6- and 8-particle cumulant methods, against pT in
+# centrality classes.
+#
+# Curated (32 datasets): Tables 1-7 (v2{SP}), Tables 8-14 (v3{SP}) and Tables 15-20 (v2{4},
+# v2{6}, v2{8}: one column per method, so each column is its own dataset).
+# Not curated: Tables 21-22 (v2 at high pT against v2 at 1 < pT < 1.25 GeV/c, Fig. 3 of the
+# paper), which are not pT-differential. Every error in Tables 1-20 is labelled stat or sys;
+# the unlabelled errors of this record are all in Tables 21-22.
+#
+# Labelling: method, harmonic and the eta gap tell the datasets apart in the key, so no
+# `variant` is needed. The centrality classes of this record are disjoint. The v2{SP} and the
+# cumulant datasets of one class come from the same PbPb data set, which their notes say.
+#
+# Eta gap: the SP tables give |Delta eta| > 3, which is recorded as delta_eta_gap 3 on the SP
+# entries only. The cumulant tables carry the same qualifier, but the paper describes an eta gap
+# only for the SP method and none for the cumulants, so the cumulant entries have no
+# delta_eta_gap (their notes say so). pT > 1.0 GeV/c in every table is the lower pT limit of the
+# tracks, not a pt_range (see the notes).
+
+record: { inspire_id: 1511868, version: 1 }
+paper: "arXiv:1702.00630"
+experiment: CMS
+particle: charged
+system: PbPb
+sqrt_s_nn: 5020
+observable: vn
+centrality_definition: CMS_HF_ENERGY
+acceptance: { eta_range: [-1.0, 1.0] }
+
+datasets:
+  # ===== v2{SP}: Tables 1-7 (Figs. 1 and 2 of the paper), one centrality class each =====
+  - table: Table 1
+    centrality: [0, 5]
+    harmonic: 2
+    method: SP
+    acceptance: { delta_eta_gap: 3 }
+    note: &note_sp_v2_0to5 >-
+      Scalar product method. The paper imposes a large eta gap between the track vector
+      (|eta| < 1) and the HF vector taken on the opposite side of the tracker (HF covering
+      3 < |eta| < 5); the table gives it as |Delta eta| > 3. The qualifier pT > 1.0 GeV/c is the
+      lower pT limit of the tracks, since the paper restricts primary tracks to |eta| < 1 and
+      pT > 1 GeV/c; pT is the table's independent variable, so the qualifier is not recorded as a
+      pt_range (arXiv:1702.00630, sections 'Analysis technique' and 'Event and track selections').
+  - table: Table 2
+    centrality: [5, 10]
+    harmonic: 2
+    method: SP
+    acceptance: { delta_eta_gap: 3 }
+    note: &note_sp_v2 >-
+      Scalar product method. The paper imposes a large eta gap between the track vector
+      (|eta| < 1) and the HF vector taken on the opposite side of the tracker (HF covering
+      3 < |eta| < 5); the table gives it as |Delta eta| > 3. The qualifier pT > 1.0 GeV/c is the
+      lower pT limit of the tracks, since the paper restricts primary tracks to |eta| < 1 and
+      pT > 1 GeV/c; pT is the table's independent variable, so the qualifier is not recorded as a
+      pt_range (arXiv:1702.00630, sections 'Analysis technique' and 'Event and track selections').
+      The v2{4}, v2{6} and v2{8} datasets of this record for the same class come from the same
+      PbPb data set (404 ub^-1 collected in 2015; section 'Event and track selections') and so
+      overlap this one.
+  - { table: Table 3, centrality: [10, 20], harmonic: 2, method: SP, acceptance: { delta_eta_gap: 3 }, note: *note_sp_v2 }
+  - { table: Table 4, centrality: [20, 30], harmonic: 2, method: SP, acceptance: { delta_eta_gap: 3 }, note: *note_sp_v2 }
+  - { table: Table 5, centrality: [30, 40], harmonic: 2, method: SP, acceptance: { delta_eta_gap: 3 }, note: *note_sp_v2 }
+  - { table: Table 6, centrality: [40, 50], harmonic: 2, method: SP, acceptance: { delta_eta_gap: 3 }, note: *note_sp_v2 }
+  - { table: Table 7, centrality: [50, 60], harmonic: 2, method: SP, acceptance: { delta_eta_gap: 3 }, note: *note_sp_v2 }
+
+  # ===== v3{SP}: Tables 8-14 (Fig. 1), one centrality class each =====
+  - table: Table 8
+    centrality: [0, 5]
+    harmonic: 3
+    method: SP
+    acceptance: { delta_eta_gap: 3 }
+    note: &note_sp_v3 >-
+      Scalar product method. The paper imposes a large eta gap between the track vector
+      (|eta| < 1) and the HF vector taken on the opposite side of the tracker (HF covering
+      3 < |eta| < 5); the table gives it as |Delta eta| > 3. The qualifier pT > 1.0 GeV/c is the
+      lower pT limit of the tracks, since the paper restricts primary tracks to |eta| < 1 and
+      pT > 1 GeV/c; pT is the table's independent variable, so the qualifier is not recorded as a
+      pt_range (arXiv:1702.00630, sections 'Analysis technique' and 'Event and track selections').
+      The paper says the relative systematic uncertainties of v2 are applied to v3, except the
+      few-particle-correlation part, because the v3 statistical uncertainties at high pT are too
+      large to separate statistical fluctuations from systematic effects (section 'Systematic
+      uncertainties').
+  - { table: Table 9, centrality: [5, 10], harmonic: 3, method: SP, acceptance: { delta_eta_gap: 3 }, note: *note_sp_v3 }
+  - { table: Table 10, centrality: [10, 20], harmonic: 3, method: SP, acceptance: { delta_eta_gap: 3 }, note: *note_sp_v3 }
+  - { table: Table 11, centrality: [20, 30], harmonic: 3, method: SP, acceptance: { delta_eta_gap: 3 }, note: *note_sp_v3 }
+  - { table: Table 12, centrality: [30, 40], harmonic: 3, method: SP, acceptance: { delta_eta_gap: 3 }, note: *note_sp_v3 }
+  - table: Table 13
+    centrality: [40, 50]
+    harmonic: 3
+    method: SP
+    acceptance: { delta_eta_gap: 3 }
+    note: &note_sp_v3_4050 >-
+      Scalar product method. The paper imposes a large eta gap between the track vector
+      (|eta| < 1) and the HF vector taken on the opposite side of the tracker (HF covering
+      3 < |eta| < 5); the table gives it as |Delta eta| > 3. The qualifier pT > 1.0 GeV/c is the
+      lower pT limit of the tracks, since the paper restricts primary tracks to |eta| < 1 and
+      pT > 1 GeV/c; pT is the table's independent variable, so the qualifier is not recorded as a
+      pt_range (arXiv:1702.00630, sections 'Analysis technique' and 'Event and track selections').
+      The paper says the relative systematic uncertainties of v2 are applied to v3, except the
+      few-particle-correlation part, because the v3 statistical uncertainties at high pT are too
+      large to separate statistical fluctuations from systematic effects (section 'Systematic
+      uncertainties'). The paper sees some negative v3 values at high pT in this class and says
+      such peripheral events are the most contaminated by back-to-back jet correlations, which it
+      confirms from the eta gap dependence of the results in data and in simulated events with
+      zero input anisotropy (section 'Results').
+  - table: Table 14
+    centrality: [50, 60]
+    harmonic: 3
+    method: SP
+    acceptance: { delta_eta_gap: 3 }
+    note: &note_sp_v3_5060 >-
+      Scalar product method. The paper imposes a large eta gap between the track vector
+      (|eta| < 1) and the HF vector taken on the opposite side of the tracker (HF covering
+      3 < |eta| < 5); the table gives it as |Delta eta| > 3. The qualifier pT > 1.0 GeV/c is the
+      lower pT limit of the tracks, since the paper restricts primary tracks to |eta| < 1 and
+      pT > 1 GeV/c; pT is the table's independent variable, so the qualifier is not recorded as a
+      pt_range (arXiv:1702.00630, sections 'Analysis technique' and 'Event and track selections').
+      The paper says the relative systematic uncertainties of v2 are applied to v3, except the
+      few-particle-correlation part, because the v3 statistical uncertainties at high pT are too
+      large to separate statistical fluctuations from systematic effects (section 'Systematic
+      uncertainties'). The paper says v3 in this class is measured only up to 20 GeV/c, for lack
+      of events containing higher-pT particles (section 'Results'); the table has 14 points, the
+      last at pT = 12.9.
+
+  # ===== v2{4}, v2{6}, v2{8}: Tables 15-20 (Fig. 2), one centrality class per table =====
+  # (0-5% has no cumulant table), columns 0, 1 and 2 for the 4-, 6- and 8-particle cumulants.
+  - table: Table 15
+    column: 0
+    centrality: [5, 10]
+    harmonic: 2
+    method: cumulant4
+    note: &note_cumulant >-
+      Multiparticle cumulant method. The table qualifiers list |Delta eta| > 3, as the SP tables
+      do, but the paper describes an eta gap only for the SP method and none for the cumulants, so
+      no delta_eta_gap is recorded. The qualifier pT > 1.0 GeV/c is the lower pT limit of the
+      tracks, since the paper restricts primary tracks to |eta| < 1 and pT > 1 GeV/c; pT is the
+      table's independent variable, so the qualifier is not recorded as a pt_range. The paper
+      evaluates the statistical uncertainties of the cumulants by dividing the data set into 10
+      subsets of roughly equal numbers of events and taking the standard deviation of the cumulant
+      over them (arXiv:1702.00630, sections 'Analysis technique' and 'Event and track
+      selections'). The v2{SP} dataset of this record and the other two cumulant datasets for the
+      same class come from the same PbPb data set (404 ub^-1 collected in 2015; section 'Event and
+      track selections') and so overlap this one.
+  - { table: Table 15, column: 1, centrality: [5, 10], harmonic: 2, method: cumulant6, note: *note_cumulant }
+  - { table: Table 15, column: 2, centrality: [5, 10], harmonic: 2, method: cumulant8, note: *note_cumulant }
+  - { table: Table 16, column: 0, centrality: [10, 20], harmonic: 2, method: cumulant4, note: *note_cumulant }
+  - { table: Table 16, column: 1, centrality: [10, 20], harmonic: 2, method: cumulant6, note: *note_cumulant }
+  - { table: Table 16, column: 2, centrality: [10, 20], harmonic: 2, method: cumulant8, note: *note_cumulant }
+  - { table: Table 17, column: 0, centrality: [20, 30], harmonic: 2, method: cumulant4, note: *note_cumulant }
+  - { table: Table 17, column: 1, centrality: [20, 30], harmonic: 2, method: cumulant6, note: *note_cumulant }
+  - { table: Table 17, column: 2, centrality: [20, 30], harmonic: 2, method: cumulant8, note: *note_cumulant }
+  - { table: Table 18, column: 0, centrality: [30, 40], harmonic: 2, method: cumulant4, note: *note_cumulant }
+  - { table: Table 18, column: 1, centrality: [30, 40], harmonic: 2, method: cumulant6, note: *note_cumulant }
+  - { table: Table 18, column: 2, centrality: [30, 40], harmonic: 2, method: cumulant8, note: *note_cumulant }
+  - { table: Table 19, column: 0, centrality: [40, 50], harmonic: 2, method: cumulant4, note: *note_cumulant }
+  - { table: Table 19, column: 1, centrality: [40, 50], harmonic: 2, method: cumulant6, note: *note_cumulant }
+  - { table: Table 19, column: 2, centrality: [40, 50], harmonic: 2, method: cumulant8, note: *note_cumulant }
+  - { table: Table 20, column: 0, centrality: [50, 60], harmonic: 2, method: cumulant4, note: *note_cumulant }
+  - { table: Table 20, column: 1, centrality: [50, 60], harmonic: 2, method: cumulant6, note: *note_cumulant }
+  - { table: Table 20, column: 2, centrality: [50, 60], harmonic: 2, method: cumulant8, note: *note_cumulant }
+
+errors:
+  sys:
+    note: >-
+      The shaded boxes of the paper's figures. The paper names the sources (arXiv:1702.00630,
+      section 'Systematic uncertainties'): the vertex position selection and the pT dependence of
+      the tracking efficiency corrections (below 1% and independent of pT and centrality, common
+      to the SP and cumulant results); the track selection, for misreconstructed tracks (about 2%
+      at low pT rising to about 50% above 60 GeV/c for SP and to about 12% for the cumulants); and,
+      for SP only, few-particle correlations, from varying the eta gap (0 to 0.022 in absolute
+      value for v2 and 0 to 0.030 for v3).

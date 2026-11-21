@@ -1,0 +1,38 @@
+# ALICE, production of charged pions, kaons and (anti-)protons in Pb-Pb and inelastic pp
+# collisions at 5.02 TeV (arXiv:1910.07678, HEPData ins1759506 v1): the charged-pion R_AA.
+#
+# Not curated: the spectra (Tables 1-6), particle ratios, and the kaon and proton R_AA
+# (Tables 16-17), which the model's leading-hadron finals do not compute.
+#
+# Not curated, said here: the normalisation of R_AA. The paper shows "the total normalization
+# uncertainty (pp and Pb-Pb)" only as a box at pT = 1 GeV/c in its Fig. 10 and gives no
+# number; neither HEPData nor the text has one.
+
+record: { inspire_id: 1759506, version: 1 }
+paper: "arXiv:1910.07678"
+experiment: ALICE
+particle: charged_pion
+sqrt_s_nn: 5020
+system: PbPb
+observable: raa
+acceptance: { y_range: [-0.5, 0.5] }
+centrality_definition: ALICE_V0M
+figure: "10"
+
+datasets:
+  - { table: Table 15, column: 0, centrality: [0, 5] }
+  - { table: Table 15, column: 1, centrality: [5, 10] }
+  - { table: Table 15, column: 2, centrality: [10, 20] }
+  - { table: Table 15, column: 6, centrality: [20, 30] }
+  - { table: Table 15, column: 7, centrality: [30, 40] }
+  - { table: Table 15, column: 8, centrality: [40, 50] }
+  - { table: Table 15, column: 9, centrality: [50, 60] }
+  - { table: Table 15, column: 10, centrality: [60, 70] }
+  - { table: Table 15, column: 11, centrality: [70, 80] }
+  - { table: Table 15, column: 3, centrality: [20, 40], note: "Overlaps the 20-30% and 30-40% datasets of this record: the same events." }
+  - { table: Table 15, column: 4, centrality: [40, 60], note: "Overlaps the 40-50% and 50-60% datasets of this record: the same events." }
+  - { table: Table 15, column: 5, centrality: [60, 80], note: "Overlaps the 60-70% and 70-80% datasets of this record: the same events." }
+
+errors:
+  sys:
+    note: "The total systematic uncertainty of R_AA. The paper's Fig. 10 draws it as boxes around the points."

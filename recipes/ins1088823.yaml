@@ -1,0 +1,55 @@
+# CMS, study of high-pT charged particle suppression in PbPb compared to pp collisions at
+# 2.76 TeV (arXiv:1202.2554, HEPData ins1088823 v1): R_AA, R_CP and the pp spectrum.
+#
+# Not curated: the PbPb yields (Tables 3-4) and the scaled cross section against x_T
+# (Table 2), neither of which is a ratio against pp as a function of pT.
+
+# HEPData labels the PbPb tables of this record (Tables 5 to 7) with the reaction
+# 'P P --> CHARGED X' in their RE qualifier; their descriptions and the paper say PbPb. The
+# build's reaction check would warn about it, so it is explained here.
+known_warnings:
+  - "the table's reaction is 'P P --> CHARGED X' but the recipe says PbPb"
+
+record: { inspire_id: 1088823, version: 1 }
+paper: "arXiv:1202.2554"
+experiment: CMS
+particle: charged
+sqrt_s_nn: 2760
+acceptance: { eta_range: [-1.0, 1.0] }
+centrality_definition: CMS_HF_ENERGY_2760
+
+datasets:
+  - { table: Table 5, column: 0, observable: raa, system: PbPb, centrality: [0, 5] }
+  - { table: Table 5, column: 1, observable: raa, system: PbPb, centrality: [5, 10] }
+  - { table: Table 5, column: 2, observable: raa, system: PbPb, centrality: [10, 30] }
+  - { table: Table 6, column: 0, observable: raa, system: PbPb, centrality: [30, 50] }
+  - { table: Table 6, column: 1, observable: raa, system: PbPb, centrality: [50, 70] }
+  - { table: Table 6, column: 2, observable: raa, system: PbPb, centrality: [70, 90] }
+  # R_CP: each class over 50-90%, scaled by <T_AA>. Its <T_AA> normalisation (Table 1 of the
+  # paper, for both classes) is not curated: the paper gives no single value for the ratio.
+  - { table: Table 7, column: 0, observable: rcp, system: PbPb, centrality: [0, 5], reference_centrality: [50, 90] }
+  - { table: Table 7, column: 1, observable: rcp, system: PbPb, centrality: [5, 10], reference_centrality: [50, 90] }
+  - { table: Table 7, column: 2, observable: rcp, system: PbPb, centrality: [10, 30], reference_centrality: [50, 90] }
+  - { table: Table 7, column: 3, observable: rcp, system: PbPb, centrality: [30, 50], reference_centrality: [50, 90] }
+  - table: Table 1
+    observable: pp_cross_section
+    system: pp
+    definition: INVARIANT_YIELD_DETA
+    centrality_definition: null
+    note: "HEPData titles the quantity E d^3N/dp^3 in GeV^-2 for |eta| < 1, the invariant differential yield of pp collisions."
+
+# Neither normalisation is on HEPData: the paper shows them as a band around unity in Fig. 5,
+# "the normalization of T_AA and the pp integrated luminosity, common to all points".
+additional:
+  taa:
+    origin: paper
+    reference: "arXiv:1202.2554, Table 1"
+    for: { observable: raa }
+    relative: { "0-5": 0.0409, "5-10": 0.0459, "10-30": 0.0578, "30-50": 0.0944, "50-70": 0.143, "70-90": 0.176 }
+    note: "The uncertainty of <T_AA> over <T_AA> for the class, from the paper's Table 1 (0-5%: 25.9 +- 1.06 mb^-1; 70-90%: 0.17 +- 0.03 mb^-1), rounded to three digits; Table 2 gives the range as 4.1-18.0%."
+  lumi:
+    origin: paper
+    reference: "arXiv:1202.2554, Table 2"
+    for: { observable: raa }
+    relative: 0.06
+    note: "The pp integrated luminosity uncertainty, 6.0% (Table 2). It enters R_AA through the pp reference."

@@ -1,0 +1,144 @@
+format_version: 1
+key: raa__PbPb5020__ALICE__charged_pion__60-80
+observable: raa
+system: PbPb
+sqrt_s_nn: 5020
+experiment: ALICE
+particle: charged_pion
+centrality: [60, 80]
+centrality_definition: ALICE_V0M
+acceptance: { y_range: [-0.5, 0.5] }
+source:
+  hepdata:
+    inspire_id: 1759506
+    version: 1
+    table: Table 15
+    column: 5
+    location: "Data from Figure 10, located on page 20."
+    doi: "10.17182/hepdata.104923.v1/t15"
+  paper: "arXiv:1910.07678"
+  figure: "10"
+  inspireHEPKey: "ALICE:2019hno"
+note: "Overlaps the 60-70% and 70-80% datasets of this record: the same events."
+x: { name: pt, units: GeV }
+y: { name: raa }
+errors:
+  stat: { label: stat. }
+  sys: { label: syst., note: "The total systematic uncertainty of R_AA. The paper's Fig. 10 draws it as boxes around the points." }
+bins:
+  - { low: 0.1, high: 0.12, value: 0.51748,
+      errors: { stat: 0.0043832, sys: 0.041853 } }
+  - { low: 0.12, high: 0.14, value: 0.51632,
+      errors: { stat: 0.003541, sys: 0.026701 } }
+  - { low: 0.14, high: 0.16, value: 0.51286,
+      errors: { stat: 0.003374, sys: 0.02473 } }
+  - { low: 0.16, high: 0.18, value: 0.51169,
+      errors: { stat: 0.0032784, sys: 0.023917 } }
+  - { low: 0.18, high: 0.2, value: 0.50753,
+      errors: { stat: 0.0031995, sys: 0.023331 } }
+  - { low: 0.2, high: 0.25, value: 0.50808,
+      errors: { stat: 0.0021619, sys: 0.024533 } }
+  - { low: 0.25, high: 0.3, value: 0.51992,
+      errors: { stat: 0.002267, sys: 0.02645 } }
+  - { low: 0.3, high: 0.35, value: 0.52173,
+      errors: { stat: 0.0016546, sys: 0.017388 } }
+  - { low: 0.35, high: 0.4, value: 0.53455,
+      errors: { stat: 0.0019314, sys: 0.018726 } }
+  - { low: 0.4, high: 0.45, value: 0.55391,
+      errors: { stat: 0.0017472, sys: 0.019311 } }
+  - { low: 0.45, high: 0.5, value: 0.56863,
+      errors: { stat: 0.0019469, sys: 0.020445 } }
+  - { low: 0.5, high: 0.55, value: 0.57434,
+      errors: { stat: 0.0020316, sys: 0.01731 } }
+  - { low: 0.55, high: 0.6, value: 0.58579,
+      errors: { stat: 0.0022248, sys: 0.017401 } }
+  - { low: 0.6, high: 0.65, value: 0.59668,
+      errors: { stat: 0.0022884, sys: 0.018153 } }
+  - { low: 0.65, high: 0.7, value: 0.60446,
+      errors: { stat: 0.0025323, sys: 0.020068 } }
+  - { low: 0.7, high: 0.75, value: 0.63689,
+      errors: { stat: 0.0020862, sys: 0.025801 } }
+  - { low: 0.75, high: 0.8, value: 0.65602,
+      errors: { stat: 0.0023091, sys: 0.027742 } }
+  - { low: 0.8, high: 0.85, value: 0.66432,
+      errors: { stat: 0.0024622, sys: 0.027735 } }
+  - { low: 0.85, high: 0.9, value: 0.68011,
+      errors: { stat: 0.0027882, sys: 0.027965 } }
+  - { low: 0.9, high: 0.95, value: 0.68713,
+      errors: { stat: 0.0031011, sys: 0.029282 } }
+  - { low: 0.95, high: 1.0, value: 0.69824,
+      errors: { stat: 0.0034711, sys: 0.028749 } }
+  - { low: 1.0, high: 1.1, value: 0.69548,
+      errors: { stat: 0.0027277, sys: 0.028183 } }
+  - { low: 1.1, high: 1.2, value: 0.68267,
+      errors: { stat: 0.0031549, sys: 0.028146 } }
+  - { low: 1.2, high: 1.3, value: 0.73373,
+      errors: { stat: 0.0040473, sys: 0.03103 } }
+  - { low: 1.3, high: 1.4, value: 0.75077,
+      errors: { stat: 0.0044317, sys: 0.032899 } }
+  - { low: 1.4, high: 1.5, value: 0.75752,
+      errors: { stat: 0.0050176, sys: 0.031456 } }
+  - { low: 1.5, high: 1.6, value: 0.74786,
+      errors: { stat: 0.0050374, sys: 0.030052 } }
+  - { low: 1.6, high: 1.7, value: 0.72916,
+      errors: { stat: 0.0050415, sys: 0.036163 } }
+  - { low: 1.7, high: 1.8, value: 0.72513,
+      errors: { stat: 0.0054192, sys: 0.034876 } }
+  - { low: 1.8, high: 1.9, value: 0.72766,
+      errors: { stat: 0.0058811, sys: 0.034991 } }
+  - { low: 1.9, high: 2.0, value: 0.71795,
+      errors: { stat: 0.0061287, sys: 0.036119 } }
+  - { low: 2.0, high: 2.2, value: 0.68166,
+      errors: { stat: 0.0043665, sys: 0.028554 } }
+  - { low: 2.2, high: 2.4, value: 0.6577,
+      errors: { stat: 0.004739, sys: 0.026364 } }
+  - { low: 2.4, high: 2.6, value: 0.65056,
+      errors: { stat: 0.0054104, sys: 0.023682 } }
+  - { low: 2.6, high: 2.8, value: 0.63807,
+      errors: { stat: 0.0060396, sys: 0.021799 } }
+  - { low: 2.8, high: 3.0, value: 0.624,
+      errors: { stat: 0.0066723, sys: 0.020368 } }
+  - { low: 3.0, high: 3.2, value: 0.61993,
+      errors: { stat: 0.0075134, sys: 0.020799 } }
+  - { low: 3.2, high: 3.4, value: 0.60993,
+      errors: { stat: 0.0082778, sys: 0.019567 } }
+  - { low: 3.4, high: 3.6, value: 0.60459,
+      errors: { stat: 0.0092013, sys: 0.019176 } }
+  - { low: 3.6, high: 3.8, value: 0.59462,
+      errors: { stat: 0.010009, sys: 0.018986 } }
+  - { low: 3.8, high: 4.0, value: 0.60485,
+      errors: { stat: 0.011268, sys: 0.02027 } }
+  - { low: 4.0, high: 4.5, value: 0.57368,
+      errors: { stat: 0.0080317, sys: 0.018826 } }
+  - { low: 4.5, high: 5.0, value: 0.58554,
+      errors: { stat: 0.010326, sys: 0.016911 } }
+  - { low: 5.0, high: 5.5, value: 0.56733,
+      errors: { stat: 0.012396, sys: 0.015686 } }
+  - { low: 5.5, high: 6.0, value: 0.58019,
+      errors: { stat: 0.015458, sys: 0.017036 } }
+  - { low: 6.0, high: 6.5, value: 0.57824,
+      errors: { stat: 0.012535, sys: 0.020198 } }
+  - { low: 6.5, high: 7.0, value: 0.57466,
+      errors: { stat: 0.013982, sys: 0.018473 } }
+  - { low: 7.0, high: 8.0, value: 0.58458,
+      errors: { stat: 0.013673, sys: 0.019324 } }
+  - { low: 8.0, high: 9.0, value: 0.59336,
+      errors: { stat: 0.017326, sys: 0.020426 } }
+  - { low: 9.0, high: 10.0, value: 0.61461,
+      errors: { stat: 0.022271, sys: 0.021154 } }
+  - { low: 10.0, high: 11.0, value: 0.64634,
+      errors: { stat: 0.029522, sys: 0.024766 } }
+  - { low: 11.0, high: 12.0, value: 0.62461,
+      errors: { stat: 0.034966, sys: 0.02394 } }
+  - { low: 12.0, high: 13.0, value: 0.66304,
+      errors: { stat: 0.045034, sys: 0.025502 } }
+  - { low: 13.0, high: 14.0, value: 0.6675,
+      errors: { stat: 0.056967, sys: 0.029002 } }
+  - { low: 14.0, high: 15.0, value: 0.64061,
+      errors: { stat: 0.063152, sys: 0.027986 } }
+  - { low: 15.0, high: 16.0, value: 0.72444,
+      errors: { stat: 0.089075, sys: 0.031786 } }
+  - { low: 16.0, high: 18.0, value: 0.69146,
+      errors: { stat: 0.072274, sys: 0.030403 } }
+  - { low: 18.0, high: 20.0, value: 0.63422,
+      errors: { stat: 0.10095, sys: 0.027669 } }

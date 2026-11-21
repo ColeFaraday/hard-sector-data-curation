@@ -1,0 +1,103 @@
+format_version: 1
+key: pp_cross_section__pp5020__ALICE__charged__YIELD_DPT_DETA
+observable: pp_cross_section
+system: pp
+sqrt_s_nn: 5020
+experiment: ALICE
+particle: charged
+acceptance: { eta_range: [-0.8, 0.8] }
+source:
+  hepdata:
+    inspire_id: 1657384
+    version: 1
+    table: Table 4
+    column: 0
+    location: Data from Figure 3
+    doi: "10.17182/hepdata.86210.v1/t4"
+  paper: "arXiv:1802.09145"
+  inspireHEPKey: "ALICE:2018vuu"
+note: "HEPData titles the quantity (1/N_evt) d^2N/(d eta dpT), a per-event yield, and its magnitude agrees (about 6.7 per GeV/c at pT = 0.15-0.2 GeV/c); the paper says the pp data are presented as differential cross sections for inelastic (INEL) collisions."
+x: { name: pt, units: GeV }
+y: { name: cross_section, units: C/GEV, definition: YIELD_DPT_DETA }
+errors:
+  stat: { label: stat }
+  sys: { label: sys }
+bins:
+  - { low: 0.15, high: 0.2, value: 6.6856,
+      errors: { stat: 0.0013961, sys: 0.2281 } }
+  - { low: 0.2, high: 0.25, value: 6.920827,
+      errors: { stat: 0.00098214, sys: 0.17233 } }
+  - { low: 0.25, high: 0.3, value: 6.55419,
+      errors: { stat: 0.00090605, sys: 0.14292 } }
+  - { low: 0.3, high: 0.35, value: 6.014029,
+      errors: { stat: 0.00084158, sys: 0.1233 } }
+  - { low: 0.35, high: 0.4, value: 5.40536,
+      errors: { stat: 0.00078035, sys: 0.095898 } }
+  - { low: 0.4, high: 0.45, value: 4.791385,
+      errors: { stat: 0.00072507, sys: 0.078954 } }
+  - { low: 0.45, high: 0.5, value: 4.211083,
+      errors: { stat: 0.00068738, sys: 0.069676 } }
+  - { low: 0.5, high: 0.55, value: 3.690742,
+      errors: { stat: 0.00066019, sys: 0.059732 } }
+  - { low: 0.55, high: 0.6, value: 3.241207,
+      errors: { stat: 0.00063023, sys: 0.047709 } }
+  - { low: 0.6, high: 0.65, value: 2.842274,
+      errors: { stat: 0.0006028, sys: 0.04056 } }
+  - { low: 0.65, high: 0.7, value: 2.498638,
+      errors: { stat: 0.00057933, sys: 0.034019 } }
+  - { low: 0.7, high: 0.75, value: 2.200227,
+      errors: { stat: 0.00055274, sys: 0.029291 } }
+  - { low: 0.75, high: 0.8, value: 1.940522,
+      errors: { stat: 0.00052754, sys: 0.026779 } }
+  - { low: 0.8, high: 0.85, value: 1.716767,
+      errors: { stat: 0.00050377, sys: 0.023579 } }
+  - { low: 0.85, high: 0.9, value: 1.52176,
+      errors: { stat: 0.000481, sys: 0.021255 } }
+  - { low: 0.9, high: 0.95, value: 1.353109,
+      errors: { stat: 0.00045949, sys: 0.019487 } }
+  - { low: 0.95, high: 1.0, value: 1.202952,
+      errors: { stat: 0.00043468, sys: 0.015325 } }
+  - { low: 1.0, high: 1.1, value: 1.016379,
+      errors: { stat: 0.00028078, sys: 0.013059 } }
+  - { low: 1.1, high: 1.2, value: 0.813642,
+      errors: { stat: 0.0002485, sys: 0.010802 } }
+  - { low: 1.2, high: 1.4, value: 0.592325,
+      errors: { stat: 0.00014603, sys: 0.0086435 } }
+  - { low: 1.4, high: 1.6, value: 0.393316,
+      errors: { stat: 0.00011787, sys: 0.0067363 } }
+  - { low: 1.6, high: 1.8, value: 0.265815,
+      errors: { stat: 9.599e-05, sys: 0.0050997 } }
+  - { low: 1.8, high: 2.0, value: 0.182902,
+      errors: { stat: 7.9124e-05, sys: 0.0037311 } }
+  - { low: 2.0, high: 2.2, value: 0.12723,
+      errors: { stat: 6.6345e-05, sys: 0.0026957 } }
+  - { low: 2.2, high: 2.4, value: 0.089986,
+      errors: { stat: 5.5454e-05, sys: 0.0019072 } }
+  - { low: 2.4, high: 2.6, value: 0.064321,
+      errors: { stat: 4.6569e-05, sys: 0.001394 } }
+  - { low: 2.6, high: 2.8, value: 0.046729,
+      errors: { stat: 3.9489e-05, sys: 0.0010267 } }
+  - { low: 2.8, high: 3.0, value: 0.034274,
+      errors: { stat: 3.3655e-05, sys: 0.00074484 } }
+  - { low: 3.0, high: 3.2, value: 0.025478,
+      errors: { stat: 2.8895e-05, sys: 0.00056138 } }
+  - { low: 3.2, high: 3.6, value: 0.01677,
+      errors: { stat: 1.628e-05, sys: 0.00036589 } }
+  - { low: 3.6, high: 4.0, value: 0.009894,
+      errors: { stat: 1.2414e-05, sys: 0.00020775 } }
+  - { low: 4.0, high: 5.0, value: 0.004518,
+      errors: { stat: 5.2617e-06, sys: 9.3533e-05 } }
+  - { low: 5.0, high: 6.0, value: 0.001591,
+      errors: { stat: 3.0762e-06, sys: 2.9181e-05 } }
+  - { low: 6.0, high: 8.0, value: 0.00049,
+      errors: { stat: 1.1954e-06, sys: 8.3656e-06 } }
+  - { low: 8.0, high: 10.0, value: 0.0001267146,
+      errors: { stat: 6.042e-07, sys: 2.4316e-06 } }
+  - { low: 10.0, high: 13.0, value: 3.64333e-05,
+      errors: { stat: 2.6311e-07, sys: 8.3824e-07 } }
+  - { low: 13.0, high: 20.0, value: 6.662181e-06,
+      errors: { stat: 7.335e-08, sys: 2.3277e-07 } }
+  - { low: 20.0, high: 30.0, value: 7.266232e-07,
+      errors: { stat: 2.0353e-08, sys: 3.0203e-08 } }
+  - { low: 30.0, high: 50.0, value: 6.706242e-08,
+      errors: { stat: 4.348e-09, sys: 2.8681e-09 } }
